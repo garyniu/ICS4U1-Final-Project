@@ -56,4 +56,14 @@ public class MyWorld extends World
         
         setBackground("BG.jpg");
     }
+    
+    public void act()
+    {
+        MouseInfo m = Greenfoot.getMouseInfo();
+        if (m != null)
+        {
+            showText("mouseX: " + String.valueOf(m.getX()), 120, 30);
+            showText("mouseY: " + String.valueOf(m.getY()), 120, 70);
+        }
+    }
 }
