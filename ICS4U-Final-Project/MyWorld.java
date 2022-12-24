@@ -8,7 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-
+    Label titleLabel = new Label("press 1 to show grid tile", 30);
+    Label titleLabelTwo = new Label("press 2 to hide grid tile", 30);
+    Label titleLabelThree = new Label("press 3 to show transparent grid tile", 30);
+    
+    
+    
     //map 10 by 7
     // 0 = blank tile
     // 1 = wall
@@ -37,6 +42,13 @@ public class MyWorld extends World
         // Create a new world with 720x405 cells with a cell size of 1x1 pixels.
         super(720, 405, 1);
         
+        setBackground("BG.jpg");
+        
+        addObject(titleLabel, 150, 150);
+        addObject(titleLabelTwo, 150, 200);
+        addObject(titleLabelThree, 250, 250);
+        
+        
         for(int x = 0; x < 10; x++){
             for(int y = 0; y < 7; y++){//for each cell in the array
                 //depending on the cell code, add/initialize objects (see map code at top for reference of what codes correspond to what objects
@@ -54,7 +66,9 @@ public class MyWorld extends World
             }
         }
         
-        setBackground("BG.jpg");
+        
+        
+        
     }
     
     public void act()
