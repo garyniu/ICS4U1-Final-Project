@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=TestMovementNPC
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Elephant\ here.\r\n\ \r\n\ The\ playable\ charater\ that\ allows\ you\ to\ interect\ the\ world\r\n\ \r\n\ @author\ Leo\ Xu\r\n\ @date\ June\ 15\ 2022\r\n\ \r\n
+comment1.params=
+comment1.target=TestMovementNPC()
+comment2.params=
+comment2.target=void\ idleAction()
+comment3.params=
+comment3.target=void\ idleActionTwo()
+comment4.params=
+comment4.target=void\ act()
+comment5.params=x\ y
+comment5.target=void\ setLocation(int,\ int)
+numComments=6
