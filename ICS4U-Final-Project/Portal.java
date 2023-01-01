@@ -18,7 +18,7 @@ public class Portal extends Actor
     
     public Portal()
     {
-        portalImage.scale(50, 50);
+        portalImage.scale(100, 100);
         setImage(portalImage);
     }
     
@@ -26,7 +26,7 @@ public class Portal extends Actor
     {
         this.setPortal(portal); 
         portal.setPortal(this); 
-        portalImage.scale(50, 50);
+        portalImage.scale(100, 100);
         setImage(portalImage);
     }
     

@@ -59,7 +59,7 @@ public class MyWorld extends World
         this.addObject(portal, 9999, 9999);
         
         portal = new Portal();// PortalTest world's portal
-        this.addObject(portal, 100, 100); 
+        this.addObject(portal, 550, 300); 
         portal = new Portal(portal);
         PortalTest world2 = new PortalTest(); 
         world2.addObject(portal, 100, 100);
