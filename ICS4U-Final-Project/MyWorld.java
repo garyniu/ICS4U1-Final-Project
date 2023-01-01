@@ -49,6 +49,22 @@ public class MyWorld extends World
         addObject(titleLabelThree, 250, 250);
         
         
+        TestMovementNPC main = new TestMovementNPC();//spawn MainCharater
+        addObject(main, 200, 200);
+        
+        //main portal that allows portals to other worlds work
+        Portal portal = new Portal();
+        this.addObject(portal, 9999, 9999);
+        portal = new Portal(portal);
+        this.addObject(portal, 9999, 9999);
+        
+        portal = new Portal();// PortalTest world's portal
+        this.addObject(portal, 100, 100); 
+        portal = new Portal(portal);
+        PortalTest world2 = new PortalTest(); 
+        world2.addObject(portal, 100, 100);
+        
+        
         for(int x = 0; x < 10; x++){
             for(int y = 0; y < 7; y++){//for each cell in the array
                 //depending on the cell code, add/initialize objects (see map code at top for reference of what codes correspond to what objects
