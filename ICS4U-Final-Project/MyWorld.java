@@ -12,6 +12,11 @@ public class MyWorld extends World
     Label titleLabelTwo = new Label("press 2 to hide grid tile", 30);
     Label titleLabelThree = new Label("press 3 to show transparent grid tile", 30);
     
+    //TODO
+    //arr of enemies, world only needs to get coordinate points and draws enemies, does not worry
+    //about any of the logic
+    
+    //same with the player
     
     
     //map 10 by 7
@@ -96,4 +101,18 @@ public class MyWorld extends World
             showText("mouseY: " + String.valueOf(m.getY()), 120, 70);
         }
     }
+    
+    
+    public int[][] getMapArr(){
+        int[][] copy = new int[mapTwo.length][mapTwo[0].length];
+        
+        for (int i = 0; i < mapTwo.length; i++){
+            for (int j = 0; j < mapTwo[i].length; j++){
+                copy[i][j] = mapTwo[i][j];
+            }
+        }
+        
+        return copy;
+    }
+    
 }
