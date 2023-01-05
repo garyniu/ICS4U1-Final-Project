@@ -32,8 +32,8 @@ public class MainMenu extends World
         
         if (Greenfoot.mouseClicked(pb))// go to myWorld when playbutton is pressed
         {
-            MyWorld GameWorld = new MyWorld();
-            Greenfoot.setWorld(GameWorld);
+            GameWorld gw = new GameWorld();
+            Greenfoot.setWorld(gw);
         }
     }
 }

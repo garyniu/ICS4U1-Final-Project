@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MyWorld extends World
+public class GameWorld extends World
 {
     Label titleLabel = new Label("press 1 to show grid tile", 30);
     Label titleLabelTwo = new Label("press 2 to hide grid tile", 30);
@@ -42,7 +42,7 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
-    public MyWorld()
+    public GameWorld()
     {    
         // Create a new world with 720x405 cells with a cell size of 1x1 pixels.
         super(720, 405, 1);
