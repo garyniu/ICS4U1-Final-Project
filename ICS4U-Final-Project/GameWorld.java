@@ -13,10 +13,23 @@ public class GameWorld extends World
     Label titleLabelThree = new Label("press 3 to show transparent grid tile", 30);
     
     //TODO
-    //arr of enemies, world only needs to get coordinate points and draws enemies, does not worry
+    //arr of enemies, world only needs to get coordinate points for arr and draws enemies, does not worry
     //about any of the logic
     
     //same with the player
+    
+    //Process:
+    // 1. Get coordinates for all entities in the world (GridMovement getCoord() method)
+    // 2. For each entity, find the coordinate points of the grid in 2D array
+    //      2.5. If following camera, have a check to see if on or off screen
+    // 3. Using scaling factor and getting the coordinates of the grid it is currently on, draw it on that grid space
+    
+    //Variables for the config variable?
+    //0,0 grid position on actual grid
+    //scaling factor
+    //pixel size of a grid square
+    
+    //following camera
     
     
     //map 10 by 7
@@ -52,6 +65,10 @@ public class GameWorld extends World
         addObject(titleLabel, 150, 150);
         addObject(titleLabelTwo, 150, 200);
         addObject(titleLabelThree, 250, 250);
+        
+        GridMovement enemyTest = new Enemy(0, 0);
+        
+        addObject(enemyTest, 50, 50);
         
         
         TestMovementNPC main = new TestMovementNPC();//spawn MainCharater
@@ -102,7 +119,7 @@ public class GameWorld extends World
         }
     }
     
-    
+    //returns deep copy of map array
     public int[][] getMapArr(){
         int[][] copy = new int[mapTwo.length][mapTwo[0].length];
         

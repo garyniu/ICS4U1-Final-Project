@@ -13,13 +13,20 @@ public class Enemy extends GridMovement
     //logic for attacking player
     //movemnt / pathfinding
     
+    private int timer = 0;
     
-    /**
-     * Act - do whatever the Enemy wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public Enemy(int x, int y){
+        super(x, y);
+        CharImg = new GreenfootImage("baby1.png");
+        setImage(CharImg);
+    }
+    
     public void act()
     {
-        // Add your action code here.
+        timer++;
+        
+        if (timer % 60 == 0){
+            this.moveDown();
+        }
     }
 }
