@@ -132,4 +132,14 @@ public class GameWorld extends World
         return copy;
     }
     
+    //returns the top left corner position of the array on the screen
+    public int getMapPos(){
+        return 0;
+    }
+    
+    //returns the width and height of a block
+    public Pair getMapBlockSize(){
+        return new Pair(0, 0);
+    }
+    
 }
