@@ -29,10 +29,10 @@ public class TestMovementNPC extends Actor
     
     public TestMovementNPC()
     {
-        upImages = new GreenfootImage[2];
-        downImages = new GreenfootImage[2];
-        rightImages = new GreenfootImage[2];
-        leftImages = new GreenfootImage[2];
+        upImages = new GreenfootImage[9];
+        downImages = new GreenfootImage[9];
+        rightImages = new GreenfootImage[9];
+        leftImages = new GreenfootImage[9];
         
         for(int i = 0; i < downImages.length; i++)//main charater walking down animation 
         {
