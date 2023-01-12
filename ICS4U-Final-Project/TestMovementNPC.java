@@ -23,7 +23,7 @@ public class TestMovementNPC extends Actor
     private boolean isFacingRight = true;
     private boolean isFacingUp = true;
     
-    private int size = 50;//quick way to adjust all the MainCharater's image sizes
+    private int size = 75;//quick way to adjust all the MainCharater's image sizes
     private int CharaterSpeed = 2;//quick way to adjust all the MainCharater's speed
     private int SprintSpeed = 5;//quick way to adjust all the MainCharater's sprint speed
     

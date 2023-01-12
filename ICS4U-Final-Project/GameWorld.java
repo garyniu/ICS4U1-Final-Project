@@ -67,8 +67,10 @@ public class GameWorld extends World
         addObject(titleLabelThree, 250, 250);
         
         GridMovement enemyTest = new Enemy(0, 0);
-        
         addObject(enemyTest, 50, 50);
+        
+        GridMovement playerTest = new Player(0, 0);
+        addObject(playerTest, 100, 100);
         
         
         TestMovementNPC main = new TestMovementNPC();//spawn MainCharater
