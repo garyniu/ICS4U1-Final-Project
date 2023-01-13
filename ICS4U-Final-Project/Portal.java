@@ -10,7 +10,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * 
  */
 
-public class Portal extends Actor
+public class Portal extends Others
 {
     private Portal portal; // allows multiple portal in one world
     private boolean active; //used if this portal can be used

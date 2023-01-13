@@ -24,6 +24,9 @@ public class GameWorld extends World
     //      2.5. If following camera, have a check to see if on or off screen
     // 3. Using scaling factor and getting the coordinates of the grid it is currently on, draw it on that grid space
     
+    //TODO
+    // Make sure to despawn / undraw actors when they move off screen
+    
     //Variables for the config variable?
     //0,0 grid position on actual grid
     //scaling factor
@@ -51,6 +54,13 @@ public class GameWorld extends World
         
         
     public Wall[][] wallListTwo = new Wall[10][7];
+    
+    private GreenfootImage background = new GreenfootImage("BG.jpg");
+    
+    private WorldBackground wbg;
+    
+    int xd = 0, yd = 0;
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -58,36 +68,32 @@ public class GameWorld extends World
     public GameWorld()
     {    
         // Create a new world with 720x405 cells with a cell size of 1x1 pixels.
-        super(720, 405, 1);
+        super(720, 405, 1, false);
         
-        setBackground("BG.jpg");
+        setPaintOrder(Player.class, Wall.class, TestMovementNPC.class, WorldBackground.class);
+
+        wbg = new WorldBackground(background);
+
         
         addObject(titleLabel, 150, 150);
         addObject(titleLabelTwo, 150, 200);
         addObject(titleLabelThree, 250, 250);
         
-        GridMovement enemyTest = new Enemy(0, 0);
+        Others enemyTest = new Enemy(0, 0);
         addObject(enemyTest, 50, 50);
         
-        GridMovement playerTest = new Player(0, 0);
-        addObject(playerTest, 100, 100);
+        GridMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
+
+        addObject(playerTest, this.getWidth()/2, this.getHeight()/2);
+        addObject(wbg, this.getWidth()/2, this.getHeight()/2);
         
         
         TestMovementNPC main = new TestMovementNPC();//spawn MainCharater
         addObject(main, 200, 200);
         
-        //main portal that allows portals to other worlds work
-        Portal portal = new Portal();
-        this.addObject(portal, 9999, 9999);
-        portal = new Portal(portal);
-        this.addObject(portal, 1, 9999);
-        
-        portal = new Portal();// PortalTest world's portal
-        this.addObject(portal, 550, 300); 
-        portal = new Portal(portal);
-        PortalTest world2 = new PortalTest(); 
-        world2.addObject(portal, 100, 100);
-        
+                
+        xd = enemyTest.getX();
+        yd = enemyTest.getY();
         
         for(int x = 0; x < 10; x++){
             for(int y = 0; y < 7; y++){//for each cell in the array
@@ -107,7 +113,7 @@ public class GameWorld extends World
         }
         
         
-        
+        moveThing(xd, yd);
         
     }
     
@@ -120,6 +126,29 @@ public class GameWorld extends World
             showText("mouseY: " + String.valueOf(m.getY()), 120, 70);
         }
     }
+    
+    public void setThing(int cX, int cY)
+    {
+        
+        xd = this.getWidth()- cX;
+        yd = this.getHeight() - cY;
+        
+        System.out.println("newx and y: " + cX + " " + cY );
+
+        
+        wbg.setLocation(xd, yd);
+    }
+
+    public void moveThing(int cX, int cY){
+        GreenfootImage image = getBackground();
+        xd = cX+this.getWidth()/2;
+        yd = cY+this.getHeight()/2;
+        
+        
+        
+        wbg.setLocation(xd, yd);
+    }
+    
     
     //returns deep copy of map array
     public int[][] getMapArr(){

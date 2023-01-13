@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Wall extends Actor
+public class Wall extends Others
 {
     private GreenfootImage playImage = new GreenfootImage("isowall2.png");
     
@@ -21,6 +21,13 @@ public class Wall extends Actor
     {
         // Add your action code here.
         change1();
+    }
+    
+    public void addedToWorld(World GameWorld){
+        //System.out.println("wall pos: " + getX() + " " + getY());
+        
+        xg = getX();
+        yg = getY();
     }
     
     

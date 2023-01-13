@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @date June 15 2022
  * 
  */
-public class TestMovementNPC extends Actor
+public class TestMovementNPC extends Others
 {
     //charater animation images
     private GreenfootImage[] upImages;

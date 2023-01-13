@@ -1,6 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public abstract class GridMovement extends Actor
+public abstract class GridMovement extends SuperSmoothMover
 {
     
     //each subclass object will have a position
@@ -12,7 +12,7 @@ public abstract class GridMovement extends Actor
     
     
     protected int posx, posy, prevx, prevy;
-    protected GreenfootImage CharImg;
+    //protected GreenfootImage CharImg;
     
     public GridMovement(int x, int y){
         posx = x;
@@ -29,29 +29,34 @@ public abstract class GridMovement extends Actor
         //if posx or posy is different from its previous value
         if ((posx != prevx) || (posy != prevy)){
             
-            
-            
             prevx = posx;
             prevy = posy;
+            
+            //super.setLocation(posx, posy);
         }
         
+        System.out.println(posx + " " + posy);
+        super.setLocation(posx, posy);
+        
+        //System.out.println("test");
     }
     
     //different methods for each direction or one method with input?
     public void moveLeft(){
-        posx++;
+        posx--;
+        //System.out.println("test1");
     }
     
     public void moveRight(){
-        posx--;
+        posx++;
     }
     
     public void moveUp(){
-        posy++;
+        posy--;
     }
     
     public void moveDown(){
-        posy--;
+        posy++;
     }
     
     
