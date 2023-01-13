@@ -82,7 +82,7 @@ public class GameWorld extends World
         Others enemyTest = new Enemy(0, 0);
         addObject(enemyTest, 50, 50);
         
-        GridMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
+        FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
 
         addObject(playerTest, this.getWidth()/2, this.getHeight()/2);
         addObject(wbg, this.getWidth()/2, this.getHeight()/2);
