@@ -70,17 +70,16 @@ public class GameWorld extends World
         // Create a new world with 720x405 cells with a cell size of 1x1 pixels.
         super(720, 405, 1, false);
         
-        setPaintOrder(Player.class, Wall.class, TestMovementNPC.class, WorldBackground.class);
+        setPaintOrder(Player.class, Enemy.class, Wall.class, TestMovementNPC.class, WorldBackground.class);
 
         wbg = new WorldBackground(background);
 
+        addObject(new Enemy(300, 200), 300, 200);
         
         addObject(titleLabel, 150, 150);
         addObject(titleLabelTwo, 150, 200);
         addObject(titleLabelThree, 250, 250);
         
-        Others enemyTest = new Enemy(0, 0);
-        addObject(enemyTest, 50, 50);
         
         FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
 
@@ -92,8 +91,8 @@ public class GameWorld extends World
         addObject(main, 200, 200);
         
                 
-        xd = enemyTest.getX();
-        yd = enemyTest.getY();
+        xd = playerTest.getX();
+        yd = playerTest.getY();
         
         for(int x = 0; x < 10; x++){
             for(int y = 0; y < 7; y++){//for each cell in the array
@@ -141,11 +140,8 @@ public class GameWorld extends World
 
     public void moveThing(int cX, int cY){
         GreenfootImage image = getBackground();
-        xd = cX+this.getWidth()/2;
-        yd = cY+this.getHeight()/2;
-        
-        
-        
+        xd = cX;
+        yd = cY;
         wbg.setLocation(xd, yd);
     }
     

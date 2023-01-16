@@ -1,19 +1,35 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class GridMovement here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
 public class GridMovement extends Others
 {
-    /**
-     * Act - do whatever the GridMovement wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    
+    protected int x = 0, y = 0;
+    
     public void act()
     {
         // Add your action code here.
     }
+    
+    public void moveLeft(){
+        x--;
+        
+    }
+    
+    public void moveRight(){
+        x++;
+    }
+    
+    public void moveUp(){
+        y--;
+    }
+    
+    public void moveDown(){
+        y++;
+    }
+    
+    public Pair getCoords() {
+        return new Pair(x, y);
+    }
+    
 }

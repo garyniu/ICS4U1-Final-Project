@@ -126,6 +126,10 @@ public abstract class SuperSmoothMover extends Actor
             
             w.setLocation(w.getOGCoords().getX() + (int)(Math.floor(getWorld().getWidth()/2) - x), w.getOGCoords().getY() + (int)(Math.floor(getWorld().getHeight()/2) - y));
             
+            if (w.getClass() == Enemy.class){
+                w.setLocation(((Enemy)w).getCoords().getX()+ (int)(Math.floor(getWorld().getWidth()/2) - x), ((Enemy)w).getCoords().getY()+ (int)(Math.floor(getWorld().getHeight()/2) - y));
+            }
+            
             //
     
         }

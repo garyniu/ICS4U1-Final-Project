@@ -14,8 +14,12 @@ public class Enemy extends GridMovement
     //movemnt / pathfinding
 
     private GreenfootImage CharImg;
+
     
     public Enemy(int x, int y){
+        
+        this.x = x;
+        this.y = y;
         
         CharImg = new GreenfootImage("baby1.png");
         setImage(CharImg);
@@ -23,6 +27,14 @@ public class Enemy extends GridMovement
     
     public void act()
     {
+        
+        System.out.println("enemy loc: " + getX() + " " + getY());
+        
+        System.out.println("perceivec loc: " + x + " " + y);
+        
+        
         //setLocation(getX()+1, getY());
+        moveLeft();
+        //y++;
     }
 }

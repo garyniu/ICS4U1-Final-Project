@@ -85,4 +85,6 @@ public class Player extends FreeMovement
             moveRight();
         }
     }
+    
+    
 }
