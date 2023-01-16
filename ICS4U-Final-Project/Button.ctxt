@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Button
+comment0.text=\r\n\ Creates\ a\ button\ with\ the\ word\ "PLAY"\ on\ it\r\n\ when\ pressed,\ brings\ the\ user\ to\ MyWorld(simulation)\r\n\ \r\n\ @author\ Leo\ Xu\r\n\ @version\ 1\r\n
+comment1.params=a\ b
+comment1.target=Button(greenfoot.GreenfootImage,\ greenfoot.GreenfootImage)
+comment1.text=\r\n\ Button\ constructor\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ AChecks\ to\ see\ if\ the\ button\ has\ been\ clicked\r\n
+comment3.params=
+comment3.target=boolean\ listenForClick()
+comment3.text=\r\n\ Returns\ if\ the\ button\ is\ clicked\r\n\ \r\n\ @return\ Button\ clicked\r\n
+comment4.params=
+comment4.target=boolean\ getClick()
+comment4.text=\r\n\ Returns\ click\r\n
+numComments=5

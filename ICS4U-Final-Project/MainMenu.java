@@ -12,8 +12,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MainMenu extends World
 {
-    Label titleLabel = new Label("TITILED GAME", 90);
-    PlayButton pb = new PlayButton();//play button
+    Label titleLabel = new Label("Balls Gaming", 90);
+    Button pb = new Button(new GreenfootImage("images/LobbyWorld1/playButton.png"), new GreenfootImage("images/LobbyWorld1/playButtonFade.png"));//play button
     
     
     
@@ -30,7 +30,7 @@ public class MainMenu extends World
     public void act()
     {
         
-        if (Greenfoot.mouseClicked(pb))// go to myWorld when playbutton is pressed
+        if (pb.getClick())// go to myWorld when playbutton is pressed
         {
             GameWorld gw = new GameWorld();
             Greenfoot.setWorld(gw);
