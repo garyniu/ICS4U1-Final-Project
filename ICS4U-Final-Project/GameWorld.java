@@ -55,7 +55,7 @@ public class GameWorld extends World
         
     public Wall[][] wallListTwo = new Wall[10][7];
     
-    private GreenfootImage background = new GreenfootImage("BG.jpg");
+    private GreenfootImage background = new GreenfootImage("BG33.png");
     
     private WorldBackground wbg;
     
@@ -68,7 +68,7 @@ public class GameWorld extends World
     public GameWorld()
     {    
         // Create a new world with 720x405 cells with a cell size of 1x1 pixels.
-        super(720, 405, 1, false);
+        super(640, 493, 1, false);
         
         setPaintOrder(Player.class, Enemy.class, Wall.class, TestMovementNPC.class, WorldBackground.class);
 
