@@ -22,6 +22,13 @@ public class Portal extends Others
         setImage(portalImage);
     }
     
+    public void addedToWorld(World GameWorld){
+        //System.out.println("wall pos: " + getX() + " " + getY());
+        
+        xg = getX();
+        yg = getY();
+    }
+    
     public Portal(Portal portal)
     {
         this.setPortal(portal); 
