@@ -39,7 +39,11 @@ public abstract class GridMovement extends Actor
     
     //different methods for each direction or one method with input?
     public void moveLeft(){
+<<<<<<< Updated upstream
         posx++;
+=======
+        x--;
+>>>>>>> Stashed changes
     }
     
     public void moveRight(){
@@ -55,8 +59,13 @@ public abstract class GridMovement extends Actor
     }
     
     
+<<<<<<< Updated upstream
     public Pair getCoord(){
         return new Pair(posx, posy);
+=======
+    public Pair getCoords() {
+        return new Pair(x, y);
+>>>>>>> Stashed changes
     }
     
 }

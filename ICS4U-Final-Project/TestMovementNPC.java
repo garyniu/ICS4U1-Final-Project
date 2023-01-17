@@ -159,6 +159,11 @@ public class TestMovementNPC extends Actor
                 setLocation(x, y + SprintSpeed);   
             }
         }
+        
+        if(Greenfoot.isKeyDown("shift"))
+        {
+            move(7);
+        }
     }
     
     public void setLocation(int x, int y)//When MainCharater touches Boundary, it stops MainCharater from moving further
