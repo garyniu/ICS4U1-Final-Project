@@ -74,7 +74,7 @@ public class GameWorld extends World
 
         wbg = new WorldBackground(background);
 
-        addObject(new Enemy(300, 200), 300, 200);
+        
         
         addObject(titleLabel, 150, 150);
         addObject(titleLabelTwo, 150, 200);
@@ -113,6 +113,9 @@ public class GameWorld extends World
         
         
         moveThing(xd, yd);
+        
+        //change enemy to spawn anaywhere, and it moves itself to correct spot
+        addObject(new Enemy(300, 200, getMapBlockSize(), getMapOrigin()), 300, 200);
         
     }
     
@@ -160,13 +163,18 @@ public class GameWorld extends World
     }
     
     //returns the top left corner position of the array on the screen
-    public int getMapPos(){
-        return 0;
+    public Pair getMapOrigin(){
+        
+        Wall temp = wallListTwo[0][0];
+        
+        int a = temp.getX(), b = temp.getY();
+        
+        return new Pair(a, b);
     }
     
     //returns the width and height of a block
     public Pair getMapBlockSize(){
-        return new Pair(0, 0);
+        return new Pair(wallListTwo[0][0].getImage().getWidth(), wallListTwo[0][0].getImage().getHeight());
     }
     
 }

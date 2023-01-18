@@ -16,8 +16,11 @@ public class Enemy extends GridMovement
     private GreenfootImage CharImg;
 
     
-    public Enemy(int x, int y){
+    public Enemy(int x, int y, Pair gridSize, Pair mapOrigin){
         
+        super(gridSize, mapOrigin);
+        
+        //change x,y to xy coord on grid
         this.x = x;
         this.y = y;
         
