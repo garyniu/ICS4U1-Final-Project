@@ -41,20 +41,16 @@ public abstract class FreeMovement extends SuperSmoothMover
         //System.out.println("test");
     }
     
-    //different methods for each direction or one method with input?
+    //movement
     public void moveLeft(){
         posx--;
-        //System.out.println("test1");
     }
-    
     public void moveRight(){
         posx++;
     }
-    
     public void moveUp(){
         posy--;
     }
-    
     public void moveDown(){
         posy++;
     }

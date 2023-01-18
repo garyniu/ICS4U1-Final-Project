@@ -55,7 +55,7 @@ public class GameWorld extends World
         
     public Wall[][] wallListTwo = new Wall[10][7];
     
-    private GreenfootImage background = new GreenfootImage("BG.jpg");
+    private GreenfootImage background = new GreenfootImage("BG33.png");
     
     private WorldBackground wbg;
     
@@ -68,9 +68,9 @@ public class GameWorld extends World
     public GameWorld()
     {    
         // Create a new world with 720x405 cells with a cell size of 1x1 pixels.
-        super(720, 405, 1, false);
+        super(640, 493, 1, false);
         
-        setPaintOrder(Player.class, Enemy.class, Wall.class, TestMovementNPC.class, WorldBackground.class);
+        setPaintOrder(Player.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, TestMovementNPC.class, WorldBackground.class);
 
         wbg = new WorldBackground(background);
 
@@ -79,6 +79,23 @@ public class GameWorld extends World
         addObject(titleLabel, 150, 150);
         addObject(titleLabelTwo, 150, 200);
         addObject(titleLabelThree, 250, 250);
+        
+        //Enter Portal
+        Others ep = new EnterPortal();
+        addObject(ep, 560, 215);
+        
+        
+        //main portal that allows portals to other worlds work
+        Portal portal = new Portal();
+        this.addObject(portal, 9999, 9999);
+        portal = new Portal(portal);
+        this.addObject(portal, 9999, 9999);
+        
+        portal = new Portal();
+        this.addObject(portal, 560, 215);//Portal in this world (GameWorld) 
+        portal = new Portal(portal);
+        PortalTest world2 = new PortalTest();//portal to the other world (PortalTest)
+        world2.addObject(portal, 100, 100);
         
         
         FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
