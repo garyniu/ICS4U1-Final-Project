@@ -14,7 +14,7 @@ public class Portal extends Others
 {
     private Portal portal; // allows multiple portal in one world
     private boolean active; //used if this portal can be used
-    private GreenfootImage portalImage = new GreenfootImage ("images/tardis.png");
+    private GreenfootImage portalImage = new GreenfootImage ("images/hWall.png");
     
     public Portal()
     {
@@ -49,7 +49,7 @@ public class Portal extends Others
     
     public void act()
     {
-        Actor actor = getOneIntersectingObject(TestMovementNPC.class); //let portal know its tocuhing MainCharater
+        Actor actor = getOneIntersectingObject(Player.class); //let portal know its tocuhing MainCharater
         if (!this.active && actor == null) this.active = true; //re-activates the portal;
         if (this.active && actor != null) portal.getActor(actor); //teleport MainCharater
         
@@ -60,11 +60,11 @@ public class Portal extends Others
     {
         if (this.getWorld().equals(actor.getWorld()))
         {
-            actor.setLocation(this.getX(), this.getY()); 
+            actor.setLocation(getWorld().getWidth()/2, getWorld().getHeight()/2); 
          }
         else
         {
-            this.getWorld().addObject(actor, this.getX(), this.getY()); 
+            this.getWorld().addObject(actor, getWorld().getWidth()/2, getWorld().getHeight()/2); 
             Greenfoot.setWorld(this.getWorld()); 
         }
         active = false; // de-activate portal and re-activates when MainCharater leaves portal

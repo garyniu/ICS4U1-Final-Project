@@ -59,7 +59,7 @@ public class GameWorld extends World
     
     private WorldBackground wbg;
     
-    int xd = 0, yd = 0;
+    private int xd = 0, yd = 0;
     
     /**
      * Constructor for objects of class MyWorld.
@@ -68,13 +68,16 @@ public class GameWorld extends World
     public GameWorld()
     {    
         // Create a new world with 720x405 cells with a cell size of 1x1 pixels.
-        super(640, 493, 1, false);
+        super(600, 500, 1, false);
         
-        setPaintOrder(Player.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, TestMovementNPC.class, WorldBackground.class);
+        setPaintOrder(Player.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
 
         wbg = new WorldBackground(background);
 
-        
+        GreenfootImage bg = new GreenfootImage(640, 500);
+        bg.setColor(Color.BLACK);
+        bg.fill();
+        setBackground(bg);
         
         addObject(titleLabel, 150, 150);
         addObject(titleLabelTwo, 150, 200);
@@ -104,8 +107,6 @@ public class GameWorld extends World
         addObject(wbg, this.getWidth()/2, this.getHeight()/2);
         
         
-        TestMovementNPC main = new TestMovementNPC();//spawn MainCharater
-        addObject(main, 200, 200);
         
                 
         xd = playerTest.getX();

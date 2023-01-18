@@ -134,8 +134,11 @@ public abstract class SuperSmoothMover extends Actor
     
         }
         
-            
-        ((GameWorld)getWorld()).setThing(x2, y2);//moves the world back
+        
+        if (getWorld() instanceof GameWorld){
+            ((GameWorld)getWorld()).setThing(x2, y2);//moves the world back
+        }
+        
     }
 
     /**

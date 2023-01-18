@@ -30,10 +30,8 @@ public class Enemy extends GridMovement
     
     public void act()
     {
-        
-        System.out.println("enemy loc: " + getX() + " " + getY());
-        
-        System.out.println("perceivec loc: " + x + " " + y);
+        super.act();
+
         
         
         //setLocation(getX()+1, getY());
