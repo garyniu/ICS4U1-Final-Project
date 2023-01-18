@@ -48,7 +48,9 @@ public class Portal extends Others
     }
     
     public void act()
+    
     {
+        
         Actor actor = getOneIntersectingObject(Player.class); //let portal know its tocuhing MainCharater
         if (!this.active && actor == null) this.active = true; //re-activates the portal;
         if (this.active && actor != null) portal.getActor(actor); //teleport MainCharater
@@ -58,15 +60,17 @@ public class Portal extends Others
        
     public void getActor(Actor actor)
     {
+        
         if (this.getWorld().equals(actor.getWorld()))
         {
             actor.setLocation(getWorld().getWidth()/2, getWorld().getHeight()/2); 
+            active = false;
          }
         else
         {
             this.getWorld().addObject(actor, getWorld().getWidth()/2, getWorld().getHeight()/2); 
             Greenfoot.setWorld(this.getWorld()); 
         }
-        active = false; // de-activate portal and re-activates when MainCharater leaves portal
+        active = false; // de-activate portal and re-activates when MainCharacter leaves portal
     }
 }

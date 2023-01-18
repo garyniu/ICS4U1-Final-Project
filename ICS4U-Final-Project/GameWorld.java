@@ -98,7 +98,7 @@ public class GameWorld extends World
         this.addObject(portal, 560, 215);//Portal in this world (GameWorld) 
         portal = new Portal(portal);
         PortalTest world2 = new PortalTest();//portal to the other world (PortalTest)
-        world2.addObject(portal, 100, 100);
+        world2.addObject(portal, 560, 515);
         
         
         FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);

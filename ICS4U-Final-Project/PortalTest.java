@@ -25,6 +25,9 @@ public class PortalTest extends World
         super(600, 400, 1);
         
         wbg = new WorldBackground(background);
+        
+        Others ep2 = new EnterPortal();
+        addObject(ep2, 560, 515);
 
     }
     
