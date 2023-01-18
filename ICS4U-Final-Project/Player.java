@@ -189,18 +189,21 @@ public class Player extends FreeMovement
             isFacingRight = true;
             moveRight();
             idleAction();
-        }else if(Greenfoot.isKeyDown("a")){//MainCharater moves left
+        }
+        if(Greenfoot.isKeyDown("a")){//MainCharater moves left
             isFacingRight = false;
             moveLeft();
             idleAction();
-        }else if(Greenfoot.isKeyDown("w")){//MainCharater moves up
+        }
+        if(Greenfoot.isKeyDown("w")){//MainCharater moves up
             int x = getX();
             int y = getY();
             moveUp();
 
             isFacingUp = true;
             idleActionTwo();
-        }else if(Greenfoot.isKeyDown("s")){//MainCharater moves down
+        }
+        if(Greenfoot.isKeyDown("s")){//MainCharater moves down
             int x = getX();
             int y = getY();
             moveDown();

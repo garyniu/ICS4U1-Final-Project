@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Portal
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Portal\ here.\r\n\ \r\n\ This\ Portal\ Actor\ allows\ player\ to\ travel\ across\ different\ worlds\r\n\ \r\n\ @author\ Leo\ Xu\r\n\ @date\ jan\ 1\ 2023\r\n\ \r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ Portal\ here.\n\ \n\ This\ Portal\ Actor\ allows\ player\ to\ travel\ across\ different\ worlds\n\ \n\ @author\ Leo\ Xu\n\ @date\ jan\ 1\ 2023\n\ \n
 comment1.params=
 comment1.target=Portal()
 comment2.params=GameWorld
