@@ -9,9 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class PortalTest extends World
 {
 
-    private GreenfootImage background = new GreenfootImage("BG33.png");
+    private GreenfootImage background = new GreenfootImage("images/Dungeon1.jpg");
     
-    private WorldBackground wbg;
+    private WorldBackground wbg2;
     
     private int xd = 0, yd = 0;
     
@@ -22,21 +22,21 @@ public class PortalTest extends World
     public PortalTest()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1920, 1080, 1); 
+        super(1920, 1080, 1, false); 
         
         
         setPaintOrder(Player.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
-        setBackground("images/Dungeon1.jpg");
+        setBackground("images/hWall.png");
         
-        wbg = new WorldBackground(background);
+        wbg2 = new WorldBackground(background);
         
         Others ep2 = new EnterPortal();
-        addObject(ep2, 560, 515);
+        addObject(ep2, 260, 115);
         
         FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
 
         addObject(playerTest, this.getWidth()/2, this.getHeight()/2);
-        addObject(wbg, this.getWidth()/2, this.getHeight()/2);
+        addObject(wbg2, this.getWidth()/2, this.getHeight()/2);
         
         
         
@@ -50,6 +50,6 @@ public class PortalTest extends World
         GreenfootImage image = getBackground();
         xd = cX;
         yd = cY;
-        wbg.setLocation(xd, yd);
+        wbg2.setLocation(xd, yd);
     }
 }

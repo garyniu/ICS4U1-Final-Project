@@ -14,7 +14,7 @@ public class Portal extends Others
 {
     private Portal portal; // allows multiple portal in one world
     private boolean active; //used if this portal can be used
-    private GreenfootImage portalImage = new GreenfootImage ("images/hWall.png");
+    private GreenfootImage portalImage = new GreenfootImage ("images/tardis.png");
     
     public Portal()
     {
