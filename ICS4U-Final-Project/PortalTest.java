@@ -22,13 +22,28 @@ public class PortalTest extends World
     public PortalTest()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1);
+        super(1920, 1080, 1); 
+        
+        
+        setPaintOrder(Player.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
+        setBackground("images/Dungeon1.jpg");
         
         wbg = new WorldBackground(background);
         
         Others ep2 = new EnterPortal();
         addObject(ep2, 560, 515);
+        
+        FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
 
+        addObject(playerTest, this.getWidth()/2, this.getHeight()/2);
+        addObject(wbg, this.getWidth()/2, this.getHeight()/2);
+        
+        
+        
+        xd = playerTest.getX();
+        yd = playerTest.getY();
+        
+        moveThing(xd, yd);
     }
     
     public void moveThing(int cX, int cY){
