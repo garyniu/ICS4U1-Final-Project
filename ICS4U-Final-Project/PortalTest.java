@@ -25,13 +25,17 @@ public class PortalTest extends World
         super(1920, 1080, 1, false); 
         
         
-        setPaintOrder(Player.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
+        setPaintOrder(Dungeon1Cover1.class, Player.class, Others.class, WorldBackground.class);
         setBackground("images/hWall.png");
         
         wbg2 = new WorldBackground(background);
         
         Others ep2 = new EnterPortal();
         addObject(ep2, 260, 115);
+        
+        Dungeon1Cover1 c1 = new Dungeon1Cover1();
+        addObject(c1, 860, 115);
+        
         
         FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
 
@@ -51,5 +55,15 @@ public class PortalTest extends World
         xd = cX;
         yd = cY;
         wbg2.setLocation(xd, yd);
+    }
+    
+    public void act()
+    {
+        MouseInfo m = Greenfoot.getMouseInfo();
+        if (m != null)
+        {
+            showText("mouseX: " + String.valueOf(m.getX()), 260, 200);
+            showText("mouseY: " + String.valueOf(m.getY()), 260, 300);
+        }
     }
 }
