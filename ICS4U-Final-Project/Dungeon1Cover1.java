@@ -15,6 +15,13 @@ public class Dungeon1Cover1 extends Others
     
     private GreenfootImage coverImage = new GreenfootImage("images/Cover1.png");
     
+    public void addedToWorld(World GameWorld){
+        //System.out.println("wall pos: " + getX() + " " + getY());
+        
+        xg = getX();
+        yg = getY();
+    }
+    
     public Dungeon1Cover1() 
     {
         // Add your action code here.

@@ -26,6 +26,9 @@ public class PortalTest extends World
         
         
         setPaintOrder(Dungeon1Cover1.class, Player.class, Others.class, WorldBackground.class);
+        
+        
+        
         setBackground("images/hWall.png");
         
         wbg2 = new WorldBackground(background);
@@ -33,8 +36,10 @@ public class PortalTest extends World
         Others ep2 = new EnterPortal();
         addObject(ep2, 260, 115);
         
-        Dungeon1Cover1 c1 = new Dungeon1Cover1();
-        addObject(c1, 860, 115);
+        Others c1 = new Dungeon1Cover1();
+        addObject(c1, 240, 305);
+        
+        
         
         
         FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
