@@ -16,6 +16,7 @@ public class Enemy extends GridMovement
 
     private GreenfootImage CharImg;
     private Player p;
+    private int playerRange = 45; //change
 
     
     public Enemy(int x, int y, Pair gridSize, Pair mapOrigin){
@@ -47,15 +48,17 @@ public class Enemy extends GridMovement
         int x = p.getX();
         int y = p.getY();
         //change to within size of a grid (put in vars)
-        if (getX() < x){
-            moveRight();
-        } else if (getX() > x){
-            moveLeft();
-        } 
+        //rpevent it from moving diagonally
+        System.out.println("x-coords: " + this.getX() + " " + x);
+        System.out.println("y-coords: " + this.getY() + " " + y);
         
-        if (getY() < y){
+        if (getX() < x && (getX() + playerRange < x)){
+            moveRight();
+        } else if (getX() > x && (getX() - playerRange > x)){
+            moveLeft();
+        } else if (getY() < y && (getY() + playerRange < y)){
             moveDown();
-        } else if (getY() > y){
+        } else if (getY() > y && (getY() - playerRange > y)){
             moveUp();
         }
         

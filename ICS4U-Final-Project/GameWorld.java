@@ -147,8 +147,6 @@ public class GameWorld extends World
         
         moveThing(xd, yd);
         
-        //change enemy to spawn anaywhere, and it moves itself to correct spot
-        addObject(new Enemy(300, 200, getMapBlockSize(), getMapOrigin()), 300, 200);
         
     }
     

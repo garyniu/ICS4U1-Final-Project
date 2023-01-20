@@ -24,6 +24,7 @@ public class GridMovement extends Others
         
         System.out.println(gridSX + " " + gridSY + " " + gridXorigin + " " + gridYorigin);
         
+        yTimer = timeBWMoves / 2;
         
     }
     
@@ -78,12 +79,12 @@ public class GridMovement extends Others
     public void moveUp(){
         int gridShiftx, gridShifty;
         
-        if ((ylastTime + timeBWMoves) < yTimer){
+        if ((lastTime + timeBWMoves) < timer){
             
             //if (leftClear){
             
                 y-=70;
-                ylastTime = yTimer;
+                lastTime = timer;
                 
                 //move left
                 // current x position - sizeOfGrid
@@ -98,12 +99,12 @@ public class GridMovement extends Others
         
         
         
-        if ((ylastTime + timeBWMoves) < yTimer){
+        if ((lastTime + timeBWMoves) < timer){
             System.out.println("test");
             //if (leftClear){
             
                 y+=70;
-                ylastTime = yTimer;
+                lastTime = timer;
                 
                 //move left
                 // current x position - sizeOfGrid

@@ -22,14 +22,17 @@ public class PortalTest extends World
     public PortalTest()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1920, 1080, 1, false); 
+        super(600, 500, 1, false); 
         
         
         setPaintOrder(Dungeon1Cover1.class, Player.class, Others.class, WorldBackground.class);
         
+        GreenfootImage bg = new GreenfootImage(640, 500);
+        bg.setColor(Color.BLACK);
+        bg.fill();
+        setBackground(bg);
         
         
-        setBackground("images/misc/hWall.png");
         
         wbg2 = new WorldBackground(background);
         
@@ -40,6 +43,8 @@ public class PortalTest extends World
         addObject(c1, 240, 305);
         
         
+        //change enemy to spawn anaywhere, and it moves itself to correct spot
+        addObject(new Enemy(300, 200, getMapBlockSize(), getMapOrigin()), 300, 200);
         
         
         FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
@@ -70,5 +75,33 @@ public class PortalTest extends World
             showText("mouseX: " + String.valueOf(m.getX()), 260, 200);
             showText("mouseY: " + String.valueOf(m.getY()), 260, 300);
         }
+    }
+    
+    public int[][] getMapArr(){
+        int[][] copy = new int[1][1];// = new int[mapTwo.length][mapTwo[0].length];
+        
+        /*
+        for (int i = 0; i < mapTwo.length; i++){
+            for (int j = 0; j < mapTwo[i].length; j++){
+                copy[i][j] = mapTwo[i][j];
+            }
+        }*/
+        
+        return copy;
+    }
+    
+    //returns the top left corner position of the array on the screen
+    public Pair getMapOrigin(){
+        
+        //Wall temp = wallListTwo[0][0];
+        
+        //int a = temp.getX(), b = temp.getY();
+        
+        return new Pair(0, 0);
+    }
+    
+    //returns the width and height of a block
+    public Pair getMapBlockSize(){
+        return new Pair(0,0);//new Pair(wallListTwo[0][0].getImage().getWidth(), wallListTwo[0][0].getImage().getHeight());
     }
 }
