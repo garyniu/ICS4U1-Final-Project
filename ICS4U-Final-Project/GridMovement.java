@@ -8,8 +8,8 @@ public class GridMovement extends Others
     protected int gridSX, gridSY, gridXorigin, gridYorigin;
     private int VertShift = 0, horzShift = 0; //change to be a function of zoom (if adding)
     
-    private int timeBWMoves = 100, lastTime = 0;
-    private int timer = 0;
+    private int timeBWMoves = 100, lastTime = 0, ylastTime = 0;
+    private int timer = 0, yTimer = 0;
     
     public GridMovement(Pair gridSize, Pair mapOrigin){
         
@@ -31,7 +31,7 @@ public class GridMovement extends Others
     {
         // Add your action code here.
         timer++;
-        
+        yTimer = timer;
         
     }
     
@@ -44,9 +44,7 @@ public class GridMovement extends Others
             
             //if (leftClear){
             
-                
                 x-=70;
-            
                 lastTime = timer;
                 
                 //move left
@@ -54,25 +52,65 @@ public class GridMovement extends Others
                 
             //}
             
-            
         }
         
         
     }
     
     public void moveRight(){
+        int gridShiftx, gridShifty;
         
-        x++;
+        if ((lastTime + timeBWMoves) < timer){
+            
+            //if (leftClear){
+            
+                x+=70;
+                lastTime = timer;
+                
+                //move left
+                // current x position - sizeOfGrid
+                
+            //}
+            
+        }
     }
     
     public void moveUp(){
+        int gridShiftx, gridShifty;
         
-        y--;
+        if ((ylastTime + timeBWMoves) < yTimer){
+            
+            //if (leftClear){
+            
+                y-=70;
+                ylastTime = yTimer;
+                
+                //move left
+                // current x position - sizeOfGrid
+                
+            //}
+            
+        }
     }
     
     public void moveDown(){
+        int gridShiftx, gridShifty;
         
-        y++;
+        
+        
+        if ((ylastTime + timeBWMoves) < yTimer){
+            System.out.println("test");
+            //if (leftClear){
+            
+                y+=70;
+                ylastTime = yTimer;
+                
+                //move left
+                // current x position - sizeOfGrid
+                
+            //}
+            
+        }
     }
     
     public Pair getCoords() {

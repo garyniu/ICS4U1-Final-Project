@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
 
 /**
  * Write a description of class Enemy here.
@@ -14,6 +15,7 @@ public class Enemy extends GridMovement
     //movemnt / pathfinding
 
     private GreenfootImage CharImg;
+    private Player p;
 
     
     public Enemy(int x, int y, Pair gridSize, Pair mapOrigin){
@@ -32,10 +34,30 @@ public class Enemy extends GridMovement
     {
         super.act();
 
+        ArrayList<Player> ps = (ArrayList)getWorld().getObjects(Player.class);
+        p = ps.get(0);
         
-        
+        AttackPlayer();
         //setLocation(getX()+1, getY());
-        moveLeft();
+        
         //y++;
+    }
+    
+    private void AttackPlayer(){
+        int x = p.getX();
+        int y = p.getY();
+        //change to within size of a grid (put in vars)
+        if (getX() < x){
+            moveRight();
+        } else if (getX() > x){
+            moveLeft();
+        } 
+        
+        if (getY() < y){
+            moveDown();
+        } else if (getY() > y){
+            moveUp();
+        }
+        
     }
 }
