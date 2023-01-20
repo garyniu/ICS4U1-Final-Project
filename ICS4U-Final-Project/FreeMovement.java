@@ -49,10 +49,11 @@ public abstract class FreeMovement extends SuperSmoothMover
         posx+=2;
     }
     public void moveUp(){
-        posy-=2;
+        //posy-=2; 
     }
     public void moveDown(){
-        posy+=2;
+        //posy+=2;
+        
     }
     
     

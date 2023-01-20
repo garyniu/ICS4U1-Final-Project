@@ -13,4 +13,6 @@ comment5.params=
 comment5.target=void\ horizontalAttack()
 comment6.params=
 comment6.target=void\ act()
-numComments=7
+comment7.params=x\ y
+comment7.target=void\ setLocation(int,\ int)
+numComments=8
