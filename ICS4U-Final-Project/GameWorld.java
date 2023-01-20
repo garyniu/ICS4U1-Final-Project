@@ -70,7 +70,7 @@ public class GameWorld extends World
         // Create a new world with 720x405 cells with a cell size of 1x1 pixels.
         super(600, 500, 1, false);
         
-        setPaintOrder(Player.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
+        setPaintOrder(Boundary.class, Player.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
 
         wbg = new WorldBackground(background);
 
@@ -108,7 +108,21 @@ public class GameWorld extends World
         addObject(wbg, this.getWidth()/2, this.getHeight()/2);
         
         
+        //Boudary class
+        Boundary bound1 = new Boundary(550,50);
         
+        Boundary bound2 = new Boundary(280,50);
+        
+        Boundary bound3 = new Boundary(100,50);
+        
+        addObject(bound1, 520, 360);  
+        bound1.setRotation(150);
+        
+        addObject(bound2, 90, 360);  
+        bound2.setRotation(210);
+        
+        addObject(bound3, 220, 470);  
+        bound3.setRotation(210);
                 
         xd = playerTest.getX();
         yd = playerTest.getY();
