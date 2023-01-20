@@ -13,7 +13,7 @@ public class Dungeon1Cover1 extends Others
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    private GreenfootImage coverImage = new GreenfootImage("images/Cover1.png");
+    private GreenfootImage coverImage = new GreenfootImage("images/misc/Cover1.png");
     
     public void addedToWorld(World GameWorld){
         //System.out.println("wall pos: " + getX() + " " + getY());

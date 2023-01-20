@@ -8,11 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Wall extends Others
 {
-    private GreenfootImage playImage = new GreenfootImage("isowall2.png");
+    private GreenfootImage playImage = new GreenfootImage("images/misc/isowall2.png");
     
-    private GreenfootImage hiddenImage = new GreenfootImage("hWall.png");
+    private GreenfootImage hiddenImage = new GreenfootImage("images/misc/hWall.png");
     
-    private GreenfootImage semihiddenImage = new GreenfootImage("isowall23.png");
+    private GreenfootImage semihiddenImage = new GreenfootImage("images/misc/isowall23.png");
     /**
      * Act - do whatever the Wall wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

@@ -22,7 +22,7 @@ public class EnterPortal extends Others
         yg = getY();
     }
     
-    GifImage void1 = new GifImage("void1.gif");
+    GifImage void1 = new GifImage("images/misc/void1.gif");
     public void act()
     {
         // Add your action code here.

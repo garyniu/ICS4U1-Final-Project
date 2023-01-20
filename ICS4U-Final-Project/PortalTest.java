@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class PortalTest extends World
 {
 
-    private GreenfootImage background = new GreenfootImage("images/Dungeon1.jpg");
+    private GreenfootImage background = new GreenfootImage("images/background/Dungeon1.jpg");
     
     private WorldBackground wbg2;
     
@@ -29,7 +29,7 @@ public class PortalTest extends World
         
         
         
-        setBackground("images/hWall.png");
+        setBackground("images/misc/hWall.png");
         
         wbg2 = new WorldBackground(background);
         

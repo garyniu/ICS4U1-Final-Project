@@ -55,7 +55,7 @@ public class GameWorld extends World
         
     public Wall[][] wallListTwo = new Wall[10][7];
     
-    private GreenfootImage background = new GreenfootImage("BG33.png");
+    private GreenfootImage background = new GreenfootImage("images/background/BG33.png");
     
     private WorldBackground wbg;
     

@@ -21,7 +21,7 @@ public class MainMenu extends World
     {    
         // Create a new world with 600x533 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
-        setBackground(new GreenfootImage("images/MainMenu.jpg"));
+        setBackground(new GreenfootImage("images/background/MainMenu.jpg"));
         addObject(titleLabel, 300, 200);
         addObject(pb, 210, 300);
         
