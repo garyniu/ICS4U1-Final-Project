@@ -24,16 +24,23 @@ public class Player extends FreeMovement
     private GreenfootImage[] adownImages;
     private GreenfootImage[] arightImages;
     private GreenfootImage[] aleftImages;
-
+    
+    private boolean isFacingUp, isFacingUpRight, isFacingUpLeft = false;
+    
+    private boolean isFacingDown, isFacingDownRight, isFacingDownLeft = false;
+    
+    private boolean isFacingLeft, isFacingRight = false;
+    
+    private int x, y;
+    
     //animation image speed
     private SimpleTimer actionTimer;
     private int delay = 0;
-    private boolean isFacingRight = true;
-    private boolean isFacingUp = true;
+    private int dashTime;
 
     private int size = 60;//quick way to adjust all the MainCharater's image sizes
     private int atkSize = 180;
-    private int CharacterSpeed = 1;//quick way to adjust all the MainCharater's speed
+    private int characterSpeed = 1;//quick way to adjust all the MainCharater's speed
     private int SprintSpeed = 2;//quick way to adjust all the MainCharater's sprint speed
     
     public Player(int x, int y){
@@ -182,40 +189,108 @@ public class Player extends FreeMovement
     public void act()
     {
         super.act();
+    	x = getX();
+    	y = getY();
+    	String dashed = Greenfoot.getKey();
+   	 
+    	//movement
+   	 
+    	//movement
+    	if (Greenfoot.isKeyDown("w")){
+        	moveUp();
+        	isFacingUp = true;
+        	isFacingRight = false;
+        	isFacingLeft = false;
+        	isFacingDown = false;
+        	isFacingDownRight = false;
+        	isFacingDownLeft = false;
+        	if(Greenfoot.isKeyDown("a"))
+        	{
+            	isFacingUpLeft = true;
+        	}
+        	if(Greenfoot.isKeyDown("d"))
+        	{
+            	isFacingUpRight = true;
+        	}
+    	}
+    	if (Greenfoot.isKeyDown("s")){
+        	moveDown();
+        	isFacingUp = false;
+        	isFacingRight = false;
+        	isFacingLeft = false;
+        	isFacingDown = true;
+        	isFacingDownRight = false;
+        	isFacingDownLeft = false;
+        	if(Greenfoot.isKeyDown("a"))
+        	{
+            	isFacingDownLeft = true;
+        	}
+        	if(Greenfoot.isKeyDown("d"))
+        	{
+            	isFacingDownRight = true;
+        	}
+    	}
+    	if (Greenfoot.isKeyDown("a")){
+        	moveLeft();
+        	isFacingLeft = true;
+    	}
+    	if (Greenfoot.isKeyDown("d")){
+        	moveRight();
+        	isFacingRight = true;
+    	}
+    	if("shift".equals(dashed))
+    	{
+        	System.out.println("player has dashed");
+        	if(isFacingUp == true)
+        	{
+            	if(dashTime == 0)
+            	{
+                	characterSpeed = 2;
+            	}
+            	if(dashTime <= 30)
+            	{
+                	characterSpeed += 5;
+                	dashTime += 30;
+            	}
+            	if(dashTime >= 30)
+            	{
+                	characterSpeed = 2;
+            	}
+            }
+    	}
+    	
+    	if (Greenfoot.isKeyDown("shift"))
+    	{
+       	 
+        	if(isFacingUp == true)
+        	{
+            	if(dashed == "shift")
+            	{
+               	 
+            	}
+            	if(dashTime == 0)
+            	{
+                	characterSpeed = 2;
+            	}
+            	if(dashTime <=30)
+            	{
+                	dashTime++;
+                	characterSpeed += 1;
+            	}
+            	if(dashTime >= 30)
+            	{
+                	characterSpeed = 2;
+                	dashTime = 0;
+            	}
+        	}
+        	if(isFacingUpRight == true)
+        	{
+            	 
+        	}
+    	}
 
-        //movement
-        if(Greenfoot.isKeyDown("d")){//MainCharater moves right
-            isFacingRight = true;
-            moveRight();
-            idleAction();
-        }
-        if(Greenfoot.isKeyDown("a")){//MainCharater moves left
-            isFacingRight = false;
-            moveLeft();
-            idleAction();
-        }
-        if(Greenfoot.isKeyDown("w")){//MainCharater moves up
-            int x = getX();
-            int y = getY();
-            moveUp();
-            
-            
 
-            isFacingUp = true;
-            idleActionTwo();
-        }
-        if(Greenfoot.isKeyDown("s")){//MainCharater moves down
-            int x = getX();
-            int y = getY();
-            moveDown();
-            
-            
 
-            
-            isFacingUp = false;
-            idleActionTwo();
-        }
-        
         //attack
         if(Greenfoot.isKeyDown("right")){//MainCharater moves right
             for(int i = 0; i < 6; i++){
