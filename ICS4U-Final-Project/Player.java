@@ -197,8 +197,9 @@ public class Player extends FreeMovement
         if(Greenfoot.isKeyDown("w")){//MainCharater moves up
             int x = getX();
             int y = getY();
-            //moveUp();
-            setLocation(x, y -2);
+            moveUp();
+            
+            
 
             isFacingUp = true;
             idleActionTwo();
@@ -206,9 +207,10 @@ public class Player extends FreeMovement
         if(Greenfoot.isKeyDown("s")){//MainCharater moves down
             int x = getX();
             int y = getY();
-            //moveDown();
+            moveDown();
             
-            setLocation(x, y +2);
+            
+
             
             isFacingUp = false;
             idleActionTwo();
@@ -247,15 +249,7 @@ public class Player extends FreeMovement
         
     }
     
-    public void setLocation(int x, int y)//When MainCharater touches Boundary, it stops MainCharater from moving further
-    {
-        int oldX = getX();
-        int oldY = getY();
-        super.setLocation(x, y);
-        if(!getIntersectingObjects(Boundary.class).isEmpty())
-        {
-            super.setLocation(oldX, oldY);
-        }
-    }
+    
+    
     
 }
