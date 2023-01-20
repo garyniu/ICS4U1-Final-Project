@@ -214,22 +214,22 @@ public class Player extends FreeMovement
         	}
     	}
     	if (Greenfoot.isKeyDown("s")){
-        	moveDown();
-        	isFacingUp = false;
-        	isFacingRight = false;
-        	isFacingLeft = false;
-        	isFacingDown = true;
-        	isFacingDownRight = false;
-        	isFacingDownLeft = false;
-        	if(Greenfoot.isKeyDown("a"))
-        	{
-            	isFacingDownLeft = true;
-        	}
-        	if(Greenfoot.isKeyDown("d"))
-        	{
-            	isFacingDownRight = true;
-        	}
-    	}
+            	moveDown();
+            	isFacingUp = false;
+            	isFacingRight = false;
+            	isFacingLeft = false;
+            	isFacingDown = true;
+            	isFacingDownRight = false;
+            	isFacingDownLeft = false;
+            	if(Greenfoot.isKeyDown("a"))
+            	{
+                    isFacingDownLeft = true;
+            	}
+            	if(Greenfoot.isKeyDown("d"))
+            	{
+                    isFacingDownRight = true;
+                }
+        }
     	if (Greenfoot.isKeyDown("a")){
         	moveLeft();
         	isFacingLeft = true;
