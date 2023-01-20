@@ -55,7 +55,7 @@ public class GameWorld extends World
         
     public Wall[][] wallListTwo = new Wall[10][7];
     
-    private GreenfootImage background = new GreenfootImage("BG33.png");
+    private GreenfootImage background = new GreenfootImage("images/background/BG33.png");
     
     private WorldBackground wbg;
     
@@ -94,11 +94,12 @@ public class GameWorld extends World
         portal = new Portal(portal);
         this.addObject(portal, 9999, 9999);
         
+        //gameWorldPortal to portalTest world
         portal = new Portal();
         this.addObject(portal, 560, 215);//Portal in this world (GameWorld) 
         portal = new Portal(portal);
         PortalTest world2 = new PortalTest();//portal to the other world (PortalTest)
-        world2.addObject(portal, 100, 100);
+        world2.addObject(portal, 260, 115);
         
         
         FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);

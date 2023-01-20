@@ -1,19 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class EnterPortal here.
+ * Write a description of class Dungeon1Cover1 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class EnterPortal extends Others
-
+public class Dungeon1Cover1 extends Others
 {
     /**
-     * Act - do whatever the EnterPortal wants to do. This method is called whenever
+     * Act - do whatever the Dungeon1Cover1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
+    private GreenfootImage coverImage = new GreenfootImage("images/misc/Cover1.png");
     
     public void addedToWorld(World GameWorld){
         //System.out.println("wall pos: " + getX() + " " + getY());
@@ -22,10 +22,9 @@ public class EnterPortal extends Others
         yg = getY();
     }
     
-    GifImage void1 = new GifImage("images/misc/void1.gif");
-    public void act()
+    public Dungeon1Cover1() 
     {
         // Add your action code here.
-        setImage(void1.getCurrentImage());
+        setImage(coverImage);
     }
 }

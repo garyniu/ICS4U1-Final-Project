@@ -35,7 +35,6 @@ public class Player extends FreeMovement
     private int atkSize = 180;
     private int CharacterSpeed = 1;//quick way to adjust all the MainCharater's speed
     private int SprintSpeed = 2;//quick way to adjust all the MainCharater's sprint speed
-
     
     public Player(int x, int y){
         super(x, y);
@@ -214,27 +213,32 @@ public class Player extends FreeMovement
         
         //attack
         if(Greenfoot.isKeyDown("right")){//MainCharater moves right
-            isFacingRight = true;
-            horizontalAttack();
-            idleAction();
-        }else if(Greenfoot.isKeyDown("left")){//MainCharater moves left
-            isFacingRight = false;
-            horizontalAttack();
-            idleAction();
-        }else if(Greenfoot.isKeyDown("up")){//MainCharater moves up
-            int x = getX();
-            int y = getY();
-            verticalAttack();
-
-            isFacingUp = true;
-            idleActionTwo();
-        }else if(Greenfoot.isKeyDown("down")){//MainCharater moves down
-            int x = getX();
-            int y = getY();
-            verticalAttack();
-            
-            isFacingUp = false;
-            idleActionTwo();
+            for(int i = 0; i < 6; i++){
+                isFacingRight = true;
+                horizontalAttack();
+            }
+        }
+        if(Greenfoot.isKeyDown("left")){//MainCharater moves left
+            for(int i = 0; i < 6; i++){
+                isFacingRight = false;
+                horizontalAttack();
+            }
+        }
+        if(Greenfoot.isKeyDown("up")){//MainCharater moves up
+            for(int i = 0; i < 6; i++){
+                int x = getX();
+                int y = getY();
+                isFacingUp = true;
+                verticalAttack();
+            }
+        }
+        if(Greenfoot.isKeyDown("down")){//MainCharater moves down
+            for(int i = 0; i < 6; i++){
+                int x = getX();
+                int y = getY();
+                isFacingUp = false;
+                verticalAttack();
+            }
         }
     }
 }
