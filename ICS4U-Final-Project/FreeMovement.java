@@ -40,7 +40,7 @@ public abstract class FreeMovement extends SuperSmoothMover
         System.out.println(posx + " " + posy);
         super.setLocation(posx, posy);
         
-        wallCollision();
+        
         
         //System.out.println("test");
     }
@@ -49,21 +49,25 @@ public abstract class FreeMovement extends SuperSmoothMover
     public void moveLeft(){
         posx-=2;
         dir = "R";
+        wallCollision();
     }
     public void moveRight(){
         posx+=2;
         dir = "L";
+        wallCollision();
     }
     public void moveUp(){
         //posy-=2; 
         setLocation(posx, posy -= 2);
         dir = "D";
+        wallCollision();
     }
     public void moveDown(){
         //posy+=2;
         setLocation(posx, posy += 2);
         
         dir = "U";
+        wallCollision();
     }
     
     public String getPrevMove()
