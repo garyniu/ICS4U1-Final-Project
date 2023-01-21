@@ -24,15 +24,11 @@ public class Player extends FreeMovement
     private GreenfootImage[] adownImages;
     private GreenfootImage[] arightImages;
     private GreenfootImage[] aleftImages;
-    
-    private boolean isFacingUp, isFacingUpRight, isFacingUpLeft = false;
-    
-    private boolean isFacingDown, isFacingDownRight, isFacingDownLeft = false;
-    
-    private boolean isFacingLeft, isFacingRight = false;
-    
+
+    private boolean isFacingUp, isFacingDown, isFacingLeft, isFacingRight = false;
+
     private int x, y;
-    
+
     //animation image speed
     private SimpleTimer actionTimer;
     private int delay = 0;
@@ -42,7 +38,7 @@ public class Player extends FreeMovement
     private int atkSize = 180;
     private int characterSpeed = 1;//quick way to adjust all the MainCharater's speed
     private int SprintSpeed = 2;//quick way to adjust all the MainCharater's sprint speed
-    
+
     public Player(int x, int y){
         super(x, y);
         //walk
@@ -98,22 +94,19 @@ public class Player extends FreeMovement
             aleftImages[i].scale(atkSize, atkSize);
         }
         setImage(rightImages[0]);
-        
+
         actionTimer = new SimpleTimer();
         actionTimer.mark();
     }
 
     int curIndex = 0;
-    public void idleAction()//controls the animation image speed for moving left and right
+    public void hAction()//controls the animation image speed for moving left and right
     {
         if(actionTimer.millisElapsed() > 100)
         {
-            if (isFacingRight)
-            {
+            if (isFacingRight){
                 setImage(rightImages[curIndex]);
-            }
-            else
-            {
+            }else if(isFacingLeft){
                 setImage(leftImages[curIndex]);
             }
 
@@ -124,20 +117,16 @@ public class Player extends FreeMovement
             actionTimer.mark();
         }
     }
-
-    public void idleActionTwo()//controls the animation image speed for moving up and down
+    public void vAction()//controls the animation image speed for moving up and down
     {
         if(actionTimer.millisElapsed() > 100)
         {
-
-            if (isFacingUp)
-            {
+            if (isFacingUp){
                 setImage(upImages[curIndex]);
-            }
-            else
-            {
+            }else if(isFacingDown){
                 setImage(downImages[curIndex]);
             }
+            
             curIndex++;
             if(curIndex == 6){
                 curIndex = 0;
@@ -146,16 +135,13 @@ public class Player extends FreeMovement
         }
     }
 
-    public void verticalAttack(){
+    /*public void vAttack(){
         if(actionTimer.millisElapsed() > 100)
         {
 
-            if (isFacingUp)
-            {
+            if (isFacingUp){
                 setImage(aupImages[curIndex]);
-            }
-            else
-            {
+            }else if(isFacingDown){
                 setImage(adownImages[curIndex]);
             }
             curIndex++;
@@ -165,16 +151,12 @@ public class Player extends FreeMovement
             actionTimer.mark();
         }
     }
-
-    public void horizontalAttack(){
+    public void hAttack(){
         if(actionTimer.millisElapsed() > 100)
         {
-            if (isFacingRight)
-            {
+            if (isFacingRight){
                 setImage(arightImages[curIndex]);
-            }
-            else
-            {
+            }else if(isFacingLeft){
                 setImage(aleftImages[curIndex]);
             }
 
@@ -184,7 +166,7 @@ public class Player extends FreeMovement
             }
             actionTimer.mark();
         }
-    }
+    }*/
 
     public void act()
     {
@@ -192,55 +174,45 @@ public class Player extends FreeMovement
         x = getX();
         y = getY();
         String dashed = Greenfoot.getKey();
-        
+
         //movement
-        
-        //movement
-        if (Greenfoot.isKeyDown("w")){
-            moveUp();
-            isFacingUp = true;
-            isFacingRight = false;
-            isFacingLeft = false;
-            isFacingDown = false;
-            isFacingDownRight = false;
-            isFacingDownLeft = false;
-            if(Greenfoot.isKeyDown("a"))
-            {
-                isFacingUpLeft = true;
-            }
-            if(Greenfoot.isKeyDown("d"))
-            {
-                isFacingUpRight = true;
-            }
-            idleAction();
-        }
-        if (Greenfoot.isKeyDown("s")){
-                moveDown();
-                isFacingUp = false;
-                isFacingRight = false;
-                isFacingLeft = false;
-                isFacingDown = true;
-                isFacingDownRight = false;
-                isFacingDownLeft = false;
-                if(Greenfoot.isKeyDown("a"))
-                {
-                    isFacingDownLeft = true;
-                }
-                if(Greenfoot.isKeyDown("d"))
-                {
-                    isFacingDownRight = true;
-                }
-                idleAction();
-        }
+        //a and d goes first so the horizontal walking animation always plays
+        //when moving diagonally(looks better since there is no horizontal animation)
         if (Greenfoot.isKeyDown("a")){
             moveLeft();
+            isFacingUp = false;
+            isFacingDown = false;
             isFacingLeft = true;
+            isFacingRight = false;
+            hAction();
         }
         if (Greenfoot.isKeyDown("d")){
             moveRight();
+            isFacingUp = false;
+            isFacingDown = false;
+            isFacingLeft = false;
             isFacingRight = true;
+            hAction();
         }
-        if("shift".equals(dashed))
+        if (Greenfoot.isKeyDown("w")){
+            moveUp();
+            isFacingUp = true;
+            isFacingDown = false;
+            isFacingLeft = false;
+            isFacingRight = false;
+            vAction();
+        }
+        if (Greenfoot.isKeyDown("s")){
+            moveDown();
+            isFacingUp = false;
+            isFacingDown = true;
+            isFacingLeft = false;
+            isFacingRight = false;
+            vAction();
+        }
+        
+        
+        /*if("shift".equals(dashed))
         {
             System.out.println("player has dashed");
             if(isFacingUp == true)
@@ -260,15 +232,14 @@ public class Player extends FreeMovement
                 }
             }
         }
-        
+
         if (Greenfoot.isKeyDown("shift"))
         {
-            
             if(isFacingUp == true)
             {
                 if(dashed == "shift")
                 {
-                    
+
                 }
                 if(dashTime == 0)
                 {
@@ -285,25 +256,19 @@ public class Player extends FreeMovement
                     dashTime = 0;
                 }
             }
-            if(isFacingUpRight == true)
-            {
-                 
-            }
         }
-
-
 
         //attack
         if(Greenfoot.isKeyDown("right")){//MainCharater moves right
             for(int i = 0; i < 6; i++){
                 isFacingRight = true;
-                horizontalAttack();
+                hAttack();
             }
         }
         if(Greenfoot.isKeyDown("left")){//MainCharater moves left
             for(int i = 0; i < 6; i++){
                 isFacingRight = false;
-                horizontalAttack();
+                hAttack();
             }
         }
         if(Greenfoot.isKeyDown("up")){//MainCharater moves up
@@ -311,7 +276,7 @@ public class Player extends FreeMovement
                 int x = getX();
                 int y = getY();
                 isFacingUp = true;
-                verticalAttack();
+                vAttack();
             }
         }
         if(Greenfoot.isKeyDown("down")){//MainCharater moves down
@@ -319,14 +284,8 @@ public class Player extends FreeMovement
                 int x = getX();
                 int y = getY();
                 isFacingUp = false;
-                verticalAttack();
+                vAttack();
             }
-        }
-        
-        
+        }*/
     }
-    
-    
-    
-    
 }
