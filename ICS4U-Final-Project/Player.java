@@ -8,11 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends FreeMovement
 {
-    //TODO 
-    //Attacks(Justin)
-    //Sprites(Justin)
-    //Items(Victor)
-    //Movement(Gary)
+    //BUGS
+    //holding down w/a/s/d with e breaks the game
+    //has to hold down e to play attack animation
+    //attack animation can start at random images
 
     //charater animation images
     private GreenfootImage[] upImages;
@@ -249,6 +248,7 @@ public class Player extends FreeMovement
                 isFacingRightDown = true;
             }
         }
+        //plays attack animation when pressing e
         if(Greenfoot.isKeyDown("e")){
             attack();
         }
