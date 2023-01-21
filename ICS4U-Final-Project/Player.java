@@ -25,7 +25,10 @@ public class Player extends FreeMovement
     private GreenfootImage[] arightImages;
     private GreenfootImage[] aleftImages;
 
+    //vertical+horizontal booleans
     private boolean isFacingUp, isFacingDown, isFacingLeft, isFacingRight = false;
+    //diagonal booleans
+    private boolean isFacingLeftUp, isFacingRightUp, isFacingLeftDown, isFacingRightDown;
 
     private int x, y;
 
@@ -185,6 +188,17 @@ public class Player extends FreeMovement
             isFacingLeft = true;
             isFacingRight = false;
             hAction();
+            if(Greenfoot.isKeyDown("w")){//detect up
+                isFacingLeftUp = true;
+                isFacingRightUp = false;
+                isFacingLeftDown = false;
+                isFacingRightDown = false;
+            }else if(Greenfoot.isKeyDown("s")){//detect down
+                isFacingLeftUp = false;
+                isFacingRightUp = false;
+                isFacingLeftDown = true;
+                isFacingRightDown = false;
+            }
         }
         if (Greenfoot.isKeyDown("d")){
             moveRight();
@@ -193,6 +207,17 @@ public class Player extends FreeMovement
             isFacingLeft = false;
             isFacingRight = true;
             hAction();
+            if(Greenfoot.isKeyDown("w")){//detect up
+                isFacingLeftUp = false;
+                isFacingRightUp = true;
+                isFacingLeftDown = false;
+                isFacingRightDown = false;
+            }else if(Greenfoot.isKeyDown("s")){//detect down
+                isFacingLeftUp = false;
+                isFacingRightUp = false;
+                isFacingLeftDown = false;
+                isFacingRightDown = true;
+            }
         }
         if (Greenfoot.isKeyDown("w")){
             moveUp();
@@ -201,6 +226,17 @@ public class Player extends FreeMovement
             isFacingLeft = false;
             isFacingRight = false;
             vAction();
+            if(Greenfoot.isKeyDown("a")){//detect left
+                isFacingLeftUp = true;
+                isFacingRightUp = false;
+                isFacingLeftDown = false;
+                isFacingRightDown = false;
+            }else if(Greenfoot.isKeyDown("d")){//detect right
+                isFacingLeftUp = false;
+                isFacingRightUp = true;
+                isFacingLeftDown = false;
+                isFacingRightDown = false;
+            }
         }
         if (Greenfoot.isKeyDown("s")){
             moveDown();
@@ -209,8 +245,18 @@ public class Player extends FreeMovement
             isFacingLeft = false;
             isFacingRight = false;
             vAction();
+            if(Greenfoot.isKeyDown("a")){//detect left
+                isFacingLeftUp = false;
+                isFacingRightUp = false;
+                isFacingLeftDown = true;
+                isFacingRightDown = false;
+            }else if(Greenfoot.isKeyDown("d")){//detect right
+                isFacingLeftUp = false;
+                isFacingRightUp = false;
+                isFacingLeftDown = false;
+                isFacingRightDown = true;
+            }
         }
-        
         
         /*if("shift".equals(dashed))
         {
