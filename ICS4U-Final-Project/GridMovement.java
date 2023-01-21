@@ -54,8 +54,6 @@ public class GridMovement extends Others
             //}
             
         }
-        
-        
     }
     
     public void moveRight(){

@@ -41,6 +41,7 @@ public class Player extends FreeMovement
     private int atkSize = 180;
     private int characterSpeed = 1;//quick way to adjust all the MainCharater's speed
     private int SprintSpeed = 2;//quick way to adjust all the MainCharater's sprint speed
+    private boolean sprinting = false;
 
     public Player(int x, int y){
         super(x, y);
@@ -250,6 +251,18 @@ public class Player extends FreeMovement
         }
         if(Greenfoot.isKeyDown("e")){
             attack();
+        }
+        //set speeds
+        if(!sprinting){
+            if(Greenfoot.isKeyDown("Shift")){
+                FreeMovement.setPlayerSpeed(4);
+                sprinting = true;
+            }
+        }else if(sprinting){
+            if(Greenfoot.isKeyDown("Shift")){
+                FreeMovement.setPlayerSpeed(2);
+                sprinting = false;
+            }
         }
         
         /*if("shift".equals(dashed))
