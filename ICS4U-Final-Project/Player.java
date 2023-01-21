@@ -12,6 +12,7 @@ public class Player extends FreeMovement
     //holding down w/a/s/d with e breaks the game
     //has to hold down e to play attack animation
     //attack animation can start at random images
+    //player attack animation happens twice in portal world
 
     //charater animation images
     private GreenfootImage[] upImages;
