@@ -20,10 +20,10 @@ public class Player extends FreeMovement
     private GreenfootImage[] rightImages;
     private GreenfootImage[] leftImages;
     //character attack animation images
-    private GreenfootImage[] aupImages;
-    private GreenfootImage[] adownImages;
-    private GreenfootImage[] arightImages;
-    private GreenfootImage[] aleftImages;
+    private GreenfootImage[] attackUpImages;
+    private GreenfootImage[] attackDownImages;
+    private GreenfootImage[] attackRightImages;
+    private GreenfootImage[] attackLeftImages;
 
     //vertical+horizontal booleans
     private boolean isFacingUp, isFacingDown, isFacingLeft, isFacingRight = false;
@@ -50,10 +50,10 @@ public class Player extends FreeMovement
         rightImages = new GreenfootImage[9];
         leftImages = new GreenfootImage[9];
         //attack
-        aupImages = new GreenfootImage[6];
-        adownImages = new GreenfootImage[6];
-        arightImages = new GreenfootImage[6];
-        aleftImages = new GreenfootImage[6];
+        attackUpImages = new GreenfootImage[6];
+        attackDownImages = new GreenfootImage[6];
+        attackRightImages = new GreenfootImage[6];
+        attackLeftImages = new GreenfootImage[6];
 
         //walk
         for(int i = 0; i < downImages.length; i++)//main charater walking down animation 
@@ -77,24 +77,24 @@ public class Player extends FreeMovement
         }
 
         //attack
-        for(int i = 0; i < adownImages.length; i++)//main charater walking down animation 
+        for(int i = 0; i < attackDownImages.length; i++)//main charater walking down animation 
         {
-            adownImages[i] = new GreenfootImage("images/attack/down/down" + i + ".png");
-            adownImages[i].scale(atkSize, atkSize);
+            attackDownImages[i] = new GreenfootImage("images/attack/down/down" + i + ".png");
+            attackDownImages[i].scale(atkSize, atkSize);
         }
-        for(int i = 0; i < aupImages.length; i++)//main charater walking up animation 
+        for(int i = 0; i < attackUpImages.length; i++)//main charater walking up animation 
         {
-            aupImages[i] = new GreenfootImage("images/attack/up/up" + i + ".png");
-            aupImages[i].scale(atkSize, atkSize);
+            attackUpImages[i] = new GreenfootImage("images/attack/up/up" + i + ".png");
+            attackUpImages[i].scale(atkSize, atkSize);
         }
-        for(int i = 0; i < arightImages.length; i++)//main charater walking left and right animation 
+        for(int i = 0; i < attackRightImages.length; i++)//main charater walking left and right animation 
         {
-            arightImages[i] = new GreenfootImage("images/attack/right/right" + i + ".png");
-            arightImages[i].scale(atkSize, atkSize);
+            attackRightImages[i] = new GreenfootImage("images/attack/right/right" + i + ".png");
+            attackRightImages[i].scale(atkSize, atkSize);
 
-            aleftImages[i] = new GreenfootImage("images/attack/right/right" + i + ".png");
-            aleftImages[i].mirrorHorizontally();
-            aleftImages[i].scale(atkSize, atkSize);
+            attackLeftImages[i] = new GreenfootImage("images/attack/right/right" + i + ".png");
+            attackLeftImages[i].mirrorHorizontally();
+            attackLeftImages[i].scale(atkSize, atkSize);
         }
         setImage(rightImages[0]);
 
@@ -103,6 +103,7 @@ public class Player extends FreeMovement
     }
 
     int curIndex = 0;
+    //horizontal walking animation
     public void hAction()//controls the animation image speed for moving left and right
     {
         if(actionTimer.millisElapsed() > 100)
@@ -120,6 +121,7 @@ public class Player extends FreeMovement
             actionTimer.mark();
         }
     }
+    //vertical walking animation
     public void vAction()//controls the animation image speed for moving up and down
     {
         if(actionTimer.millisElapsed() > 100)
@@ -138,38 +140,27 @@ public class Player extends FreeMovement
         }
     }
 
-    /*public void vAttack(){
-        if(actionTimer.millisElapsed() > 100)
-        {
-
-            if (isFacingUp){
-                setImage(aupImages[curIndex]);
+    //attack animation
+    public void attack(){
+        if(actionTimer.millisElapsed() > 100){
+            if (isFacingRight){
+                setImage(attackRightImages[curIndex]);
+            }else if(isFacingLeft){
+                setImage(attackLeftImages[curIndex]);
+            }else if (isFacingUp){
+                setImage(attackUpImages[curIndex]);
             }else if(isFacingDown){
-                setImage(adownImages[curIndex]);
+                setImage(attackDownImages[curIndex]);
             }
+            
             curIndex++;
             if(curIndex == 6){
                 curIndex = 0;
             }
+            
             actionTimer.mark();
         }
     }
-    public void hAttack(){
-        if(actionTimer.millisElapsed() > 100)
-        {
-            if (isFacingRight){
-                setImage(arightImages[curIndex]);
-            }else if(isFacingLeft){
-                setImage(aleftImages[curIndex]);
-            }
-
-            curIndex++;
-            if(curIndex == 6){
-                curIndex = 0;
-            }
-            actionTimer.mark();
-        }
-    }*/
 
     public void act()
     {
@@ -181,7 +172,7 @@ public class Player extends FreeMovement
         //movement
         //a and d goes first so the horizontal walking animation always plays
         //when moving diagonally(looks better since there is no horizontal animation)
-        if (Greenfoot.isKeyDown("a")){
+        if (Greenfoot.isKeyDown("a")){//detect left
             moveLeft();
             isFacingUp = false;
             isFacingDown = false;
@@ -200,7 +191,7 @@ public class Player extends FreeMovement
                 isFacingRightDown = false;
             }
         }
-        if (Greenfoot.isKeyDown("d")){
+        if (Greenfoot.isKeyDown("d")){//detect right
             moveRight();
             isFacingUp = false;
             isFacingDown = false;
@@ -219,7 +210,7 @@ public class Player extends FreeMovement
                 isFacingRightDown = true;
             }
         }
-        if (Greenfoot.isKeyDown("w")){
+        if (Greenfoot.isKeyDown("w")){//detect up
             moveUp();
             isFacingUp = true;
             isFacingDown = false;
@@ -238,7 +229,7 @@ public class Player extends FreeMovement
                 isFacingRightDown = false;
             }
         }
-        if (Greenfoot.isKeyDown("s")){
+        if (Greenfoot.isKeyDown("s")){//detect down
             moveDown();
             isFacingUp = false;
             isFacingDown = true;
@@ -256,6 +247,9 @@ public class Player extends FreeMovement
                 isFacingLeftDown = false;
                 isFacingRightDown = true;
             }
+        }
+        if(Greenfoot.isKeyDown("e")){
+            attack();
         }
         
         /*if("shift".equals(dashed))

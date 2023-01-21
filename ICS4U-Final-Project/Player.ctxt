@@ -8,6 +8,7 @@ comment2.target=void\ hAction()
 comment3.params=
 comment3.target=void\ vAction()
 comment4.params=
-comment4.target=void\ act()
-comment4.text=public\ void\ vAttack(){\r\n\ \ \ \ \ \ \ \ if(actionTimer.millisElapsed()\ >\ 100)\r\n\ \ \ \ \ \ \ \ {\r\n\r\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (isFacingUp){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setImage(aupImages[curIndex]);\r\n\ \ \ \ \ \ \ \ \ \ \ \ }else\ if(isFacingDown){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setImage(adownImages[curIndex]);\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \ \ \ \ curIndex++;\r\n\ \ \ \ \ \ \ \ \ \ \ \ if(curIndex\ \=\=\ 6){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ curIndex\ \=\ 0;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \ \ \ \ actionTimer.mark();\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ }\r\n\ \ \ \ public\ void\ hAttack(){\r\n\ \ \ \ \ \ \ \ if(actionTimer.millisElapsed()\ >\ 100)\r\n\ \ \ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (isFacingRight){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setImage(arightImages[curIndex]);\r\n\ \ \ \ \ \ \ \ \ \ \ \ }else\ if(isFacingLeft){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setImage(aleftImages[curIndex]);\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\r\n\ \ \ \ \ \ \ \ \ \ \ \ curIndex++;\r\n\ \ \ \ \ \ \ \ \ \ \ \ if(curIndex\ \=\=\ 6){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ curIndex\ \=\ 0;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \ \ \ \ actionTimer.mark();\r\n\ \ \ \ \ \ \ \ }\r\n}
-numComments=5
+comment4.target=void\ attack()
+comment5.params=
+comment5.target=void\ act()
+numComments=6
