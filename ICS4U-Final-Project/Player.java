@@ -252,15 +252,15 @@ public class Player extends FreeMovement
         if(Greenfoot.isKeyDown("e")){
             attack();
         }
-        //set speeds
+        //sprint toggling with shift key
         if(!sprinting){
             if(Greenfoot.isKeyDown("Shift")){
-                FreeMovement.setPlayerSpeed(4);
+                FreeMovement.setPlayerSpeed(10);//sprinting speed
                 sprinting = true;
             }
         }else if(sprinting){
             if(Greenfoot.isKeyDown("Shift")){
-                FreeMovement.setPlayerSpeed(2);
+                FreeMovement.setPlayerSpeed(2);//walking speed
                 sprinting = false;
             }
         }
