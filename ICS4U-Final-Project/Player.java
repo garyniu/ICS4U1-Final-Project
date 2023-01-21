@@ -189,105 +189,107 @@ public class Player extends FreeMovement
     public void act()
     {
         super.act();
-    	x = getX();
-    	y = getY();
-    	String dashed = Greenfoot.getKey();
-   	 
-    	//movement
-   	 
-    	//movement
-    	if (Greenfoot.isKeyDown("w")){
-        	moveUp();
-        	isFacingUp = true;
-        	isFacingRight = false;
-        	isFacingLeft = false;
-        	isFacingDown = false;
-        	isFacingDownRight = false;
-        	isFacingDownLeft = false;
-        	if(Greenfoot.isKeyDown("a"))
-        	{
-            	isFacingUpLeft = true;
-        	}
-        	if(Greenfoot.isKeyDown("d"))
-        	{
-            	isFacingUpRight = true;
-        	}
-    	}
-    	if (Greenfoot.isKeyDown("s")){
-            	moveDown();
-            	isFacingUp = false;
-            	isFacingRight = false;
-            	isFacingLeft = false;
-            	isFacingDown = true;
-            	isFacingDownRight = false;
-            	isFacingDownLeft = false;
-            	if(Greenfoot.isKeyDown("a"))
-            	{
+        x = getX();
+        y = getY();
+        String dashed = Greenfoot.getKey();
+        
+        //movement
+        
+        //movement
+        if (Greenfoot.isKeyDown("w")){
+            moveUp();
+            isFacingUp = true;
+            isFacingRight = false;
+            isFacingLeft = false;
+            isFacingDown = false;
+            isFacingDownRight = false;
+            isFacingDownLeft = false;
+            if(Greenfoot.isKeyDown("a"))
+            {
+                isFacingUpLeft = true;
+            }
+            if(Greenfoot.isKeyDown("d"))
+            {
+                isFacingUpRight = true;
+            }
+            idleAction();
+        }
+        if (Greenfoot.isKeyDown("s")){
+                moveDown();
+                isFacingUp = false;
+                isFacingRight = false;
+                isFacingLeft = false;
+                isFacingDown = true;
+                isFacingDownRight = false;
+                isFacingDownLeft = false;
+                if(Greenfoot.isKeyDown("a"))
+                {
                     isFacingDownLeft = true;
-            	}
-            	if(Greenfoot.isKeyDown("d"))
-            	{
+                }
+                if(Greenfoot.isKeyDown("d"))
+                {
                     isFacingDownRight = true;
                 }
+                idleAction();
         }
-    	if (Greenfoot.isKeyDown("a")){
-        	moveLeft();
-        	isFacingLeft = true;
-    	}
-    	if (Greenfoot.isKeyDown("d")){
-        	moveRight();
-        	isFacingRight = true;
-    	}
-    	if("shift".equals(dashed))
-    	{
-        	System.out.println("player has dashed");
-        	if(isFacingUp == true)
-        	{
-            	if(dashTime == 0)
-            	{
-                	characterSpeed = 2;
-            	}
-            	if(dashTime <= 30)
-            	{
-                	characterSpeed += 5;
-                	dashTime += 30;
-            	}
-            	if(dashTime >= 30)
-            	{
-                	characterSpeed = 2;
-            	}
+        if (Greenfoot.isKeyDown("a")){
+            moveLeft();
+            isFacingLeft = true;
+        }
+        if (Greenfoot.isKeyDown("d")){
+            moveRight();
+            isFacingRight = true;
+        }
+        if("shift".equals(dashed))
+        {
+            System.out.println("player has dashed");
+            if(isFacingUp == true)
+            {
+                if(dashTime == 0)
+                {
+                    characterSpeed = 2;
+                }
+                if(dashTime <= 30)
+                {
+                    characterSpeed += 5;
+                    dashTime += 30;
+                }
+                if(dashTime >= 30)
+                {
+                    characterSpeed = 2;
+                }
             }
-    	}
-    	
-    	if (Greenfoot.isKeyDown("shift"))
-    	{
-       	 
-        	if(isFacingUp == true)
-        	{
-            	if(dashed == "shift")
-            	{
-               	 
-            	}
-            	if(dashTime == 0)
-            	{
-                	characterSpeed = 2;
-            	}
-            	if(dashTime <=30)
-            	{
-                	dashTime++;
-                	characterSpeed += 1;
-            	}
-            	if(dashTime >= 30)
-            	{
-                	characterSpeed = 2;
-                	dashTime = 0;
-            	}
-        	}
-        	if(isFacingUpRight == true)
-        	{
-            	 
-        	}
-    	}
+        }
+        
+        if (Greenfoot.isKeyDown("shift"))
+        {
+            
+            if(isFacingUp == true)
+            {
+                if(dashed == "shift")
+                {
+                    
+                }
+                if(dashTime == 0)
+                {
+                    characterSpeed = 2;
+                }
+                if(dashTime <=30)
+                {
+                    dashTime++;
+                    characterSpeed += 1;
+                }
+                if(dashTime >= 30)
+                {
+                    characterSpeed = 2;
+                    dashTime = 0;
+                }
+            }
+            if(isFacingUpRight == true)
+            {
+                 
+            }
+        }
 
 
 

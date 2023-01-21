@@ -44,8 +44,9 @@ public class PortalTest extends World
         
         
         //change enemy to spawn anaywhere, and it moves itself to correct spot
-        addObject(new Enemy(300, 200, getMapBlockSize(), getMapOrigin()), 300, 200);
+        addObject(new BossEnemy(300, 200, getMapBlockSize(), getMapOrigin()), 300, 200);
         
+        addObject(new Enemy(300, 200, getMapBlockSize(), getMapOrigin()), 300, 200);
         
         FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
 

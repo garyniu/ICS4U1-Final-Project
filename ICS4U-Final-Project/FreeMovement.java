@@ -12,6 +12,7 @@ public abstract class FreeMovement extends SuperSmoothMover
     
     
     protected int posx, posy, prevx, prevy;
+    private int speed = 10;
     private String dir = "L";
     //protected GreenfootImage CharImg;
     
@@ -47,24 +48,24 @@ public abstract class FreeMovement extends SuperSmoothMover
     
     //movement
     public void moveLeft(){
-        posx-=2;
+        posx -= speed;
         dir = "R";
         wallCollision();
     }
     public void moveRight(){
-        posx+=2;
+        posx += speed;
         dir = "L";
         wallCollision();
     }
     public void moveUp(){
         //posy-=2; 
-        setLocation(posx, posy -= 2);
+        setLocation(posx, posy -= speed);
         dir = "D";
         wallCollision();
     }
     public void moveDown(){
         //posy+=2;
-        setLocation(posx, posy += 2);
+        setLocation(posx, posy += speed);
         
         dir = "U";
         wallCollision();
