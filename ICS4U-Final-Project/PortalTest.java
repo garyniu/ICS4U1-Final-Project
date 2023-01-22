@@ -15,6 +15,7 @@ public class PortalTest extends World
     
     private int xd = 0, yd = 0;
     
+    private int x = 940;
     /**
      * Constructor for objects of class PortalTest.
      * 
@@ -41,6 +42,7 @@ public class PortalTest extends World
         
         Others c1 = new Dungeon1Cover1();
         addObject(c1, 240, 305);
+        
         
         
         //change enemy to spawn anaywhere, and it moves itself to correct spot
@@ -72,9 +74,15 @@ public class PortalTest extends World
         MouseInfo m = Greenfoot.getMouseInfo();
         if (m != null)
         {
-            showText("mouseX: " + String.valueOf(m.getX()), 260, 200);
-            showText("mouseY: " + String.valueOf(m.getY()), 260, 300);
+            showText("mouseX: " + String.valueOf(m.getX() - 960), 900, 500);
+            showText("mouseY: " + String.valueOf(m.getY() - 545), 900, 600);
         }
+        
+        /*if (m != null)
+        {
+            showText("mouseX: " + String.valueOf(m.getX()), 900, 500);
+            showText("mouseY: " + String.valueOf(m.getY()), 900, 600);
+        }*/
     }
     
     public int[][] getMapArr(){
