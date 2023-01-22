@@ -12,6 +12,7 @@ public abstract class FreeMovement extends SuperSmoothMover
     
     
     protected int posx, posy, prevx, prevy;
+    protected int Spawnx = 0, Spawny = 0;
     private static int speed = 2;
     private String dir = "L";
     //protected GreenfootImage CharImg;
@@ -39,11 +40,16 @@ public abstract class FreeMovement extends SuperSmoothMover
         
                 
         System.out.println(posx + " " + posy);
-        super.setLocation(posx, posy);
+        super.setLocationCam(posx, posy, Spawnx, Spawny);
         
         
         
         //System.out.println("test");
+    }
+    
+    public void changeSpawnCoords(int x, int y){
+        Spawnx = x;
+        Spawny = y;
     }
     
     //movement
@@ -60,14 +66,14 @@ public abstract class FreeMovement extends SuperSmoothMover
     public void moveUp(){
         //posy-=2; 
         
-        setLocation(posx, posy -= speed);
+        setLocationCam(posx, posy -= speed, Spawnx, Spawny);
         dir = "D";
         wallCollision();
     }
     public void moveDown(){
         //posy+=2;
         
-        setLocation(posx, posy += speed);
+        setLocationCam(posx, posy += speed, Spawnx, Spawny);
         dir = "U";
         wallCollision();
     }
@@ -86,7 +92,7 @@ public abstract class FreeMovement extends SuperSmoothMover
     {
         int oldX = prevx;
         int oldY = prevy;
-        super.setLocation(posx, posy);
+        setLocationCam(posx, posy, Spawnx, Spawny);
         if(!getIntersectingObjects(Boundary.class).isEmpty())
         {
             switch (dir) {

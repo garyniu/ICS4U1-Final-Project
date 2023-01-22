@@ -22,7 +22,7 @@ public class PortalTest extends World
     public PortalTest()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 500, 1, false); 
+        super(1920, 1080, 1, false); 
         
         
         setPaintOrder(Dungeon1Cover1.class, Player.class, Others.class, WorldBackground.class);
@@ -44,7 +44,7 @@ public class PortalTest extends World
         
         
         //change enemy to spawn anaywhere, and it moves itself to correct spot
-        addObject(new BossEnemy(300, 200, getMapBlockSize(), getMapOrigin()), 300, 200);//<- This doesn't work
+        //addObject(new BossEnemy(300, 200, getMapBlockSize(), getMapOrigin()), 300, 200);//<- This doesn't work
         //addObject(new Enemy(300, 200, getMapBlockSize(), getMapOrigin()), 300, 200);
         
         FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
@@ -52,12 +52,12 @@ public class PortalTest extends World
         addObject(playerTest, this.getWidth()/2, this.getHeight()/2);
         addObject(wbg2, this.getWidth()/2, this.getHeight()/2);
         
-        
+        playerTest.changeSpawnCoords(this.getWidth()/2, this.getHeight()/2);
         
         xd = playerTest.getX();
         yd = playerTest.getY();
         
-        moveThing(xd, yd);
+        //moveThing(xd, yd);
     }
     
     public void moveThing(int cX, int cY){

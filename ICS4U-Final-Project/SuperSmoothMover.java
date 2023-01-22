@@ -101,7 +101,7 @@ public abstract class SuperSmoothMover extends Actor
      * @param x the new x location
      * @param y the new y location
      */
-    @Override public void setLocation(int x, int y)
+    public void setLocationCam(int x, int y, int spawnOffx, int spawnOffY)
     {
         int x2 = x;//gets where the man is trying to move
         int y2 = y;
@@ -124,7 +124,7 @@ public abstract class SuperSmoothMover extends Actor
             
             //System.out.println(w.getOGCoords().getX() + " " + w.getOGCoords().getY());
             
-            w.setLocation(w.getOGCoords().getX() + (int)(Math.floor(getWorld().getWidth()/2) - x), w.getOGCoords().getY() + (int)(Math.floor(getWorld().getHeight()/2) - y));
+            w.setLocation(w.getOGCoords().getX() + (int)(Math.floor(getWorld().getWidth()/2) - x) + spawnOffx, w.getOGCoords().getY() + (int)(Math.floor(getWorld().getHeight()/2) - y) + spawnOffY);
             
             if (w.getClass() == Enemy.class){
                 w.setLocation(((Enemy)w).getCoords().getX()+ (int)(Math.floor(getWorld().getWidth()/2) - x), ((Enemy)w).getCoords().getY()+ (int)(Math.floor(getWorld().getHeight()/2) - y));
@@ -138,7 +138,7 @@ public abstract class SuperSmoothMover extends Actor
         
         
         if (getWorld() instanceof GameWorld){
-            ((GameWorld)getWorld()).setThing(x2, y2);//moves the world back
+            ((GameWorld)getWorld()).setThing(x2 + spawnOffx, y2+ spawnOffY);//moves the world back
         }
         
     }
