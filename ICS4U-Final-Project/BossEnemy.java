@@ -41,10 +41,13 @@ public class BossEnemy extends GridMovement
         AttackPlayer();
         //setLocation(getX()+1, getY());
         
+        moveRight();
+        
         //y++;
     }
     
     private void AttackPlayer(){
+       
         int x = p.getX();
         int y = p.getY();
         //change to within size of a grid (put in vars)

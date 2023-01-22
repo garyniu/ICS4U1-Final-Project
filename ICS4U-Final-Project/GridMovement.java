@@ -34,6 +34,8 @@ public class GridMovement extends Others
         timer++;
         yTimer = timer;
         
+        System.out.println("character movemnt: " + x + " " + y);
+        
     }
     
     //timer to prevent moving for too long
@@ -59,11 +61,15 @@ public class GridMovement extends Others
     public void moveRight(){
         int gridShiftx, gridShifty;
         
+        
         if ((lastTime + timeBWMoves) < timer){
+            
+            
             
             //if (leftClear){
             
                 x+=70;
+                
                 lastTime = timer;
                 
                 //move left
