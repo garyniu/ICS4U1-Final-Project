@@ -95,14 +95,16 @@ public class GameWorld extends World
         this.addObject(portal, 9999, 9999);
         
         //gameWorldPortal to portalTest world
-        portal = new Portal();
-        this.addObject(portal, 560, 215);//Portal in this world (GameWorld) 
+        //portal = new Portal();
+        //this.addObject(portal, 560, 215);//Portal in this world (GameWorld) 
+        
         portal = new Portal(portal);
         PortalTest world2 = new PortalTest();//portal to the other world (PortalTest)
         world2.addObject(portal, 260, 115);
         
         
-        FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
+        //FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
+        FreeMovement playerTest = new Player(250, 400);
 
         addObject(playerTest, this.getWidth()/2, this.getHeight()/2);
         addObject(wbg, this.getWidth()/2, this.getHeight()/2);
@@ -110,20 +112,36 @@ public class GameWorld extends World
         
         //Boudary class
         Boundary bound1 = new Boundary(550,50);
-        
-        Boundary bound2 = new Boundary(280,50);
-        
-        Boundary bound3 = new Boundary(100,50);
-        
         addObject(bound1, 520, 360);  
         bound1.setRotation(150);
         
-        addObject(bound2, 90, 360);  
+        
+        Boundary bound2 = new Boundary(280,50);
+        addObject(bound2, 70, 380);  
         bound2.setRotation(210);
         
-        addObject(bound3, 220, 470);  
+        
+        Boundary bound3 = new Boundary(100,50);
+        addObject(bound3, 200, 480);  
         bound3.setRotation(210);
+        
+        
+        Boundary bound4 = new Boundary(210,5);
+        addObject(bound4, 280, 240);  
+        bound4.setRotation(210);
+        
+        Boundary bound5 = new Boundary(5,140);
+        addObject(bound5, 280, 300);  
+        bound5.setRotation(240);
+        
+        Boundary bound6 = new Boundary(5,150);
+        addObject(bound6, 180, 240);  
+        bound6.setRotation(240);
                 
+        
+        
+        
+        
         xd = playerTest.getX();
         yd = playerTest.getY();
         
@@ -135,7 +153,7 @@ public class GameWorld extends World
                     wallListTwo[x][y]=new Wall();
                     //addObject(wallListTwo[x][y], (400 - x * 14 + y * 14-1), (140 + x * 7 + y * 7));
                     
-                    addObject(wallListTwo[x][y], (440- x * 14 + y * 14-1), (125 + x * 7 + y * 7));
+                    //addObject(wallListTwo[x][y], (440- x * 14 + y * 14-1), (125 + x * 7 + y * 7));
                     
                     //X values: higher the value the more it shifts right, Y values: the higher the more the it shifts down
                     
