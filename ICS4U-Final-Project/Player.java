@@ -80,20 +80,20 @@ public class Player extends FreeMovement
         //longsword attack
         for(int i = 0; i < longswordAttackDownImages.length; i++)//main charater walking down animation 
         {
-            longswordAttackDownImages[i] = new GreenfootImage("images/PlayerAnimations/attack/down/down" + i + ".png");
+            longswordAttackDownImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/down/down" + i + ".png");
             longswordAttackDownImages[i].scale(atkSize, atkSize);
         }
         for(int i = 0; i < longswordAttackUpImages.length; i++)//main charater walking up animation 
         {
-            longswordAttackUpImages[i] = new GreenfootImage("images/PlayerAnimations/attack/up/up" + i + ".png");
+            longswordAttackUpImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/up/up" + i + ".png");
             longswordAttackUpImages[i].scale(atkSize, atkSize);
         }
         for(int i = 0; i < longswordAttackRightImages.length; i++)//main charater walking left and right animation 
         {
-            longswordAttackRightImages[i] = new GreenfootImage("images/PlayerAnimations/attack/right/right" + i + ".png");
+            longswordAttackRightImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/right/right" + i + ".png");
             longswordAttackRightImages[i].scale(atkSize, atkSize);
 
-            longswordAttackLeftImages[i] = new GreenfootImage("images/PlayerAnimations/attack/right/right" + i + ".png");
+            longswordAttackLeftImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/right/right" + i + ".png");
             longswordAttackLeftImages[i].mirrorHorizontally();
             longswordAttackLeftImages[i].scale(atkSize, atkSize);
         }
