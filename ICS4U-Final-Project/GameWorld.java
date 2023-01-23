@@ -103,7 +103,7 @@ public class GameWorld extends World
         this.addObject(portal, 560, 215);//Portal in this world (GameWorld) 
         
         portal = new Portal(portal);
-        PortalTest world2 = new PortalTest();//portal to the other world (PortalTest)
+        IceWorld world2 = new IceWorld();//portal to the other world (PortalTest)
         world2.addObject(portal, 260, 115);
         
         
