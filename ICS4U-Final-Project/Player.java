@@ -40,7 +40,8 @@ public class Player extends FreeMovement
     private boolean isFacingUp, isFacingDown, isFacingLeft, isFacingRight = false;
     //diagonal booleans
     private boolean isFacingLeftUp, isFacingRightUp, isFacingLeftDown, isFacingRightDown;
-
+    
+    //location
     private int x, y;
 
     //animation image speed
@@ -48,11 +49,11 @@ public class Player extends FreeMovement
     private int delay = 0;
     private int dashTime;
 
-    private int size = 60;//quick way to adjust all the MainCharater's image sizes
-    private int atkSize = 180;
-    private int characterSpeed = 1;//quick way to adjust all the MainCharater's speed
-    private int SprintSpeed = 2;//quick way to adjust all the MainCharater's sprint speed
-    private boolean sprinting = false;
+    private int size = 60;//size for walking and bow animation
+    private int atkSize = 180;//size for sword and spear animation
+    private int playerSpeed = 2;//Player speed
+    private int sprintSpeed = 4;//Player spriting speed
+    private boolean sprinting = false;//sprinting boolean
 
     public Player(int x, int y){
         super(x, y);
@@ -367,13 +368,13 @@ public class Player extends FreeMovement
             }
         }
         //plays attack animation when pressing e
-        if(Greenfoot.isKeyDown("e")){
+        if(Greenfoot.isKeyDown("e")){//sword swing
             swordAttack();
         }
-        if(Greenfoot.isKeyDown("r")){
+        if(Greenfoot.isKeyDown("r")){//spear thrust
             spearAttack();
         }
-        if(Greenfoot.isKeyDown("t")){
+        if(Greenfoot.isKeyDown("t")){//bow shot
             bowAttack();
         }
         /*//sprint toggling with shift key (works weird)
@@ -390,10 +391,12 @@ public class Player extends FreeMovement
         }*/
 
         if(Greenfoot.isKeyDown(",")){
-            FreeMovement.setPlayerSpeed(10);//sprinting speed
+            FreeMovement.setPlayerSpeed(sprintSpeed);//sprinting speed
+            sprinting = true;
         }
         if(Greenfoot.isKeyDown(".")){
-            FreeMovement.setPlayerSpeed(2);//walking speed
+            FreeMovement.setPlayerSpeed(playerSpeed);//walking speed
+            sprinting = false;
         }
         
         /*if("shift".equals(dashed))

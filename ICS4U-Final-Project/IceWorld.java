@@ -90,18 +90,19 @@ public class IceWorld extends World
         //addObject(new BossEnemy(300, 200, getMapBlockSize(), getMapOrigin()), 300, 200);//<- This doesn't work
         //addObject(new Enemy(300, 200, getMapBlockSize()), 300, 200);
         //player
-        FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
-        addObject(playerTest, this.getWidth()/2, this.getHeight()/2);
+        //FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
+        //addObject(playerTest, this.getWidth()/2, this.getHeight()/2);
+        
         //hitbox for player
-        FreeMovement playerTest2 = new PlayerHitbox(250, 400);
-        addObject(playerTest2, this.getWidth()/2, this.getHeight()/2);
+        //FreeMovement playerTest2 = new PlayerHitbox(this.getWidth()/2, this.getHeight()/2);
+        //addObject(playerTest2, this.getWidth()/2, this.getHeight()/2);
         
         addObject(wbg2, this.getWidth()/2, this.getHeight()/2);
         
-        playerTest.changeSpawnCoords(this.getWidth()/2, this.getHeight()/2);
+        //playerTest.changeSpawnCoords(this.getWidth()/2, this.getHeight()/2);
         
-        xd = playerTest.getX();
-        yd = playerTest.getY();
+        //xd = playerTest.getX();
+        //yd = playerTest.getY();
         
         //moveThing(xd, yd);
         

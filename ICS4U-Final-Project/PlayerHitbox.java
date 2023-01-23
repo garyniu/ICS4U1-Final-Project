@@ -18,9 +18,9 @@ public class PlayerHitbox extends FreeMovement
     private int width = 30;
     private int length = 50;
     
-    private int characterSpeed = 1;//quick way to adjust all the MainCharater's speed
-    private int SprintSpeed = 2;//quick way to adjust all the MainCharater's sprint speed
-    private boolean sprinting = false;
+    private int playerSpeed = 2;//Player speed
+    private int sprintSpeed = 4;//Player spriting speed
+    private boolean sprinting = false;//sprinting boolean
 
     public PlayerHitbox(int x, int y){
         super(x, y);
@@ -66,12 +66,14 @@ public class PlayerHitbox extends FreeMovement
                 sprinting = false;
             }
         }*/
-        
+        //sprint toggling
         if(Greenfoot.isKeyDown(",")){
-            FreeMovement.setPlayerSpeed(10);//sprinting speed
+            FreeMovement.setPlayerSpeed(sprintSpeed);//sprinting speed
+            sprinting = true;
         }
         if(Greenfoot.isKeyDown(".")){
-            FreeMovement.setPlayerSpeed(2);//walking speed
+            FreeMovement.setPlayerSpeed(playerSpeed);//walking speed
+            sprinting = false;
         }
     }
 }
