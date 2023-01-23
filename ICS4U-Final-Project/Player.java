@@ -164,7 +164,7 @@ public class Player extends FreeMovement
     }
 
     //attack animation
-    public void attack(){
+    public void longswordAttack(){
         if(actionTimer.millisElapsed() > 100){
             if (isFacingRight){
                 setImage(longswordAttackRightImages[curIndex]);
@@ -273,7 +273,7 @@ public class Player extends FreeMovement
         }
         //plays attack animation when pressing e
         if(Greenfoot.isKeyDown("e")){
-            attack();
+            longswordAttack();
         }
         /*//sprint toggling with shift key (works weird)
         if(!sprinting){
