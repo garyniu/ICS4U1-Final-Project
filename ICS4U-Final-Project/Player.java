@@ -44,16 +44,20 @@ public class Player extends FreeMovement
     //location
     private int x, y;
 
-    //animation image speed
-    private SimpleTimer actionTimer;
-    private int delay = 0;
-    private int dashTime;
-
+    //player variables
     private int size = 60;//size for walking and bow animation
     private int atkSize = 180;//size for sword and spear animation
     private int playerSpeed = 2;//Player speed
     private int sprintSpeed = 4;//Player spriting speed
     private boolean sprinting = false;//sprinting boolean
+    private int swordDamage = 10;
+    private int spearDamagge = 7;
+    private int bowDamage = 5;
+    
+    //animation image speed
+    private SimpleTimer actionTimer;
+    private int delay = 0;
+    private int dashTime;
 
     public Player(int x, int y){
         super(x, y);
@@ -368,13 +372,13 @@ public class Player extends FreeMovement
             }
         }
         //plays attack animation when pressing e
-        if(Greenfoot.isKeyDown("e")){//sword swing
+        if(Greenfoot.isKeyDown("q")){//sword swing
             swordAttack();
         }
-        if(Greenfoot.isKeyDown("r")){//spear thrust
+        if(Greenfoot.isKeyDown("e")){//spear thrust
             spearAttack();
         }
-        if(Greenfoot.isKeyDown("t")){//bow shot
+        if(Greenfoot.isKeyDown("r")){//bow shot
             bowAttack();
         }
         /*//sprint toggling with shift key (works weird)
