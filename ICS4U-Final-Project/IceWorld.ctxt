@@ -15,7 +15,6 @@ comment5.target=Wall[][]\ getBlockArr()
 comment6.params=x\ y
 comment6.target=Pair\ getBlockCoord(int,\ int)
 comment7.params=
-comment7.target=Pair\ getMapBlockSize()
-comment8.params=
-comment8.target=void\ setGridPosition()
-numComments=9
+comment7.target=void\ setGridPosition()
+comment7.text=\r\n\ \ \ \ public\ Pair\ getMapBlockSize(){\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ Wall\ walli\ \=\ new\ Wall();\r\n\r\n\ \ \ \ \ \ \ \ for\ (int\ i\ \=\ 0;\ i\ <\ wallListTwo.length;\ i++){\r\n\ \ \ \ \ \ \ \ \ \ \ \ for\ (int\ j\ \=\ 0;\ j\ <\ wallListTwo[i].length;\ j++){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (wallListTwo[i][j]\ \!\=\ null){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ walli\ \=\ wallListTwo[i][j];\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ break;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \ \ \ \ break;\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ return\ new\ Pair(walli.getImage().getWidth(),\ walli.getImage().getHeight());\r\n}
+numComments=8

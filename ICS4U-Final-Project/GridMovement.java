@@ -38,8 +38,8 @@ public class GridMovement extends Others
     }
     
     protected void addedToWorld(World world){
-        valuearray = ((PortalTest)getWorld()).getMapArr();
-        blockArr = ((PortalTest)getWorld()).getBlockArr();
+        valuearray = ((IceWorld)getWorld()).getMapArr();
+        blockArr = ((IceWorld)getWorld()).getBlockArr();
         
         for (int[] arr : valuearray){
             for(int x : arr){

@@ -107,10 +107,10 @@ public class GameWorld extends World
         world2.addObject(portal, 260, 115);
         
         
-        //FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
+        //player
         FreeMovement playerTest = new Player(250, 400);
         addObject(playerTest, this.getWidth()/2, this.getHeight()/2);
-        
+        //hitbox for player
         FreeMovement playerTest2 = new PlayerHitbox(250, 400);
         addObject(playerTest2, this.getWidth()/2, this.getHeight()/2);
         

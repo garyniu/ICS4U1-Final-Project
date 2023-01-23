@@ -20,11 +20,11 @@ public class Player extends FreeMovement
     private GreenfootImage[] rightImages;
     private GreenfootImage[] leftImages;
     //character attack animation images
-    //longsword
-    private GreenfootImage[] longswordAttackUpImages;
-    private GreenfootImage[] longswordAttackDownImages;
-    private GreenfootImage[] longswordAttackRightImages;
-    private GreenfootImage[] longswordAttackLeftImages;
+    //sword
+    private GreenfootImage[] swordAttackUpImages;
+    private GreenfootImage[] swordAttackDownImages;
+    private GreenfootImage[] swordAttackRightImages;
+    private GreenfootImage[] swordAttackLeftImages;
     //spear
     private GreenfootImage[] spearAttackUpImages;
     private GreenfootImage[] spearAttackDownImages;
@@ -61,11 +61,11 @@ public class Player extends FreeMovement
         downImages = new GreenfootImage[9];
         rightImages = new GreenfootImage[9];
         leftImages = new GreenfootImage[9];
-        //longsword attack
-        longswordAttackUpImages = new GreenfootImage[6];
-        longswordAttackDownImages = new GreenfootImage[6];
-        longswordAttackRightImages = new GreenfootImage[6];
-        longswordAttackLeftImages = new GreenfootImage[6];
+        //sword attack
+        swordAttackUpImages = new GreenfootImage[6];
+        swordAttackDownImages = new GreenfootImage[6];
+        swordAttackRightImages = new GreenfootImage[6];
+        swordAttackLeftImages = new GreenfootImage[6];
         //spear attack
         spearAttackUpImages = new GreenfootImage[8];
         spearAttackDownImages = new GreenfootImage[8];
@@ -98,67 +98,67 @@ public class Player extends FreeMovement
             leftImages[i].scale(size, size);
         }
 
-        //longsword attack
-        for(int i = 0; i < longswordAttackDownImages.length; i++)//main charater walking down animation 
+        //sword attack
+        for(int i = 0; i < swordAttackDownImages.length; i++)//main charater walking down animation 
         {
-            longswordAttackDownImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/down/down" + i + ".png");
-            longswordAttackDownImages[i].scale(atkSize, atkSize);
+            swordAttackDownImages[i] = new GreenfootImage("images/PlayerAnimations/swordAttack/down/down" + i + ".png");
+            swordAttackDownImages[i].scale(atkSize, atkSize);
         }
-        for(int i = 0; i < longswordAttackUpImages.length; i++)//main charater walking up animation 
+        for(int i = 0; i < swordAttackUpImages.length; i++)//main charater walking up animation 
         {
-            longswordAttackUpImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/up/up" + i + ".png");
-            longswordAttackUpImages[i].scale(atkSize, atkSize);
+            swordAttackUpImages[i] = new GreenfootImage("images/PlayerAnimations/swordAttack/up/up" + i + ".png");
+            swordAttackUpImages[i].scale(atkSize, atkSize);
         }
-        for(int i = 0; i < longswordAttackRightImages.length; i++)//main charater walking left and right animation 
+        for(int i = 0; i < swordAttackRightImages.length; i++)//main charater walking left and right animation 
         {
-            longswordAttackRightImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/right/right" + i + ".png");
-            longswordAttackRightImages[i].scale(atkSize, atkSize);
+            swordAttackRightImages[i] = new GreenfootImage("images/PlayerAnimations/swordAttack/right/right" + i + ".png");
+            swordAttackRightImages[i].scale(atkSize, atkSize);
 
-            longswordAttackLeftImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/right/right" + i + ".png");
-            longswordAttackLeftImages[i].mirrorHorizontally();
-            longswordAttackLeftImages[i].scale(atkSize, atkSize);
+            swordAttackLeftImages[i] = new GreenfootImage("images/PlayerAnimations/swordAttack/right/right" + i + ".png");
+            swordAttackLeftImages[i].mirrorHorizontally();
+            swordAttackLeftImages[i].scale(atkSize, atkSize);
         }
         
         //spear attack
-        for(int i = 0; i < longswordAttackDownImages.length; i++)//main charater walking down animation 
+        for(int i = 0; i < spearAttackDownImages.length; i++)//main charater walking down animation 
         {
-            longswordAttackDownImages[i] = new GreenfootImage("images/PlayerAnimations/spearAttack/down/down" + i + ".png");
-            longswordAttackDownImages[i].scale(atkSize, atkSize);
+            spearAttackDownImages[i] = new GreenfootImage("images/PlayerAnimations/spearAttack/down/down" + i + ".png");
+            spearAttackDownImages[i].scale(atkSize, atkSize);
         }
-        for(int i = 0; i < longswordAttackUpImages.length; i++)//main charater walking up animation 
+        for(int i = 0; i < spearAttackUpImages.length; i++)//main charater walking up animation 
         {
-            longswordAttackUpImages[i] = new GreenfootImage("images/PlayerAnimations/spearAttack/up/up" + i + ".png");
-            longswordAttackUpImages[i].scale(atkSize, atkSize);
+            spearAttackUpImages[i] = new GreenfootImage("images/PlayerAnimations/spearAttack/up/up" + i + ".png");
+            spearAttackUpImages[i].scale(atkSize, atkSize);
         }
-        for(int i = 0; i < longswordAttackRightImages.length; i++)//main charater walking left and right animation 
+        for(int i = 0; i < spearAttackRightImages.length; i++)//main charater walking left and right animation 
         {
-            longswordAttackRightImages[i] = new GreenfootImage("images/PlayerAnimations/spearAttack/right/right" + i + ".png");
-            longswordAttackRightImages[i].scale(atkSize, atkSize);
+            spearAttackRightImages[i] = new GreenfootImage("images/PlayerAnimations/spearAttack/right/right" + i + ".png");
+            spearAttackRightImages[i].scale(atkSize, atkSize);
 
-            longswordAttackLeftImages[i] = new GreenfootImage("images/PlayerAnimations/spearAttack/right/right" + i + ".png");
-            longswordAttackLeftImages[i].mirrorHorizontally();
-            longswordAttackLeftImages[i].scale(atkSize, atkSize);
+            spearAttackLeftImages[i] = new GreenfootImage("images/PlayerAnimations/spearAttack/right/right" + i + ".png");
+            spearAttackLeftImages[i].mirrorHorizontally();
+            spearAttackLeftImages[i].scale(atkSize, atkSize);
         }
         
         //bow attack
-        for(int i = 0; i < longswordAttackDownImages.length; i++)//main charater walking down animation 
+        for(int i = 0; i < bowAttackDownImages.length; i++)//main charater walking down animation 
         {
-            longswordAttackDownImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/down/down" + i + ".png");
-            longswordAttackDownImages[i].scale(atkSize, atkSize);
+            bowAttackDownImages[i] = new GreenfootImage("images/PlayerAnimations/bowAttack/down/down" + i + ".png");
+            bowAttackDownImages[i].scale(size, size);
         }
-        for(int i = 0; i < longswordAttackUpImages.length; i++)//main charater walking up animation 
+        for(int i = 0; i < bowAttackUpImages.length; i++)//main charater walking up animation 
         {
-            longswordAttackUpImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/up/up" + i + ".png");
-            longswordAttackUpImages[i].scale(atkSize, atkSize);
+            bowAttackUpImages[i] = new GreenfootImage("images/PlayerAnimations/bowAttack/up/up" + i + ".png");
+            bowAttackUpImages[i].scale(size, size);
         }
-        for(int i = 0; i < longswordAttackRightImages.length; i++)//main charater walking left and right animation 
+        for(int i = 0; i < bowAttackRightImages.length; i++)//main charater walking left and right animation 
         {
-            longswordAttackRightImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/right/right" + i + ".png");
-            longswordAttackRightImages[i].scale(atkSize, atkSize);
+            bowAttackRightImages[i] = new GreenfootImage("images/PlayerAnimations/bowAttack/right/right" + i + ".png");
+            bowAttackRightImages[i].scale(size, size);
 
-            longswordAttackLeftImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/right/right" + i + ".png");
-            longswordAttackLeftImages[i].mirrorHorizontally();
-            longswordAttackLeftImages[i].scale(atkSize, atkSize);
+            bowAttackLeftImages[i] = new GreenfootImage("images/PlayerAnimations/bowAttack/right/right" + i + ".png");
+            bowAttackLeftImages[i].mirrorHorizontally();
+            bowAttackLeftImages[i].scale(size, size);
         }
         
         setImage(rightImages[0]);
@@ -216,17 +216,17 @@ public class Player extends FreeMovement
         }
     }
 
-    //longsword attack animation
-    public void longswordAttack(){
+    //sword attack animation
+    public void swordAttack(){
         if(actionTimer.millisElapsed() > 100){
             if (isFacingRight){
-                setImage(longswordAttackRightImages[curIndex1]);
+                setImage(swordAttackRightImages[curIndex1]);
             }else if(isFacingLeft){
-                setImage(longswordAttackLeftImages[curIndex1]);
+                setImage(swordAttackLeftImages[curIndex1]);
             }else if (isFacingUp){
-                setImage(longswordAttackUpImages[curIndex1]);
+                setImage(swordAttackUpImages[curIndex1]);
             }else if(isFacingDown){
-                setImage(longswordAttackDownImages[curIndex1]);
+                setImage(swordAttackDownImages[curIndex1]);
             }
             
             curIndex1++;
@@ -237,7 +237,7 @@ public class Player extends FreeMovement
             actionTimer.mark();
         }
     }
-    //speard attack animation
+    //spear attack animation
     public void spearAttack(){
         if(actionTimer.millisElapsed() > 100){
             if (isFacingRight){
@@ -368,7 +368,13 @@ public class Player extends FreeMovement
         }
         //plays attack animation when pressing e
         if(Greenfoot.isKeyDown("e")){
-            longswordAttack();
+            swordAttack();
+        }
+        if(Greenfoot.isKeyDown("r")){
+            spearAttack();
+        }
+        if(Greenfoot.isKeyDown("t")){
+            bowAttack();
         }
         /*//sprint toggling with shift key (works weird)
         if(!sprinting){

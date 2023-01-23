@@ -88,11 +88,14 @@ public class IceWorld extends World
         
         //change enemy to spawn anaywhere, and it moves itself to correct spot
         //addObject(new BossEnemy(300, 200, getMapBlockSize(), getMapOrigin()), 300, 200);//<- This doesn't work
-        addObject(new Enemy(300, 200, getMapBlockSize()), 300, 200);
-        
+        //addObject(new Enemy(300, 200, getMapBlockSize()), 300, 200);
+        //player
         FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
-
         addObject(playerTest, this.getWidth()/2, this.getHeight()/2);
+        //hitbox for player
+        FreeMovement playerTest2 = new PlayerHitbox(250, 400);
+        addObject(playerTest2, this.getWidth()/2, this.getHeight()/2);
+        
         addObject(wbg2, this.getWidth()/2, this.getHeight()/2);
         
         playerTest.changeSpawnCoords(this.getWidth()/2, this.getHeight()/2);
@@ -187,7 +190,7 @@ public class IceWorld extends World
     //returns the width and height of a block
     //problem right now
         //Some spots in the wallListTwo array is null, as it is a wall, so some spots will be null
-        
+    /*
     public Pair getMapBlockSize(){
         
         Wall walli = new Wall();
@@ -203,7 +206,7 @@ public class IceWorld extends World
         }
         
         return new Pair(walli.getImage().getWidth(), walli.getImage().getHeight());
-    }
+    }*/
     
     public void setGridPosition(){
         
