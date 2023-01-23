@@ -84,8 +84,7 @@ public class PortalTest extends World
         Others ep2 = new EnterPortal();
         addObject(ep2, 260, 115);
         
-        Others c1 = new Dungeon1Cover1();
-        //addObject(c1, 240, 305);
+        
         
         
         
