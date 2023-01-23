@@ -20,10 +20,21 @@ public class Player extends FreeMovement
     private GreenfootImage[] rightImages;
     private GreenfootImage[] leftImages;
     //character attack animation images
+    //longsword
     private GreenfootImage[] longswordAttackUpImages;
     private GreenfootImage[] longswordAttackDownImages;
     private GreenfootImage[] longswordAttackRightImages;
     private GreenfootImage[] longswordAttackLeftImages;
+    //spear
+    private GreenfootImage[] spearAttackUpImages;
+    private GreenfootImage[] spearAttackDownImages;
+    private GreenfootImage[] spearAttackRightImages;
+    private GreenfootImage[] spearAttackLeftImages;
+    //bow
+    private GreenfootImage[] bowAttackUpImages;
+    private GreenfootImage[] bowAttackDownImages;
+    private GreenfootImage[] bowAttackRightImages;
+    private GreenfootImage[] bowAttackLeftImages;
 
     //vertical+horizontal booleans
     private boolean isFacingUp, isFacingDown, isFacingLeft, isFacingRight = false;
@@ -50,11 +61,21 @@ public class Player extends FreeMovement
         downImages = new GreenfootImage[9];
         rightImages = new GreenfootImage[9];
         leftImages = new GreenfootImage[9];
-        //attack
+        //longsword attack
         longswordAttackUpImages = new GreenfootImage[6];
         longswordAttackDownImages = new GreenfootImage[6];
         longswordAttackRightImages = new GreenfootImage[6];
         longswordAttackLeftImages = new GreenfootImage[6];
+        //spear attack
+        spearAttackUpImages = new GreenfootImage[8];
+        spearAttackDownImages = new GreenfootImage[8];
+        spearAttackRightImages = new GreenfootImage[8];
+        spearAttackLeftImages = new GreenfootImage[8];
+        //bow attack
+        bowAttackUpImages = new GreenfootImage[13];
+        bowAttackDownImages = new GreenfootImage[13];
+        bowAttackRightImages = new GreenfootImage[13];
+        bowAttackLeftImages = new GreenfootImage[13];
 
         //walk
         for(int i = 0; i < downImages.length; i++)//main charater walking down animation 
@@ -97,6 +118,49 @@ public class Player extends FreeMovement
             longswordAttackLeftImages[i].mirrorHorizontally();
             longswordAttackLeftImages[i].scale(atkSize, atkSize);
         }
+        
+        //spear attack
+        for(int i = 0; i < longswordAttackDownImages.length; i++)//main charater walking down animation 
+        {
+            longswordAttackDownImages[i] = new GreenfootImage("images/PlayerAnimations/spearAttack/down/down" + i + ".png");
+            longswordAttackDownImages[i].scale(atkSize, atkSize);
+        }
+        for(int i = 0; i < longswordAttackUpImages.length; i++)//main charater walking up animation 
+        {
+            longswordAttackUpImages[i] = new GreenfootImage("images/PlayerAnimations/spearAttack/up/up" + i + ".png");
+            longswordAttackUpImages[i].scale(atkSize, atkSize);
+        }
+        for(int i = 0; i < longswordAttackRightImages.length; i++)//main charater walking left and right animation 
+        {
+            longswordAttackRightImages[i] = new GreenfootImage("images/PlayerAnimations/spearAttack/right/right" + i + ".png");
+            longswordAttackRightImages[i].scale(atkSize, atkSize);
+
+            longswordAttackLeftImages[i] = new GreenfootImage("images/PlayerAnimations/spearAttack/right/right" + i + ".png");
+            longswordAttackLeftImages[i].mirrorHorizontally();
+            longswordAttackLeftImages[i].scale(atkSize, atkSize);
+        }
+        
+        //bow attack
+        for(int i = 0; i < longswordAttackDownImages.length; i++)//main charater walking down animation 
+        {
+            longswordAttackDownImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/down/down" + i + ".png");
+            longswordAttackDownImages[i].scale(atkSize, atkSize);
+        }
+        for(int i = 0; i < longswordAttackUpImages.length; i++)//main charater walking up animation 
+        {
+            longswordAttackUpImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/up/up" + i + ".png");
+            longswordAttackUpImages[i].scale(atkSize, atkSize);
+        }
+        for(int i = 0; i < longswordAttackRightImages.length; i++)//main charater walking left and right animation 
+        {
+            longswordAttackRightImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/right/right" + i + ".png");
+            longswordAttackRightImages[i].scale(atkSize, atkSize);
+
+            longswordAttackLeftImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/right/right" + i + ".png");
+            longswordAttackLeftImages[i].mirrorHorizontally();
+            longswordAttackLeftImages[i].scale(atkSize, atkSize);
+        }
+        
         setImage(rightImages[0]);
 
         actionTimer = new SimpleTimer();
@@ -126,26 +190,11 @@ public class Player extends FreeMovement
     }
     
     int curIndex = 0;
-    //horizontal walking animation
-    public void hAction()//controls the animation image speed for moving left and right
-    {
-        if(actionTimer.millisElapsed() > 100)
-        {
-            if (isFacingRight){
-                setImage(rightImages[curIndex]);
-            }else if(isFacingLeft){
-                setImage(leftImages[curIndex]);
-            }
-
-            curIndex++;
-            if(curIndex == 6){
-                curIndex = 0;
-            }
-            actionTimer.mark();
-        }
-    }
-    //vertical walking animation
-    public void vAction()//controls the animation image speed for moving up and down
+    int curIndex1 = 0;
+    int curIndex2 = 0;
+    int curIndex3 = 0;
+    //walking animation
+    public void walk()//controls the animation image speed for moving up and down
     {
         if(actionTimer.millisElapsed() > 100)
         {
@@ -153,32 +202,78 @@ public class Player extends FreeMovement
                 setImage(upImages[curIndex]);
             }else if(isFacingDown){
                 setImage(downImages[curIndex]);
+            }else if (isFacingRight){
+                setImage(rightImages[curIndex]);
+            }else if(isFacingLeft){
+                setImage(leftImages[curIndex]);
             }
             
             curIndex++;
-            if(curIndex == 6){
+            if(curIndex == 9){
                 curIndex = 0;
             }
             actionTimer.mark();
         }
     }
 
-    //attack animation
+    //longsword attack animation
     public void longswordAttack(){
         if(actionTimer.millisElapsed() > 100){
             if (isFacingRight){
-                setImage(longswordAttackRightImages[curIndex]);
+                setImage(longswordAttackRightImages[curIndex1]);
             }else if(isFacingLeft){
-                setImage(longswordAttackLeftImages[curIndex]);
+                setImage(longswordAttackLeftImages[curIndex1]);
             }else if (isFacingUp){
-                setImage(longswordAttackUpImages[curIndex]);
+                setImage(longswordAttackUpImages[curIndex1]);
             }else if(isFacingDown){
-                setImage(longswordAttackDownImages[curIndex]);
+                setImage(longswordAttackDownImages[curIndex1]);
             }
             
-            curIndex++;
-            if(curIndex == 6){
-                curIndex = 0;
+            curIndex1++;
+            if(curIndex1 == 6){
+                curIndex1 = 0;
+            }
+            
+            actionTimer.mark();
+        }
+    }
+    //speard attack animation
+    public void spearAttack(){
+        if(actionTimer.millisElapsed() > 100){
+            if (isFacingRight){
+                setImage(spearAttackRightImages[curIndex2]);
+            }else if(isFacingLeft){
+                setImage(spearAttackLeftImages[curIndex2]);
+            }else if (isFacingUp){
+                setImage(spearAttackUpImages[curIndex2]);
+            }else if(isFacingDown){
+                setImage(spearAttackDownImages[curIndex2]);
+            }
+            
+            curIndex2++;
+            if(curIndex2 == 8){
+                curIndex2 = 0;
+            }
+            
+            actionTimer.mark();
+        }
+    }
+    //bow attack animation
+    public void bowAttack(){
+        if(actionTimer.millisElapsed() > 100){
+            if (isFacingRight){
+                setImage(bowAttackRightImages[curIndex3]);
+            }else if(isFacingLeft){
+                setImage(bowAttackLeftImages[curIndex3]);
+            }else if (isFacingUp){
+                setImage(bowAttackUpImages[curIndex3]);
+            }else if(isFacingDown){
+                setImage(bowAttackDownImages[curIndex3]);
+            }
+            
+            curIndex3++;
+            if(curIndex3 == 13){
+                curIndex3 = 0;
             }
             
             actionTimer.mark();
@@ -201,7 +296,7 @@ public class Player extends FreeMovement
             isFacingDown = false;
             isFacingLeft = true;
             isFacingRight = false;
-            hAction();
+            walk();
             if(Greenfoot.isKeyDown("w")){//detect up
                 isFacingLeftUp = true;
                 isFacingRightUp = false;
@@ -220,7 +315,7 @@ public class Player extends FreeMovement
             isFacingDown = false;
             isFacingLeft = false;
             isFacingRight = true;
-            hAction();
+            walk();
             if(Greenfoot.isKeyDown("w")){//detect up
                 isFacingLeftUp = false;
                 isFacingRightUp = true;
@@ -239,7 +334,7 @@ public class Player extends FreeMovement
             isFacingDown = false;
             isFacingLeft = false;
             isFacingRight = false;
-            vAction();
+            walk();
             if(Greenfoot.isKeyDown("a")){//detect left
                 isFacingLeftUp = true;
                 isFacingRightUp = false;
@@ -258,7 +353,7 @@ public class Player extends FreeMovement
             isFacingDown = true;
             isFacingLeft = false;
             isFacingRight = false;
-            vAction();
+            walk();
             if(Greenfoot.isKeyDown("a")){//detect left
                 isFacingLeftUp = false;
                 isFacingRightUp = false;
