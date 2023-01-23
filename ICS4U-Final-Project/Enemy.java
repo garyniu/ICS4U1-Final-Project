@@ -19,9 +19,9 @@ public class Enemy extends GridMovement
     private int playerRange = 45; //change
 
     
-    public Enemy(int x, int y, Pair gridSize, Pair mapOrigin){
+    public Enemy(int x, int y, Pair gridSize){
         
-        super(gridSize, mapOrigin);
+        super(gridSize);
         
         //change x,y to xy coord on grid
         this.x = x;
@@ -48,9 +48,8 @@ public class Enemy extends GridMovement
         int x = p.getX();
         int y = p.getY();
         //change to within size of a grid (put in vars)
-        //rpevent it from moving diagonally
-        System.out.println("x-coords: " + this.getX() + " " + x);
-        System.out.println("y-coords: " + this.getY() + " " + y);
+        //System.out.println("x-coords: " + this.getX() + " " + x);
+        //System.out.println("y-coords: " + this.getY() + " " + y);
         
         if (getX() < x && (getX() + playerRange < x)){
             moveRight();

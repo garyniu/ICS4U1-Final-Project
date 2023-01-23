@@ -39,7 +39,7 @@ public abstract class FreeMovement extends SuperSmoothMover
         }
         
                 
-        System.out.println(posx + " " + posy);
+        //System.out.println(posx + " " + posy);
         super.setLocationCam(posx, posy, Spawnx, Spawny);
         
         

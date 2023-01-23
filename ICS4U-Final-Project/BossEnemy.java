@@ -19,9 +19,9 @@ public class BossEnemy extends GridMovement
     private int playerRange = 45; //change
 
     
-    public BossEnemy(int x, int y, Pair gridSize, Pair mapOrigin){
+    public BossEnemy(int x, int y, Pair gridSize){
         
-        super(gridSize, mapOrigin);
+        super(gridSize);
         
         //change x,y to xy coord on grid
         this.x = x;

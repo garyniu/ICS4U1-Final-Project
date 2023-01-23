@@ -60,6 +60,8 @@ public class PortalTest extends World
         
     public Wall[][] wallListTwo = new Wall[32][36];
     
+    private int blockW = 30, blockH = 16;
+    
     /**
      * Constructor for objects of class PortalTest.
      * 
@@ -84,13 +86,9 @@ public class PortalTest extends World
         Others ep2 = new EnterPortal();
         addObject(ep2, 260, 115);
         
-        
-        
-        
-        
         //change enemy to spawn anaywhere, and it moves itself to correct spot
         //addObject(new BossEnemy(300, 200, getMapBlockSize(), getMapOrigin()), 300, 200);//<- This doesn't work
-        //addObject(new Enemy(300, 200, getMapBlockSize(), getMapOrigin()), 300, 200);
+        addObject(new Enemy(300, 200, getMapBlockSize()), 300, 200);
         
         FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
 
@@ -113,7 +111,7 @@ public class PortalTest extends World
                     wallListTwo[x][y]=new Wall();
                     //addObject(wallListTwo[x][y], (400 - x * 14 + y * 14-1), (140 + x * 7 + y * 7));
                     
-                    addObject(wallListTwo[x][y], (-65 - x * 30 + y * 30-1), (-445 + x * 16 + y * 16));
+                    addObject(wallListTwo[x][y], (-65 - x * blockW + y * 30-1), (-445 + x * blockH + y * 16));
                     
                     //X values: higher the value the more it shifts right, Y values: the higher the more the it shifts down
                     
@@ -122,6 +120,10 @@ public class PortalTest extends World
             }
         }
     }
+    
+    
+    
+    //test
     
     public void moveThing(int cX, int cY){
         GreenfootImage image = getBackground();
@@ -147,34 +149,65 @@ public class PortalTest extends World
     }
     
     public int[][] getMapArr(){
-        int[][] copy = new int[1][1];// = new int[mapTwo.length][mapTwo[0].length];
+        int[][] copy = new int[mapTwo.length][mapTwo[0].length];
         
-        /*
         for (int i = 0; i < mapTwo.length; i++){
             for (int j = 0; j < mapTwo[i].length; j++){
                 copy[i][j] = mapTwo[i][j];
             }
-        }*/
+        }
         
         return copy;
     }
     
+    public Wall[][] getBlockArr(){
+        Wall[][] copyy = new Wall[wallListTwo.length][wallListTwo[0].length];// = new int[mapTwo.length][mapTwo[0].length];
+        
+        for (int i = 0; i < wallListTwo.length; i++){
+            for (int j = 0; j < wallListTwo[i].length; j++){
+                copyy[i][j] = wallListTwo[i][j];
+            }
+        }
+        
+        return copyy;
+    }
+
+    
     //returns the top left corner position of the array on the screen
-    public Pair getMapOrigin(){
+    public Pair getBlockCoord(int x, int y){
         
         //Wall temp = wallListTwo[0][0];
         
         //int a = temp.getX(), b = temp.getY();
         
-        return new Pair(0, 0);
+        //WILL RETURN NULL IF THERE IS NO BLOCK!!!!
+        return new Pair(wallListTwo[x][y].getX(), wallListTwo[x][y].getY());
     }
     
     //returns the width and height of a block
+    //problem right now
+        //Some spots in the wallListTwo array is null, as it is a wall, so some spots will be null
+        
     public Pair getMapBlockSize(){
-        return new Pair(0,0);//new Pair(wallListTwo[0][0].getImage().getWidth(), wallListTwo[0][0].getImage().getHeight());
+        
+        Wall walli = new Wall();
+
+        for (int i = 0; i < wallListTwo.length; i++){
+            for (int j = 0; j < wallListTwo[i].length; j++){
+                if (wallListTwo[i][j] != null){
+                    walli = wallListTwo[i][j];
+                }
+                break;
+            }
+            break;
+        }
+        
+        return new Pair(walli.getImage().getWidth(), walli.getImage().getHeight());
     }
     
-    
+    public void setGridPosition(){
+        
+    }
 
 
 }

@@ -11,7 +11,15 @@ public class GridMovement extends Others
     private int timeBWMoves = 100, lastTime = 0, ylastTime = 0;
     private int timer = 0, yTimer = 0;
     
-    public GridMovement(Pair gridSize, Pair mapOrigin){
+    private int[][] valuearray;
+    private Wall[][] blockArr;
+    
+    //if moving, set previous spot to 1 and new spot to 9
+    //get coordinate of grid to move to
+    //stay still or move in a circle until the user is close on grid
+    //if user is 1 grid spot away, dont move anymore
+    
+    public GridMovement(Pair gridSize){
         
         //fill in sizeOfGrid, and protected vars to start movement
         
@@ -19,13 +27,41 @@ public class GridMovement extends Others
         gridSY = gridSize.getY();
         
         
-        gridXorigin = mapOrigin.getX();
-        gridYorigin = mapOrigin.getY();
+        //gridXorigin = mapOrigin.getX();
+        //gridYorigin = mapOrigin.getY();
         
-        System.out.println(gridSX + " " + gridSY + " " + gridXorigin + " " + gridYorigin);
+        //System.out.println(gridSX + " " + gridSY + " " + gridXorigin + " " + gridYorigin);
         
         yTimer = timeBWMoves / 2;
         
+        
+    }
+    
+    protected void addedToWorld(World world){
+        valuearray = ((PortalTest)getWorld()).getMapArr();
+        blockArr = ((PortalTest)getWorld()).getBlockArr();
+        
+        for (int[] arr : valuearray){
+            for(int x : arr){
+                System.out.print(x + " ");
+            }
+            System.out.println();
+        }
+        
+
+        //System.out.print(blockArr[1][1].getImage().getWidth() + " " + blockArr[1][1].getImage().getHeight() + " ");
+        
+        for (int i = 0; i < valuearray.length; i++){
+            for (int j = 0; j < valuearray[i].length; j++){
+                if (valuearray[i][j] == 1){
+                    System.out.print(blockArr[i][j].getImage().getWidth() + " " + blockArr[i][j].getImage().getHeight() + " ");
+                }
+                
+            }
+            System.out.println();
+        }
+        
+    
     }
     
     public void act()
@@ -34,11 +70,16 @@ public class GridMovement extends Others
         timer++;
         yTimer = timer;
         
-        System.out.println("character movemnt: " + x + " " + y);
+        //System.out.println("character movemnt: " + x + " " + y);
+        
+        
+        
         
     }
     
     //timer to prevent moving for too long
+    //CHANGE ALL TO CHECK FOR COLLISION IN 2D ARR, AND 
+    //MOVE TO GRID POSITIONS
     public void moveLeft(){
         
         int gridShiftx, gridShifty;
@@ -104,7 +145,7 @@ public class GridMovement extends Others
         
         
         if ((lastTime + timeBWMoves) < timer){
-            System.out.println("test");
+            //System.out.println("test");
             //if (leftClear){
             
                 y+=70;
