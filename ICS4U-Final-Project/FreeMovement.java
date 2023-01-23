@@ -13,8 +13,8 @@ public abstract class FreeMovement extends SuperSmoothMover
     
     protected int posx, posy, prevx, prevy;
     protected int Spawnx = 0, Spawny = 0;
-    private static int speed = 2;
-    private String dir = "L";
+    protected static int speed = 2;
+    protected String dir = "L";
     //protected GreenfootImage CharImg;
     
     public FreeMovement(int x, int y){

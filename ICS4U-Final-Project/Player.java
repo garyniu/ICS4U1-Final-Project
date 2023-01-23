@@ -20,10 +20,10 @@ public class Player extends FreeMovement
     private GreenfootImage[] rightImages;
     private GreenfootImage[] leftImages;
     //character attack animation images
-    private GreenfootImage[] attackUpImages;
-    private GreenfootImage[] attackDownImages;
-    private GreenfootImage[] attackRightImages;
-    private GreenfootImage[] attackLeftImages;
+    private GreenfootImage[] longswordAttackUpImages;
+    private GreenfootImage[] longswordAttackDownImages;
+    private GreenfootImage[] longswordAttackRightImages;
+    private GreenfootImage[] longswordAttackLeftImages;
 
     //vertical+horizontal booleans
     private boolean isFacingUp, isFacingDown, isFacingLeft, isFacingRight = false;
@@ -51,51 +51,51 @@ public class Player extends FreeMovement
         rightImages = new GreenfootImage[9];
         leftImages = new GreenfootImage[9];
         //attack
-        attackUpImages = new GreenfootImage[6];
-        attackDownImages = new GreenfootImage[6];
-        attackRightImages = new GreenfootImage[6];
-        attackLeftImages = new GreenfootImage[6];
+        longswordAttackUpImages = new GreenfootImage[6];
+        longswordAttackDownImages = new GreenfootImage[6];
+        longswordAttackRightImages = new GreenfootImage[6];
+        longswordAttackLeftImages = new GreenfootImage[6];
 
         //walk
         for(int i = 0; i < downImages.length; i++)//main charater walking down animation 
         {
-            downImages[i] = new GreenfootImage("images/walk/down/down" + i + ".png");
+            downImages[i] = new GreenfootImage("images/PlayerAnimations/walk/down/down" + i + ".png");
             downImages[i].scale(size, size);
         }
         for(int i = 0; i < upImages.length; i++)//main charater walking up animation 
         {
-            upImages[i] = new GreenfootImage("images/walk/up/up" + i + ".png");
+            upImages[i] = new GreenfootImage("images/PlayerAnimations/walk/up/up" + i + ".png");
             upImages[i].scale(size, size);
         }
         for(int i = 0; i < rightImages.length; i++)//main charater walking left and right animation 
         {
-            rightImages[i] = new GreenfootImage("images/walk/right/right" + i + ".png");
+            rightImages[i] = new GreenfootImage("images/PlayerAnimations/walk/right/right" + i + ".png");
             rightImages[i].scale(size, size);
 
-            leftImages[i] = new GreenfootImage("images/walk/right/right" + i + ".png");
+            leftImages[i] = new GreenfootImage("images/PlayerAnimations/walk/right/right" + i + ".png");
             leftImages[i].mirrorHorizontally();
             leftImages[i].scale(size, size);
         }
 
-        //attack
-        for(int i = 0; i < attackDownImages.length; i++)//main charater walking down animation 
+        //longsword attack
+        for(int i = 0; i < longswordAttackDownImages.length; i++)//main charater walking down animation 
         {
-            attackDownImages[i] = new GreenfootImage("images/attack/down/down" + i + ".png");
-            attackDownImages[i].scale(atkSize, atkSize);
+            longswordAttackDownImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/down/down" + i + ".png");
+            longswordAttackDownImages[i].scale(atkSize, atkSize);
         }
-        for(int i = 0; i < attackUpImages.length; i++)//main charater walking up animation 
+        for(int i = 0; i < longswordAttackUpImages.length; i++)//main charater walking up animation 
         {
-            attackUpImages[i] = new GreenfootImage("images/attack/up/up" + i + ".png");
-            attackUpImages[i].scale(atkSize, atkSize);
+            longswordAttackUpImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/up/up" + i + ".png");
+            longswordAttackUpImages[i].scale(atkSize, atkSize);
         }
-        for(int i = 0; i < attackRightImages.length; i++)//main charater walking left and right animation 
+        for(int i = 0; i < longswordAttackRightImages.length; i++)//main charater walking left and right animation 
         {
-            attackRightImages[i] = new GreenfootImage("images/attack/right/right" + i + ".png");
-            attackRightImages[i].scale(atkSize, atkSize);
+            longswordAttackRightImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/right/right" + i + ".png");
+            longswordAttackRightImages[i].scale(atkSize, atkSize);
 
-            attackLeftImages[i] = new GreenfootImage("images/attack/right/right" + i + ".png");
-            attackLeftImages[i].mirrorHorizontally();
-            attackLeftImages[i].scale(atkSize, atkSize);
+            longswordAttackLeftImages[i] = new GreenfootImage("images/PlayerAnimations/longswordAttack/right/right" + i + ".png");
+            longswordAttackLeftImages[i].mirrorHorizontally();
+            longswordAttackLeftImages[i].scale(atkSize, atkSize);
         }
         setImage(rightImages[0]);
 
@@ -103,6 +103,28 @@ public class Player extends FreeMovement
         actionTimer.mark();
     }
 
+    //movement
+    public void moveLeft(){
+        posx -= speed;
+        dir = "R";
+    }
+    public void moveRight(){
+        posx += speed;
+        dir = "L";
+    }
+    public void moveUp(){
+        //posy-=2; 
+        
+        setLocationCam(posx, posy -= speed, Spawnx, Spawny);
+        dir = "D";
+    }
+    public void moveDown(){
+        //posy+=2;
+        
+        setLocationCam(posx, posy += speed, Spawnx, Spawny);
+        dir = "U";
+    }
+    
     int curIndex = 0;
     //horizontal walking animation
     public void hAction()//controls the animation image speed for moving left and right
@@ -142,16 +164,16 @@ public class Player extends FreeMovement
     }
 
     //attack animation
-    public void attack(){
+    public void longswordAttack(){
         if(actionTimer.millisElapsed() > 100){
             if (isFacingRight){
-                setImage(attackRightImages[curIndex]);
+                setImage(longswordAttackRightImages[curIndex]);
             }else if(isFacingLeft){
-                setImage(attackLeftImages[curIndex]);
+                setImage(longswordAttackLeftImages[curIndex]);
             }else if (isFacingUp){
-                setImage(attackUpImages[curIndex]);
+                setImage(longswordAttackUpImages[curIndex]);
             }else if(isFacingDown){
-                setImage(attackDownImages[curIndex]);
+                setImage(longswordAttackDownImages[curIndex]);
             }
             
             curIndex++;
@@ -251,7 +273,7 @@ public class Player extends FreeMovement
         }
         //plays attack animation when pressing e
         if(Greenfoot.isKeyDown("e")){
-            attack();
+            longswordAttack();
         }
         /*//sprint toggling with shift key (works weird)
         if(!sprinting){
