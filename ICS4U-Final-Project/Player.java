@@ -59,20 +59,20 @@ public class Player extends FreeMovement
         //walk
         for(int i = 0; i < downImages.length; i++)//main charater walking down animation 
         {
-            downImages[i] = new GreenfootImage("images/walk/down/down" + i + ".png");
+            downImages[i] = new GreenfootImage("images/PlayerAnimations/walk/down/down" + i + ".png");
             downImages[i].scale(size, size);
         }
         for(int i = 0; i < upImages.length; i++)//main charater walking up animation 
         {
-            upImages[i] = new GreenfootImage("images/walk/up/up" + i + ".png");
+            upImages[i] = new GreenfootImage("images/PlayerAnimations/walk/up/up" + i + ".png");
             upImages[i].scale(size, size);
         }
         for(int i = 0; i < rightImages.length; i++)//main charater walking left and right animation 
         {
-            rightImages[i] = new GreenfootImage("images/walk/right/right" + i + ".png");
+            rightImages[i] = new GreenfootImage("images/PlayerAnimations/walk/right/right" + i + ".png");
             rightImages[i].scale(size, size);
 
-            leftImages[i] = new GreenfootImage("images/walk/right/right" + i + ".png");
+            leftImages[i] = new GreenfootImage("images/PlayerAnimations/walk/right/right" + i + ".png");
             leftImages[i].mirrorHorizontally();
             leftImages[i].scale(size, size);
         }
@@ -80,20 +80,20 @@ public class Player extends FreeMovement
         //attack
         for(int i = 0; i < attackDownImages.length; i++)//main charater walking down animation 
         {
-            attackDownImages[i] = new GreenfootImage("images/attack/down/down" + i + ".png");
+            attackDownImages[i] = new GreenfootImage("images/PlayerAnimations/attack/down/down" + i + ".png");
             attackDownImages[i].scale(atkSize, atkSize);
         }
         for(int i = 0; i < attackUpImages.length; i++)//main charater walking up animation 
         {
-            attackUpImages[i] = new GreenfootImage("images/attack/up/up" + i + ".png");
+            attackUpImages[i] = new GreenfootImage("images/PlayerAnimations/attack/up/up" + i + ".png");
             attackUpImages[i].scale(atkSize, atkSize);
         }
         for(int i = 0; i < attackRightImages.length; i++)//main charater walking left and right animation 
         {
-            attackRightImages[i] = new GreenfootImage("images/attack/right/right" + i + ".png");
+            attackRightImages[i] = new GreenfootImage("images/PlayerAnimations/attack/right/right" + i + ".png");
             attackRightImages[i].scale(atkSize, atkSize);
 
-            attackLeftImages[i] = new GreenfootImage("images/attack/right/right" + i + ".png");
+            attackLeftImages[i] = new GreenfootImage("images/PlayerAnimations/attack/right/right" + i + ".png");
             attackLeftImages[i].mirrorHorizontally();
             attackLeftImages[i].scale(atkSize, atkSize);
         }
