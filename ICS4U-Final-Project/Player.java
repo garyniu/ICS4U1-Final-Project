@@ -20,10 +20,10 @@ public class Player extends FreeMovement
     private GreenfootImage[] rightImages;
     private GreenfootImage[] leftImages;
     //character attack animation images
-    private GreenfootImage[] attackUpImages;
-    private GreenfootImage[] attackDownImages;
-    private GreenfootImage[] attackRightImages;
-    private GreenfootImage[] attackLeftImages;
+    private GreenfootImage[] longswordAttackUpImages;
+    private GreenfootImage[] longswordAttackDownImages;
+    private GreenfootImage[] longswordAttackRightImages;
+    private GreenfootImage[] longswordAttackLeftImages;
 
     //vertical+horizontal booleans
     private boolean isFacingUp, isFacingDown, isFacingLeft, isFacingRight = false;
@@ -51,10 +51,10 @@ public class Player extends FreeMovement
         rightImages = new GreenfootImage[9];
         leftImages = new GreenfootImage[9];
         //attack
-        attackUpImages = new GreenfootImage[6];
-        attackDownImages = new GreenfootImage[6];
-        attackRightImages = new GreenfootImage[6];
-        attackLeftImages = new GreenfootImage[6];
+        longswordAttackUpImages = new GreenfootImage[6];
+        longswordAttackDownImages = new GreenfootImage[6];
+        longswordAttackRightImages = new GreenfootImage[6];
+        longswordAttackLeftImages = new GreenfootImage[6];
 
         //walk
         for(int i = 0; i < downImages.length; i++)//main charater walking down animation 
@@ -77,25 +77,25 @@ public class Player extends FreeMovement
             leftImages[i].scale(size, size);
         }
 
-        //attack
-        for(int i = 0; i < attackDownImages.length; i++)//main charater walking down animation 
+        //longsword attack
+        for(int i = 0; i < longswordAttackDownImages.length; i++)//main charater walking down animation 
         {
-            attackDownImages[i] = new GreenfootImage("images/PlayerAnimations/attack/down/down" + i + ".png");
-            attackDownImages[i].scale(atkSize, atkSize);
+            longswordAttackDownImages[i] = new GreenfootImage("images/PlayerAnimations/attack/down/down" + i + ".png");
+            longswordAttackDownImages[i].scale(atkSize, atkSize);
         }
-        for(int i = 0; i < attackUpImages.length; i++)//main charater walking up animation 
+        for(int i = 0; i < longswordAttackUpImages.length; i++)//main charater walking up animation 
         {
-            attackUpImages[i] = new GreenfootImage("images/PlayerAnimations/attack/up/up" + i + ".png");
-            attackUpImages[i].scale(atkSize, atkSize);
+            longswordAttackUpImages[i] = new GreenfootImage("images/PlayerAnimations/attack/up/up" + i + ".png");
+            longswordAttackUpImages[i].scale(atkSize, atkSize);
         }
-        for(int i = 0; i < attackRightImages.length; i++)//main charater walking left and right animation 
+        for(int i = 0; i < longswordAttackRightImages.length; i++)//main charater walking left and right animation 
         {
-            attackRightImages[i] = new GreenfootImage("images/PlayerAnimations/attack/right/right" + i + ".png");
-            attackRightImages[i].scale(atkSize, atkSize);
+            longswordAttackRightImages[i] = new GreenfootImage("images/PlayerAnimations/attack/right/right" + i + ".png");
+            longswordAttackRightImages[i].scale(atkSize, atkSize);
 
-            attackLeftImages[i] = new GreenfootImage("images/PlayerAnimations/attack/right/right" + i + ".png");
-            attackLeftImages[i].mirrorHorizontally();
-            attackLeftImages[i].scale(atkSize, atkSize);
+            longswordAttackLeftImages[i] = new GreenfootImage("images/PlayerAnimations/attack/right/right" + i + ".png");
+            longswordAttackLeftImages[i].mirrorHorizontally();
+            longswordAttackLeftImages[i].scale(atkSize, atkSize);
         }
         setImage(rightImages[0]);
 
@@ -167,13 +167,13 @@ public class Player extends FreeMovement
     public void attack(){
         if(actionTimer.millisElapsed() > 100){
             if (isFacingRight){
-                setImage(attackRightImages[curIndex]);
+                setImage(longswordAttackRightImages[curIndex]);
             }else if(isFacingLeft){
-                setImage(attackLeftImages[curIndex]);
+                setImage(longswordAttackLeftImages[curIndex]);
             }else if (isFacingUp){
-                setImage(attackUpImages[curIndex]);
+                setImage(longswordAttackUpImages[curIndex]);
             }else if(isFacingDown){
-                setImage(attackDownImages[curIndex]);
+                setImage(longswordAttackDownImages[curIndex]);
             }
             
             curIndex++;
