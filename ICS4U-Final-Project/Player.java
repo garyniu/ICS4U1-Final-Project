@@ -103,6 +103,28 @@ public class Player extends FreeMovement
         actionTimer.mark();
     }
 
+    //movement
+    public void moveLeft(){
+        posx -= speed;
+        dir = "R";
+    }
+    public void moveRight(){
+        posx += speed;
+        dir = "L";
+    }
+    public void moveUp(){
+        //posy-=2; 
+        
+        setLocationCam(posx, posy -= speed, Spawnx, Spawny);
+        dir = "D";
+    }
+    public void moveDown(){
+        //posy+=2;
+        
+        setLocationCam(posx, posy += speed, Spawnx, Spawny);
+        dir = "U";
+    }
+    
     int curIndex = 0;
     //horizontal walking animation
     public void hAction()//controls the animation image speed for moving left and right
