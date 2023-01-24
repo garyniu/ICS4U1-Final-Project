@@ -117,7 +117,7 @@ public class GameWorld extends World
         
         Boundary bound2 = new Boundary(280,50);
         addObject(bound2, 70, 380);  
-        bound2.setRotation(210);
+        bound2.setRotation(390);
         
         
         Boundary bound3 = new Boundary(100,50);
@@ -125,17 +125,25 @@ public class GameWorld extends World
         bound3.setRotation(210);
         
         
-        Boundary bound4 = new Boundary(210,5);
+        Boundary bound4 = new Boundary(210,20);
         addObject(bound4, 280, 240);  
         bound4.setRotation(210);
         
-        Boundary bound5 = new Boundary(5,140);
-        addObject(bound5, 280, 300);  
+        Boundary bound5 = new Boundary(20,150);
+        addObject(bound5, 270, 300);  
         bound5.setRotation(240);
         
-        Boundary bound6 = new Boundary(5,150);
-        addObject(bound6, 180, 240);  
+        Boundary bound6 = new Boundary(10, 300);
+        addObject(bound6, 80, 300);  
         bound6.setRotation(240);
+        
+        Boundary bound7 = new Boundary(10, 750);
+        addObject(bound7, 20, 250);  
+        bound7.setRotation(240);
+        
+        Boundary bound8 = new Boundary(210,10);
+        addObject(bound8, 500, 175);  
+        bound8.setRotation(210);
         
         
         xd = playerTest.getX();

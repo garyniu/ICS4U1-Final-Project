@@ -14,11 +14,11 @@ public class Portal extends Others
 {
     private Portal portal; // allows multiple portal in one world
     private boolean active; //used if this portal can be used
-    private GreenfootImage portalImage = new GreenfootImage ("images/misc/tardis.png");
+    private GreenfootImage portalImage = new GreenfootImage ("images/misc/tardis2.png");
     
     public Portal()
     {
-        portalImage.scale(100, 100);
+        //portalImage.scale(100, 100);
         setImage(portalImage);
     }
     
@@ -33,7 +33,7 @@ public class Portal extends Others
     {
         this.setPortal(portal); 
         portal.setPortal(this); 
-        portalImage.scale(100, 100);
+        //portalImage.scale(100, 100);
         setImage(portalImage);
     }
     
