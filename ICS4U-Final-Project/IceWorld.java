@@ -175,7 +175,10 @@ public class IceWorld extends World
         
         return copyy;
     }
-
+    /*//returns the grid the player is standing on
+    public int[][] getTile(int x, int y){
+        return new ArrayList[](wallListTwo[x][y]);
+    }*/
     
     //returns the top left corner position of the array on the screen
     public Pair getBlockCoord(int x, int y){
