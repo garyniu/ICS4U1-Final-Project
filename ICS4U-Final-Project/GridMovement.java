@@ -33,6 +33,7 @@ public class GridMovement extends Others
         
         //gets coordinates of inital x positoins, and moves there
         x = ((IceWorld)getWorld()).getBlockCoord(xc, yc).getX();
+        y = ((IceWorld)getWorld()).getBlockCoord(xc, yc).getY();
         
     }
 

@@ -154,6 +154,14 @@ public class IceWorld extends World
             showText("mouseX: " + String.valueOf(m.getX()), 900, 500);
             showText("mouseY: " + String.valueOf(m.getY()), 900, 600);
         }*/
+        
+        
+        for (int i = 0; i < mapTwo.length; i++){
+            for (int j = 0; j < mapTwo[i].length; j++){
+                System.out.print(mapTwo[i][j]);
+            }
+            System.out.println();
+        }
     }
     
     //puts the user onto the grid based on coords
@@ -166,7 +174,7 @@ public class IceWorld extends World
         //and then search for grid spaces directly around it, but not enough time
         for (int i = 0; i < mapTwo.length; i++){
             for (int j = 0; j < mapTwo[i].length; j++){
-                if (mapTwo[i][j] == 21){
+                if (mapTwo[i][j] == 8){
                     mapTwo[i][j] = 1;
                 }
             }
@@ -179,6 +187,23 @@ public class IceWorld extends World
         //find what gridspace the gridblock is
         //set that gridblock to user standing on it
         
+        Wall closest = new Wall(0, 0);
+        addObject(closest, -300, -300);
+        for (int i = 0; i < wallListTwo.length; i++){
+            for (int j = 0; j < wallListTwo[i].length; j++){
+                
+                
+                if (wallListTwo[i][j] != null){
+                    if ((Math.abs(pl.getX() - wallListTwo[i][j].getX()) < Math.abs(pl.getX() - closest.getX())) && (Math.abs(pl.getY() - wallListTwo[i][j].getY()) < Math.abs(pl.getY() - closest.getY()))){
+                        closest = wallListTwo[i][j];
+                    }
+                }
+                
+                
+            }
+        }
+        
+        mapTwo[closest.getGridCoord().getX()][closest.getGridCoord().getY()] = 8;
         
         
     }
