@@ -103,7 +103,7 @@ public class GameWorld extends World
         
         portal = new Portal(portal);
         IceWorld world2 = new IceWorld();//portal to the other world (iceWorld)
-        world2.addObject(portal, 260, 115);
+        world2.addObject(portal, -420, 300);
         
         //player
         FreeMovement playerTest = new Player(250, 400);

@@ -134,7 +134,7 @@ public class SpiderWorld extends World
         bg.fill();
         setBackground(bg);
         
-        Others ep2 = new EnterPortal();
+        Others ep2 = new EnterPortalGreen();
         addObject(ep2, 400, -120);
         
         FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
