@@ -124,7 +124,8 @@ public class SpiderWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1922, 1450, 1, false); 
         
-        setPaintOrder(Dungeon1Cover1.class, Player.class, Others.class, WorldBackground.class);
+        
+        setPaintOrder(Boundary.class, Projectile.class, PlayerHitbox.class, Player.class,Others.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
         
         wbg3 = new WorldBackground(background);
         
