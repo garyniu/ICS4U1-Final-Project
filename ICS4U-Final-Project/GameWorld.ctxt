@@ -18,6 +18,4 @@ comment7.params=
 comment7.target=Pair\ getMapOrigin()
 comment8.params=
 comment8.target=Pair\ getMapBlockSize()
-comment9.params=x\ y\ dir
-comment9.target=void\ spawnArrow(int,\ int,\ int)
-numComments=10
+numComments=9

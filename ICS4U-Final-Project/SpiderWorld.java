@@ -125,7 +125,7 @@ public class SpiderWorld extends World
         super(1922, 1450, 1, false); 
         
         
-        setPaintOrder(Boundary.class, Projectile.class, PlayerHitbox.class, Player.class,Others.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
+        setPaintOrder(Boundary.class, PlayerHitbox.class, Player.class,Others.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
         
         wbg3 = new WorldBackground(background);
         

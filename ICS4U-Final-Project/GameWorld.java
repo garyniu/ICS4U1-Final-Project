@@ -69,7 +69,7 @@ public class GameWorld extends World
         // Create a new world with 720x405 cells with a cell size of 1x1 pixels.
         super(600, 500, 1, false);
         
-        setPaintOrder(Boundary.class, SuperStatBar.class, Projectile.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class,TorchFire.class, Wall.class, WorldBackground.class);
+        setPaintOrder(Boundary.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class,TorchFire.class, Wall.class, WorldBackground.class);
 
         wbg = new WorldBackground(background);
 
@@ -242,10 +242,5 @@ public class GameWorld extends World
     //returns the width and height of a block
     public Pair getMapBlockSize(){
         return new Pair(wallListTwo[0][0].getImage().getWidth(), wallListTwo[0][0].getImage().getHeight());
-    }
-    
-    public static void spawnArrow(int x, int y, int dir){
-        FreeMovement arrow = new Projectile(x, y, dir);
-        //addObject(arrow, this.getWidth()/2, this.getHeight()/2);
     }
 }
