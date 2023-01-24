@@ -70,7 +70,7 @@ public class GameWorld extends World
         // Create a new world with 720x405 cells with a cell size of 1x1 pixels.
         super(600, 500, 1, false);
         
-        setPaintOrder(Boundary.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class,TorchFire.class, Wall.class, WorldBackground.class);
+        setPaintOrder(Boundary.class, Projectile.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class,TorchFire.class, Wall.class, WorldBackground.class);
 
         wbg = new WorldBackground(background);
 
@@ -106,13 +106,13 @@ public class GameWorld extends World
         IceWorld world2 = new IceWorld();//portal to the other world (PortalTest)
         world2.addObject(portal, 260, 115);
         
-        
         //player
         FreeMovement playerTest = new Player(250, 400);
         addObject(playerTest, this.getWidth()/2, this.getHeight()/2);
         //hitbox for player
         FreeMovement playerTest2 = new PlayerHitbox(250, 400);
         addObject(playerTest2, this.getWidth()/2, this.getHeight()/2);
+        
         
         addObject(wbg, this.getWidth()/2, this.getHeight()/2);
         
@@ -144,9 +144,6 @@ public class GameWorld extends World
         Boundary bound6 = new Boundary(5,150);
         addObject(bound6, 180, 240);  
         bound6.setRotation(240);
-                
-        
-        
         
         
         xd = playerTest.getX();
@@ -169,10 +166,7 @@ public class GameWorld extends World
             }
         }
         
-        
         moveThing(xd, yd);
-        
-        
     }
     
     public void act()
@@ -187,12 +181,10 @@ public class GameWorld extends World
     
     public void setThing(int cX, int cY)
     {
-        
         xd = this.getWidth()- cX;
         yd = this.getHeight() - cY;
         
         System.out.println("newx and y: " + cX + " " + cY );
-
         
         wbg.setLocation(xd, yd);
     }
@@ -220,7 +212,6 @@ public class GameWorld extends World
     
     //returns the top left corner position of the array on the screen
     public Pair getMapOrigin(){
-        
         Wall temp = wallListTwo[0][0];
         
         int a = temp.getX(), b = temp.getY();
@@ -233,4 +224,8 @@ public class GameWorld extends World
         return new Pair(wallListTwo[0][0].getImage().getWidth(), wallListTwo[0][0].getImage().getHeight());
     }
     
+    public static void spawnArrow(int x, int y, int dir){
+        FreeMovement arrow = new Projectile(x, y, dir);
+        //addObject(arrow, this.getWidth()/2, this.getHeight()/2);
+    }
 }

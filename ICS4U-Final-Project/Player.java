@@ -9,10 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Player extends FreeMovement
 {
     //BUGS
-    //holding down w/a/s/d with e breaks the game
     //has to hold down e to play attack animation
     //attack animation can start at random images
-    //player attack animation happens twice in portal world
 
     //charater animation images
     private GreenfootImage[] upImages;
@@ -36,7 +34,7 @@ public class Player extends FreeMovement
     private GreenfootImage[] bowAttackRightImages;
     private GreenfootImage[] bowAttackLeftImages;
 
-    //vertical+horizontal booleans
+    //vertical + horizontal booleans
     private boolean isFacingUp, isFacingDown, isFacingLeft, isFacingRight = false;
     //diagonal booleans
     private boolean isFacingLeftUp, isFacingRightUp, isFacingLeftDown, isFacingRightDown;
@@ -45,14 +43,17 @@ public class Player extends FreeMovement
     private int x, y;
 
     //player variables
+    //player sizes(orignal image size)
     private int size = 60;//size for walking and bow animation
     private int atkSize = 180;//size for sword and spear animation
-    private int playerSpeed = 2;//Player speed
-    private int sprintSpeed = 4;//Player spriting speed
-    private boolean sprinting = false;//sprinting boolean
+    //player speed variables
+    private int playerSpeed = 2;
+    private int sprintSpeed = 4;
+    private boolean sprinting = false;
+    //player damage variables(for enemy)
     private int swordDamage = 10;
     private int spearDamagge = 7;
-    private int bowDamage = 5;
+    private int bowDamage = 5;//possibly not needed
     
     //animation image speed
     private SimpleTimer actionTimer;
@@ -380,6 +381,19 @@ public class Player extends FreeMovement
         }
         if(Greenfoot.isKeyDown("r")){//bow shot
             bowAttack();
+            
+            int dir = 0;
+            if(isFacingUp){
+                dir = 1;
+            }else if(isFacingDown){
+                dir = 2;
+            }else if(isFacingLeft){
+                dir = 3;
+            }else if(isFacingRight){
+                dir = 4;
+            }
+            
+            GameWorld.spawnArrow(getX(), getY(), dir);
         }
         /*//sprint toggling with shift key (works weird)
         if(!sprinting){
