@@ -108,6 +108,21 @@ public class IceWorld extends World
         
         //moveThing(xd, yd);
         
+        //main portal that allows portals to other worlds work
+        Portal portal = new Portal();
+        this.addObject(portal, 9999, 9999);
+        
+        portal = new Portal(); //this worlds portal
+        this.addObject(portal, 500, 500);
+        
+        
+        
+        portal = new Portal(portal);
+        
+        
+        SpiderWorld spy1 = new SpiderWorld();
+        spy1.addObject(portal, 270, 400);
+        
         
         for(int x = 0; x < 32; x++){
             for(int y = 0; y < 36; y++){//for each cell in the array
