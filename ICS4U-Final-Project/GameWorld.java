@@ -8,10 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GameWorld extends World
 {
-    Label titleLabel = new Label("press 1 to show grid tile", 30);
-    Label titleLabelTwo = new Label("press 2 to hide grid tile", 30);
-    Label titleLabelThree = new Label("press 3 to show transparent grid tile", 30);
-    
     //TODO
     //arr of enemies, world only needs to get coordinate points for arr and draws enemies, does not worry
     //about any of the logic
@@ -78,10 +74,6 @@ public class GameWorld extends World
         bg.setColor(Color.BLACK);
         bg.fill();
         setBackground(bg);
-        
-        addObject(titleLabel, 150, 150);
-        addObject(titleLabelTwo, 150, 200);
-        addObject(titleLabelThree, 250, 250);
         
         //Enter Portal
         Others ep = new EnterPortal();

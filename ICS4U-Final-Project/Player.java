@@ -52,7 +52,7 @@ public class Player extends FreeMovement
     private boolean sprinting = false;
     //player damage variables(for enemy)
     private int swordDamage = 10;
-    private int spearDamagge = 7;
+    private int spearDamage = 7;
     private int bowDamage = 5;//possibly not needed
     
     //animation image speed
@@ -285,7 +285,17 @@ public class Player extends FreeMovement
             actionTimer.mark();
         }
     }
-
+    //set weapon damage
+    public void setSwordDamage(int dmg){//sword dmg
+        this.swordDamage = dmg;
+    }
+    public void setSpearDamage(int dmg){//spear dmg
+        this.spearDamage = dmg;
+    }
+    public void setBowDamage(int dmg){//bow dmg
+        this.bowDamage = dmg;
+    }
+    
     public void act()
     {
         super.act();
@@ -395,6 +405,10 @@ public class Player extends FreeMovement
             
             GameWorld.spawnArrow(getX(), getY(), dir);
         }
+        
+        //set damage for weapons
+        
+        
         /*//sprint toggling with shift key (works weird)
         if(!sprinting){
             if(Greenfoot.isKeyDown("Shift")){
