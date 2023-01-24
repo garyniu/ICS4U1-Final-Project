@@ -69,7 +69,7 @@ public class GameWorld extends World
         // Create a new world with 720x405 cells with a cell size of 1x1 pixels.
         super(600, 500, 1, false);
         
-        setPaintOrder(Boundary.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class,TorchFire.class, Wall.class, WorldBackground.class);
+        setPaintOrder(Boundary.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
 
         wbg = new WorldBackground(background);
 
@@ -85,10 +85,7 @@ public class GameWorld extends World
         //Enter Portal
         Others ep = new EnterPortal();
         addObject(ep, 560, 215);
-        
-        //TorchFire
-        Others tf = new TorchFire();
-        addObject(tf, 180, 180);
+    
         
         
         //main portal that allows portals to other worlds work
