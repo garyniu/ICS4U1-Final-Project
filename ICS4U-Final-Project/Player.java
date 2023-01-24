@@ -62,7 +62,7 @@ public class Player extends FreeMovement
     
     //Player health points
     private static int hp = 100;
-    private static boolean status = true;//true=alive, false=dead
+    private static boolean alive = true;//true=alive, false=dead
 
     public Player(int x, int y){
         super(x, y);
@@ -306,7 +306,8 @@ public class Player extends FreeMovement
     public void damagePlayer(int dmg){//lose hp
         hp -= dmg;
         if(hp <= 0){
-            status = false;
+            hp = 0;
+            alive = false;
         }
         GameWorld.updateHP(hp);
     }
@@ -406,15 +407,13 @@ public class Player extends FreeMovement
         }
         //plays attack animation when pressing e
         if(Greenfoot.isKeyDown("q")){//sword swing
-            //swordAttack();
-            damagePlayer(1);
+            swordAttack();
             //based on current x and y value, find grid
             //set certain distance around grid as damage
             //collision with monster = damage
         }
         if(Greenfoot.isKeyDown("e")){//spear thrust
-            //spearAttack();
-            healPlayer(1);
+            spearAttack();
             //based on current x and y value, find grid
             //set certain distance around grid as damage
             //collision with monster = damage
@@ -434,6 +433,12 @@ public class Player extends FreeMovement
             }
 
             GameWorld.spawnArrow(getX(), getY(), dir);
+        }
+        if(Greenfoot.isKeyDown("1")){
+            damagePlayer(1);
+        }
+        if(Greenfoot.isKeyDown("2")){
+            healPlayer(1);
         }
 
         /*//sprint toggling with shift key (works weird)

@@ -79,7 +79,7 @@ public class GameWorld extends World
         setBackground(bg);
         
         //stat bar
-        stats = new SuperStatBar (100, 100, null, 400, 30, 0, Color.GREEN, Color.WHITE, false, Color.BLACK, 2);
+        stats = new SuperStatBar (100, 100, null, 400, 20, 0, Color.GREEN, Color.WHITE, false, Color.BLACK, 2);
         addObject(stats, 0, 0);
         
         //Enter Portal
