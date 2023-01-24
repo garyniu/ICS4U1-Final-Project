@@ -63,6 +63,8 @@ public class IceWorld extends World
     public Wall[][] wallListTwo = new Wall[32][36];
     
     private int blockW = 30, blockH = 16;
+    private Wall closest = new Wall(0, 0);
+    
     
     /**
      * Constructor for objects of class PortalTest.
@@ -140,6 +142,10 @@ public class IceWorld extends World
                 
             }
         }
+        
+        
+        addObject(closest, -1000, -1000);
+        
     }
     
     
@@ -162,6 +168,8 @@ public class IceWorld extends World
             showText("mouseY: " + String.valueOf(m.getY() - 545), 900, 600);
         }
         
+        //System.out.println("fuck " + getBlockCoord(5, 6).getX());
+        
         checkUserOntoGrid();
         
         /*if (m != null)
@@ -170,13 +178,13 @@ public class IceWorld extends World
             showText("mouseY: " + String.valueOf(m.getY()), 900, 600);
         }*/
         
-        
+        /*
         for (int i = 0; i < mapTwo.length; i++){
             for (int j = 0; j < mapTwo[i].length; j++){
                 System.out.print(mapTwo[i][j]);
             }
             System.out.println();
-        }
+        }*/
     }
     
     //puts the user onto the grid based on coords
@@ -202,8 +210,7 @@ public class IceWorld extends World
         //find what gridspace the gridblock is
         //set that gridblock to user standing on it
         
-        Wall closest = new Wall(0, 0);
-        addObject(closest, -300, -300);
+        
         for (int i = 0; i < wallListTwo.length; i++){
             for (int j = 0; j < wallListTwo[i].length; j++){
                 
@@ -218,7 +225,13 @@ public class IceWorld extends World
             }
         }
         
-        mapTwo[closest.getGridCoord().getX()][closest.getGridCoord().getY()] = 8;
+        
+        if (mapTwo[closest.getGridCoord().getX()][closest.getGridCoord().getY()] == 1){
+            mapTwo[closest.getGridCoord().getX()][closest.getGridCoord().getY()] = 8;
+        }
+        
+        System.out.println(closest.getGridCoord().getX() + " " + closest.getGridCoord().getY());
+        
         
         
     }

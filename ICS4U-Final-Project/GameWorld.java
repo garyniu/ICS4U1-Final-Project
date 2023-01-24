@@ -184,7 +184,7 @@ public class GameWorld extends World
         xd = this.getWidth()- cX;
         yd = this.getHeight() - cY;
         
-        System.out.println("newx and y: " + cX + " " + cY );
+        //System.out.println("newx and y: " + cX + " " + cY );
         
         wbg.setLocation(xd, yd);
     }
