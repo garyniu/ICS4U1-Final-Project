@@ -33,6 +33,8 @@ public class Player extends FreeMovement
     private GreenfootImage[] bowAttackDownImages;
     private GreenfootImage[] bowAttackRightImages;
     private GreenfootImage[] bowAttackLeftImages;
+    
+    GifImage bowRight = new GifImage("images/PlayerAnimations/bowAttack/right.gif");
 
     //vertical + horizontal booleans
     private boolean isFacingUp, isFacingDown, isFacingLeft, isFacingRight = false;
@@ -273,9 +275,10 @@ public class Player extends FreeMovement
     }
     //bow attack animation
     public void bowAttack(){
-        if(actionTimer.millisElapsed() > 100){
+        //if(actionTimer.millisElapsed() > 100){
             if (isFacingRight){
-                setImage(bowAttackRightImages[curIndex3]);
+                //setImage(bowAttackRightImages[curIndex3]);
+                setImage(bowRight.getCurrentImage());
             }else if(isFacingLeft){
                 setImage(bowAttackLeftImages[curIndex3]);
             }else if (isFacingUp){
@@ -290,7 +293,7 @@ public class Player extends FreeMovement
             }
 
             actionTimer.mark();
-        }
+        //}
     }
     //set weapon damage
     public void setSwordDamage(int dmg){//sword dmg
@@ -414,25 +417,13 @@ public class Player extends FreeMovement
         }
         if(Greenfoot.isKeyDown("e")){//spear thrust
             spearAttack();
-            //based on current x and y value, find grid
-            //set certain distance around grid as damage
-            //collision with monster = damage
         }
         if(Greenfoot.isKeyDown("r")){//bow shot
-            bowAttack();
-
-            int dir = 0;
-            if(isFacingUp){
-                dir = 1;
-            }else if(isFacingDown){
-                dir = 2;
-            }else if(isFacingLeft){
-                dir = 3;
-            }else if(isFacingRight){
-                dir = 4;
+            //bowAttack();
+            if (isFacingRight){
+                //setImage(bowAttackRightImages[curIndex3]);
+                setImage(bowRight.getCurrentImage());
             }
-
-            GameWorld.spawnArrow(getX(), getY(), dir);
         }
         if(Greenfoot.isKeyDown("1")){
             damagePlayer(1);
