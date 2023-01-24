@@ -57,6 +57,9 @@ public class GameWorld extends World
     
     private int xd = 0, yd = 0;
     
+    //stat bar
+    private SuperStatBar stats;
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -66,7 +69,7 @@ public class GameWorld extends World
         // Create a new world with 720x405 cells with a cell size of 1x1 pixels.
         super(600, 500, 1, false);
         
-        setPaintOrder(Boundary.class, Projectile.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class,TorchFire.class, Wall.class, WorldBackground.class);
+        setPaintOrder(Boundary.class, SuperStatBar.class, Projectile.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class,TorchFire.class, Wall.class, WorldBackground.class);
 
         wbg = new WorldBackground(background);
 
@@ -74,6 +77,10 @@ public class GameWorld extends World
         bg.setColor(Color.BLACK);
         bg.fill();
         setBackground(bg);
+        
+        //stat bar
+        stats = new SuperStatBar (100, 100, null, 350, 30, 0, Color.GREEN, Color.WHITE, false, Color.BLACK, 2);
+        addObject(stats, 0, 0);
         
         //Enter Portal
         Others ep = new EnterPortal();
