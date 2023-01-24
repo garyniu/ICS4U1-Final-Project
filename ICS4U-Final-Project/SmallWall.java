@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class SmallWall extends Others
 {
-    private GreenfootImage playImage = new GreenfootImage("images/misc/isowall24.png");
+    private GreenfootImage playImage = new GreenfootImage("images/misc/isowall256.png");
     
     private GreenfootImage hiddenImage = new GreenfootImage("images/misc/hWall.png");
     
