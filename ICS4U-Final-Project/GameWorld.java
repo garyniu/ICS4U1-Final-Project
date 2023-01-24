@@ -57,6 +57,9 @@ public class GameWorld extends World
     
     private int xd = 0, yd = 0;
     
+    //stat bar
+    private static SuperStatBar stats;
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -66,7 +69,7 @@ public class GameWorld extends World
         // Create a new world with 720x405 cells with a cell size of 1x1 pixels.
         super(600, 500, 1, false);
         
-        setPaintOrder(Boundary.class, Projectile.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class,TorchFire.class, Wall.class, WorldBackground.class);
+        setPaintOrder(Boundary.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class,TorchFire.class, Wall.class, WorldBackground.class);
 
         wbg = new WorldBackground(background);
 
@@ -74,6 +77,10 @@ public class GameWorld extends World
         bg.setColor(Color.BLACK);
         bg.fill();
         setBackground(bg);
+        
+        //stat bar
+        stats = new SuperStatBar (100, 100, null, 400, 20, 0, Color.GREEN, Color.WHITE, false, Color.BLACK, 2);
+        addObject(stats, 0, 0);
         
         //Enter Portal
         Others ep = new EnterPortal();
@@ -96,7 +103,7 @@ public class GameWorld extends World
         
         portal = new Portal(portal);
         IceWorld world2 = new IceWorld();//portal to the other world (iceWorld)
-        world2.addObject(portal, 260, 115);
+        world2.addObject(portal, -420, 300);
         
         //player
         FreeMovement playerTest = new Player(250, 400);
@@ -145,6 +152,14 @@ public class GameWorld extends World
         addObject(bound8, 500, 175);  
         bound8.setRotation(210);
         
+        Boundary bound9 = new Boundary(20,50);
+        addObject(bound9, 460, 340);  
+        bound9.setRotation(-20);
+        
+        Boundary bound10 = new Boundary(50,35);
+        addObject(bound10, 320, 230);  
+        bound10.setRotation(35);
+        
         
         xd = playerTest.getX();
         yd = playerTest.getY();
@@ -167,6 +182,11 @@ public class GameWorld extends World
         }
         
         moveThing(xd, yd);
+    }
+    
+    //update player hp bar
+    public static void updateHP(int hp){
+        stats.update((int)(hp));
     }
     
     public void act()
@@ -222,10 +242,5 @@ public class GameWorld extends World
     //returns the width and height of a block
     public Pair getMapBlockSize(){
         return new Pair(wallListTwo[0][0].getImage().getWidth(), wallListTwo[0][0].getImage().getHeight());
-    }
-    
-    public static void spawnArrow(int x, int y, int dir){
-        FreeMovement arrow = new Projectile(x, y, dir);
-        //addObject(arrow, this.getWidth()/2, this.getHeight()/2);
     }
 }

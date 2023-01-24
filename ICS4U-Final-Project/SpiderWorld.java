@@ -125,7 +125,7 @@ public class SpiderWorld extends World
         super(1922, 1450, 1, false); 
         
         
-        setPaintOrder(Boundary.class, Projectile.class, PlayerHitbox.class, Player.class,Others.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
+        setPaintOrder(Boundary.class, PlayerHitbox.class, Player.class,Others.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
         
         wbg3 = new WorldBackground(background);
         
@@ -134,7 +134,7 @@ public class SpiderWorld extends World
         bg.fill();
         setBackground(bg);
         
-        Others ep2 = new EnterPortal();
+        Others ep2 = new EnterPortalGreen();
         addObject(ep2, 400, -120);
         
         FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);

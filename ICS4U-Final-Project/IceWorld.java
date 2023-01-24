@@ -88,7 +88,10 @@ public class IceWorld extends World
         wbg2 = new WorldBackground(background);
         
         Others ep2 = new EnterPortal();
-        addObject(ep2, 260, 115);
+        addObject(ep2, -420, 300);
+        
+        Others ep3 = new EnterPortalGreen();
+        addObject(ep3, -75, -415);
         
         //change enemy to spawn anaywhere, and it moves itself to correct spot
         //addObject(new BossEnemy(300, 200, getMapBlockSize(), getMapOrigin()), 300, 200);//<- This doesn't work
@@ -115,7 +118,7 @@ public class IceWorld extends World
         this.addObject(portal, 9999, 9999);
         
         portal = new Portal(); //this worlds portal
-        this.addObject(portal, 500, 500);
+        this.addObject(portal, -75, -415);
         
         
         
