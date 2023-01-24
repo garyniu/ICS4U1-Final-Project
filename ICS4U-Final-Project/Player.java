@@ -38,7 +38,7 @@ public class Player extends FreeMovement
     private boolean isFacingUp, isFacingDown, isFacingLeft, isFacingRight = false;
     //diagonal booleans
     private boolean isFacingLeftUp, isFacingRightUp, isFacingLeftDown, isFacingRightDown;
-    
+
     //location
     private int x, y;
 
@@ -48,13 +48,13 @@ public class Player extends FreeMovement
     private int atkSize = 180;//size for sword and spear animation
     //player speed variables
     private int playerSpeed = 2;
-    private int sprintSpeed = 4;
+    private int sprintSpeed = 5;
     private boolean sprinting = false;
     //player damage variables(for enemy)
     private int swordDamage = 10;
     private int spearDamage = 7;
     private int bowDamage = 5;//possibly not needed
-    
+
     //animation image speed
     private SimpleTimer actionTimer;
     private int delay = 0;
@@ -124,7 +124,7 @@ public class Player extends FreeMovement
             swordAttackLeftImages[i].mirrorHorizontally();
             swordAttackLeftImages[i].scale(atkSize, atkSize);
         }
-        
+
         //spear attack
         for(int i = 0; i < spearAttackDownImages.length; i++)//main charater walking down animation 
         {
@@ -145,7 +145,7 @@ public class Player extends FreeMovement
             spearAttackLeftImages[i].mirrorHorizontally();
             spearAttackLeftImages[i].scale(atkSize, atkSize);
         }
-        
+
         //bow attack
         for(int i = 0; i < bowAttackDownImages.length; i++)//main charater walking down animation 
         {
@@ -166,7 +166,7 @@ public class Player extends FreeMovement
             bowAttackLeftImages[i].mirrorHorizontally();
             bowAttackLeftImages[i].scale(size, size);
         }
-        
+
         setImage(rightImages[0]);
 
         actionTimer = new SimpleTimer();
@@ -178,23 +178,26 @@ public class Player extends FreeMovement
         posx -= speed;
         dir = "R";
     }
+
     public void moveRight(){
         posx += speed;
         dir = "L";
     }
+
     public void moveUp(){
         //posy-=2; 
-        
+
         setLocationCam(posx, posy -= speed, Spawnx, Spawny);
         dir = "D";
     }
+
     public void moveDown(){
         //posy+=2;
-        
+
         setLocationCam(posx, posy += speed, Spawnx, Spawny);
         dir = "U";
     }
-    
+
     int curIndex = 0;
     int curIndex1 = 0;
     int curIndex2 = 0;
@@ -213,7 +216,7 @@ public class Player extends FreeMovement
             }else if(isFacingLeft){
                 setImage(leftImages[curIndex]);
             }
-            
+
             curIndex++;
             if(curIndex == 9){
                 curIndex = 0;
@@ -234,12 +237,12 @@ public class Player extends FreeMovement
             }else if(isFacingDown){
                 setImage(swordAttackDownImages[curIndex1]);
             }
-            
+
             curIndex1++;
             if(curIndex1 == 6){
                 curIndex1 = 0;
             }
-            
+
             actionTimer.mark();
         }
     }
@@ -255,12 +258,12 @@ public class Player extends FreeMovement
             }else if(isFacingDown){
                 setImage(spearAttackDownImages[curIndex2]);
             }
-            
+
             curIndex2++;
             if(curIndex2 == 8){
                 curIndex2 = 0;
             }
-            
+
             actionTimer.mark();
         }
     }
@@ -276,12 +279,12 @@ public class Player extends FreeMovement
             }else if(isFacingDown){
                 setImage(bowAttackDownImages[curIndex3]);
             }
-            
+
             curIndex3++;
             if(curIndex3 == 13){
                 curIndex3 = 0;
             }
-            
+
             actionTimer.mark();
         }
     }
@@ -289,13 +292,15 @@ public class Player extends FreeMovement
     public void setSwordDamage(int dmg){//sword dmg
         this.swordDamage = dmg;
     }
+
     public void setSpearDamage(int dmg){//spear dmg
         this.spearDamage = dmg;
     }
+
     public void setBowDamage(int dmg){//bow dmg
         this.bowDamage = dmg;
     }
-    
+
     public void act()
     {
         super.act();
@@ -385,13 +390,19 @@ public class Player extends FreeMovement
         //plays attack animation when pressing e
         if(Greenfoot.isKeyDown("q")){//sword swing
             swordAttack();
+            //based on current x and y value, find grid
+            //set certain distance around grid as damage
+            //collision with monster = damage
         }
         if(Greenfoot.isKeyDown("e")){//spear thrust
             spearAttack();
+            //based on current x and y value, find grid
+            //set certain distance around grid as damage
+            //collision with monster = damage
         }
         if(Greenfoot.isKeyDown("r")){//bow shot
             bowAttack();
-            
+
             int dir = 0;
             if(isFacingUp){
                 dir = 1;
@@ -402,109 +413,107 @@ public class Player extends FreeMovement
             }else if(isFacingRight){
                 dir = 4;
             }
-            
+
             GameWorld.spawnArrow(getX(), getY(), dir);
         }
-        
-        //set damage for weapons
-        
-        
+
         /*//sprint toggling with shift key (works weird)
         if(!sprinting){
-            if(Greenfoot.isKeyDown("Shift")){
-                FreeMovement.setPlayerSpeed(10);//sprinting speed
-                sprinting = true;
-            }
+        if(Greenfoot.isKeyDown("Shift")){
+        FreeMovement.setPlayerSpeed(sprintSpeed);//sprinting speed
+        sprinting = true;
+        }
         }else if(sprinting){
-            if(Greenfoot.isKeyDown("Shift")){
-                FreeMovement.setPlayerSpeed(2);//walking speed
-                sprinting = false;
-            }
+        if(Greenfoot.isKeyDown("Shift")){
+        FreeMovement.setPlayerSpeed(playerSpeed);//walking speed
+        sprinting = false;
+        }
         }*/
 
-        if(Greenfoot.isKeyDown(",")){
-            FreeMovement.setPlayerSpeed(sprintSpeed);//sprinting speed
-            sprinting = true;
+        if (Greenfoot.isKeyDown("Shift")){ 
+            if(!sprinting){
+                FreeMovement.setPlayerSpeed(sprintSpeed);//sprinting speed
+                sprinting = true;
+            }else{
+                FreeMovement.setPlayerSpeed(playerSpeed);//walking speed
+                sprinting = false;
+            }
         }
-        if(Greenfoot.isKeyDown(".")){
-            FreeMovement.setPlayerSpeed(playerSpeed);//walking speed
-            sprinting = false;
-        }
-        
+
         /*if("shift".equals(dashed))
         {
-            System.out.println("player has dashed");
-            if(isFacingUp == true)
-            {
-                if(dashTime == 0)
-                {
-                    characterSpeed = 2;
-                }
-                if(dashTime <= 30)
-                {
-                    characterSpeed += 5;
-                    dashTime += 30;
-                }
-                if(dashTime >= 30)
-                {
-                    characterSpeed = 2;
-                }
-            }
+        System.out.println("player has dashed");
+        if(isFacingUp == true)
+        {
+        if(dashTime == 0)
+        {
+        characterSpeed = 2;
+        }
+        if(dashTime <= 30)
+        {
+        characterSpeed += 5;
+        dashTime += 30;
+        }
+        if(dashTime >= 30)
+        {
+        characterSpeed = 2;
+        }
+        }
         }
 
         if (Greenfoot.isKeyDown("shift"))
         {
-            if(isFacingUp == true)
-            {
-                if(dashed == "shift")
-                {
+        if(isFacingUp == true)
+        {
+        if(dashed == "shift")
+        {
 
-                }
-                if(dashTime == 0)
-                {
-                    characterSpeed = 2;
-                }
-                if(dashTime <=30)
-                {
-                    dashTime++;
-                    characterSpeed += 1;
-                }
-                if(dashTime >= 30)
-                {
-                    characterSpeed = 2;
-                    dashTime = 0;
-                }
-            }
+        }
+        if(dashTime == 0)
+        {
+        characterSpeed = 2;
+        }
+        if(dashTime <=30)
+        {
+        dashTime++;
+        characterSpeed += 1;
+        }
+        if(dashTime >= 30)
+        {
+        characterSpeed = 2;
+        dashTime = 0;
+        }
+        }
         }
 
         //attack
         if(Greenfoot.isKeyDown("right")){//MainCharater moves right
-            for(int i = 0; i < 6; i++){
-                isFacingRight = true;
-                hAttack();
-            }
+        for(int i = 0; i < 6; i++){
+        isFacingRight = true;
+        hAttack();
+        }
         }
         if(Greenfoot.isKeyDown("left")){//MainCharater moves left
-            for(int i = 0; i < 6; i++){
-                isFacingRight = false;
-                hAttack();
-            }
+        for(int i = 0; i < 6; i++){
+        isFacingRight = false;
+        hAttack();
+        }
         }
         if(Greenfoot.isKeyDown("up")){//MainCharater moves up
-            for(int i = 0; i < 6; i++){
-                int x = getX();
-                int y = getY();
-                isFacingUp = true;
-                vAttack();
-            }
+        for(int i = 0; i < 6; i++){
+        int x = getX();
+        int y = getY();
+        isFacingUp = true;
+        vAttack();
+        }
         }
         if(Greenfoot.isKeyDown("down")){//MainCharater moves down
-            for(int i = 0; i < 6; i++){
-                int x = getX();
-                int y = getY();
-                isFacingUp = false;
-                vAttack();
-            }
+        for(int i = 0; i < 6; i++){
+        int x = getX();
+        int y = getY();
+        isFacingUp = false;
+        vAttack();
+        }
         }*/
     }
 }
