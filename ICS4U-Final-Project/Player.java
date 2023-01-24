@@ -88,6 +88,8 @@ public class Player extends FreeMovement
         bowAttackDownImages = new GreenfootImage[13];
         bowAttackRightImages = new GreenfootImage[13];
         bowAttackLeftImages = new GreenfootImage[13];
+        
+        
 
         //walk
         for(int i = 0; i < downImages.length; i++)//main charater walking down animation 
@@ -332,6 +334,22 @@ public class Player extends FreeMovement
         //movement
         //a and d goes first so the horizontal walking animation always plays
         //when moving diagonally(looks better since there is no horizontal animation)
+        if(Greenfoot.isKeyDown("r")){//bow shot
+            //bowAttack();
+            
+            //setImage(bowAttackRightImages[curIndex3]);
+            
+            
+            
+            
+            setImage(bowRight.getCurrentImage());
+            
+            
+            
+            
+            
+            
+        }
         if (Greenfoot.isKeyDown("a")){//detect left
             moveLeft();
             isFacingUp = false;
@@ -368,6 +386,23 @@ public class Player extends FreeMovement
                 isFacingRightUp = false;
                 isFacingLeftDown = false;
                 isFacingRightDown = true;
+            }
+            
+            if(Greenfoot.isKeyDown("r")){//bow shot
+                //bowAttack();
+                
+                //setImage(bowAttackRightImages[curIndex3]);
+                
+                
+                
+                
+                setImage(bowRight.getCurrentImage());
+                
+            
+            
+            
+            
+            
             }
         }
         if (Greenfoot.isKeyDown("w")){//detect up
@@ -418,13 +453,7 @@ public class Player extends FreeMovement
         if(Greenfoot.isKeyDown("e")){//spear thrust
             spearAttack();
         }
-        if(Greenfoot.isKeyDown("r")){//bow shot
-            //bowAttack();
-            if (isFacingRight){
-                //setImage(bowAttackRightImages[curIndex3]);
-                setImage(bowRight.getCurrentImage());
-            }
-        }
+        
         if(Greenfoot.isKeyDown("1")){
             damagePlayer(1);
         }
