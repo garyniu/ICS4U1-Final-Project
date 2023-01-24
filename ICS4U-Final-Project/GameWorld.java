@@ -58,7 +58,7 @@ public class GameWorld extends World
     private int xd = 0, yd = 0;
     
     //stat bar
-    private SuperStatBar stats;
+    private static SuperStatBar stats;
     
     /**
      * Constructor for objects of class MyWorld.
@@ -79,7 +79,7 @@ public class GameWorld extends World
         setBackground(bg);
         
         //stat bar
-        stats = new SuperStatBar (100, 100, null, 350, 30, 0, Color.GREEN, Color.WHITE, false, Color.BLACK, 2);
+        stats = new SuperStatBar (100, 100, null, 400, 30, 0, Color.GREEN, Color.WHITE, false, Color.BLACK, 2);
         addObject(stats, 0, 0);
         
         //Enter Portal
@@ -174,6 +174,11 @@ public class GameWorld extends World
         }
         
         moveThing(xd, yd);
+    }
+    
+    //update player hp bar
+    public static void updateHP(int hp){
+        stats.update((int)(hp));
     }
     
     public void act()

@@ -59,6 +59,10 @@ public class Player extends FreeMovement
     private SimpleTimer actionTimer;
     private int delay = 0;
     private int dashTime;
+    
+    //Player health points
+    private static int hp = 100;
+    private static boolean status = true;//true=alive, false=dead
 
     public Player(int x, int y){
         super(x, y);
@@ -292,15 +296,28 @@ public class Player extends FreeMovement
     public void setSwordDamage(int dmg){//sword dmg
         this.swordDamage = dmg;
     }
-
     public void setSpearDamage(int dmg){//spear dmg
         this.spearDamage = dmg;
     }
-
     public void setBowDamage(int dmg){//bow dmg
         this.bowDamage = dmg;
     }
-
+    //damage for player
+    public void damagePlayer(int dmg){//lose hp
+        hp -= dmg;
+        if(hp <= 0){
+            status = false;
+        }
+        GameWorld.updateHP(hp);
+    }
+    public void healPlayer(int heal){//gain hp
+        hp += heal;
+        if(hp > 100){
+            hp = 100;
+        }
+        GameWorld.updateHP(hp);
+    }
+    
     public void act()
     {
         super.act();
@@ -389,13 +406,15 @@ public class Player extends FreeMovement
         }
         //plays attack animation when pressing e
         if(Greenfoot.isKeyDown("q")){//sword swing
-            swordAttack();
+            //swordAttack();
+            damagePlayer(1);
             //based on current x and y value, find grid
             //set certain distance around grid as damage
             //collision with monster = damage
         }
         if(Greenfoot.isKeyDown("e")){//spear thrust
-            spearAttack();
+            //spearAttack();
+            healPlayer(1);
             //based on current x and y value, find grid
             //set certain distance around grid as damage
             //collision with monster = damage
