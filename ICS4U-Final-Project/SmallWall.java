@@ -21,6 +21,10 @@ public class SmallWall extends Others
     {
         // Add your action code here.
         change1();
+       
+        
+        
+        
     }
     
     public void addedToWorld(World GameWorld){
