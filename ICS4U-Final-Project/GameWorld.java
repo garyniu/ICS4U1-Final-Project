@@ -152,6 +152,14 @@ public class GameWorld extends World
         addObject(bound8, 500, 175);  
         bound8.setRotation(210);
         
+        Boundary bound9 = new Boundary(20,50);
+        addObject(bound9, 460, 340);  
+        bound9.setRotation(-20);
+        
+        Boundary bound10 = new Boundary(50,35);
+        addObject(bound10, 320, 230);  
+        bound10.setRotation(35);
+        
         
         xd = playerTest.getX();
         yd = playerTest.getY();
