@@ -90,7 +90,7 @@ public class Projectile extends FreeMovement
         actionTimer = new SimpleTimer();
         actionTimer.mark();
     }
-
+    
     //movement
     public void moveLeft(){
         posx -= speed;
