@@ -146,7 +146,7 @@ public class GameWorld extends World
                 //depending on the cell code, add/initialize objects (see map code at top for reference of what codes correspond to what objects
                
                 if(mapTwo[x][y]==1){
-                    wallListTwo[x][y]=new Wall();
+                    wallListTwo[x][y]=new Wall(x, y);
                     //addObject(wallListTwo[x][y], (400 - x * 14 + y * 14-1), (140 + x * 7 + y * 7));
                     
                     //addObject(wallListTwo[x][y], (440- x * 14 + y * 14-1), (125 + x * 7 + y * 7));

@@ -11,16 +11,22 @@ public class Wall extends Others
     private GreenfootImage playImage;
     private GreenfootImage hiddenImage = new GreenfootImage("images/misc/hWall.png");
     
+    private int gridx, gridy;
+    
     private GreenfootImage semihiddenImage = new GreenfootImage("images/misc/isowall23.png");
     /**
      * Act - do whatever the Wall wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Wall() 
+    public Wall(int gridx, int gridy) 
     {
         playImage = new GreenfootImage("images/misc/isowall245.png");
         setImage(playImage);
         // Add your action code here.
+        
+        this.gridx = gridx;
+        this.gridy = gridy;
+        
         change1();
     }
     
@@ -47,6 +53,11 @@ public class Wall extends Others
             change3();
         }
     }
+    
+    public Pair getGridCoord(){
+        return new Pair(gridx, gridy);
+    }
+    
     
     public void change1()
     {

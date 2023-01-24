@@ -21,7 +21,7 @@ public class BossEnemy extends GridMovement
     
     public BossEnemy(int x, int y, Pair gridSize){
         
-        super(gridSize);
+        super();
         
         //change x,y to xy coord on grid
         this.x = x;

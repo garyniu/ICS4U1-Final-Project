@@ -1,4 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Write a description of class PortalTest here.
@@ -88,7 +90,7 @@ public class IceWorld extends World
         
         //change enemy to spawn anaywhere, and it moves itself to correct spot
         //addObject(new BossEnemy(300, 200, getMapBlockSize(), getMapOrigin()), 300, 200);//<- This doesn't work
-        //addObject(new Enemy(300, 200, getMapBlockSize()), 300, 200);
+        addObject(new Enemy(5, 6), 0, 0);
         //player
         //FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
         //addObject(playerTest, this.getWidth()/2, this.getHeight()/2);
@@ -112,7 +114,7 @@ public class IceWorld extends World
                 //depending on the cell code, add/initialize objects (see map code at top for reference of what codes correspond to what objects
                
                 if(mapTwo[x][y]==1){
-                    wallListTwo[x][y]=new Wall();
+                    wallListTwo[x][y]=new Wall(x, y);
                     //addObject(wallListTwo[x][y], (400 - x * 14 + y * 14-1), (140 + x * 7 + y * 7));
                     
                     addObject(wallListTwo[x][y], (-65 - x * blockW + y * 30-1), (-445 + x * blockH + y * 16));
@@ -145,11 +147,40 @@ public class IceWorld extends World
             showText("mouseY: " + String.valueOf(m.getY() - 545), 900, 600);
         }
         
+        checkUserOntoGrid();
+        
         /*if (m != null)
         {
             showText("mouseX: " + String.valueOf(m.getX()), 900, 500);
             showText("mouseY: " + String.valueOf(m.getY()), 900, 600);
         }*/
+    }
+    
+    //puts the user onto the grid based on coords
+    private void checkUserOntoGrid(){
+        ArrayList<Player> p = (ArrayList<Player>)getObjects(Player.class);
+        Player pl = p.get(0);
+        
+        
+        //very inefficent and dumb, best way would be to base off of user current position
+        //and then search for grid spaces directly around it, but not enough time
+        for (int i = 0; i < mapTwo.length; i++){
+            for (int j = 0; j < mapTwo[i].length; j++){
+                if (mapTwo[i][j] == 21){
+                    mapTwo[i][j] = 1;
+                }
+            }
+        }
+        
+        
+        //add param to each grid block to just store what grid they are
+        
+        //find which gridblock the player is on
+        //find what gridspace the gridblock is
+        //set that gridblock to user standing on it
+        
+        
+        
     }
     
     public int[][] getMapArr(){
@@ -164,20 +195,9 @@ public class IceWorld extends World
         return copy;
     }
     
-    public Wall[][] getBlockArr(){
-        Wall[][] copyy = new Wall[wallListTwo.length][wallListTwo[0].length];// = new int[mapTwo.length][mapTwo[0].length];
-        
-        for (int i = 0; i < wallListTwo.length; i++){
-            for (int j = 0; j < wallListTwo[i].length; j++){
-                copyy[i][j] = wallListTwo[i][j];
-            }
-        }
-        
-        return copyy;
-    }
-
+    //returns a copy of blocks in array
     
-    //returns the top left corner position of the array on the screen
+    //BROKEN!!!!!!!!!!!!! FIXXXXXXXXXXXXXXXX
     public Pair getBlockCoord(int x, int y){
         
         //Wall temp = wallListTwo[0][0];
@@ -185,32 +205,34 @@ public class IceWorld extends World
         //int a = temp.getX(), b = temp.getY();
         
         //WILL RETURN NULL IF THERE IS NO BLOCK!!!!
-        return new Pair(wallListTwo[x][y].getX(), wallListTwo[x][y].getY());
+        if (wallListTwo[x][y] == null){
+            return new Pair(0, 0);
+        } else {
+            return new Pair(wallListTwo[x][y].getX(), wallListTwo[x][y].getY());
+        }
+        
     }
     
-    //returns the width and height of a block
-    //problem right now
-        //Some spots in the wallListTwo array is null, as it is a wall, so some spots will be null
-    /*
+    //WORKING
     public Pair getMapBlockSize(){
         
-        Wall walli = new Wall();
+        Wall walli = new Wall(-1, -1);
 
         for (int i = 0; i < wallListTwo.length; i++){
             for (int j = 0; j < wallListTwo[i].length; j++){
                 if (wallListTwo[i][j] != null){
                     walli = wallListTwo[i][j];
                 }
-                break;
+                
             }
-            break;
+            
         }
         
         return new Pair(walli.getImage().getWidth(), walli.getImage().getHeight());
-    }*/
+    }
     
-    public void setGridPosition(){
-        
+    public void setGridPosition(int x, int y, int v){
+        mapTwo[x][y] = v;
     }
 
 

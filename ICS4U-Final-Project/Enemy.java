@@ -19,13 +19,13 @@ public class Enemy extends GridMovement
     private int playerRange = 45; //change
 
     
-    public Enemy(int x, int y, Pair gridSize){
+    public Enemy(int x, int y){
         
-        super(gridSize);
+        super();
         
         //change x,y to xy coord on grid
-        this.x = x;
-        this.y = y;
+        this.xc = x;
+        this.yc = y;
         
         CharImg = new GreenfootImage("baby1.png");
         setImage(CharImg);
