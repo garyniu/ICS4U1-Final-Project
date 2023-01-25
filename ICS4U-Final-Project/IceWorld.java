@@ -31,7 +31,7 @@ public class IceWorld extends World
             {0,0,0,0,0,0,0,1,1,1,1,0,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0},
             {0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1,1,0,0,0},
             {0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0},
-            {0,0,0,0,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0},
+            {0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0},
             {0,0,0,0,0,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,0,0,0},
             {0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0},
             {0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0},
@@ -84,7 +84,9 @@ public class IceWorld extends World
         super(1920, 1080, 1, false); 
         
         
-        setPaintOrder(SuperStatBar.class, Dungeon1Cover1.class, PlayerHitbox.class, Player.class, Others.class, WorldBackground.class);
+
+        setPaintOrder(Wall.class, DungeonCover5.class, DungeonCover4.class, DungeonCover3.class, DungeonCover1.class, DungeonCover2.class, PlayerHitbox.class, Player.class, Others.class, WorldBackground.class);
+
         
         //stat bar
         //stamina
@@ -93,6 +95,7 @@ public class IceWorld extends World
         //hp
         health = new SuperStatBar (100, 100, null, 200, 15, 0, Color.RED, Color.BLACK, false, Color.GRAY, 3);
         addObject(health, 95, 5);
+
         
         GreenfootImage bg = new GreenfootImage(640, 500);
         bg.setColor(Color.BLACK);
@@ -103,11 +106,31 @@ public class IceWorld extends World
         
         wbg2 = new WorldBackground(background);
         
+        //Enter portals
         Others ep2 = new EnterPortal();
         addObject(ep2, -420, 300);
         
         Others ep3 = new EnterPortalGreen();
         addObject(ep3, -75, -415);
+        
+        //DUNGEON COVERS
+        
+        DungeonCover1 c1 = new DungeonCover1();//chair room
+        addObject(c1, 260, 300);
+        
+        DungeonCover2 c2 = new DungeonCover2();//chair room
+        addObject(c2, -70, 295);
+        
+        DungeonCover3 c3 = new DungeonCover3();//chest room
+        addObject(c3, -348, 100);
+        
+        DungeonCover4 c4 = new DungeonCover4();//middle room
+        addObject(c4, -50, -79);
+        
+        DungeonCover5 c5 = new DungeonCover5();//middle room
+        addObject(c5, 275, 95);
+        
+        
         
         //change enemy to spawn anaywhere, and it moves itself to correct spot
         //addObject(new BossEnemy(300, 200, getMapBlockSize(), getMapOrigin()), 300, 200);//<- This doesn't work
@@ -229,7 +252,7 @@ public class IceWorld extends World
         cr8.setRotation(59);
         
         
-        Boundary cr9 = new Boundary(170,50);
+        Boundary cr9 = new Boundary(130,50);
         addObject(cr9, 150, 230);  
         cr9.setRotation(30);
         
@@ -237,13 +260,138 @@ public class IceWorld extends World
         addObject(cr10, 90, 270);  
         cr10.setRotation(30);
         
-        Boundary cr11 = new Boundary(100,50);
+        Boundary cr11 = new Boundary(90,50);
         addObject(cr11, 290, 400);  
         cr11.setRotation(30);
         
+        Boundary cr12 = new Boundary(100,50);
+        addObject(cr12, 360, 360);  
+        cr12.setRotation(30);
+        
+        //sklee room
         
         
+        Boundary sr1 = new Boundary(100,25);
+        addObject(sr1, 415, 320);  
+        sr1.setRotation(30);
         
+        Boundary sr2 = new Boundary(150,25);
+        addObject(sr2, 270, 175);  
+        sr2.setRotation(-30);
+        
+        Boundary sr3 = new Boundary(100,20);
+        addObject(sr3, 350, 170);  
+        sr3.setRotation(-30);
+        
+        Boundary sr4 = new Boundary(100,20);
+        addObject(sr4, 630, 235);  
+        sr4.setRotation(-30);
+        
+        Boundary sr5 = new Boundary(600,20);
+        addObject(sr5, 680, 245);  
+        sr5.setRotation(-27);
+        
+        Boundary sr6 = new Boundary(100,25);
+        addObject(sr6, 880, 40);  
+        sr6.setRotation(30);
+        
+        Boundary sr7 = new Boundary(100,25);
+        addObject(sr7, 780, -5);  
+        sr7.setRotation(30);
+        
+        Boundary sr8 = new Boundary(25,100);
+        addObject(sr8, 660, 30);  
+        sr8.setRotation(60);
+        
+        Boundary sr9 = new Boundary(100,25);
+        addObject(sr9, 570, 25);  
+        sr9.setRotation(30);
+        
+        Boundary sr10 = new Boundary(25,200);
+        addObject(sr10, 475, -10);  
+        sr10.setRotation(60);
+        
+        Boundary sr11 = new Boundary(200,25);
+        addObject(sr11, 330, 0);  
+        sr11.setRotation(30);
+        
+        Boundary sr12 = new Boundary(200,25);
+        addObject(sr12, 270, 120);  
+        sr12.setRotation(30);
+        
+        Boundary sr13 = new Boundary(25,225);
+        addObject(sr13, 100, 80);  
+        sr13.setRotation(90);
+        
+        Boundary sr14 = new Boundary(25,50);
+        addObject(sr14, 20, 50);  
+        sr14.setRotation(90);
+        
+        //middle world
+        
+        Boundary mw1 = new Boundary(25,300);
+        addObject(mw1, -300,-25);  
+        mw1.setRotation(-60);
+        
+        Boundary mw2 = new Boundary(100,25);
+        addObject(mw2, -345,-125);  
+        mw2.setRotation(-30);
+        
+        Boundary mw3 = new Boundary(100,25);
+        addObject(mw3, -330,-160);  
+        mw3.setRotation(60);
+        
+        Boundary mw4 = new Boundary(100,25);
+        addObject(mw4, -290,-250);  
+        mw4.setRotation(-30);
+        
+        Boundary mw5 = new Boundary(100,25);
+        addObject(mw5, -170,-250);  
+        mw5.setRotation(-30);
+        
+        Boundary mw6 = new Boundary(25,100);
+        addObject(mw6, -165,-320);  
+        mw6.setRotation(-35);
+
+        Boundary mw7 = new Boundary(25,100);
+        addObject(mw7, 230,-150);  
+        mw7.setRotation(-60);
+        
+        Boundary mw8 = new Boundary(25,100);
+        addObject(mw8, 135,-200);  
+        mw8.setRotation(-60);
+        
+        Boundary mw9 = new Boundary(25,100);
+        addObject(mw9, 50,-290);  
+        mw9.setRotation(-60);
+        
+        Boundary mw10 = new Boundary(25,80);
+        addObject(mw10, -100,-50);  
+        mw10.setRotation(-60);
+        
+        Boundary mw11 = new Boundary(25,80);
+        addObject(mw11, -90,-80);  
+        mw11.setRotation(-60);
+        
+        Boundary mw12 = new Boundary(80,25);
+        addObject(mw12, -35,-60);  
+        mw12.setRotation(-60);
+        
+        Boundary mw13 = new Boundary(100,25);
+        addObject(mw13, 60,-360);  
+        mw13.setRotation(-30);
+        
+        Boundary mw14 = new Boundary(25,100);
+        addObject(mw14, 40,-450);  
+        mw14.setRotation(-60);
+        
+         Boundary mw15 = new Boundary(100,25);
+        addObject(mw15, -150,-450);  
+        mw15.setRotation(-30);
+        
+        Boundary mw16 = new Boundary(100,25);
+        addObject(mw16, -70,-490);  
+        mw15.setRotation(-30);
         
         portal = new Portal(portal);
         

@@ -6,14 +6,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Dungeon1Cover1 extends Others
+public class DungeonCover4 extends Others
 {
     /**
      * Act - do whatever the Dungeon1Cover1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    private GreenfootImage coverImage = new GreenfootImage("images/misc/Cover1.png");
+    private GreenfootImage coverImage = new GreenfootImage("images/misc/iceCover4.png");
     
     public void addedToWorld(World GameWorld){
         //System.out.println("wall pos: " + getX() + " " + getY());
@@ -22,7 +22,7 @@ public class Dungeon1Cover1 extends Others
         yg = getY();
     }
     
-    public Dungeon1Cover1() 
+    public DungeonCover4() 
     {
         // Add your action code here.
         setImage(coverImage);
