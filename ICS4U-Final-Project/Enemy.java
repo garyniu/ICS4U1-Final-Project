@@ -82,9 +82,8 @@ public class Enemy extends GridMovement
 
     }
     
-    private void takeDamage(){
-        
-        hp -= 10;
+    private void takeDamage(int x){
+        hp -= x;
     }
     
 }
