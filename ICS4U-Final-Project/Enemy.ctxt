@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Enemy
-comment0.text=\r\n\ Enemy\ \r\n\ \r\n\ @author\ Gary\ Niu\r\n\ @version\ January\ 20\r\n
+comment0.text=\r\n\ Enemy\ \r\n\ \r\n\ CREDITS\:\r\n\ Sounds\:\r\n\ EnemyGrunt.wav\:\ (https\://www.youtube.com/watch?v\=ByfzLaSYLMw)\ +\ (MINECRAFT)\r\n\ EnemyDeath\:\ (https\://www.youtube.com/watch?v\=a9yNXR5OEcc)\ +\ (MINECRAFT)\r\n\ EnemyDmg\:\ (https\://www.youtube.com/watch?v\=C-rJZxBxCIE\ )\r\n\ \r\n\ @author\ Gary\ Niu\r\n\ @version\ January\ 20\r\n
 comment1.params=xm\ ym\ type
 comment1.target=Enemy(int,\ int,\ int)
 comment1.text=\r\n\ Constructor\ for\ Enemy\ \r\n\ @param\ x\ X\r\n\ @param\ y\ Y\r\n\ @param\ type\ Type\ of\ enemy\ \r\n

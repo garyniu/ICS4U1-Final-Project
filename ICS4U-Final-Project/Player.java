@@ -11,9 +11,16 @@ import java.util.ArrayList;
  * attacking an enemy will cause all enemies to disappear
  * 
  * CREDITS:
- * Player Sprite in GameWorld
+ * Player Sprite:
+ * in GameWorld
  * 
- * @author Justin Sin, Victor Wei, Gary Niu
+ * Sound:
+ * playerWalking.wav: (https://www.youtube.com/watch?v=4u8bCzEfxJM&ab_channel=MinecraftSoundEffects) and MINECRAFT
+ * weaponAttack.wav: (https://soundbible.com/706-Swoosh-3.html)
+ * playerGrunt.wav: (https://soundbible.com/462-Male-Grunt.html)
+ * OOF.wav: (https://www.youtube.com/watch?v=3w-2gUSus34) and ROBLOX
+ * 
+ * @author Justin Sin
  * @versio 1.0
  */
 public class Player extends FreeMovement

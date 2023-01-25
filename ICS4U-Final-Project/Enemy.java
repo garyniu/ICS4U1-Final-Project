@@ -4,6 +4,12 @@ import java.util.ArrayList;
 /**
  * Enemy 
  * 
+ * CREDITS:
+ * Sounds:
+ * EnemyGrunt.wav: (https://www.youtube.com/watch?v=ByfzLaSYLMw) + (MINECRAFT)
+ * EnemyDeath: (https://www.youtube.com/watch?v=a9yNXR5OEcc) + (MINECRAFT)
+ * EnemyDmg: (https://www.youtube.com/watch?v=C-rJZxBxCIE) + (MINECRAFT)
+ * 
  * @author Gary Niu
  * @version January 20
  */

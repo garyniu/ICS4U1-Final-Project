@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Player
-comment0.text=\r\n\ A\ controllable\ character\ using\ the\ buttons\ WASD\ for\ movement\r\n\ SHIFT\ for\ increased\ speed(sprinting)\r\n\ Q\ and\ E\ for\ attacks\ that\ deal\ different\ damage\ to\ enemies\r\n\ \r\n\ KNOWN\ ISSUES\:\r\n\ Bow\ does\ not\ work\ as\ intended,\ therefore\ it\ is\ commented\ out\r\n\ attacking\ an\ enemy\ will\ cause\ all\ enemies\ to\ disappear\r\n\ \r\n\ CREDITS\:\r\n\ Player\ Sprite\ in\ GameWorld\r\n\ \r\n\ @author\ Justin\ Sin,\ Victor\ Wei,\ Gary\ Niu\r\n\ @versio\ 1.0\r\n
+comment0.text=\r\n\ A\ controllable\ character\ using\ the\ buttons\ WASD\ for\ movement\r\n\ SHIFT\ for\ increased\ speed(sprinting)\r\n\ Q\ and\ E\ for\ attacks\ that\ deal\ different\ damage\ to\ enemies\r\n\ \r\n\ KNOWN\ ISSUES\:\r\n\ Bow\ does\ not\ work\ as\ intended,\ therefore\ it\ is\ commented\ out\r\n\ attacking\ an\ enemy\ will\ cause\ all\ enemies\ to\ disappear\r\n\ \r\n\ CREDITS\:\r\n\ Player\ Sprite\:\r\n\ in\ GameWorld\r\n\ \r\n\ Sound\:\r\n\ playerWalking.wav\:\ (https\://www.youtube.com/watch?v\=4u8bCzEfxJM&ab_channel\=MinecraftSoundEffects)\ and\ MINECRAFT\r\n\ weaponAttack.wav\:\ (https\://soundbible.com/706-Swoosh-3.html)\r\n\ playerGrunt.wav\:\ (https\://soundbible.com/462-Male-Grunt.html)\r\n\ OOF.wav\:\ (https\://www.youtube.com/watch?v\=3w-2gUSus34)\ and\ ROBLOX\r\n\ \r\n\ @author\ Justin\ Sin\r\n\ @versio\ 1.0\r\n
 comment1.params=x\ y
 comment1.target=Player(int,\ int)
 comment1.text=\r\n\ Constructor\ for\ Player\r\n\ @param\ x\ X\ coordinate\r\n\ @param\ y\ Y\ coordinate\r\n
