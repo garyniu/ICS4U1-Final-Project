@@ -11,7 +11,7 @@ public class PlayerHitbox extends FreeMovement
 
     //32-51
     private int x, y;
-    private GreenfootImage boundImage = new GreenfootImage ("images/misc/baal2.png");
+    private GreenfootImage boundImage = new GreenfootImage ("images/misc/baal.png");
 
     //animation image speed
     private SimpleTimer actionTimer;
