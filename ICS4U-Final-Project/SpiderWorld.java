@@ -132,6 +132,8 @@ public class SpiderWorld extends World
         
         setPaintOrder(SuperStatBar.class, Boundary.class, PlayerHitbox.class, Player.class,Others.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
         
+        IceWorld.stopMusic();
+        
         wbg3 = new WorldBackground(background);
         
         GreenfootImage bg = new GreenfootImage(1920, 1080);
@@ -392,6 +394,7 @@ public class SpiderWorld extends World
      */
     public void act()
     {
+        IceWorld.stopMusic();
         MouseInfo m = Greenfoot.getMouseInfo();
         
         if (m != null)

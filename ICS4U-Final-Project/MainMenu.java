@@ -54,7 +54,7 @@ public class MainMenu extends World
     public void started()//starts the theme music when world starts
     {
         themeMusic.playLoop();
-        themeMusic.setVolume(30);
+        themeMusic.setVolume(50);
     }
     
     /**
