@@ -58,7 +58,8 @@ public class GameWorld extends World
     private int xd = 0, yd = 0;
     
     //stat bar
-    private static SuperStatBar stats;
+    private static SuperStatBar health;
+    private static SuperStatBar stamina;
     
     /**
      * Constructor for objects of class MyWorld.
@@ -79,8 +80,12 @@ public class GameWorld extends World
         setBackground(bg);
         
         //stat bar
-        stats = new SuperStatBar (100, 100, null, 400, 20, 0, Color.GREEN, Color.WHITE, false, Color.BLACK, 2);
-        addObject(stats, 0, 0);
+        //stamina
+        stamina = new SuperStatBar(500, 500, null, 150, 10, 0, Color.BLUE, Color.WHITE, false, Color.BLACK, 2);
+        addObject(stamina, 70, 15);
+        //hp
+        health = new SuperStatBar (100, 100, null, 200, 15, 0, Color.GREEN, Color.WHITE, false, Color.BLACK, 2);
+        addObject(health, 95, 5);
         
         //Enter Portal
         Others ep = new EnterPortal();
@@ -183,7 +188,11 @@ public class GameWorld extends World
     
     //update player hp bar
     public static void updateHP(int hp){
-        stats.update((int)(hp));
+        health.update((int)(hp));
+    }
+    //update stamina bar
+    public static void updateStamina(int st){
+        stamina.update((int)(st));
     }
     
     public void act()

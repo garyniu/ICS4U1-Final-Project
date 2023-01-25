@@ -64,8 +64,9 @@ public class Player extends FreeMovement
 
     //Player health points
     private static int hp = 100;
+    private static int stamina = 500;
     private static boolean alive = true;//true=alive, false=dead
-    
+
     //Player coordinates
     private Pair coords = new Pair(0, 0);
 
@@ -309,6 +310,7 @@ public class Player extends FreeMovement
     public void setBowDamage(int dmg){//bow dmg
         this.bowDamage = dmg;
     }
+
     //damage for player
     public void damagePlayer(int dmg){//lose hp
         hp -= dmg;
@@ -326,7 +328,28 @@ public class Player extends FreeMovement
         }
         GameWorld.updateHP(hp);
     }
-    
+
+    //stamina change for player
+    public void loseStamina(int lost){
+        stamina -= lost;
+        if(stamina <= 0){
+            stamina = 0;
+            FreeMovement.setPlayerSpeed(playerSpeed);
+            sprinting = false;
+        }
+        GameWorld.updateStamina(stamina);
+
+    }
+
+    public void gainStamina(int gain){
+        stamina += gain;
+        if(stamina > 500){
+            stamina = 500;
+        }
+        GameWorld.updateStamina(stamina);
+
+    }
+
     public void act()
     {
         super.act();
@@ -440,13 +463,14 @@ public class Player extends FreeMovement
         if(Greenfoot.isKeyDown("2")){
             healPlayer(1);
         }
-        //sprint toggling
-        if (Greenfoot.isKeyDown(",")){ 
+        //sprint
+        if(Greenfoot.isKeyDown("Shift")){
             FreeMovement.setPlayerSpeed(sprintSpeed);//sprinting speed
+            loseStamina(1);
             sprinting = true;
-        }
-        if(Greenfoot.isKeyDown(".")){
+        }else{
             FreeMovement.setPlayerSpeed(playerSpeed);//walking speed
+            gainStamina(1);
             sprinting = false;
         }
     }
