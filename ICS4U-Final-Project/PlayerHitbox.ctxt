@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=PlayerHitbox
-comment0.text=\r\n\ Follows\ the\ Player\ class\ around\ acting\ as\ it's\ hitbox\ in\ order\ to\ not\ have\r\n\ collision\ issues\ when\ Player's\ image\ size\ increases/decreases\ from\ animations\r\n\ \r\n\ @author\ Justin\ Sin\r\n\ @version\ 1.0\r\n
+comment0.text=\n\ Follows\ the\ Player\ class\ around\ acting\ as\ it's\ hitbox\ in\ order\ to\ not\ have\n\ collision\ issues\ when\ Player's\ image\ size\ increases/decreases\ from\ animations\n\ \n\ @author\ Justin\ Sin\n\ @version\ 1.0\n
 comment1.params=x\ y
 comment1.target=PlayerHitbox(int,\ int)
 comment2.params=

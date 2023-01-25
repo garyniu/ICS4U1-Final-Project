@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * 
  * CREDITS:
  * Player Sprite:
- * Authors: bluecarrot16, Benjamin K. Smith (BenCreating), Evert, Eliza Wyatt (ElizaWy), TheraHedwig, MuffinElZangano, Durrani, Johannes Sj?lund (wulax), Stephen Challener (Redshrike), Matthew Krohn (makrohn), Manuel Riecke (MrBeast), Joe White, Michael Whitlock (bigbeargames), Johannes Sjölund (wulax), Nila122, David Conway Jr. (JaidynReiman)
+ * Authors: bluecarrot16, Benjamin K. Smith (BenCreating), Evert, Eliza Wyatt (ElizaWy), TheraHedwig, MuffinElZangano, Durrani, Johannes Sj?lund (wulax), Stephen Challener (Redshrike), Matthew Krohn (makrohn), Manuel Riecke (MrBeast), Joe White, Michael Whitlock (bigbeargames), Johannes Sjï¿½lund (wulax), Nila122, David Conway Jr. (JaidynReiman)
  * 
  * - body/bodies/male/universal/light.png: by bluecarrot16, Benjamin K. Smith (BenCreating), Evert, Eliza Wyatt (ElizaWy), TheraHedwig, MuffinElZangano, Durrani, Johannes Sj?lund (wulax), Stephen Challener (Redshrike). License(s): CC-BY-SA 3.0, GPL 3.0. 
  * - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
@@ -32,18 +32,18 @@ import java.util.ArrayList;
  * - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
  * - https://opengameart.org/content/ponytail-and-plain-hairstyles
  * 
- * - arms/armour/plate/male/iron.png: by Michael Whitlock (bigbeargames), Matthew Krohn (makrohn), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+ * - arms/armour/plate/male/iron.png: by Michael Whitlock (bigbeargames), Matthew Krohn (makrohn), Johannes Sjï¿½lund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
  * - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
  * - http://opengameart.org/content/lpc-clothing-updates
  * 
  * - bauldron/male/walnut.png: by Nila122. License(s): GPL 2.0, GPL 3.0, CC-BY-SA 3.0. 
  * - https://opengameart.org/content/more-lpc-clothes-and-hair
  * 
- * - torso/clothes/longsleeve/male/black.png: by David Conway Jr. (JaidynReiman), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+ * - torso/clothes/longsleeve/male/black.png: by David Conway Jr. (JaidynReiman), Johannes Sjï¿½lund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
  * - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
  * - http://opengameart.org/content/lpc-clothing-updates
 
- * - torso/armour/leather/male/black.png: by Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+ * - torso/armour/leather/male/black.png: by Johannes Sjï¿½lund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
  * - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
  * - http://opengameart.org/content/lpc-clothing-updates
  * 
@@ -56,7 +56,7 @@ import java.util.ArrayList;
  * - https://opengameart.org/content/lpc-curly-hair-elven-ears-white-cape-with-blue-trim-and-more
  * - https://opengameart.org/content/lpc-roman-armor
  * 
- * - legs/armour/plate/male/steel.png: by bluecarrot16, Michael Whitlock (bigbeargames), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+ * - legs/armour/plate/male/steel.png: by bluecarrot16, Michael Whitlock (bigbeargames), Johannes Sjï¿½lund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
  * - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
  * 
  * - feet/boots/male/black.png: by bluecarrot16, Nila122. License(s): CC-BY-SA 3.0, GPL 2.0, GPL 3.0. 
@@ -64,7 +64,7 @@ import java.util.ArrayList;
  * - https://opengameart.org/content/lpc-santa
  * - http://opengameart.org/content/lpc-clothing-updates
  * 
- * @author Justin Sin
+ * @author Justin Sin, Victor Wei
  * @versio 1.0
  */
 public class Player extends FreeMovement
@@ -175,11 +175,12 @@ public class Player extends FreeMovement
     private int size = 60;//size for walking and bow animation
     private int atkSize = 180;//size for sword and spear animation
     //player speed variables
-    private int playerSpeed = 7;
+    private int playerSpeed = 1;
     private int sprintSpeed = 2;
     private boolean sprinting = false;
     //player damage variables(for enemy)
-    private int swordDamage = 10;
+    private static int swordDamage = 10;
+    private static int addedDamage;
     private int spearDamage = 7;
     private int bowDamage = 5;
 
@@ -223,7 +224,9 @@ public class Player extends FreeMovement
         bowAttackDownImages = new GreenfootImage[13];
         bowAttackRightImages = new GreenfootImage[13];
         bowAttackLeftImages = new GreenfootImage[13];
-
+        
+        swordDamage = 10;
+        
         //walk
         for(int i = 0; i < downImages.length; i++)//main charater walking down animation 
         {
@@ -559,7 +562,7 @@ public class Player extends FreeMovement
     /**
      * allows the Playerto detect when it collides with the Enemy Class
      */
-    public void hitEnemy(int dmg){
+    public void hitEnemy(){
         
         
         
@@ -570,7 +573,7 @@ public class Player extends FreeMovement
                 en = (ArrayList<Enemy>)getIntersectingObjects(Enemy.class);
                 temp = en.get(0);
                 
-                temp.takeDamage(dmg);
+                temp.takeDamage(swordDamage);
                 
                 this.incrementScore();
             }
@@ -578,7 +581,12 @@ public class Player extends FreeMovement
         }
         
     }
-
+    
+    public static void addDamage(int add)
+    {
+        swordDamage += add;
+    }
+    
     public void act()
     {
         super.act();
@@ -587,7 +595,8 @@ public class Player extends FreeMovement
         String dashed = Greenfoot.getKey();
 
         System.out.println("hp: " + hp);
-
+        
+        String lastKey = Greenfoot.getKey();
         if (alive == false){
             Greenfoot.setWorld(new LossScreen(score));
         }
@@ -604,11 +613,11 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                hitEnemy(40);
+                hitEnemy();
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                hitEnemy(50);
+                hitEnemy();
             }
             /*if(Greenfoot.isKeyDown("r")){//bow shot
             bowAttack();
@@ -625,11 +634,11 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                hitEnemy(40);
+                hitEnemy();
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                hitEnemy(50);
+                hitEnemy();
             }
             /*if(Greenfoot.isKeyDown("r")){//bow shot
             bowAttack();
@@ -646,11 +655,11 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                hitEnemy(40);
+                hitEnemy();
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                hitEnemy(50);
+                hitEnemy();
             }
             /*if(Greenfoot.isKeyDown("r")){//bow shot
             bowAttack();
@@ -667,11 +676,11 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                hitEnemy(40);
+                hitEnemy();
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                hitEnemy(50);
+                hitEnemy();
             }
             /*if(Greenfoot.isKeyDown("r")){//bow shot
             bowAttack();
@@ -682,11 +691,11 @@ public class Player extends FreeMovement
         //attack
         if(Greenfoot.isKeyDown("q")){//sword swing
             swordAttack();
-            hitEnemy(40);
+            hitEnemy();
         }
         if(Greenfoot.isKeyDown("e")){//spear thrust
             spearAttack();
-            hitEnemy(50);
+            hitEnemy();
         }
         /*if(Greenfoot.isKeyDown("r")){//bow shot
         bowAttack();
@@ -705,6 +714,23 @@ public class Player extends FreeMovement
             gainStamina(1);//gains stamina when not sprinting
 
             sprinting = false;
+        }
+        Actor chest = getOneIntersectingObject(Items.class);
+        
+        getWorld().showText(speed + "", 200, 400);
+        
+        if(chest != null)
+        {
+            int oldSpeed = 0;
+            getWorld().showText(oldSpeed + "", 200, 200);
+            oldSpeed += speed;
+            //speed = 0;
+            if("f".equals(lastKey))
+            {
+                getWorld().showText("The chest is near the player", 300, 300);
+                speed += oldSpeed;
+                FreeMovement.increaseSpeed(1);
+            }
         }
     }
 }

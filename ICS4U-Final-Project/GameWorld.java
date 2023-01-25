@@ -125,7 +125,10 @@ public class GameWorld extends World
         // Create a new world with 720x405 cells with a cell size of 1x1 pixels.
         super(600, 500, 1, false);
 
-        setPaintOrder(Fog.class, Boundary.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
+
+        setPaintOrder(Fog.class, Boundary.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Items.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
+        setPaintOrder(Fog.class, Boundary.class, GameCover1.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
+
 
         wbg = new WorldBackground(background);
 
@@ -133,7 +136,7 @@ public class GameWorld extends World
         bg.setColor(Color.BLACK);
         bg.fill();
         setBackground(bg);
-
+        
         //Enter Portal
         Others ep = new EnterPortal();
         addObject(ep, 560, 215);
@@ -166,6 +169,16 @@ public class GameWorld extends World
         addObject(playerTest2, this.getWidth()/2, this.getHeight()/2);
 
         addObject(wbg, this.getWidth()/2, this.getHeight()/2);
+        
+
+        Items chest1 = new Items(0, 0);
+        this.addObject(chest1, this.getWidth()/2, this.getHeight()/2);
+
+        //GameCover
+        GameCover1 c1 = new GameCover1();
+        addObject(c1, 145, 355);
+        
+
         
         //Boudary class
         Boundary bound1 = new Boundary(550,50);
@@ -234,7 +247,7 @@ public class GameWorld extends World
     
     //update player hp bar
     public static void updateHP(int hp){
-        health.update((int)(hp));
+        //health.update((int)(hp));
     }
     //update stamina bar
     public static void updateStamina(int st){

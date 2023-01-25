@@ -16,7 +16,7 @@ public abstract class FreeMovement extends SuperSmoothMover
     //position/direction variables
     protected int posx, posy, prevx, prevy;
     protected int Spawnx = 0, Spawny = 0;
-    protected static int speed = 2;
+    protected static double speed = 2;
     protected String dir = "L";
     
     public FreeMovement(int x, int y){
@@ -83,6 +83,7 @@ public abstract class FreeMovement extends SuperSmoothMover
         dir = "D";
         wallCollision();
     }
+    
     /**
      * move down and detect for wall collision(boundary)
      */
@@ -99,6 +100,11 @@ public abstract class FreeMovement extends SuperSmoothMover
      */
     public static void setPlayerSpeed(int spd){
         speed = spd;
+    }
+    
+    public static void increaseSpeed(double increase)
+    {
+        speed += increase;
     }
     
     /**
