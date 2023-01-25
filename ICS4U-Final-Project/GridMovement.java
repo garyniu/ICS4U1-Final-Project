@@ -57,6 +57,7 @@ public class GridMovement extends Others
         valuearray = ((IceWorld)getWorld()).getMapArr();
 
         
+        
         timer++;
         yTimer = timer;
 

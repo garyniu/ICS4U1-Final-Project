@@ -65,7 +65,7 @@ public class IceWorld extends World
     private int blockW = 30, blockH = 16;
     private int timer = 0;
     private Wall closest = new Wall(0, 0);
-    private int xoff = getWidth()/2, yoff = getHeight()/2;
+    private int xoff = getWidth()/2 + 350, yoff = getHeight()/2 - 300;
     
     private static boolean playerAttacking = false;
     private static int weapon = 0;
@@ -81,7 +81,7 @@ public class IceWorld extends World
     public IceWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1920, 1080, 1, false); 
+        super(600, 500, 1, false); 
         
         
 
@@ -415,7 +415,7 @@ public class IceWorld extends World
                     
                     if (Greenfoot.getRandomNumber(10) == 1 && (Math.abs(x-11) > 3 && Math.abs(y-32) > 2)){
                         mapTwo[x][y] = 9;
-                        addObject(new Enemy(x, y, Greenfoot.getRandomNumber(3)), 0, 0);
+                        addObject(new Enemy(x, y, Greenfoot.getRandomNumber(2)), 0, 0);
                     }
                     
                 }
@@ -497,13 +497,13 @@ public class IceWorld extends World
             showText("mouseY: " + String.valueOf(m.getY()), 900, 600);
         }*/
         
-        /*
+        
         for (int i = 0; i < mapTwo.length; i++){
             for (int j = 0; j < mapTwo[i].length; j++){
                 System.out.print(mapTwo[i][j]);
             }
             System.out.println();
-        }*/
+        }
     }
     
     public static void attacking(){

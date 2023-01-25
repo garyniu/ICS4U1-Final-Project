@@ -19,7 +19,7 @@ public class Enemy extends GridMovement
     private int playerRange = 25; //change
     private int attackDist = 150;
     private int hp = 100;
-    private int dtimer = 40;
+    private int dtimer = 40, ogdtimer;
     private int type = 0;
 
     public Enemy(int xm, int ym, int type){
@@ -34,13 +34,13 @@ public class Enemy extends GridMovement
             CharImg = new GreenfootImage("mushroom.png");
             hp = 200;
             dtimer = 30;
-        } else if (type == 2){
-            CharImg = new GreenfootImage("fish1.png");
-            timeBWMoves = 70;
-        }
+        } 
         
         CharImg.scale(42, 45);
         setImage(CharImg);
+        
+        ogdtimer = dtimer;
+        
     }
 
     public void act()
@@ -56,6 +56,8 @@ public class Enemy extends GridMovement
         //System.out.println("grid coords: " + xc + " " + yc);
         
         //y++;
+        
+        
         
         if (hp <= 1){
             getWorld().removeObject(this);
@@ -85,11 +87,11 @@ public class Enemy extends GridMovement
         }
         
         
-        System.out.println("damage");
+        //System.out.println("damage");
         if (Math.sqrt(Math.abs(Math.pow(p.getX() - this.getX(), 2)) + Math.abs(Math.pow(p.getY() - this.getY(), 2))) < 40){
             if (dtimer <= 0){
                 p.damagePlayer(5);
-                dtimer = 40;
+                dtimer = ogdtimer;
             }
             
         }
