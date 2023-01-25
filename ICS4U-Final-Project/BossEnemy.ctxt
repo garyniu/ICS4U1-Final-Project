@@ -1,10 +1,13 @@
 #BlueJ class context
 comment0.target=BossEnemy
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ BossEnemy\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Boss\ Enemy\ (Unused\ in\ final\ game)\r\n\ \r\n\ @author\ Gary\ Niu\ \r\n\ @version\ January\ 20\r\n
 comment1.params=x\ y\ gridSize
 comment1.target=BossEnemy(int,\ int,\ Pair)
+comment1.text=\r\n\ Constructor\ for\ Boss\ Enemy\ \r\n\ @param\ x\ X\r\n\ @param\ y\ Y\r\n\ @param\ gridSize\ Grid\ Dimensions\r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ Act\ Method\ \r\n
 comment3.params=
 comment3.target=void\ AttackPlayer()
+comment3.text=\r\n\ Attack\ Player\ method\ \r\n
 numComments=4
