@@ -18,7 +18,7 @@ public class Portal extends Others
     
     public Portal()
     {
-        //portalImage.scale(100, 100);
+        portalImage.scale(50, 50);
         setImage(portalImage);
     }
     
@@ -33,7 +33,7 @@ public class Portal extends Others
     {
         this.setPortal(portal); 
         portal.setPortal(this); 
-        //portalImage.scale(100, 100);
+        portalImage.scale(50, 50);
         setImage(portalImage);
     }
     

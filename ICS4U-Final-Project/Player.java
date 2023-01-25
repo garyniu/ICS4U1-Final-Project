@@ -1,10 +1,70 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Player here.
+ * A controllable character using the buttons WASD for movement
+ * SHIFT for increased speed(sprinting)
+ * Q and E for attacks that deal different damage to enemies
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * KNOWN ISSUES:
+ * Bow does not work as intended, therefore it is commented out
+ * attacking an enemy will cause all enemies to disappear
+ * 
+ * CREDITS:
+ * Player Sprite:
+ * Authors: bluecarrot16, Benjamin K. Smith (BenCreating), Evert, Eliza Wyatt (ElizaWy), TheraHedwig, MuffinElZangano, Durrani, Johannes Sj?lund (wulax), Stephen Challener (Redshrike), Matthew Krohn (makrohn), Manuel Riecke (MrBeast), Joe White, Michael Whitlock (bigbeargames), Johannes Sjölund (wulax), Nila122, David Conway Jr. (JaidynReiman)
+ * 
+ * - body/bodies/male/universal/light.png: by bluecarrot16, Benjamin K. Smith (BenCreating), Evert, Eliza Wyatt (ElizaWy), TheraHedwig, MuffinElZangano, Durrani, Johannes Sj?lund (wulax), Stephen Challener (Redshrike). License(s): CC-BY-SA 3.0, GPL 3.0. 
+ * - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+ * - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+ * - https://opengameart.org/content/lpc-male-jumping-animation-by-durrani
+ * - https://opengameart.org/content/lpc-runcycle-and-diagonal-walkcycle
+ * - https://opengameart.org/content/lpc-revised-character-basics
+ * 
+ * - head/heads/human_male/universal/light.png: by bluecarrot16, Benjamin K. Smith (BenCreating), Stephen Challener (Redshrike). License(s): OGA-BY 3.0, CC-BY-SA 3.0, GPL 3.0. 
+ * - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+ * - https://opengameart.org/content/lpc-character-bases
+ * 
+ * - eyes/male/blue.png: by Matthew Krohn (makrohn), Stephen Challener (Redshrike). License(s): CC-BY-SA 3.0, GPL 3.0. 
+ * - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+ * 
+ * - hair/plain/male/black.png: by Manuel Riecke (MrBeast), Joe White. License(s): CC-BY-SA 3.0, GPL 3.0. 
+ * - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+ * - https://opengameart.org/content/ponytail-and-plain-hairstyles
+ * 
+ * - arms/armour/plate/male/iron.png: by Michael Whitlock (bigbeargames), Matthew Krohn (makrohn), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+ * - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+ * - http://opengameart.org/content/lpc-clothing-updates
+ * 
+ * - bauldron/male/walnut.png: by Nila122. License(s): GPL 2.0, GPL 3.0, CC-BY-SA 3.0. 
+ * - https://opengameart.org/content/more-lpc-clothes-and-hair
+ * 
+ * - torso/clothes/longsleeve/male/black.png: by David Conway Jr. (JaidynReiman), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+ * - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+ * - http://opengameart.org/content/lpc-clothing-updates
+
+ * - torso/armour/leather/male/black.png: by Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+ * - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+ * - http://opengameart.org/content/lpc-clothing-updates
+ * 
+ * - cape/solid/female/black.png: by bluecarrot16, David Conway Jr. (JaidynReiman). License(s): CC-BY-SA 3.0, GPL 3.0. 
+ * - https://opengameart.org/content/lpc-curly-hair-elven-ears-white-cape-with-blue-trim-and-more
+ * - https://opengameart.org/content/lpc-roman-armor
+ * - http://opengameart.org/content/lpc-clothing-updates
+ * 
+ * - cape/solid_behind/black.png: by Nila122, David Conway Jr. (JaidynReiman). License(s): CC-BY-SA 3.0, GPL 3.0. 
+ * - https://opengameart.org/content/lpc-curly-hair-elven-ears-white-cape-with-blue-trim-and-more
+ * - https://opengameart.org/content/lpc-roman-armor
+ * 
+ * - legs/armour/plate/male/steel.png: by bluecarrot16, Michael Whitlock (bigbeargames), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
+ * - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+ * 
+ * - feet/boots/male/black.png: by bluecarrot16, Nila122. License(s): CC-BY-SA 3.0, GPL 2.0, GPL 3.0. 
+ * - https://opengameart.org/content/lpc-clothes-and-hair
+ * - https://opengameart.org/content/lpc-santa
+ * - http://opengameart.org/content/lpc-clothing-updates
+ * 
+ * @author Justin Sin
+ * @versio 1.0
  */
 public class Player extends FreeMovement
 {
@@ -34,7 +94,72 @@ public class Player extends FreeMovement
     private GreenfootImage[] bowAttackRightImages;
     private GreenfootImage[] bowAttackLeftImages;
 
-    //GifImage bowRight = new GifImage("images/PlayerAnimations/bowAttack/right.gif");
+    //gifs for a bunch of animations
+    //BROWN PLAYER
+    //brown bow
+    GifImage brownBowUp = new GifImage("images/PlayerAnimations/bowAttack/brown/brownBowUp.gif");
+    GifImage brownBowDown = new GifImage("images/PlayerAnimations/bowAttack/brown/brownBowDown.gif");
+    GifImage brownBowRight = new GifImage("images/PlayerAnimations/bowAttack/brown/brownBowRight.gif");
+    GifImage brownBowLeft = new GifImage("images/PlayerAnimations/bowAttack/brown/brownBowLeft.gif");
+    //brown sword
+    GifImage brownSwordUp = new GifImage("images/PlayerAnimations/swordAttack/brown/brownSwordUp.gif");
+    GifImage brownSwordDown = new GifImage("images/PlayerAnimations/swordAttack/brown/brownSwordDown.gif");
+    GifImage brownSwordRight = new GifImage("images/PlayerAnimations/swordAttack/brown/brownSwordRight.gif");
+    GifImage brownSwordLeft = new GifImage("images/PlayerAnimations/swordAttack/brown/brownSwordLeft.gif");
+    //brown spear
+    GifImage brownSpearUp = new GifImage("images/PlayerAnimations/spearAttack/brown/brownSpearUp.gif");
+    GifImage brownSpearDown = new GifImage("images/PlayerAnimations/spearAttack/brown/brownSpearDown.gif");
+    GifImage brownSpearRight = new GifImage("images/PlayerAnimations/spearAttack/brown/brownSpearRight.gif");
+    GifImage brownSpearLeft = new GifImage("images/PlayerAnimations/spearAttack/brown/brownSpearLeft.gif");
+    //brown walk
+    GifImage brownWalkUp = new GifImage("images/PlayerAnimations/walk/brown/brownWalkUp.gif");
+    GifImage brownWalkDown = new GifImage("images/PlayerAnimations/walk/brown/brownWalkDown.gif");
+    GifImage brownWalkRight = new GifImage("images/PlayerAnimations/walk/brown/brownWalkRight.gif");
+    GifImage brownWalkLeft = new GifImage("images/PlayerAnimations/walk/brown/brownWalkLeft.gif");
+
+    //GOLD PLAYER
+    //gold bow
+    GifImage goldBowUp = new GifImage("images/PlayerAnimations/bowAttack/gold/goldBowUp.gif");
+    GifImage goldBowDown = new GifImage("images/PlayerAnimations/bowAttack/gold/goldBowDown.gif");
+    GifImage goldBowRight = new GifImage("images/PlayerAnimations/bowAttack/gold/goldBowRight.gif");
+    GifImage goldBowLeft = new GifImage("images/PlayerAnimations/bowAttack/gold/goldBowLeft.gif");
+    //gold sword
+    GifImage goldSwordUp = new GifImage("images/PlayerAnimations/swordAttack/gold/goldSwordUp.gif");
+    GifImage goldSwordDown = new GifImage("images/PlayerAnimations/swordAttack/gold/goldSwordDown.gif");
+    GifImage goldSwordRight = new GifImage("images/PlayerAnimations/swordAttack/gold/goldSwordRight.gif");
+    GifImage goldSwordLeft = new GifImage("images/PlayerAnimations/swordAttack/gold/goldSwordLeft.gif");
+    //gold spear
+    GifImage goldSpearUp = new GifImage("images/PlayerAnimations/spearAttack/gold/goldSpearUp.gif");
+    GifImage goldSpearDown = new GifImage("images/PlayerAnimations/spearAttack/gold/goldSpearDown.gif");
+    GifImage goldSpearRight = new GifImage("images/PlayerAnimations/spearAttack/gold/goldSpearRight.gif");
+    GifImage goldSpearLeft = new GifImage("images/PlayerAnimations/spearAttack/gold/goldSpearLeft.gif");
+    //gold walk
+    GifImage goldWalkUp = new GifImage("images/PlayerAnimations/walk/gold/goldWalkUp.gif");
+    GifImage goldWalkDown = new GifImage("images/PlayerAnimations/walk/gold/goldWalkDown.gif");
+    GifImage goldWalkRight = new GifImage("images/PlayerAnimations/walk/gold/goldWalkRight.gif");
+    GifImage goldWalkLeft = new GifImage("images/PlayerAnimations/walk/gold/goldWalkLeft.gif");
+
+    //SILVER PLAYER
+    //silver bow
+    GifImage silverBowUp = new GifImage("images/PlayerAnimations/bowAttack/silver/silverBowUp.gif");
+    GifImage silverBowDown = new GifImage("images/PlayerAnimations/bowAttack/silver/silverBowDown.gif");
+    GifImage silverBowRight = new GifImage("images/PlayerAnimations/bowAttack/silver/silverBowRight.gif");
+    GifImage silverBowLeft = new GifImage("images/PlayerAnimations/bowAttack/silver/silverBowLeft.gif");
+    //silver sword
+    GifImage silverSwordUp = new GifImage("images/PlayerAnimations/swordAttack/silver/silverSwordUp.gif");
+    GifImage silverSwordDown = new GifImage("images/PlayerAnimations/swordAttack/silver/silverSwordDown.gif");
+    GifImage silverSwordRight = new GifImage("images/PlayerAnimations/swordAttack/silver/silverSwordRight.gif");
+    GifImage silverSwordLeft = new GifImage("images/PlayerAnimations/swordAttack/silver/silverSwordLeft.gif");
+    //silver spear
+    GifImage silverSpearUp = new GifImage("images/PlayerAnimations/spearAttack/silver/silverSpearUp.gif");
+    GifImage silverSpearDown = new GifImage("images/PlayerAnimations/spearAttack/silver/silverSpearDown.gif");
+    GifImage silverSpearRight = new GifImage("images/PlayerAnimations/spearAttack/silver/silverSpearRight.gif");
+    GifImage silverSpearLeft = new GifImage("images/PlayerAnimations/spearAttack/silver/silverSpearLeft.gif");
+    //silver walk
+    GifImage silverWalkUp = new GifImage("images/PlayerAnimations/walk/silver/silverWalkUp.gif");
+    GifImage silverWalkDown = new GifImage("images/PlayerAnimations/walk/silver/silverWalkDown.gif");
+    GifImage silverWalkRight = new GifImage("images/PlayerAnimations/walk/silver/silverWalkRight.gif");
+    GifImage silverWalkLeft = new GifImage("images/PlayerAnimations/walk/silver/silverWalkLeft.gif");
 
     //vertical + horizontal booleans
     private boolean isFacingUp, isFacingDown, isFacingLeft, isFacingRight = false;
@@ -45,17 +170,17 @@ public class Player extends FreeMovement
     private int x, y;
 
     //player variables
-    //player sizes(orignal image size)
+    //player sizes(original image size)
     private int size = 60;//size for walking and bow animation
     private int atkSize = 180;//size for sword and spear animation
     //player speed variables
-    private int playerSpeed = 1;
+    private int playerSpeed = 7;
     private int sprintSpeed = 2;
     private boolean sprinting = false;
     //player damage variables(for enemy)
     private int swordDamage = 10;
     private int spearDamage = 7;
-    private int bowDamage = 5;//possibly not needed
+    private int bowDamage = 5;
 
     //animation image speed
     private SimpleTimer actionTimer;
@@ -66,6 +191,7 @@ public class Player extends FreeMovement
     private static int hp = 100;
     private static int stamina = 500;
     private static boolean alive = true;//true=alive, false=dead
+    private int score = 10;
 
     //Player coordinates
     private Pair coords = new Pair(0, 0);
@@ -176,30 +302,46 @@ public class Player extends FreeMovement
             bowAttackLeftImages[i].mirrorHorizontally();
             bowAttackLeftImages[i].scale(size, size);
         }
-
+        //set default image as facing right
         setImage(rightImages[0]);
-
-        
-        
+        //start timer for animations
         actionTimer = new SimpleTimer();
         actionTimer.mark();
     }
 
+    /**
+     * Increase score for Scoreboard
+     */
+    public void incrementScore(){
+        score++;
+    }
+
+    /**
+     * add Player to world
+     */
     public void addedToWorld(World world){
         getWorld().addObject(new Fog(), getWorld().getWidth()/2, getWorld().getHeight()/2);
     }
-    
-    //movement
+
+    /**
+     * Movement code - move left when called
+     */
     public void moveLeft(){
         posx -= speed;
         dir = "R";
     }
 
+    /**
+     * move right when called
+     */
     public void moveRight(){
         posx += speed;
         dir = "L";
     }
 
+    /**
+     * move up when called
+     */
     public void moveUp(){
         //posy-=2; 
 
@@ -207,6 +349,9 @@ public class Player extends FreeMovement
         dir = "D";
     }
 
+    /**
+     * move down when called
+     */
     public void moveDown(){
         //posy+=2;
 
@@ -218,8 +363,11 @@ public class Player extends FreeMovement
     int curIndex1 = 0;
     int curIndex2 = 0;
     int curIndex3 = 0;
-    //walking animation
-    public void walk()//controls the animation image speed for moving up and down
+    /**
+     * plays the walking animation when called
+     * actionTimer controls the animation image speed for moving up and down
+     */
+    public void walk()
     {
         if(actionTimer.millisElapsed() > 100)
         {
@@ -241,7 +389,10 @@ public class Player extends FreeMovement
         }
     }
 
-    //sword attack animation
+    /**
+     * sword attack animation
+     * actionTimer controls the animation image speed for moving up and down
+     */
     public void swordAttack(){
         if(actionTimer.millisElapsed() > 100){
             if (isFacingRight){
@@ -262,7 +413,11 @@ public class Player extends FreeMovement
             actionTimer.mark();
         }
     }
-    //spear attack animation
+
+    /**
+     * spear attack animation
+     * actionTimer controls the animation image speed for moving up and down
+     */
     public void spearAttack(){
         if(actionTimer.millisElapsed() > 100){
             if (isFacingRight){
@@ -283,7 +438,11 @@ public class Player extends FreeMovement
             actionTimer.mark();
         }
     }
-    //bow attack animation
+
+    /**
+     * bow attack animation
+     * actionTimer controls the animation image speed for moving up and down
+     */
     public void bowAttack(){
         if(actionTimer.millisElapsed() > 100){
             if (isFacingRight){
@@ -304,42 +463,57 @@ public class Player extends FreeMovement
             }
         }
     }
-    //set weapon damage
+
+    /**
+     * allows other classes to set the damage the Player's sword does
+     */
     public void setSwordDamage(int dmg){//sword dmg
         this.swordDamage = dmg;
     }
 
+    /**
+     * allows other classes to set the damage the Player's spear does
+     */
     public void setSpearDamage(int dmg){//spear dmg
         this.spearDamage = dmg;
     }
 
+    /**
+     * allows other classes to set the damage the Player's bow does
+     */
     public void setBowDamage(int dmg){//bow dmg
         this.bowDamage = dmg;
     }
 
-    //damage for player
+    /**
+     * allows other classes to set the damage the Player takes
+     */
     public void damagePlayer(int dmg){//lose hp
         hp -= dmg;
         if(hp <= 0){
             hp = 0;
             alive = false;
         }
-        GameWorld.updateHP(hp);
         IceWorld.updateHP(hp);
         SpiderWorld.updateHP(hp);
     }
 
+    /**
+     * allows other classes to set the amount of health the Player regains
+     */
     public void healPlayer(int heal){//gain hp
         hp += heal;
         if(hp > 100){
             hp = 100;
         }
-        GameWorld.updateHP(hp);
         IceWorld.updateHP(hp);
         SpiderWorld.updateHP(hp);
+        incrementScore();
     }
 
-    //stamina change for player
+    /**
+     * allows other classes to set the the stamina Player loses
+     */
     public void loseStamina(int lost){
         stamina -= lost;
         if(stamina <= 0){
@@ -347,19 +521,39 @@ public class Player extends FreeMovement
             FreeMovement.setPlayerSpeed(playerSpeed);
             sprinting = false;
         }
-        GameWorld.updateStamina(stamina);
+
+        //GameWorld.updateStamina(stamina);
+
+
         IceWorld.updateStamina(stamina);
         SpiderWorld.updateStamina(stamina);
     }
 
+    /**
+     * allows other classes to set the the stamina Player gains
+     */
     public void gainStamina(int gain){
         stamina += gain;
         if(stamina > 500){
             stamina = 500;
         }
-        GameWorld.updateStamina(stamina);
+
+        //GameWorld.updateStamina(stamina);
+        //IceWorld.updateStamina(stamina);
+        //SpiderWorld.updateStamina(stamina);
+
         IceWorld.updateStamina(stamina);
         SpiderWorld.updateStamina(stamina);
+
+    }
+
+    /**
+     * allows the Playerto detect when it collides with the Enemy Class
+     */
+    public void hitEnemy(int dmg){
+        if(!getIntersectingObjects(Enemy.class).isEmpty()){
+            Enemy.takeDamage(dmg);
+        }
     }
 
     public void act()
@@ -372,7 +566,7 @@ public class Player extends FreeMovement
         System.out.println("hp: " + hp);
 
         if (alive == false){
-            Greenfoot.setWorld(new LossScreen());
+            Greenfoot.setWorld(new LossScreen(score));
         }
 
         //movement
@@ -380,7 +574,6 @@ public class Player extends FreeMovement
         //when moving diagonally(looks better since there is no horizontal animation)
         if(Greenfoot.isKeyDown("a")){//detect left
             moveLeft();
-            IceWorld.stopAttacking();
             isFacingUp = false;
             isFacingDown = false;
             isFacingLeft = true;
@@ -388,24 +581,20 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(1);
+                hitEnemy(30);
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(2);
+                hitEnemy(20);
             }
-            if(Greenfoot.isKeyDown("r")){//bow shot
-                bowAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(3);
-            }
+            /*if(Greenfoot.isKeyDown("r")){//bow shot
+            bowAttack();
+            hitEnemy(10);
+            }*/
             walk();
         }
         if(Greenfoot.isKeyDown("d")){//detect right
             moveRight();
-            IceWorld.stopAttacking();
             isFacingUp = false;
             isFacingDown = false;
             isFacingLeft = false;
@@ -413,24 +602,20 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(1);
+                hitEnemy(30);
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(2);
+                hitEnemy(20);
             }
-            if(Greenfoot.isKeyDown("r")){//bow shot
-                bowAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(3);
-            }
+            /*if(Greenfoot.isKeyDown("r")){//bow shot
+            bowAttack();
+            hitEnemy(10);
+            }*/
             walk();
         }
         if(Greenfoot.isKeyDown("w")){//detect up
             moveUp();
-            IceWorld.stopAttacking();
             isFacingUp = true;
             isFacingDown = false;
             isFacingLeft = false;
@@ -438,24 +623,20 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(1);
+                hitEnemy(30);
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(2);
+                hitEnemy(20);
             }
-            if(Greenfoot.isKeyDown("r")){//bow shot
-                bowAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(3);
-            }
+            /*if(Greenfoot.isKeyDown("r")){//bow shot
+            bowAttack();
+            hitEnemy(10);
+            }*/
             walk();
         }
         if(Greenfoot.isKeyDown("s")){//detect down
             moveDown();
-            IceWorld.stopAttacking();
             isFacingUp = false;
             isFacingDown = true;
             isFacingLeft = false;
@@ -463,52 +644,43 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(1);
+                hitEnemy(30);
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(2);
+                hitEnemy(20);
             }
-            if(Greenfoot.isKeyDown("r")){//bow shot
-                bowAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(3);
-            }
+            /*if(Greenfoot.isKeyDown("r")){//bow shot
+            bowAttack();
+            hitEnemy(10);
+            }*/
             walk();
         }
         //attack
         if(Greenfoot.isKeyDown("q")){//sword swing
             swordAttack();
-            IceWorld.attacking();
-            IceWorld.weapon(1);
+            hitEnemy(30);
         }
         if(Greenfoot.isKeyDown("e")){//spear thrust
             spearAttack();
-            IceWorld.attacking();
-            IceWorld.weapon(2);
+            hitEnemy(20);
         }
-        if(Greenfoot.isKeyDown("r")){//bow shot
-            bowAttack();
-            IceWorld.attacking();
-            IceWorld.weapon(3);
-        }
-        //temp dmg and heal
-        if(Greenfoot.isKeyDown("1")){
-            damagePlayer(1);
-        }
-        if(Greenfoot.isKeyDown("2")){
-            healPlayer(1);
-        }
-        //sprint
+        /*if(Greenfoot.isKeyDown("r")){//bow shot
+        bowAttack();
+        hitEnemy(10);
+        }*/
+        //sprint(hold to sprint)
         if(Greenfoot.isKeyDown("Shift")){
             FreeMovement.setPlayerSpeed(sprintSpeed);//sprinting speed
-            loseStamina(1);
+            loseStamina(1);//loses stamina when sprinting
             sprinting = true;
         }else{
             FreeMovement.setPlayerSpeed(playerSpeed);//walking speed
-            gainStamina(1);
+
+            //gainStamina(1);
+
+            gainStamina(1);//gains stamina when not sprinting
+
             sprinting = false;
         }
     }

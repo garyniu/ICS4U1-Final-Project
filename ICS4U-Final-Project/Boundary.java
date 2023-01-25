@@ -11,7 +11,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Boundary extends Others
 {
-    private GreenfootImage boundImage = new GreenfootImage ("images/misc/baal.png");
+    private GreenfootImage boundImage = new GreenfootImage ("images/misc/baal2.png");
     
     public void addedToWorld(World GameWorld){
         //System.out.println("wall pos: " + getX() + " " + getY());

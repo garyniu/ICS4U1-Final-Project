@@ -47,7 +47,7 @@ public class SmallWall extends Others
         }
         if(Greenfoot.isKeyDown("3"))
         {
-            change3();
+            change2();
         }
     }
     

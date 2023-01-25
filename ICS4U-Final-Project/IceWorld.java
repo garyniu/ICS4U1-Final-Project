@@ -67,9 +67,6 @@ public class IceWorld extends World
     private Wall closest = new Wall(0, 0);
     private int xoff = getWidth()/2 + 350, yoff = getHeight()/2 - 300;
     
-    private static boolean playerAttacking = false;
-    private static int weapon = 0;
-    
     //stat bar
     private static SuperStatBar health;
     private static SuperStatBar stamina;
@@ -136,9 +133,6 @@ public class IceWorld extends World
         //addObject(new BossEnemy(300, 200, getMapBlockSize(), getMapOrigin()), 300, 200);//<- This doesn't work
         
         addObject(new Enemy(1, 1, 0), 0, 0);
-        //player
-        FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);//remove
-        addObject(playerTest, this.getWidth()/2, this.getHeight()/2);//remove
         
         //hitbox for player
         FreeMovement playerTest2 = new PlayerHitbox(this.getWidth()/2, this.getHeight()/2);
@@ -398,7 +392,7 @@ public class IceWorld extends World
         
         
         SpiderWorld spy1 = new SpiderWorld();
-        spy1.addObject(portal, 270, 400);
+        spy1.addObject(portal, -580, 510);
         
         //addObject(new Fog(0, 0), getWidth()/2, getHeight()/2);
         
@@ -476,18 +470,6 @@ public class IceWorld extends World
         //System.out.println("fucky " + getBlockCoord(1, 2).getY());
         checkUserGrid();
 
-        //attack here VVV
-        if(playerAttacking){
-            checkUserGrid();
-            if(weapon == 1){
-                //attack grid with swipe
-            }else if(weapon == 2){
-                //attack grid with jab
-            }else if(weapon == 3){
-                //attack grid with shot
-            }
-        }
-
         //System.out.println("fuck " + getBlockCoord(5, 6).getX());
         
         //checkUserOntoGrid();
@@ -506,16 +488,6 @@ public class IceWorld extends World
             }
             System.out.println();
         }
-    }
-    
-    public static void attacking(){
-        playerAttacking = true;
-    }
-    public static void stopAttacking(){
-        playerAttacking = false;
-    }
-    public static void weapon(int type){
-        weapon = type;
     }
     
     //update player hp bar

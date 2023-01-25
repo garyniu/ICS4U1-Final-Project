@@ -1,10 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class PlayerHitbox here.
+ * Follows the Player class around acting as it's hitbox in order to not have
+ * collision issues when Player's image size increases/decreases from animations
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Justin Sin
+ * @version 1.0
  */
 public class PlayerHitbox extends FreeMovement
 {
@@ -54,25 +55,11 @@ public class PlayerHitbox extends FreeMovement
         if (Greenfoot.isKeyDown("s")){//detect down
             moveDown();
         }
-        
-        /*//sprint toggling with shift key (works weird)
-        if(!sprinting){
-            if(Greenfoot.isKeyDown("Shift")){
-                FreeMovement.setPlayerSpeed(10);//sprinting speed
-                sprinting = true;
-            }
-        }else if(sprinting){
-            if(Greenfoot.isKeyDown("Shift")){
-                FreeMovement.setPlayerSpeed(2);//walking speed
-                sprinting = false;
-            }
-        }*/
-        //sprint toggling
-        if(Greenfoot.isKeyDown(",")){
+        //Sprint key with Shift
+        if(Greenfoot.isKeyDown("Shift")){
             FreeMovement.setPlayerSpeed(sprintSpeed);//sprinting speed
             sprinting = true;
-        }
-        if(Greenfoot.isKeyDown(".")){
+        }else{
             FreeMovement.setPlayerSpeed(playerSpeed);//walking speed
             sprinting = false;
         }
