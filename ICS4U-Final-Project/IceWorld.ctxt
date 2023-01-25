@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=IceWorld
-comment0.text=\r\n\ \r\n\ First\ playable\ world\r\n\ \r\n\ @author\ Leo\ Xu,\ Gary,Niu\r\n\ @version\ 1\r\n\r\n
+comment0.text=\r\n\ \r\n\ First\ playable\ world\r\n\ \r\n\ MUSIC\ CREDITS\:\r\n\ main\ theme\ (https\://www.youtube.com/watch?v\=uz2nAshTxNE)\r\n\ \r\n\ @author\ Leo\ Xu,\ Gary,Niu\r\n\ @version\ 1\r\n\r\n
 comment1.params=
 comment1.target=IceWorld()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ IceWorld.\r\n\ \r\n

@@ -6,6 +6,9 @@ import java.util.ArrayList;
  * 
  * First playable world
  * 
+ * MUSIC CREDITS:
+ * main theme (https://www.youtube.com/watch?v=uz2nAshTxNE)
+ * 
  * @author Leo Xu, Gary,Niu
  * @version 1
  *

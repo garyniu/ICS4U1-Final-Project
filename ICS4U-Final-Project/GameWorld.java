@@ -63,6 +63,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * - https://opengameart.org/content/lpc-santa
  * - http://opengameart.org/content/lpc-clothing-updates
  * 
+ * MUSIC CREDITS:
+ * main theme (https://www.youtube.com/watch?v=Q7eJg7hRvqE)
  * 
  * @author Justin, Leo, Gary, Victor
  * @version December 31

@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Leo Xu
  * @date June 15 2022
  *
+ *MUSIC CREDITS 
+ *main theme (https://www.youtube.com/watch?v=mRsdCgQA524)
  *
  */
 public class MainMenu extends World
