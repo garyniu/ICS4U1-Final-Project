@@ -5,17 +5,13 @@ public abstract class FreeMovement extends SuperSmoothMover
     
     //each subclass object will have a position
     //world will access that position through a Pair, and will draw it onto the grid
-    //position / movement will be taken care of through the classes isntead of the world
+    //position / movement will be taken care of through the classes instead of the world
     
-    //TODO
-    //Need a reliable method to keep grid positions consistent
-    
-    
+    //position/direction variables
     protected int posx, posy, prevx, prevy;
     protected int Spawnx = 0, Spawny = 0;
     protected static int speed = 2;
     protected String dir = "L";
-    //protected GreenfootImage CharImg;
     
     public FreeMovement(int x, int y){
         posx = x;
@@ -47,22 +43,33 @@ public abstract class FreeMovement extends SuperSmoothMover
         //System.out.println("test");
     }
     
+    /**
+     * Allows classes to change the spawn coordinates of whatever class it might be
+     */
     public void changeSpawnCoords(int x, int y){
         Spawnx = x;
         Spawny = y;
     }
     
-    //movement
+    /**
+     * move left and detect for wall collision(boundary)
+     */
     public void moveLeft(){
         posx -= speed;
         dir = "R";
         wallCollision();
     }
+    /**
+     * move right and detect for wall collision(boundary)
+     */
     public void moveRight(){
         posx += speed;
         dir = "L";
         wallCollision();
     }
+    /**
+     * move up and detect for wall collision(boundary)
+     */
     public void moveUp(){
         //posy-=2; 
         
@@ -70,6 +77,9 @@ public abstract class FreeMovement extends SuperSmoothMover
         dir = "D";
         wallCollision();
     }
+    /**
+     * move down and detect for wall collision(boundary)
+     */
     public void moveDown(){
         //posy+=2;
         
@@ -78,16 +88,24 @@ public abstract class FreeMovement extends SuperSmoothMover
         wallCollision();
     }
     
+    /**
+     * allows other classes to set the Player's speed
+     */
     public static void setPlayerSpeed(int spd){
         speed = spd;
     }
     
+    /**
+     * allows other classes to retrieve the previous move of the subclass
+     */
     public String getPrevMove()
     {
         return dir;
     }
     
-    
+    /**
+     * Wall collision code, when the subclass detects a boundary/wall, stop moving in that direction
+     */
     public void wallCollision()//When MainCharater touches Boundary, it stops MainCharater from moving further
     {
         int oldX = prevx;
@@ -112,7 +130,9 @@ public abstract class FreeMovement extends SuperSmoothMover
         }
     }
     
-    
+    /**
+     * allows other class to get coordinates of subclasses
+     */
     public Pair getCoord(){
         return new Pair(posx, posy);
     }
