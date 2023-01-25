@@ -34,7 +34,7 @@ public class Player extends FreeMovement
     private GreenfootImage[] bowAttackRightImages;
     private GreenfootImage[] bowAttackLeftImages;
 
-    GifImage bowRight = new GifImage("images/PlayerAnimations/bowAttack/right.gif");
+    //GifImage bowRight = new GifImage("images/PlayerAnimations/bowAttack/right.gif");
 
     //vertical + horizontal booleans
     private boolean isFacingUp, isFacingDown, isFacingLeft, isFacingRight = false;
@@ -64,7 +64,11 @@ public class Player extends FreeMovement
 
     //Player health points
     private static int hp = 100;
+    private static int stamina = 500;
     private static boolean alive = true;//true=alive, false=dead
+
+    //Player coordinates
+    private Pair coords = new Pair(0, 0);
 
     public Player(int x, int y){
         super(x, y);
@@ -88,7 +92,6 @@ public class Player extends FreeMovement
         bowAttackDownImages = new GreenfootImage[13];
         bowAttackRightImages = new GreenfootImage[13];
         bowAttackLeftImages = new GreenfootImage[13];
-
 
         //walk
         for(int i = 0; i < downImages.length; i++)//main charater walking down animation 
@@ -276,25 +279,24 @@ public class Player extends FreeMovement
     }
     //bow attack animation
     public void bowAttack(){
-        //if(actionTimer.millisElapsed() > 100){
-        if (isFacingRight){
-            //setImage(bowAttackRightImages[curIndex3]);
-            setImage(bowRight.getCurrentImage());
-        }else if(isFacingLeft){
-            setImage(bowAttackLeftImages[curIndex3]);
-        }else if (isFacingUp){
-            setImage(bowAttackUpImages[curIndex3]);
-        }else if(isFacingDown){
-            setImage(bowAttackDownImages[curIndex3]);
-        }
+        if(actionTimer.millisElapsed() > 100){
+            if (isFacingRight){
+                setImage(bowAttackRightImages[curIndex3]);
+            }else if(isFacingLeft){
+                setImage(bowAttackLeftImages[curIndex3]);
+            }else if (isFacingUp){
+                setImage(bowAttackUpImages[curIndex3]);
+            }else if(isFacingDown){
+                setImage(bowAttackDownImages[curIndex3]);
+            }
 
         curIndex3++;
         if(curIndex3 == 13){
             curIndex3 = 0;
-        }
+        
 
-        actionTimer.mark();
-        //}
+            actionTimer.mark();
+        }
     }
     //set weapon damage
     public void setSwordDamage(int dmg){//sword dmg
@@ -308,6 +310,7 @@ public class Player extends FreeMovement
     public void setBowDamage(int dmg){//bow dmg
         this.bowDamage = dmg;
     }
+
     //damage for player
     public void damagePlayer(int dmg){//lose hp
         hp -= dmg;
@@ -326,6 +329,27 @@ public class Player extends FreeMovement
         GameWorld.updateHP(hp);
     }
 
+    //stamina change for player
+    public void loseStamina(int lost){
+        stamina -= lost;
+        if(stamina <= 0){
+            stamina = 0;
+            FreeMovement.setPlayerSpeed(playerSpeed);
+            sprinting = false;
+        }
+        GameWorld.updateStamina(stamina);
+
+    }
+
+    public void gainStamina(int gain){
+        stamina += gain;
+        if(stamina > 500){
+            stamina = 500;
+        }
+        GameWorld.updateStamina(stamina);
+
+    }
+
     public void act()
     {
         super.act();
@@ -336,220 +360,122 @@ public class Player extends FreeMovement
         //movement
         //a and d goes first so the horizontal walking animation always plays
         //when moving diagonally(looks better since there is no horizontal animation)
-        if(Greenfoot.isKeyDown("r")){//bow shot
-            //bowAttack();
-
-            //setImage(bowAttackRightImages[curIndex3]);
-
-            
-            setImage(bowRight.getCurrentImage());
-            
-            
-            
-        }
-        if (Greenfoot.isKeyDown("a")){//detect left
+        if(Greenfoot.isKeyDown("a")){//detect left
             moveLeft();
+            IceWorld.stopAttacking();
             isFacingUp = false;
             isFacingDown = false;
             isFacingLeft = true;
             isFacingRight = false;
-            walk();
-            if(Greenfoot.isKeyDown("w")){//detect up
-                isFacingLeftUp = true;
-                isFacingRightUp = false;
-                isFacingLeftDown = false;
-                isFacingRightDown = false;
-            }else if(Greenfoot.isKeyDown("s")){//detect down
-                isFacingLeftUp = false;
-                isFacingRightUp = false;
-                isFacingLeftDown = true;
-                isFacingRightDown = false;
+            //plays attack animation when pressing e
+            if(Greenfoot.isKeyDown("q")){//sword swing
+                swordAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(1);
             }
+            if(Greenfoot.isKeyDown("e")){//spear thrust
+                spearAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(2);
+            }
+            if(Greenfoot.isKeyDown("r")){//bow shot
+                bowAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(3);
+            }
+            walk();
         }
-        if (Greenfoot.isKeyDown("d")){//detect right
+        if(Greenfoot.isKeyDown("d")){//detect right
             moveRight();
+            IceWorld.stopAttacking();
             isFacingUp = false;
             isFacingDown = false;
             isFacingLeft = false;
             isFacingRight = true;
-            walk();
-            if(Greenfoot.isKeyDown("w")){//detect up
-                isFacingLeftUp = false;
-                isFacingRightUp = true;
-                isFacingLeftDown = false;
-                isFacingRightDown = false;
-            }else if(Greenfoot.isKeyDown("s")){//detect down
-                isFacingLeftUp = false;
-                isFacingRightUp = false;
-                isFacingLeftDown = false;
-                isFacingRightDown = true;
+            //plays attack animation when pressing e
+            if(Greenfoot.isKeyDown("q")){//sword swing
+                swordAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(1);
             }
-
+            if(Greenfoot.isKeyDown("e")){//spear thrust
+                spearAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(2);
+            }
             if(Greenfoot.isKeyDown("r")){//bow shot
-                //bowAttack();
-
-                //setImage(bowAttackRightImages[curIndex3]);
-
-                
-                setImage(bowRight.getCurrentImage());
-            
-            
-            
+                bowAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(3);
             }
+            walk();
         }
-        if (Greenfoot.isKeyDown("w")){//detect up
+        if(Greenfoot.isKeyDown("w")){//detect up
             moveUp();
+            IceWorld.stopAttacking();
             isFacingUp = true;
             isFacingDown = false;
             isFacingLeft = false;
             isFacingRight = false;
-            walk();
-            if(Greenfoot.isKeyDown("a")){//detect left
-                isFacingLeftUp = true;
-                isFacingRightUp = false;
-                isFacingLeftDown = false;
-                isFacingRightDown = false;
-            }else if(Greenfoot.isKeyDown("d")){//detect right
-                isFacingLeftUp = false;
-                isFacingRightUp = true;
-                isFacingLeftDown = false;
-                isFacingRightDown = false;
+            //plays attack animation when pressing e
+            if(Greenfoot.isKeyDown("q")){//sword swing
+                swordAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(1);
             }
+            if(Greenfoot.isKeyDown("e")){//spear thrust
+                spearAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(2);
+            }
+            if(Greenfoot.isKeyDown("r")){//bow shot
+                bowAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(3);
+            }
+            walk();
         }
-        if (Greenfoot.isKeyDown("s")){//detect down
+        if(Greenfoot.isKeyDown("s")){//detect down
             moveDown();
+            IceWorld.stopAttacking();
             isFacingUp = false;
             isFacingDown = true;
             isFacingLeft = false;
             isFacingRight = false;
-            walk();
-            if(Greenfoot.isKeyDown("a")){//detect left
-                isFacingLeftUp = false;
-                isFacingRightUp = false;
-                isFacingLeftDown = true;
-                isFacingRightDown = false;
-            }else if(Greenfoot.isKeyDown("d")){//detect right
-                isFacingLeftUp = false;
-                isFacingRightUp = false;
-                isFacingLeftDown = false;
-                isFacingRightDown = true;
+            //plays attack animation when pressing e
+            if(Greenfoot.isKeyDown("q")){//sword swing
+                swordAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(1);
             }
+            if(Greenfoot.isKeyDown("e")){//spear thrust
+                spearAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(2);
+            }
+            if(Greenfoot.isKeyDown("r")){//bow shot
+                bowAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(3);
+            }
+            walk();
         }
-        //plays attack animation when pressing e
-        if(Greenfoot.isKeyDown("q")){//sword swing
-            swordAttack();
-            //based on current x and y value, find grid
-            //set certain distance around grid as damage
-            //collision with monster = damage
-        }
-        if(Greenfoot.isKeyDown("e")){//spear thrust
-            spearAttack();
-        }
-
+        //temp dmg and heal
         if(Greenfoot.isKeyDown("1")){
             damagePlayer(1);
         }
         if(Greenfoot.isKeyDown("2")){
             healPlayer(1);
         }
-
-        /*//sprint toggling with shift key (works weird)
-        if(!sprinting){
+        //sprint
         if(Greenfoot.isKeyDown("Shift")){
-        FreeMovement.setPlayerSpeed(sprintSpeed);//sprinting speed
-        sprinting = true;
+            FreeMovement.setPlayerSpeed(sprintSpeed);//sprinting speed
+            loseStamina(1);
+            sprinting = true;
+        }else{
+            FreeMovement.setPlayerSpeed(playerSpeed);//walking speed
+            gainStamina(1);
+            sprinting = false;
         }
-        }else if(sprinting){
-        if(Greenfoot.isKeyDown("Shift")){
-        FreeMovement.setPlayerSpeed(playerSpeed);//walking speed
-        sprinting = false;
-        }
-        }*/
-
-        if (Greenfoot.isKeyDown("Shift")){ 
-            if(!sprinting){
-                FreeMovement.setPlayerSpeed(sprintSpeed);//sprinting speed
-                sprinting = true;
-            }else{
-                FreeMovement.setPlayerSpeed(playerSpeed);//walking speed
-                sprinting = false;
-            }
-        }
-
-        /*if("shift".equals(dashed))
-        {
-        System.out.println("player has dashed");
-        if(isFacingUp == true)
-        {
-        if(dashTime == 0)
-        {
-        characterSpeed = 2;
-        }
-        if(dashTime <= 30)
-        {
-        characterSpeed += 5;
-        dashTime += 30;
-        }
-        if(dashTime >= 30)
-        {
-        characterSpeed = 2;
-        }
-        }
-        }
-
-        if (Greenfoot.isKeyDown("shift"))
-        {
-        if(isFacingUp == true)
-        {
-        if(dashed == "shift")
-        {
-
-        }
-        if(dashTime == 0)
-        {
-        characterSpeed = 2;
-        }
-        if(dashTime <=30)
-        {
-        dashTime++;
-        characterSpeed += 1;
-        }
-        if(dashTime >= 30)
-        {
-        characterSpeed = 2;
-        dashTime = 0;
-        }
-        }
-        }
-
-        //attack
-        if(Greenfoot.isKeyDown("right")){//MainCharater moves right
-        for(int i = 0; i < 6; i++){
-        isFacingRight = true;
-        hAttack();
-        }
-        }
-        if(Greenfoot.isKeyDown("left")){//MainCharater moves left
-        for(int i = 0; i < 6; i++){
-        isFacingRight = false;
-        hAttack();
-        }
-        }
-        if(Greenfoot.isKeyDown("up")){//MainCharater moves up
-        for(int i = 0; i < 6; i++){
-        int x = getX();
-        int y = getY();
-        isFacingUp = true;
-        vAttack();
-        }
-        }
-        if(Greenfoot.isKeyDown("down")){//MainCharater moves down
-        for(int i = 0; i < 6; i++){
-        int x = getX();
-        int y = getY();
-        isFacingUp = false;
-        vAttack();
-        }
-        }*/
     }
 }
