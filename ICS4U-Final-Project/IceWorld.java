@@ -100,7 +100,7 @@ public class IceWorld extends World
         addObject(health, 95, 5);
 
         
-        addObject(new EnemySphere
+        
         
         GreenfootImage bg = new GreenfootImage(640, 500);
         bg.setColor(Color.BLACK);
@@ -405,7 +405,7 @@ public class IceWorld extends World
 
                     if (Greenfoot.getRandomNumber(10) == 1 && (Math.abs(x-11) > 3 && Math.abs(y-32) > 2)){
                         mapTwo[x][y] = 9;
-                        //addObject(new Enemy(x, y, Greenfoot.getRandomNumber(2)), 0, 0);
+                        addObject(new Enemy(x, y, Greenfoot.getRandomNumber(2)), 0, 0);
                     }
 
                 }
