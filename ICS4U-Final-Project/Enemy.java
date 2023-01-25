@@ -32,15 +32,19 @@ public class Enemy extends GridMovement
     {
         super.act();
 
-        //ArrayList<Player> ps = (ArrayList)getWorld().getObjects(Player.class);
-        //p = ps.get(0);
+        ArrayList<Player> ps = (ArrayList)getWorld().getObjects(Player.class);
+        p = ps.get(0);
 
-        //AttackPlayer();
+        AttackPlayer();
         //setLocation(getX()+1, getY());
         
         //System.out.println("grid coords: " + xc + " " + yc);
         
         //y++;
+        
+        if (hp <= 1){
+            getWorld().removeObject(this);
+        }
     }
 
     private void AttackPlayer(){
@@ -66,4 +70,11 @@ public class Enemy extends GridMovement
         }
 
     }
+    
+    private void takeDamage(){
+        
+        
+        hp -= 10;
+    }
+    
 }

@@ -76,11 +76,11 @@ public class GridMovement extends Others
         if ((lastTime + timeBWMoves) < timer){
 
             System.out.println("move left");
-            if (xc + 1 > 0){
-                if (valuearray[xc + 1][yc] == 1){
-                    xc += 1;
-                    ((IceWorld)getWorld()).setGridPosition(xc, yc, 9);
-                    ((IceWorld)getWorld()).setGridPosition(xc-1, yc, 1);
+            if (xc - 1 > 0){
+                if (valuearray[yc][xc - 1] == 1){
+                    xc -= 1;
+                    ((IceWorld)getWorld()).setGridPosition(yc, xc, 9);
+                    ((IceWorld)getWorld()).setGridPosition(yc, xc+1, 1);
                     x -= gridSX;
                     y -= gridSY;
 
@@ -102,11 +102,11 @@ public class GridMovement extends Others
             System.out.println("Next coordspot: " + valuearray[xc + 1][yc]);
             System.out.println("current cord: " + ((IceWorld)getWorld()).getBlockCoord(xc, yc).getX() + " " + ((IceWorld)getWorld()).getBlockCoord(xc, yc).getX());
 
-            if (xc - 1 < valuearray.length){
-                if (valuearray[xc - 1][yc] == 1){
-                    xc -= 1;
-                    ((IceWorld)getWorld()).setGridPosition(xc, yc, 9);
-                    ((IceWorld)getWorld()).setGridPosition(xc+1, yc, 1);
+            if (xc + 1 < valuearray.length){
+                if (valuearray[yc][xc + 1] == 1){
+                    xc += 1;
+                    ((IceWorld)getWorld()).setGridPosition(yc, xc, 9);
+                    ((IceWorld)getWorld()).setGridPosition(yc, xc-1, 1);
 
                     x += gridSX;
                     y += gridSY;
@@ -127,10 +127,10 @@ public class GridMovement extends Others
 
             //if (leftClear){
             System.out.println("move up");   
-            if (valuearray[xc][yc-1] == 1){
+            if (valuearray[yc-1][xc] == 1){
                 yc -= 1;
-                ((IceWorld)getWorld()).setGridPosition(xc, yc, 9);
-                ((IceWorld)getWorld()).setGridPosition(xc, yc+1, 1);
+                ((IceWorld)getWorld()).setGridPosition(yc, xc, 9);
+                ((IceWorld)getWorld()).setGridPosition(yc+1, xc, 1);
 
                 x += gridSX;
                 y -= gridSY;
@@ -153,10 +153,10 @@ public class GridMovement extends Others
             //System.out.println("test");
             //if (leftClear){
             System.out.println("move down");          
-            if (valuearray[xc][yc+1] == 1){
+            if (valuearray[yc+1][xc] == 1){
                 yc += 1;
-                ((IceWorld)getWorld()).setGridPosition(xc, yc, 9);
-                ((IceWorld)getWorld()).setGridPosition(xc, yc-1, 1);
+                ((IceWorld)getWorld()).setGridPosition(yc, xc, 9);
+                ((IceWorld)getWorld()).setGridPosition(yc-1, xc, 1);
 
                 x -= gridSX;
                 y += gridSY;

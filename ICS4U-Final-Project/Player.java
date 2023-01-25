@@ -290,12 +290,12 @@ public class Player extends FreeMovement
                 setImage(bowAttackDownImages[curIndex3]);
             }
 
-        curIndex3++;
-        if(curIndex3 == 13){
-            curIndex3 = 0;
-        
+            curIndex3++;
+            if(curIndex3 == 13){
+                curIndex3 = 0;
 
-            actionTimer.mark();
+                actionTimer.mark();
+            }
         }
     }
     //set weapon damage

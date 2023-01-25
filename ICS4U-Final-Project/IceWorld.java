@@ -65,6 +65,7 @@ public class IceWorld extends World
     private int blockW = 30, blockH = 16;
     private int timer = 0;
     private Wall closest = new Wall(0, 0);
+    private int xoff = getWidth()/2, yoff = getHeight()/2;
     
     private static boolean playerAttacking = false;
     private static int weapon = 0;
@@ -112,8 +113,9 @@ public class IceWorld extends World
         
         addObject(wbg2, this.getWidth()/2, this.getHeight()/2);
         
-        playerTest.changeSpawnCoords(this.getWidth()/2, this.getHeight()/2);//remove
-        playerTest2.changeSpawnCoords(this.getWidth()/2, this.getHeight()/2);
+        //playerTest.changeSpawnCoords(this.getWidth()/2, this.getHeight()/2);//remove
+        
+        playerTest2.changeSpawnCoords(xoff, yoff);
         
         
         
@@ -309,7 +311,7 @@ public class IceWorld extends World
         
         //System.out.println("fuckx " + getBlockCoord(1, 2).getX());
         //System.out.println("fucky " + getBlockCoord(1, 2).getY());
-        checkUserOntoGrid();
+        checkUserGrid();
 
         //attack here VVV
         if(playerAttacking){
@@ -429,7 +431,7 @@ public class IceWorld extends World
             return new Pair(0, 0);
         } else {
             if (timer < 2){
-                return new Pair(wallListTwo[x][y].getX(), wallListTwo[x][y].getY());
+                return new Pair(wallListTwo[x][y].getX()+xoff, wallListTwo[x][y].getY()+yoff);
             }
             
             return new Pair(wallListTwo[x][y].getX()-offX, wallListTwo[x][y].getY()-offY);
