@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=MainMenu
-comment0.text=\n\ Write\ a\ description\ of\ class\ TitleScreen\ here.\n\ \n\ This\ is\ the\ main\ menu\ of\ the\ game\ with\ buttons\ leading\ to\ play\ the\ game,\ and\ instructions/controls\n\n\ @author\ Leo\ Xu\n\ @date\ June\ 15\ 2022\n\n\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ TitleScreen\ here.\r\n\ \r\n\ This\ is\ the\ main\ menu\ of\ the\ game\ with\ buttons\ leading\ to\ play\ the\ game,\ and\ instructions/controls\r\n\r\n\ @author\ Leo\ Xu\r\n\ @date\ June\ 15\ 2022\r\n\r\n\r\n
 comment1.params=
 comment1.target=MainMenu()
+comment1.text=\r\n\ Simple\ Constructor\ \r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ \r\n
 numComments=3

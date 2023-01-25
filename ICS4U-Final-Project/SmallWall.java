@@ -14,8 +14,7 @@ public class SmallWall extends Others
     
     private GreenfootImage semihiddenImage = new GreenfootImage("images/misc/isowall23.png");
     /**
-     * Act - do whatever the Wall wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Constructor for Small Wall
      */
     public SmallWall() 
     {
@@ -34,7 +33,9 @@ public class SmallWall extends Others
         yg = getY();
     }
     
-    
+    /**
+     * Act Method 
+     */
     public void act()
     {
         if(Greenfoot.isKeyDown("1"))
@@ -50,17 +51,23 @@ public class SmallWall extends Others
             change2();
         }
     }
-    
+    /**
+     * Change to playImage
+     */
     public void change1()
     {
         setImage(playImage);
     }
-    
+    /**
+     * Change to hiddenImage
+     */
     public void change2()
     {
         setImage(hiddenImage);
     }
-    
+    /**
+     * Change to semiHiddenImage
+     */
     public void change3()
     {
         setImage(semihiddenImage);

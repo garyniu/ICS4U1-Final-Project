@@ -1,6 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
-
+/**
+ * Responsible for moving subclasses in a grid fashion using a grid provided from the World
+ * 
+ * @author Gary Niu 
+ * @version January 12
+ */
 public class GridMovement extends Others
 {
 
@@ -19,7 +24,11 @@ public class GridMovement extends Others
     //get coordinate of grid to move to
     //stay still or move in a circle until the user is close on grid
     //if user is 1 grid spot away, dont move anymore
-
+    /**
+     * Constructor
+     * @param xm X coordinate for Movement 
+     * @param ym Y coordinate for Movement
+     */
     public GridMovement(int xm, int ym){
 
         //fill in sizeOfGrid, and protected vars to start movement
@@ -37,6 +46,9 @@ public class GridMovement extends Others
 
         
     }
+    /**
+     * Act Method 
+     */
     public void act()
     {
         // Add your action code here.
@@ -69,7 +81,9 @@ public class GridMovement extends Others
 
         //System.out.println(((IceWorld)getWorld()).getBlockCoord(4, 5).getX());
     }
-    //MOVE TO GRID POSITIONS
+    /**
+     * Method for moving left in the grid
+     */
     public void moveLeft(){
 
         int gridShiftx, gridShifty;
@@ -92,7 +106,9 @@ public class GridMovement extends Others
 
         }
     }
-
+    /**
+     * Method for moving right in the grid 
+     */
     public void moveRight(){
         int gridShiftx, gridShifty;
 
@@ -120,7 +136,9 @@ public class GridMovement extends Others
         }
 
     }
-
+    /**
+     * Method for moving Up in the grid 
+     */
     public void moveUp(){
         int gridShiftx, gridShifty;
 
@@ -146,7 +164,9 @@ public class GridMovement extends Others
 
         }
     }
-
+    /**
+     * Method for moving down in the grid 
+     */
     public void moveDown(){
         int gridShiftx, gridShifty;
 
@@ -171,7 +191,10 @@ public class GridMovement extends Others
 
         }
     }
-
+    /**
+     * Get coordinates
+     * @return Pair Pair of Coordinates
+     */
     public Pair getCoords() {
         return new Pair(x, y);
     }

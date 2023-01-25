@@ -15,8 +15,9 @@ public class Wall extends Others
     
     private GreenfootImage semihiddenImage = new GreenfootImage("images/misc/isowall23.png");
     /**
-     * Act - do whatever the Wall wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Constructor for Wall
+     * @param gridx X grid value 
+     * @param gridy Y grid value
      */
     public Wall(int gridx, int gridy) 
     {
@@ -37,7 +38,9 @@ public class Wall extends Others
         yg = getY();
     }
     
-    
+    /**
+     * Act Method
+     */
     public void act()
     {
         if(Greenfoot.isKeyDown("1"))
@@ -53,22 +56,30 @@ public class Wall extends Others
             change2();
         }
     }
-    
+    /**
+     * Get Grid coordinates in relation to grid size
+     * @return Pair Pair of coordinates 
+     */
     public Pair getGridCoord(){
         return new Pair(gridx, gridy);
     }
-    
-    
+    /**
+     * Change image to playImage
+     */
     public void change1()
     {
         setImage(playImage);
     }
-    
+    /**
+     * Change image to hiddenImage
+     */
     public void change2()
     {
         setImage(hiddenImage);
     }
-    
+    /**
+     * Change image to semiHiddenImage
+     */
     public void change3()
     {
         setImage(semihiddenImage);

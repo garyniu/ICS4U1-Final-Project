@@ -1,10 +1,12 @@
 #BlueJ class context
 comment0.target=WorldBackground
-comment0.text=\n\ Write\ a\ description\ of\ class\ WorldBackground\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ WorldBackground\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=image
 comment1.target=WorldBackground(greenfoot.GreenfootImage)
+comment1.text=\r\n\ Constructor\ for\ Background\ \r\n\ @param\ image\ Image\ for\ background\r\n
 comment2.params=
 comment2.target=void\ act()
 comment3.params=image
 comment3.target=void\ changeBG(greenfoot.GreenfootImage)
+comment3.text=\r\n\ Changes\ the\ background\ \r\n\ @param\ image\ New\ background\r\n
 numComments=4

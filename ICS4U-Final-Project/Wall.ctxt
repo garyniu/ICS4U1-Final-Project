@@ -1,19 +1,24 @@
 #BlueJ class context
 comment0.target=Wall
-comment0.text=\n\ Used\ to\ place\ down\ the\ grids\ used\ in\ iceWorld\n\ \n\ @author\ Leo\ Xu\n\ @version\ 1\n
+comment0.text=\r\n\ Used\ to\ place\ down\ the\ grids\ used\ in\ iceWorld\r\n\ \r\n\ @author\ Leo\ Xu\r\n\ @version\ 1\r\n
 comment1.params=gridx\ gridy
 comment1.target=Wall(int,\ int)
-comment1.text=\n\ Act\ -\ do\ whatever\ the\ Wall\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment1.text=\r\n\ Constructor\ for\ Wall\r\n\ @param\ gridx\ X\ grid\ value\ \r\n\ @param\ gridy\ Y\ grid\ value\r\n
 comment2.params=GameWorld
 comment2.target=void\ addedToWorld(greenfoot.World)
 comment3.params=
 comment3.target=void\ act()
+comment3.text=\r\n\ Act\ Method\r\n
 comment4.params=
 comment4.target=Pair\ getGridCoord()
+comment4.text=\r\n\ Get\ Grid\ coordinates\ in\ relation\ to\ grid\ size\r\n\ @return\ Pair\ Pair\ of\ coordinates\ \r\n
 comment5.params=
 comment5.target=void\ change1()
+comment5.text=\r\n\ Change\ image\ to\ playImage\r\n
 comment6.params=
 comment6.target=void\ change2()
+comment6.text=\r\n\ Change\ image\ to\ hiddenImage\r\n
 comment7.params=
 comment7.target=void\ change3()
+comment7.text=\r\n\ Change\ image\ to\ semiHiddenImage\r\n
 numComments=8

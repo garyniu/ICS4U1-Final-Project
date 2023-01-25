@@ -181,11 +181,17 @@ public abstract class SuperSmoothMover extends Actor
     {
         return exactY;
     }
-    
+    /**
+     * Gets the precise rotation amount of the actor 
+     * @return double Returns rotation amount
+     */
     public double getPreciseRotation (){
         return rotation;
     }
-    
+    /**
+     * Gets the pair of coordinates of Actor 
+     * @return Pair Coordinates
+     */
     public Pair PMoved(){
         return new Pair(xe, ye);
     }

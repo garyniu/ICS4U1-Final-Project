@@ -12,22 +12,12 @@ public class EnterPortal extends Others
 
 {
     GifImage void1 = new GifImage("images/misc/void1.gif");
-    /**
-     * Act - do whatever the EnterPortal wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    
-
-    
-    
     public void addedToWorld(World GameWorld){
         //System.out.println("wall pos: " + getX() + " " + getY());
         
         xg = getX();
         yg = getY();
     }
-    
-    
     public void act()
     {
         // Add your action code here.

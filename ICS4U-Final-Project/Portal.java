@@ -12,7 +12,9 @@ public class Portal extends Others
     private Portal portal; // allows multiple portal in one world
     private boolean active; //used if this portal can be used
     private GreenfootImage portalImage = new GreenfootImage ("images/misc/hWall.png");
-    
+    /**
+     * Constructor for Portal
+     */
     public Portal()
     {
         portalImage.scale(50, 50);
@@ -25,7 +27,10 @@ public class Portal extends Others
         xg = getX();
         yg = getY();
     }
-    
+    /**
+     * Secondary Constructor for Portal 
+     * @param portal Portal
+     */
     public Portal(Portal portal)
     {
         this.setPortal(portal); 
@@ -33,17 +38,25 @@ public class Portal extends Others
         portalImage.scale(50, 50);
         setImage(portalImage);
     }
-    
+    /**
+     * Sets a new portal as portal 
+     * @param portal New portal 
+     */
     private void setPortal(Portal portal)
     {
         this.portal = portal; 
     }
-    
+    /**
+     * Gets the portal 
+     * @return Portal portal
+     */
     public Portal getPortal()
     {
         return this.portal; 
     }
-    
+    /**
+     * Act Method
+     */
     public void act()
     
     {
@@ -54,7 +67,10 @@ public class Portal extends Others
         
         
     }
-       
+    /**
+     * Gets actor and sets it to a different world
+     * @param actor Actor 
+     */
     public void getActor(Actor actor)
     {
         

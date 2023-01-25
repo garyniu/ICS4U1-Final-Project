@@ -406,14 +406,20 @@ public class IceWorld extends World
     //test
     private int ox, oy;
     private int offX, offY;
-
+    /**
+     * Set an Object at an X and Y Value
+     * @param cX X coordinate
+     * @param cY Y coordinate
+     */
     public void moveThing(int cX, int cY){
         GreenfootImage image = getBackground();
         xd = cX;
         yd = cY;
         wbg2.setLocation(xd, yd);
     }
-
+    /**
+     * Act Method 
+     */
     public void act()
     {
 
@@ -465,17 +471,27 @@ public class IceWorld extends World
             System.out.println();
         }*/
     }
-
-    //update player hp bar
+    /**
+     * Updates Hp of Player
+     * @param hp Health
+     */
     public static void updateHP(int hp){
         health.update((int)(hp));
     }
     //update stamina bar
+    /**
+     * Updates stamina of Player
+     * @param st Stamina
+     */
     public static void updateStamina(int st){
         stamina.update((int)(st));
     }
 
     //puts the user onto the grid based on coords
+    /**
+     * Places the user onto the grid based on coordinates
+     * @return Pair Pair of coordinates for Player to be placed
+     */
     public Pair checkUserGrid(){
         ArrayList<Player> p = (ArrayList<Player>)getObjects(Player.class);
         Player pl = p.get(0);
@@ -516,7 +532,10 @@ public class IceWorld extends World
         return new Pair(closest.getGridCoord().getX(), closest.getGridCoord().getY());
 
     }
-
+    /**
+     * Returns a copy of the MapArray
+     * @return int[][] Copy of Map Array
+     */
     public int[][] getMapArr(){
         int[][] copy = new int[mapTwo.length][mapTwo[0].length];
 
@@ -551,8 +570,10 @@ public class IceWorld extends World
         }
 
     }
-
-    //WORKING
+    /**
+     * Get the Block Size/dimensions of a block
+     * @return Pair Dimensions of block
+     */
     public Pair getMapBlockSize(){
 
         Wall walli = new Wall(-1, -1);
@@ -569,7 +590,12 @@ public class IceWorld extends World
 
         return new Pair(walli.getImage().getWidth(), walli.getImage().getHeight());
     }
-
+    /**
+     * Set the grid position of the player 
+     * @param x X coordinate
+     * @param y Y coordinate
+     * @param v Grid value 
+     */
     public void setGridPosition(int x, int y, int v){
         mapTwo[x][y] = v;
     }

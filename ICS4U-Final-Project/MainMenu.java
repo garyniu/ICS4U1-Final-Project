@@ -16,7 +16,9 @@ public class MainMenu extends World
     Button pb = new Button(new GreenfootImage("images/LobbyWorld1/playButton.png"), new GreenfootImage("images/LobbyWorld1/playButtonFade.png"));//play button
     
     
-    
+    /**
+     * Simple Constructor 
+     */
     public MainMenu()
     {    
         // Create a new world with 600x533 cells with a cell size of 1x1 pixels.
@@ -26,7 +28,9 @@ public class MainMenu extends World
         addObject(pb, 300, 300);
         
     }
-    
+    /**
+     * Act Method
+     */
     public void act()
     {
         

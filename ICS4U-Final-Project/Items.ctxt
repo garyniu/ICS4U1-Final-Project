@@ -1,12 +1,16 @@
 #BlueJ class context
 comment0.target=Items
-comment0.text=\n\ Write\ a\ description\ of\ class\ Items\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Superclass\ for\ items\ \r\n\ \r\n\ @author\ Gary\ Niu\r\n\ @version\ January\ 18\r\n
 comment1.params=x\ y
 comment1.target=Items(int,\ int)
+comment1.text=\r\n\ Constructor\ for\ Items\ \r\n\ @param\ x\ X\ coordinate\r\n\ @param\ y\ Y\ coordinate\r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ Act\ Method\ \r\n
 comment3.params=player
 comment3.target=boolean\ givenUpgrade(greenfoot.Actor)
+comment3.text=\r\n\ Checks\ if\ an\ upgrade\ has\ been\ given\ to\ the\ player\ yet\r\n\ @param\ player\ Player\ \r\n\ @return\ boolean\ If\ an\ upgrade\ has\ been\ given\ or\ not\ \r\n
 comment4.params=
 comment4.target=int\ givenDamage()
+comment4.text=\r\n\ Returns\ damage\ to\ be\ dealt\r\n\ @return\ int\ Damage\ to\ be\ added/dealt\ to\ player\r\n
 numComments=5

@@ -18,7 +18,11 @@ public abstract class FreeMovement extends SuperSmoothMover
     protected int Spawnx = 0, Spawny = 0;
     protected static double speed = 2;
     protected String dir = "L";
-    
+    /**
+     * Constructor 
+     * @param x X value
+     * @param y Y value
+     */
     public FreeMovement(int x, int y){
         posx = x;
         posy = y;
@@ -26,7 +30,9 @@ public abstract class FreeMovement extends SuperSmoothMover
         prevx = x;
         prevy = y;
     }
-    
+    /**
+     * Act Method
+     */
     public void act()
     {
         
@@ -51,6 +57,8 @@ public abstract class FreeMovement extends SuperSmoothMover
     
     /**
      * Allows classes to change the spawn coordinates of whatever class it might be
+     * @param x New x coordinate
+     * @param y New y coordinate
      */
     public void changeSpawnCoords(int x, int y){
         Spawnx = x;
@@ -97,11 +105,15 @@ public abstract class FreeMovement extends SuperSmoothMover
     
     /**
      * allows other classes to set the Player's speed
+     * @param spd New Speed
      */
     public static void setPlayerSpeed(int spd){
         speed = spd;
     }
-    
+    /**
+     * Increase Speed
+     * @param increase Amount for speed to be increase by 
+     */
     public static void increaseSpeed(double increase)
     {
         speed += increase;
@@ -109,6 +121,7 @@ public abstract class FreeMovement extends SuperSmoothMover
     
     /**
      * allows other classes to retrieve the previous move of the subclass
+     * @return String Previous Move 
      */
     public String getPrevMove()
     {
@@ -144,6 +157,7 @@ public abstract class FreeMovement extends SuperSmoothMover
     
     /**
      * allows other class to get coordinates of subclasses
+     * @param Pair Pair of Coordinates
      */
     public Pair getCoord(){
         return new Pair(posx, posy);

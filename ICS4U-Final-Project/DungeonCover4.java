@@ -10,11 +10,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class DungeonCover4 extends Others
 {
-    /**
-     * Act - do whatever the Dungeon1Cover1 wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    
     private GreenfootImage coverImage = new GreenfootImage("images/misc/iceCover4.png");
     
     public void addedToWorld(World GameWorld){
@@ -23,7 +18,9 @@ public class DungeonCover4 extends Others
         xg = getX();
         yg = getY();
     }
-    
+    /**
+     * Constructor
+     */
     public DungeonCover4() 
     {
         // Add your action code here.

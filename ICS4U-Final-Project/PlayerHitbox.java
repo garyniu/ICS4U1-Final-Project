@@ -23,7 +23,11 @@ public class PlayerHitbox extends FreeMovement
     private int playerSpeed = 2;
     private int sprintSpeed = 3;
     private boolean sprinting = false;
-
+    /**
+     * Constructor for PlayerHitBox
+     * @param x X value 
+     * @param y Y value 
+     */
     public PlayerHitbox(int x, int y){
         super(x, y);
         //walk
@@ -31,7 +35,9 @@ public class PlayerHitbox extends FreeMovement
         //walk
         boundImage.scale(width, length);
     }
-
+    /**
+     * Act Method for PlayerHitBox
+     */
     public void act()
     {
         super.act();

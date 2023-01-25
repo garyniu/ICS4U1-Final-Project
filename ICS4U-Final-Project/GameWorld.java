@@ -244,16 +244,23 @@ public class GameWorld extends World
         moveThing(xd, yd);
     }
 
-    
-    //update player hp bar
+    /**
+     * Updates Hp of Player
+     * @param hp Health
+     */
     public static void updateHP(int hp){
         //health.update((int)(hp));
     }
-    //update stamina bar
+    /**
+     * Updates Stamina Bar for Player
+     * @param st Stamina
+     */
     public static void updateStamina(int st){
         stamina.update((int)(st));
     }
-
+    /**
+     * Act Method 
+     */
     public void act()
     {
         MouseInfo m = Greenfoot.getMouseInfo();
@@ -263,7 +270,11 @@ public class GameWorld extends World
             showText("mouseY: " + String.valueOf(m.getY()), 120, 70);
         }
     }
-
+    /**
+     * Set an Object at an X and Y Value
+     * @param cX X coordinate
+     * @param cY Y coordinate
+     */
     public void setThing(int cX, int cY)
     {
         xd = this.getWidth()- cX;
@@ -273,15 +284,21 @@ public class GameWorld extends World
 
         wbg.setLocation(xd, yd);
     }
-
+    /**
+     * Move an Object to an X and Y Value
+     * @param cX X coordinate
+     * @param cY Y coordinate
+     */
     public void moveThing(int cX, int cY){
         GreenfootImage image = getBackground();
         xd = cX;
         yd = cY;
         wbg.setLocation(xd, yd);
     }
-
-    //returns deep copy of map array
+    /**
+     * Returns a copy of the MapArray
+     * @return int[][] Copy of Map Array
+     */
     public int[][] getMapArr(){
         int[][] copy = new int[mapTwo.length][mapTwo[0].length];
 
@@ -295,6 +312,10 @@ public class GameWorld extends World
     }
 
     //returns the top left corner position of the array on the screen
+    /**
+     * Returns the top Left corner position of the array on the screen
+     * @return Pair Pair of coordinates
+     */
     public Pair getMapOrigin(){
         Wall temp = wallListTwo[0][0];
 
@@ -304,6 +325,10 @@ public class GameWorld extends World
     }
 
     //returns the width and height of a block
+    /**
+     * Returns the width and height of a block 
+     * @return Pair Dimensions of a block
+     */
     public Pair getMapBlockSize(){
         return new Pair(wallListTwo[0][0].getImage().getWidth(), wallListTwo[0][0].getImage().getHeight());
     }

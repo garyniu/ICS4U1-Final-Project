@@ -10,7 +10,10 @@ public class WorldBackground extends Others
 {
     
     private GreenfootImage image;
-    
+    /**
+     * Constructor for Background 
+     * @param image Image for background
+     */
     public WorldBackground(GreenfootImage image){
         this.image = image;
         
@@ -21,7 +24,10 @@ public class WorldBackground extends Others
     {
         // Add your action code here.
     }
-    
+    /**
+     * Changes the background 
+     * @param image New background
+     */
     public void changeBG(GreenfootImage image){
         this.image = image;
         

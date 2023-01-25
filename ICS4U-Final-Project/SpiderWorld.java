@@ -372,16 +372,23 @@ public class SpiderWorld extends World
             }
         }
     }
-    
-    //update player hp bar
+    /**
+     * Updates Hp of Player
+     * @param hp Health
+     */
     public static void updateHP(int hp){
         health.update((int)(hp));
     }
-    //update stamina bar
+    /**
+     * Updates Stamina Bar for Player
+     * @param st Stamina
+     */
     public static void updateStamina(int st){
         stamina.update((int)(st));
     }
-    
+    /**
+     * Act Method
+     */
     public void act()
     {
         MouseInfo m = Greenfoot.getMouseInfo();
@@ -398,14 +405,21 @@ public class SpiderWorld extends World
             showText("mouseY: " + String.valueOf(m.getY()), 900, 600);
         }*/
     }
-    
+    /**
+     * Move an Object to an X and Y Value
+     * @param cX X coordinate
+     * @param cY Y coordinate
+     */ 
     public void moveThing(int cX, int cY){
         GreenfootImage image = getBackground();
         xd = cX;
         yd = cY;
         wbg3.setLocation(xd, yd);
     }
-    
+    /**
+     * Returns a copy of the MapArray
+     * @return int[][] Copy of Map Array
+     */
     public int[][] getMapArr(){
         int[][] copy = new int[1][1];// = new int[mapTwo.length][mapTwo[0].length];
         
@@ -419,7 +433,10 @@ public class SpiderWorld extends World
         return copy;
     }
     
-    //returns the top left corner position of the array on the screen
+    /**
+     * Returns the top Left corner position of the array on the screen
+     * @return Pair Pair of coordinates
+     */
     public Pair getMapOrigin(){
         
         //Wall temp = wallListTwo[0][0];
@@ -428,8 +445,10 @@ public class SpiderWorld extends World
         
         return new Pair(0, 0);
     }
-    
-    //returns the width and height of a block
+    /**
+     * Returns the width and height of a block 
+     * @return Pair Dimensions of a block
+     */
     public Pair getMapBlockSize(){
         return new Pair(0,0);//new Pair(wallListTwo[0][0].getImage().getWidth(), wallListTwo[0][0].getImage().getHeight());
     }

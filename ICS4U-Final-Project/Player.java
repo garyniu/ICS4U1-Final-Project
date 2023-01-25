@@ -198,7 +198,11 @@ public class Player extends FreeMovement
 
     //Player coordinates
     private Pair coords = new Pair(0, 0);
-
+    /**
+     * Constructor for Player
+     * @param x X coordinate
+     * @param y Y coordinate
+     */
     public Player(int x, int y){
         super(x, y);
         
@@ -327,6 +331,7 @@ public class Player extends FreeMovement
 
     /**
      * add Player to world
+     * @param world World 
      */
     public void addedToWorld(World world){
         getWorld().addObject(new Fog(), getWorld().getWidth()/2, getWorld().getHeight()/2);
@@ -475,6 +480,7 @@ public class Player extends FreeMovement
 
     /**
      * allows other classes to set the damage the Player's sword does
+     * @param dmg New damage for Player's sword
      */
     public void setSwordDamage(int dmg){//sword dmg
         this.swordDamage = dmg;
@@ -482,6 +488,7 @@ public class Player extends FreeMovement
 
     /**
      * allows other classes to set the damage the Player's spear does
+     * @param dmg New damage for Player's spear
      */
     public void setSpearDamage(int dmg){//spear dmg
         this.spearDamage = dmg;
@@ -489,6 +496,7 @@ public class Player extends FreeMovement
 
     /**
      * allows other classes to set the damage the Player's bow does
+     * @param dmg New damage for Player's bow 
      */
     public void setBowDamage(int dmg){//bow dmg
         this.bowDamage = dmg;
@@ -496,6 +504,7 @@ public class Player extends FreeMovement
 
     /**
      * allows other classes to set the damage the Player takes
+     * @param dmg New damage that Player takes
      */
     public void damagePlayer(int dmg){//lose hp
         hp -= dmg;
@@ -509,6 +518,7 @@ public class Player extends FreeMovement
 
     /**
      * allows other classes to set the amount of health the Player regains
+     * @param heal Amount of health player regains 
      */
     public void healPlayer(int heal){//gain hp
         hp += heal;
@@ -522,6 +532,7 @@ public class Player extends FreeMovement
 
     /**
      * allows other classes to set the the stamina Player loses
+     * @param lost Amt of stamina player loses
      */
     public void loseStamina(int lost){
         stamina -= lost;
@@ -540,6 +551,7 @@ public class Player extends FreeMovement
 
     /**
      * allows other classes to set the the stamina Player gains
+     * @param gain Amt of stamina Player gains 
      */
     public void gainStamina(int gain){
         stamina += gain;
@@ -581,12 +593,17 @@ public class Player extends FreeMovement
         }
         
     }
-    
+    /**
+     * Adds damage to sword
+     * @param add Amt of damage to add
+     */
     public static void addDamage(int add)
     {
         swordDamage += add;
     }
-    
+    /**
+     * Act method 
+     */
     public void act()
     {
         super.act();
@@ -594,7 +611,7 @@ public class Player extends FreeMovement
         y = getY();
         String dashed = Greenfoot.getKey();
 
-        System.out.println("hp: " + hp);
+        //System.out.println("hp: " + hp);
         
         String lastKey = Greenfoot.getKey();
         if (alive == false){

@@ -20,6 +20,7 @@ public class LossScreen extends World
     private int score;
     /**
      * Constructor for objects of class LossScreen
+     * @param score Score 
      */
     public LossScreen(int score)
     {
@@ -46,7 +47,9 @@ public class LossScreen extends World
 
         addObject(pb, 300, 400);
     }
-
+    /**
+     * Act Method 
+     */
     public void act(){
         if (pb.getClick())// go to myWorld when playbutton is pressed
         {
