@@ -79,7 +79,7 @@ public class IceWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 500, 1, false); 
 
-        setPaintOrder(SuperStatBar.class, Fog.class, Wall.class, DungeonCover5.class, DungeonCover4.class, DungeonCover3.class, DungeonCover1.class, DungeonCover2.class, PlayerHitbox.class, Player.class, Others.class, WorldBackground.class);
+        setPaintOrder(SuperStatBar.class, Fog.class, DungeonCover5.class, DungeonCover4.class, DungeonCover3.class, DungeonCover1.class, DungeonCover2.class, PlayerHitbox.class, Player.class, Others.class, WorldBackground.class, Wall.class);
 
         //stat bar
         //stamina

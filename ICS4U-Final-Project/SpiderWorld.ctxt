@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=SpiderWorld
-comment0.text=\r\n\ \r\n\ Second\ playable\ world\r\n\ \r\n\ @author\ Leo\ Xu,\ Gary,Niu\r\n\ @version\ 1\r\n\r\n
+comment0.text=\r\n\ \r\n\ Second\ playable\ world\r\n\ \r\n\ @author\ Leo\ Xu,\ Gary,Niu\r\n\ @not\ using\ it\ because\ we\ ran\ out\ of\ time\r\n\ @version\ 1\r\n\r\n
 comment1.params=
 comment1.target=SpiderWorld()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ SpookyWorld.\r\n\ \r\n

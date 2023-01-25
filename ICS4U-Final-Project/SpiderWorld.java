@@ -5,6 +5,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Second playable world
  * 
  * @author Leo Xu, Gary,Niu
+ * @not using it because we ran out of time
  * @version 1
  *
  */
@@ -164,8 +165,8 @@ public class SpiderWorld extends World
         
 
         
-        playerTest.changeSpawnCoords(1600,200);
-        playerTest2.changeSpawnCoords(1600,200);
+        playerTest.changeSpawnCoords(1000,-300);
+        playerTest2.changeSpawnCoords(1000,-300);
 
         
  
