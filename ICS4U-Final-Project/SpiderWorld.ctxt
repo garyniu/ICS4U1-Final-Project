@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=SpiderWorld
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ SpookyWorld\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ \n\ Second\ playable\ world\n\ \n\ @author\ Leo\ Xu,\ Gary,Niu\n\ @version\ 1\n\n
 comment1.params=
 comment1.target=SpiderWorld()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ SpookyWorld.\r\n\ \r\n
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ SpookyWorld.\n\ \n
 comment2.params=hp
 comment2.target=void\ updateHP(int)
 comment3.params=st

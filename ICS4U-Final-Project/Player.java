@@ -63,7 +63,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * - https://opengameart.org/content/lpc-santa
  * - http://opengameart.org/content/lpc-clothing-updates
  * 
- * @author Justin Sin
+ * @author Justin Sin, Victor Wei
  * @versio 1.0
  */
 public class Player extends FreeMovement
@@ -174,11 +174,12 @@ public class Player extends FreeMovement
     private int size = 60;//size for walking and bow animation
     private int atkSize = 180;//size for sword and spear animation
     //player speed variables
-    private int playerSpeed = 7;
+    private int playerSpeed = 1;
     private int sprintSpeed = 2;
     private boolean sprinting = false;
     //player damage variables(for enemy)
-    private int swordDamage = 10;
+    private static int swordDamage = 10;
+    private static int addedDamage;
     private int spearDamage = 7;
     private int bowDamage = 5;
 
@@ -218,7 +219,9 @@ public class Player extends FreeMovement
         bowAttackDownImages = new GreenfootImage[13];
         bowAttackRightImages = new GreenfootImage[13];
         bowAttackLeftImages = new GreenfootImage[13];
-
+        
+        swordDamage = 10;
+        
         //walk
         for(int i = 0; i < downImages.length; i++)//main charater walking down animation 
         {
@@ -550,12 +553,17 @@ public class Player extends FreeMovement
     /**
      * allows the Playerto detect when it collides with the Enemy Class
      */
-    public void hitEnemy(int dmg){
+    public void hitEnemy(){
         if(!getIntersectingObjects(Enemy.class).isEmpty()){
-            Enemy.takeDamage(dmg);
+            Enemy.takeDamage(swordDamage);
         }
     }
-
+    
+    public static void addDamage(int add)
+    {
+        swordDamage += add;
+    }
+    
     public void act()
     {
         super.act();
@@ -564,7 +572,8 @@ public class Player extends FreeMovement
         String dashed = Greenfoot.getKey();
 
         System.out.println("hp: " + hp);
-
+        
+        String lastKey = Greenfoot.getKey();
         if (alive == false){
             Greenfoot.setWorld(new LossScreen(score));
         }
@@ -581,11 +590,11 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                hitEnemy(30);
+                hitEnemy();
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                hitEnemy(20);
+                hitEnemy();
             }
             /*if(Greenfoot.isKeyDown("r")){//bow shot
             bowAttack();
@@ -602,11 +611,11 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                hitEnemy(30);
+                hitEnemy();
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                hitEnemy(20);
+                hitEnemy();
             }
             /*if(Greenfoot.isKeyDown("r")){//bow shot
             bowAttack();
@@ -623,11 +632,11 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                hitEnemy(30);
+                hitEnemy();
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                hitEnemy(20);
+                hitEnemy();
             }
             /*if(Greenfoot.isKeyDown("r")){//bow shot
             bowAttack();
@@ -644,11 +653,11 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                hitEnemy(30);
+                hitEnemy();
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                hitEnemy(20);
+                hitEnemy();
             }
             /*if(Greenfoot.isKeyDown("r")){//bow shot
             bowAttack();
@@ -659,11 +668,11 @@ public class Player extends FreeMovement
         //attack
         if(Greenfoot.isKeyDown("q")){//sword swing
             swordAttack();
-            hitEnemy(30);
+            hitEnemy();
         }
         if(Greenfoot.isKeyDown("e")){//spear thrust
             spearAttack();
-            hitEnemy(20);
+            hitEnemy();
         }
         /*if(Greenfoot.isKeyDown("r")){//bow shot
         bowAttack();
@@ -682,6 +691,23 @@ public class Player extends FreeMovement
             gainStamina(1);//gains stamina when not sprinting
 
             sprinting = false;
+        }
+        Actor chest = getOneIntersectingObject(Items.class);
+        
+        getWorld().showText(speed + "", 200, 400);
+        
+        if(chest != null)
+        {
+            int oldSpeed = 0;
+            getWorld().showText(oldSpeed + "", 200, 200);
+            oldSpeed += speed;
+            //speed = 0;
+            if("f".equals(lastKey))
+            {
+                getWorld().showText("The chest is near the player", 300, 300);
+                speed += oldSpeed;
+                FreeMovement.increaseSpeed(1);
+            }
         }
     }
 }

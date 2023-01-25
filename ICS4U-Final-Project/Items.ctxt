@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Items
+comment0.text=\n\ Write\ a\ description\ of\ class\ Items\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=x\ y
+comment1.target=Items(int,\ int)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=player
+comment3.target=boolean\ givenUpgrade(greenfoot.Actor)
+comment4.params=
+comment4.target=int\ givenDamage()
+numComments=5
