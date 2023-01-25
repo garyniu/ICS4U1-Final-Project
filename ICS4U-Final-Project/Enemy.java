@@ -21,6 +21,12 @@ public class Enemy extends GridMovement
     private int hp = 100;
     private int dtimer = 40, ogdtimer;
     private int type = 0;
+
+    //Sounds for Enemy
+    private GreenfootSound enemyIdle = new GreenfootSound("sounds/EnemyGrunt.wav");
+    private GreenfootSound enemyDeath = new GreenfootSound("sounds/EnemyDeath.wav");
+    private GreenfootSound enemyDmg = new GreenfootSound("sounds/EnemyDmg.wav");
+
     /**
      * Constructor for Enemy 
      * @param x X
@@ -31,8 +37,7 @@ public class Enemy extends GridMovement
         super(xm, ym);
         //change x,y to xy coord on grid
         this.type = type;
-        
-        
+
         if (type == 0){
             CharImg = new GreenfootImage("baby1.png");
         } else if (type == 1){
@@ -40,13 +45,14 @@ public class Enemy extends GridMovement
             hp = 200;
             dtimer = 30;
         } 
-        
+
         CharImg.scale(42, 45);
         setImage(CharImg);
-        
+
         ogdtimer = dtimer;
-        
+
     }
+
     /**
      * Act Method
      */
@@ -59,21 +65,25 @@ public class Enemy extends GridMovement
 
         AttackPlayer();
         //setLocation(getX()+1, getY());
-        
+
         //System.out.println("grid coords: " + xc + " " + yc);
-        
+
         //y++;
-        
-        
+
         
         if (hp <= 0){
+
             System.out.println("dead");
+            enemyDeath.setVolume(30);
+            enemyDeath.play();
             getWorld().removeObject(this);
         }
     }
+
     public int getHP(){
         return hp;
     }
+
     /**
      * Attack Player method for enemy 
      */
@@ -86,7 +96,6 @@ public class Enemy extends GridMovement
 
         //only in specific distance
         if (Math.sqrt(Math.abs(Math.pow(p.getX() - this.getX(), 2)) + Math.abs(Math.pow(p.getY() - this.getY(), 2))) < attackDist){
-            
             //check if wall in frint of movement is empty
             if (getX() < x && (getX() + playerRange < x)){
                 moveRight();
@@ -97,25 +106,31 @@ public class Enemy extends GridMovement
             } else if (getY() > y && (getY() - playerRange > y)){
                 moveUp();
             }
+            if(Math.random() * 10 <= 1){
+                enemyIdle.setVolume(30);
+                enemyIdle.play();
+            }
         }
-        
-        
+
         //System.out.println("damage");
         if (Math.sqrt(Math.abs(Math.pow(p.getX() - this.getX(), 2)) + Math.abs(Math.pow(p.getY() - this.getY(), 2))) < 40){
             if (dtimer <= 0){
                 p.damagePlayer(5);
                 dtimer = ogdtimer;
             }
-            
+
         }
 
     }
+
     /**
      * Take Damage method for enemies
      * @param x Damage dealt
      */
     public void takeDamage(int x){
         hp -= x;
+        enemyDmg.setVolume(30);
+        enemyDmg.play();
     }
-    
+
 }

@@ -453,6 +453,7 @@ public class IceWorld extends World
         //System.out.println("offset xy: " + offX + " " + offY);
 
         timer++;
+
         
         p = (ArrayList<Player>)getObjects(Player.class);
         pl = p.get(0);
@@ -461,12 +462,7 @@ public class IceWorld extends World
             Greenfoot.setWorld(new LossScreen(pl.getScore()));
         }
 
-        MouseInfo m = Greenfoot.getMouseInfo();
-        if (m != null)
-        {
-            showText("mouseX: " + String.valueOf(m.getX() - 960), 900, 500);
-            showText("mouseY: " + String.valueOf(m.getY() - 545), 900, 600);
-        }
+
 
         // System.out.println("mx " + getBlockCoord(1, 1).getX());
         //System.out.println("mky " + getBlockCoord(1, 1).getY());

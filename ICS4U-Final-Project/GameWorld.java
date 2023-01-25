@@ -267,14 +267,6 @@ public class GameWorld extends World
     public void act()
     {
         started();
-        MouseInfo m = Greenfoot.getMouseInfo();
-        if (m != null)
-        {
-            showText("mouseX: " + String.valueOf(m.getX()), 120, 30);
-            showText("mouseY: " + String.valueOf(m.getY()), 120, 70);
-        }
-        
-        
     }
     /**
      * Set an Object at an X and Y Value
