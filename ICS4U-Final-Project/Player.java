@@ -33,7 +33,7 @@ public class Player extends FreeMovement
     private GreenfootImage[] bowAttackDownImages;
     private GreenfootImage[] bowAttackRightImages;
     private GreenfootImage[] bowAttackLeftImages;
-    
+
     GifImage bowRight = new GifImage("images/PlayerAnimations/bowAttack/right.gif");
 
     //vertical + horizontal booleans
@@ -61,7 +61,7 @@ public class Player extends FreeMovement
     private SimpleTimer actionTimer;
     private int delay = 0;
     private int dashTime;
-    
+
     //Player health points
     private static int hp = 100;
     private static boolean alive = true;//true=alive, false=dead
@@ -88,8 +88,7 @@ public class Player extends FreeMovement
         bowAttackDownImages = new GreenfootImage[13];
         bowAttackRightImages = new GreenfootImage[13];
         bowAttackLeftImages = new GreenfootImage[13];
-        
-        
+
 
         //walk
         for(int i = 0; i < downImages.length; i++)//main charater walking down animation 
@@ -278,32 +277,34 @@ public class Player extends FreeMovement
     //bow attack animation
     public void bowAttack(){
         //if(actionTimer.millisElapsed() > 100){
-            if (isFacingRight){
-                //setImage(bowAttackRightImages[curIndex3]);
-                setImage(bowRight.getCurrentImage());
-            }else if(isFacingLeft){
-                setImage(bowAttackLeftImages[curIndex3]);
-            }else if (isFacingUp){
-                setImage(bowAttackUpImages[curIndex3]);
-            }else if(isFacingDown){
-                setImage(bowAttackDownImages[curIndex3]);
-            }
+        if (isFacingRight){
+            //setImage(bowAttackRightImages[curIndex3]);
+            setImage(bowRight.getCurrentImage());
+        }else if(isFacingLeft){
+            setImage(bowAttackLeftImages[curIndex3]);
+        }else if (isFacingUp){
+            setImage(bowAttackUpImages[curIndex3]);
+        }else if(isFacingDown){
+            setImage(bowAttackDownImages[curIndex3]);
+        }
 
-            curIndex3++;
-            if(curIndex3 == 13){
-                curIndex3 = 0;
-            }
+        curIndex3++;
+        if(curIndex3 == 13){
+            curIndex3 = 0;
+        }
 
-            actionTimer.mark();
+        actionTimer.mark();
         //}
     }
     //set weapon damage
     public void setSwordDamage(int dmg){//sword dmg
         this.swordDamage = dmg;
     }
+
     public void setSpearDamage(int dmg){//spear dmg
         this.spearDamage = dmg;
     }
+
     public void setBowDamage(int dmg){//bow dmg
         this.bowDamage = dmg;
     }
@@ -316,6 +317,7 @@ public class Player extends FreeMovement
         }
         GameWorld.updateHP(hp);
     }
+
     public void healPlayer(int heal){//gain hp
         hp += heal;
         if(hp > 100){
@@ -323,7 +325,7 @@ public class Player extends FreeMovement
         }
         GameWorld.updateHP(hp);
     }
-    
+
     public void act()
     {
         super.act();
@@ -336,16 +338,11 @@ public class Player extends FreeMovement
         //when moving diagonally(looks better since there is no horizontal animation)
         if(Greenfoot.isKeyDown("r")){//bow shot
             //bowAttack();
-            
+
             //setImage(bowAttackRightImages[curIndex3]);
-            
-            
-            
+
             
             setImage(bowRight.getCurrentImage());
-            
-            
-            
             
             
             
@@ -387,19 +384,14 @@ public class Player extends FreeMovement
                 isFacingLeftDown = false;
                 isFacingRightDown = true;
             }
-            
+
             if(Greenfoot.isKeyDown("r")){//bow shot
                 //bowAttack();
-                
+
                 //setImage(bowAttackRightImages[curIndex3]);
-                
-                
-                
+
                 
                 setImage(bowRight.getCurrentImage());
-                
-            
-            
             
             
             
@@ -453,7 +445,7 @@ public class Player extends FreeMovement
         if(Greenfoot.isKeyDown("e")){//spear thrust
             spearAttack();
         }
-        
+
         if(Greenfoot.isKeyDown("1")){
             damagePlayer(1);
         }

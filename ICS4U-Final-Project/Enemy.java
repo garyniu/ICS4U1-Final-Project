@@ -16,8 +16,9 @@ public class Enemy extends GridMovement
 
     private GreenfootImage CharImg;
     private Player p;
-    private int playerRange = 45; //change
+    private int playerRange = 25; //change
     private int attackDist = 150;
+    private int hp = 100;
 
     public Enemy(int xm, int ym){
         super(xm, ym);
@@ -58,9 +59,9 @@ public class Enemy extends GridMovement
             } else if (getX() > x && (getX() - playerRange > x)){
                 moveLeft();
             } else if (getY() < y && (getY() + playerRange < y)){
-                //moveDown();
+                moveDown();
             } else if (getY() > y && (getY() - playerRange > y)){
-                //moveUp();
+                moveUp();
             }
         }
 

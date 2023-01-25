@@ -31,6 +31,7 @@ public abstract class SuperSmoothMover extends Actor
     private double exactX;
     private double exactY;
     private double rotation;
+    private int xe, ye;
 
 
     /**
@@ -105,6 +106,9 @@ public abstract class SuperSmoothMover extends Actor
     {
         int x2 = x;//gets where the man is trying to move
         int y2 = y;
+        xe = x;
+        ye = y;
+        
         
         //System.out.println("x, y: " + x + " " + y);
         //System.out.println("world w + h: " + getWorld().getWidth() + " " + getWorld().getHeight());
@@ -181,4 +185,9 @@ public abstract class SuperSmoothMover extends Actor
     public double getPreciseRotation (){
         return rotation;
     }
+    
+    public Pair PMoved(){
+        return new Pair(xe, ye);
+    }
+    
 }

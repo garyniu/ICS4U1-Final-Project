@@ -63,6 +63,7 @@ public class IceWorld extends World
     public Wall[][] wallListTwo = new Wall[32][36];
     
     private int blockW = 30, blockH = 16;
+    private int timer = 0;
     private Wall closest = new Wall(0, 0);
     
     
@@ -95,7 +96,7 @@ public class IceWorld extends World
         
         //change enemy to spawn anaywhere, and it moves itself to correct spot
         //addObject(new BossEnemy(300, 200, getMapBlockSize(), getMapOrigin()), 300, 200);//<- This doesn't work
-        addObject(new Enemy(5, 6), 0, 0);
+        addObject(new Enemy(1, 1), 0, 0);
         //player
         //FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
         //addObject(playerTest, this.getWidth()/2, this.getHeight()/2);
@@ -141,6 +142,11 @@ public class IceWorld extends World
                     
                     //X values: higher the value the more it shifts right, Y values: the higher the more the it shifts down
                     
+                    if (Greenfoot.getRandomNumber(10) == 1 && (Math.abs(x-11) > 3 && Math.abs(y-32) > 2)){
+                        //mapTwo[x][y] = 9;
+                        //addObject(new Enemy(x, y), 0, 0);
+                    }
+                    
                 }
                 
             }
@@ -154,6 +160,8 @@ public class IceWorld extends World
     
     
     //test
+    private int ox, oy;
+    private int offX, offY;
     
     public void moveThing(int cX, int cY){
         GreenfootImage image = getBackground();
@@ -164,6 +172,23 @@ public class IceWorld extends World
     
     public void act()
     {
+        
+        if (timer == 1){
+            //get orgin
+            ox = wbg2.getX();
+            oy = wbg2.getY();
+        } else {
+            //start tracking from orgin
+            
+            offX = wbg2.getX() - ox;
+            offY = wbg2.getY() - oy;
+            
+        }
+        
+        //System.out.println("offset xy: " + offX + " " + offY);
+        
+        timer++;
+        
         MouseInfo m = Greenfoot.getMouseInfo();
         if (m != null)
         {
@@ -171,8 +196,11 @@ public class IceWorld extends World
             showText("mouseY: " + String.valueOf(m.getY() - 545), 900, 600);
         }
         
-        //System.out.println("fuck " + getBlockCoord(5, 6).getX());
+       // System.out.println("mx " + getBlockCoord(1, 1).getX());
+        //System.out.println("mky " + getBlockCoord(1, 1).getY());
         
+        //System.out.println("fuckx " + getBlockCoord(1, 2).getX());
+        //System.out.println("fucky " + getBlockCoord(1, 2).getY());
         checkUserOntoGrid();
         
         /*if (m != null)
@@ -181,13 +209,13 @@ public class IceWorld extends World
             showText("mouseY: " + String.valueOf(m.getY()), 900, 600);
         }*/
         
-        /*
+        
         for (int i = 0; i < mapTwo.length; i++){
             for (int j = 0; j < mapTwo[i].length; j++){
                 System.out.print(mapTwo[i][j]);
             }
             System.out.println();
-        }*/
+        }
     }
     
     //puts the user onto the grid based on coords
@@ -219,7 +247,7 @@ public class IceWorld extends World
                 
                 
                 if (wallListTwo[i][j] != null){
-                    if ((Math.abs(pl.getX() - wallListTwo[i][j].getX()) < Math.abs(pl.getX() - closest.getX())) && (Math.abs(pl.getY() - wallListTwo[i][j].getY()) < Math.abs(pl.getY() - closest.getY()))){
+                    if ((Math.abs((pl.getX() + pl.getImage().getWidth()/2) - wallListTwo[i][j].getX()) < Math.abs((pl.getX() + pl.getImage().getWidth()/2) - closest.getX())) && (Math.abs((pl.getY() + pl.getImage().getHeight()/2) - wallListTwo[i][j].getY()) < Math.abs((pl.getY() + pl.getImage().getHeight()/2) - closest.getY()))){
                         closest = wallListTwo[i][j];
                     }
                 }
@@ -255,7 +283,8 @@ public class IceWorld extends World
     
     //BROKEN!!!!!!!!!!!!! FIXXXXXXXXXXXXXXXX
     public Pair getBlockCoord(int x, int y){
-        
+        ArrayList<Player> p = (ArrayList<Player>)getObjects(Player.class);
+        Player pl = p.get(0);
         //Wall temp = wallListTwo[0][0];
         
         //int a = temp.getX(), b = temp.getY();
@@ -264,7 +293,11 @@ public class IceWorld extends World
         if (wallListTwo[x][y] == null){
             return new Pair(0, 0);
         } else {
-            return new Pair(wallListTwo[x][y].getX(), wallListTwo[x][y].getY());
+            if (timer < 2){
+                return new Pair(wallListTwo[x][y].getX(), wallListTwo[x][y].getY());
+            }
+            
+            return new Pair(wallListTwo[x][y].getX()-offX, wallListTwo[x][y].getY()-offY);
         }
         
     }

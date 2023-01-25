@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
 
 public class GridMovement extends Others
 {
@@ -10,7 +11,6 @@ public class GridMovement extends Others
 
     private int timeBWMoves = 100, lastTime = 0, ylastTime = 0;
     private int timer = 0, yTimer = 0;
-    
 
     private int[][] valuearray;
     private Wall[][] blockArr;
@@ -27,41 +27,43 @@ public class GridMovement extends Others
         this.xc = xm;
         this.yc = ym;
 
-        
         yTimer = timeBWMoves / 2;
-        
-        
+
     }
-    
     public void addedToWorld(World world){
         valuearray = ((IceWorld)getWorld()).getMapArr();
-        
+
         //gets coordinates of inital x positoins, and moves there
-        
-        
+
         
     }
-
     public void act()
     {
         // Add your action code here.
-        
+
         if (timer == 0){
             x = ((IceWorld)getWorld()).getBlockCoord(xc, yc).getX();    
             y = ((IceWorld)getWorld()).getBlockCoord(xc, yc).getY();
-            
+
             System.out.println("inital x-coord: " + x);
-            System.out.println("intest");
+
+            ArrayList<Wall> w = (ArrayList<Wall>)getWorld().getObjects(Wall.class);
+            Wall wa = w.get(0);
+
+            gridSX = wa.getImage().getWidth()/2;
+            gridSY = wa.getImage().getHeight()/2;
+
         }
         valuearray = ((IceWorld)getWorld()).getMapArr();
+
         
         timer++;
         yTimer = timer;
-        
+
         //System.out.println("cuurent x: " + x);
 
         //System.out.println("character movemnt: " + x + " " + y);
-        
+
         //System.out.println("grid pos: " + ((IceWorld)getWorld()).getBlockCoord(xc, yc).getX() + " " + ((IceWorld)getWorld()).getBlockCoord(xc, yc).getY());
 
         //System.out.println(((IceWorld)getWorld()).getBlockCoord(4, 5).getX());
@@ -72,18 +74,18 @@ public class GridMovement extends Others
         int gridShiftx, gridShifty;
 
         if ((lastTime + timeBWMoves) < timer){
-            
+
             System.out.println("move left");
-            if (valuearray[xc - 1][yc] == 1){
-                xc -= 1;
-                ((IceWorld)getWorld()).setGridPosition(xc, yc, 9);
-                ((IceWorld)getWorld()).setGridPosition(xc+1, yc, 1);
-                x = ((IceWorld)getWorld()).getBlockCoord(xc, yc).getX() - (getWorld().getWidth()/2);
-                y = ((IceWorld)getWorld()).getBlockCoord(xc, yc).getY() - (getWorld().getHeight()/2);
-           
-                
-                System.out.println("going to x: " + x);
-                lastTime = timer;
+            if (xc + 1 > 0){
+                if (valuearray[xc + 1][yc] == 1){
+                    xc += 1;
+                    ((IceWorld)getWorld()).setGridPosition(xc, yc, 9);
+                    ((IceWorld)getWorld()).setGridPosition(xc-1, yc, 1);
+                    x -= gridSX;
+                    y -= gridSY;
+
+                    lastTime = timer;
+                }
             }
 
 
@@ -93,29 +95,29 @@ public class GridMovement extends Others
     public void moveRight(){
         int gridShiftx, gridShifty;
 
+
         if ((lastTime + timeBWMoves) < timer){
-            
+
             System.out.println("move right");
             System.out.println("Next coordspot: " + valuearray[xc + 1][yc]);
             System.out.println("current cord: " + ((IceWorld)getWorld()).getBlockCoord(xc, yc).getX() + " " + ((IceWorld)getWorld()).getBlockCoord(xc, yc).getX());
-                
-            
-            
-            if (valuearray[xc + 1][yc] == 1){
-                xc += 1;
-                ((IceWorld)getWorld()).setGridPosition(xc, yc, 9);
-                ((IceWorld)getWorld()).setGridPosition(xc-1, yc, 1);
-                
-                
-                x = ((IceWorld)getWorld()).getBlockCoord(xc, yc).getX() - (getWorld().getWidth()/2);
-                y = ((IceWorld)getWorld()).getBlockCoord(xc, yc).getY() - (getWorld().getHeight()/2);
-           
-                
-                lastTime = timer;
+
+            if (xc - 1 < valuearray.length){
+                if (valuearray[xc - 1][yc] == 1){
+                    xc -= 1;
+                    ((IceWorld)getWorld()).setGridPosition(xc, yc, 9);
+                    ((IceWorld)getWorld()).setGridPosition(xc+1, yc, 1);
+
+                    x += gridSX;
+                    y += gridSY;
+
+                    lastTime = timer;
+                }
             }
-            
+
 
         }
+
     }
 
     public void moveUp(){
@@ -129,7 +131,10 @@ public class GridMovement extends Others
                 yc -= 1;
                 ((IceWorld)getWorld()).setGridPosition(xc, yc, 9);
                 ((IceWorld)getWorld()).setGridPosition(xc, yc+1, 1);
-                y = ((IceWorld)getWorld()).getBlockCoord(xc, yc).getY() - (getWorld().getHeight()/2);
+
+                x += gridSX;
+                y -= gridSY;
+
                 lastTime = timer;
             }
 
@@ -144,7 +149,6 @@ public class GridMovement extends Others
     public void moveDown(){
         int gridShiftx, gridShifty;
 
-        
         if ((lastTime + timeBWMoves) < timer){
             //System.out.println("test");
             //if (leftClear){
@@ -153,7 +157,9 @@ public class GridMovement extends Others
                 yc += 1;
                 ((IceWorld)getWorld()).setGridPosition(xc, yc, 9);
                 ((IceWorld)getWorld()).setGridPosition(xc, yc-1, 1);
-                y = ((IceWorld)getWorld()).getBlockCoord(xc, yc).getY() - (getWorld().getHeight()/2);
+
+                x -= gridSX;
+                y += gridSY;
                 lastTime = timer;
             }
 
