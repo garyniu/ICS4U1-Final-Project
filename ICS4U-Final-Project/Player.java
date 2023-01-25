@@ -360,6 +360,12 @@ public class Player extends FreeMovement
         x = getX();
         y = getY();
         String dashed = Greenfoot.getKey();
+        
+        System.out.println("hp: " + hp);
+        
+        if (alive == false){
+            Greenfoot.setWorld(new LossScreen());
+        }
 
         //movement
         //a and d goes first so the horizontal walking animation always plays

@@ -348,13 +348,13 @@ public class IceWorld extends World
             showText("mouseY: " + String.valueOf(m.getY()), 900, 600);
         }*/
         
-        
+        /*
         for (int i = 0; i < mapTwo.length; i++){
             for (int j = 0; j < mapTwo[i].length; j++){
                 System.out.print(mapTwo[i][j]);
             }
             System.out.println();
-        }
+        }*/
     }
     
     public static void attacking(){

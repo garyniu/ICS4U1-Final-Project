@@ -19,6 +19,7 @@ public class Enemy extends GridMovement
     private int playerRange = 25; //change
     private int attackDist = 150;
     private int hp = 100;
+    private int dtimer = 40;
 
     public Enemy(int xm, int ym){
         super(xm, ym);
@@ -31,7 +32,7 @@ public class Enemy extends GridMovement
     public void act()
     {
         super.act();
-
+        dtimer--;
         ArrayList<Player> ps = (ArrayList)getWorld().getObjects(Player.class);
         p = ps.get(0);
 
@@ -68,11 +69,20 @@ public class Enemy extends GridMovement
                 moveUp();
             }
         }
+        
+        
+        System.out.println("damage");
+        if (Math.sqrt(Math.abs(Math.pow(p.getX() - this.getX(), 2)) + Math.abs(Math.pow(p.getY() - this.getY(), 2))) < 40){
+            if (dtimer <= 0){
+                p.damagePlayer(5);
+                dtimer = 40;
+            }
+            
+        }
 
     }
     
     private void takeDamage(){
-        
         
         hp -= 10;
     }
