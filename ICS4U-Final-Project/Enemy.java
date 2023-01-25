@@ -18,7 +18,7 @@ public class Enemy extends GridMovement
     private Player p;
     private int playerRange = 25; //change
     private int attackDist = 150;
-    private static int hp = 100;
+    private int hp = 100;
     private int dtimer = 40, ogdtimer;
     private int type = 0;
 
@@ -98,7 +98,7 @@ public class Enemy extends GridMovement
 
     }
     
-    public static void takeDamage(int x){
+    public void takeDamage(int x){
         hp -= x;
     }
     

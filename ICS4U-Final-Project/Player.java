@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
 
 /**
  * A controllable character using the buttons WASD for movement
@@ -188,16 +189,20 @@ public class Player extends FreeMovement
     private int dashTime;
 
     //Player health points
-    private static int hp = 100;
+    private int hp = 100;
     private static int stamina = 500;
     private static boolean alive = true;//true=alive, false=dead
     private int score = 10;
+    private int timer = 40, ogtimer;
 
     //Player coordinates
     private Pair coords = new Pair(0, 0);
 
     public Player(int x, int y){
         super(x, y);
+        
+        ogtimer = timer;
+        
         //walk
         upImages = new GreenfootImage[9];
         downImages = new GreenfootImage[9];
@@ -307,6 +312,7 @@ public class Player extends FreeMovement
         //start timer for animations
         actionTimer = new SimpleTimer();
         actionTimer.mark();
+        timer--;
     }
 
     /**
@@ -547,13 +553,30 @@ public class Player extends FreeMovement
 
     }
 
+    private Enemy temp;
+    private ArrayList <Enemy> en;
+    
     /**
      * allows the Playerto detect when it collides with the Enemy Class
      */
     public void hitEnemy(int dmg){
-        if(!getIntersectingObjects(Enemy.class).isEmpty()){
-            Enemy.takeDamage(dmg);
+        
+        
+        
+        if (timer <= 0){
+            
+            if(!getIntersectingObjects(Enemy.class).isEmpty()){
+            
+                en = (ArrayList<Enemy>)getIntersectingObjects(Enemy.class);
+                temp = en.get(0);
+                
+                temp.takeDamage(dmg);
+                
+                this.incrementScore();
+            }
+            timer = ogtimer;
         }
+        
     }
 
     public void act()
@@ -581,11 +604,11 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                hitEnemy(30);
+                hitEnemy(40);
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                hitEnemy(20);
+                hitEnemy(50);
             }
             /*if(Greenfoot.isKeyDown("r")){//bow shot
             bowAttack();
@@ -602,11 +625,11 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                hitEnemy(30);
+                hitEnemy(40);
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                hitEnemy(20);
+                hitEnemy(50);
             }
             /*if(Greenfoot.isKeyDown("r")){//bow shot
             bowAttack();
@@ -623,11 +646,11 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                hitEnemy(30);
+                hitEnemy(40);
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                hitEnemy(20);
+                hitEnemy(50);
             }
             /*if(Greenfoot.isKeyDown("r")){//bow shot
             bowAttack();
@@ -644,11 +667,11 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                hitEnemy(30);
+                hitEnemy(40);
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                hitEnemy(20);
+                hitEnemy(50);
             }
             /*if(Greenfoot.isKeyDown("r")){//bow shot
             bowAttack();
@@ -659,11 +682,11 @@ public class Player extends FreeMovement
         //attack
         if(Greenfoot.isKeyDown("q")){//sword swing
             swordAttack();
-            hitEnemy(30);
+            hitEnemy(40);
         }
         if(Greenfoot.isKeyDown("e")){//spear thrust
             spearAttack();
-            hitEnemy(20);
+            hitEnemy(50);
         }
         /*if(Greenfoot.isKeyDown("r")){//bow shot
         bowAttack();

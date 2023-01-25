@@ -112,6 +112,10 @@ public class GameWorld extends World
     private GreenfootImage background = new GreenfootImage("images/background/BG33.png");
     private WorldBackground wbg;
     private int xd = 0, yd = 0;
+    
+    private static SuperStatBar health;
+    private static SuperStatBar stamina;
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -133,7 +137,12 @@ public class GameWorld extends World
         //Enter Portal
         Others ep = new EnterPortal();
         addObject(ep, 560, 215);
-
+    
+        stamina = new SuperStatBar(500, 500, null, 150, 10, 0, Color.GREEN, Color.BLACK, false, Color.GRAY, 3);
+        addObject(stamina, 70, 15);
+        //hp
+        health = new SuperStatBar (100, 100, null, 200, 15, 0, Color.RED, Color.BLACK, false, Color.GRAY, 3);
+        addObject(health, 95, 5);
         
         //main portal that allows portals to other worlds work
         Portal portal = new Portal();
@@ -228,12 +237,9 @@ public class GameWorld extends World
         health.update((int)(hp));
     }
     //update stamina bar
-    /*public static void updateStamina(int st){
+    public static void updateStamina(int st){
         stamina.update((int)(st));
-    }*/
-    
-
-
+    }
 
     public void act()
     {
