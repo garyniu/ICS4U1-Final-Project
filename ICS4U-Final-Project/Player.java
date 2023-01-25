@@ -149,6 +149,7 @@ public class Player extends FreeMovement
     private GreenfootSound playerGrunt = new GreenfootSound("sounds/PlayerGrunt.wav");
     private GreenfootSound weaponSwing = new GreenfootSound("sounds/WeaponAttack.wav");
     private GreenfootSound playerDeath = new GreenfootSound("sounds/OOF.wav");
+    private GreenfootSound playerWalking = new GreenfootSound("sounds/walk.wav");
     
     //Player coordinates
     private Pair coords = new Pair(0, 0);
@@ -359,6 +360,9 @@ public class Player extends FreeMovement
                 setImage(leftImages[curIndex]);
             }
 
+            playerWalking.setVolume(100);
+            playerWalking.play();
+            
             curIndex++;
             if(curIndex == 9){
                 curIndex = 0;
@@ -514,8 +518,6 @@ public class Player extends FreeMovement
             sprinting = false;
         }
 
-        //GameWorld.updateStamina(stamina);
-
         IceWorld.updateStamina(stamina);
         SpiderWorld.updateStamina(stamina);
     }
@@ -529,10 +531,6 @@ public class Player extends FreeMovement
         if(stamina > 500){
             stamina = 500;
         }
-
-        //GameWorld.updateStamina(stamina);
-        //IceWorld.updateStamina(stamina);
-        //SpiderWorld.updateStamina(stamina);
 
         IceWorld.updateStamina(stamina);
         SpiderWorld.updateStamina(stamina);
