@@ -385,6 +385,8 @@ public class Player extends FreeMovement
 
             curIndex1++;
             if(curIndex1 == 6){
+                weaponSwing.setVolume(75);
+                weaponSwing.play();
                 curIndex1 = 0;
             }
 
@@ -410,6 +412,8 @@ public class Player extends FreeMovement
 
             curIndex2++;
             if(curIndex2 == 8){
+                weaponSwing.setVolume(75);
+                weaponSwing.play();
                 curIndex2 = 0;
             }
 
@@ -472,8 +476,12 @@ public class Player extends FreeMovement
      */
     public void damagePlayer(int dmg){//lose hp
         hp -= dmg;
+        playerGrunt.setVolume(30);
+        playerGrunt.play();
         if(hp <= 0){
             hp = 0;
+            playerDeath.setVolume(30);
+            playerDeath.play();
             alive = false;
         }
         IceWorld.updateHP(hp);
