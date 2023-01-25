@@ -85,7 +85,7 @@ public class IceWorld extends World
         
         
 
-        setPaintOrder(Wall.class, DungeonCover5.class, DungeonCover4.class, DungeonCover3.class, DungeonCover1.class, DungeonCover2.class, PlayerHitbox.class, Player.class, Others.class, WorldBackground.class);
+        setPaintOrder(SuperStatBar.class, Wall.class, DungeonCover5.class, DungeonCover4.class, DungeonCover3.class, DungeonCover1.class, DungeonCover2.class, PlayerHitbox.class, Player.class, Others.class, WorldBackground.class);
 
         
         //stat bar
