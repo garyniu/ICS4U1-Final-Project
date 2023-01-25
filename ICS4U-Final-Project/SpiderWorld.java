@@ -130,11 +130,12 @@ public class SpiderWorld extends World
         setPaintOrder(SuperStatBar.class, Boundary.class, PlayerHitbox.class, Player.class,Others.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
         
         wbg3 = new WorldBackground(background);
-        
+        /*
         GreenfootImage bg = new GreenfootImage(640, 500);
         bg.setColor(Color.BLACK);
         bg.fill();
         setBackground(bg);
+        */
         
         //stat bar
         //stamina
@@ -154,6 +155,18 @@ public class SpiderWorld extends World
         
         playerTest.changeSpawnCoords(this.getWidth()/2, this.getHeight()/2);
         
+        
+
+        FreeMovement playerTest2 = new PlayerHitbox(this.getWidth()/2, this.getHeight()/2);
+        addObject(playerTest2, this.getWidth()/2, this.getHeight()/2);
+        
+
+        
+
+        
+
+        
+ 
         //BOUNDARY CLASS
         //red square
         
