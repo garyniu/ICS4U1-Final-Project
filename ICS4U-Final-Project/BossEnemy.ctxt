@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=BossEnemy
-comment0.text=\r\n\ Boss\ Enemy\ \r\n\ \r\n\ @author\ Gary\ Niu\ \r\n\ @version\ January\ 20\r\n
+comment0.text=\r\n\ Boss\ Enemy\ (Unused\ in\ final\ game)\r\n\ \r\n\ @author\ Gary\ Niu\ \r\n\ @version\ January\ 20\r\n
 comment1.params=x\ y\ gridSize
 comment1.target=BossEnemy(int,\ int,\ Pair)
 comment1.text=\r\n\ Constructor\ for\ Boss\ Enemy\ \r\n\ @param\ x\ X\r\n\ @param\ y\ Y\r\n\ @param\ gridSize\ Grid\ Dimensions\r\n

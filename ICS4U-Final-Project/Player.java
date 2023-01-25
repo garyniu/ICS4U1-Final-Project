@@ -64,7 +64,7 @@ import java.util.ArrayList;
  * - https://opengameart.org/content/lpc-santa
  * - http://opengameart.org/content/lpc-clothing-updates
  * 
- * @author Justin Sin, Victor Wei
+ * @author Justin Sin, Victor Wei, Gary Niu
  * @versio 1.0
  */
 public class Player extends FreeMovement

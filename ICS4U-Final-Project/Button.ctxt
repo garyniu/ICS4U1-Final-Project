@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Button
-comment0.text=\r\n\ Creates\ a\ button\ with\ the\ word\ "PLAY"\ on\ it\r\n\ when\ pressed,\ brings\ the\ user\ to\ MyWorld(simulation)\r\n\ \r\n\ @author\ Leo\ Xu\r\n\ @version\ 1\r\n
+comment0.text=\r\n\ Creates\ a\ button\ with\ the\ word\ "PLAY"\ on\ it\r\n\ when\ pressed,\ brings\ the\ user\ to\ MyWorld(simulation)\r\n\ \r\n\ @author\ Leo\ Xu,\ Gary\ Niu\r\n\ @version\ 1\r\n
 comment1.params=a\ b
 comment1.target=Button(greenfoot.GreenfootImage,\ greenfoot.GreenfootImage)
 comment1.text=\r\n\ Button\ constructor\r\n

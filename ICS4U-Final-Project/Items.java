@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Superclass for items 
  * 
- * @author Gary Niu
+ * @author Victor Wei
  * @version January 18
  */
 public class Items extends Others

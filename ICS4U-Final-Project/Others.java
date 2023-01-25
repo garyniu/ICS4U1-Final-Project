@@ -1,10 +1,10 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Others here.
+ * Superclass purely used for the shifting camera affect.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Gary Niu
+ * @version January 2023
  */
 public abstract class Others extends Actor
 {

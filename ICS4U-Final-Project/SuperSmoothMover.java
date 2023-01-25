@@ -23,7 +23,7 @@ import java.util.List;
  * @author Michael Kolling
  * @author Neil Brown
  * 
- * @version 3.0jc -- Modified by Jordan Cohen
+ * @version 3.1 -- Modefied by Gary Niu, based on Jordan Cohen's changes
  * 
  */
 public abstract class SuperSmoothMover extends Actor
@@ -32,7 +32,6 @@ public abstract class SuperSmoothMover extends Actor
     private double exactY;
     private double rotation;
     private int xe, ye;
-
 
     /**
      * Set the internal rotation value to a new value.
@@ -108,43 +107,41 @@ public abstract class SuperSmoothMover extends Actor
         int y2 = y;
         xe = x;
         ye = y;
-        
-        
+
         //System.out.println("x, y: " + x + " " + y);
         //System.out.println("world w + h: " + getWorld().getWidth() + " " + getWorld().getHeight());
-        
+
         //System.out.println("moved: " + ( Math.floor(getWorld().getWidth()/2) - x) + " " + ( Math.floor(getWorld().getHeight()/2) - y));
-        
+
         //fix this later or can be applied
         List<Others> everyone = getWorld().getObjects(Others.class);
 
         for (Others w : everyone){
             //w.setLocation(w.getX()+x2,w.getY()+y2);
             //System.out.println("gottenx: " + w.getX());
-            
+
             //constant var in each wall object
-            
+
             //System.out.println("toString: " + w.getOGCoords().toString());
-            
+
             //System.out.println(w.getOGCoords().getX() + " " + w.getOGCoords().getY());
-            
+
             w.setLocation(w.getOGCoords().getX() + (int)(Math.floor(getWorld().getWidth()/2) - x) + spawnOffx, w.getOGCoords().getY() + (int)(Math.floor(getWorld().getHeight()/2) - y) + spawnOffY);
-            
+
             if (w.getClass() == Enemy.class){
                 w.setLocation(((Enemy)w).getCoords().getX()+ (int)(Math.floor(getWorld().getWidth()/2) - x), ((Enemy)w).getCoords().getY()+ (int)(Math.floor(getWorld().getHeight()/2) - y));
             } else if (w.getClass() == BossEnemy.class){
                 w.setLocation(((BossEnemy)w).getCoords().getX()+ (int)(Math.floor(getWorld().getWidth()/2) - x), ((BossEnemy)w).getCoords().getY()+ (int)(Math.floor(getWorld().getHeight()/2) - y));
             }
-            
+
             //
-    
+
         }
-        
-        
+
         if (getWorld() instanceof GameWorld){
             ((GameWorld)getWorld()).setThing(x2 + spawnOffx, y2+ spawnOffY);//moves the world back
         }
-        
+
     }
 
     /**
@@ -157,9 +154,9 @@ public abstract class SuperSmoothMover extends Actor
     /*@Override
     public void setLocation(int x, int y) 
     {
-        exactX = x;
-        exactY = y;
-        super.setLocation(x, y);
+    exactX = x;
+    exactY = y;
+    super.setLocation(x, y);
     }*/
 
     /**
@@ -181,6 +178,7 @@ public abstract class SuperSmoothMover extends Actor
     {
         return exactY;
     }
+
     /**
      * Gets the precise rotation amount of the actor 
      * @return double Returns rotation amount
@@ -188,6 +186,7 @@ public abstract class SuperSmoothMover extends Actor
     public double getPreciseRotation (){
         return rotation;
     }
+
     /**
      * Gets the pair of coordinates of Actor 
      * @return Pair Coordinates
@@ -195,5 +194,5 @@ public abstract class SuperSmoothMover extends Actor
     public Pair PMoved(){
         return new Pair(xe, ye);
     }
-    
+
 }

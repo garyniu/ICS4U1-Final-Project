@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * Boss Enemy 
+ * Boss Enemy (Unused in final game)
  * 
  * @author Gary Niu 
  * @version January 20

@@ -126,8 +126,8 @@ public class GameWorld extends World
         super(600, 500, 1, false);
 
 
-        setPaintOrder(Fog.class, Boundary.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Items.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
-        setPaintOrder(Fog.class, Boundary.class, GameCover1.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
+        //setPaintOrder(Fog.class, Boundary.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Items.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
+        setPaintOrder(SuperStatBar.class, Fog.class, Boundary.class, GameCover1.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
 
 
         wbg = new WorldBackground(background);

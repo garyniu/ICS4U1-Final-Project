@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Items
-comment0.text=\r\n\ Superclass\ for\ items\ \r\n\ \r\n\ @author\ Gary\ Niu\r\n\ @version\ January\ 18\r\n
+comment0.text=\r\n\ Superclass\ for\ items\ \r\n\ \r\n\ @author\ Victor\ Wei\r\n\ @version\ January\ 18\r\n
 comment1.params=x\ y
 comment1.target=Items(int,\ int)
 comment1.text=\r\n\ Constructor\ for\ Items\ \r\n\ @param\ x\ X\ coordinate\r\n\ @param\ y\ Y\ coordinate\r\n
