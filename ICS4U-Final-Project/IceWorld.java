@@ -3,10 +3,12 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * Write a description of class PortalTest here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * First playable world
+ * 
+ * @author Leo Xu, Gary,Niu
+ * @version 1
+ *
  */
 public class IceWorld extends World
 {

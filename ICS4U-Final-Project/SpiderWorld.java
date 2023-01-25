@@ -1,10 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class SpookyWorld here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Second playable world
+ * 
+ * @author Leo Xu, Gary,Niu
+ * @version 1
+ *
  */
 public class SpiderWorld extends World
 {

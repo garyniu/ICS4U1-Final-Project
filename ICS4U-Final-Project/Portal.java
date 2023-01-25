@@ -1,20 +1,17 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Portal here.
- * 
- * This Portal Actor allows player to travel across different worlds
+ * portal class used to teleport moving actors.
  * 
  * @author Leo Xu
- * @date jan 1 2023
- * 
+ * @version 1
  */
 
 public class Portal extends Others
 {
     private Portal portal; // allows multiple portal in one world
     private boolean active; //used if this portal can be used
-    private GreenfootImage portalImage = new GreenfootImage ("images/misc/tardis2.png");
+    private GreenfootImage portalImage = new GreenfootImage ("images/misc/hWall.png");
     
     public Portal()
     {

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Wall
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Wall\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Used\ to\ place\ down\ the\ grids\ used\ in\ iceWorld\r\n\ \r\n\ @author\ Leo\ Xu\r\n\ @version\ 1\r\n
 comment1.params=gridx\ gridy
 comment1.target=Wall(int,\ int)
 comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Wall\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n

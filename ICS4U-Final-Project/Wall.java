@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Wall here.
+ * Used to place down the grids used in iceWorld
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Leo Xu
+ * @version 1
  */
 public class Wall extends Others
 {

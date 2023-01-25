@@ -1,10 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class EnterPortal here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Animated portal used for graphics
+ * 
+ * @author Leo Xu
+ * @version 1
+ *
  */
 public class EnterPortal extends Others
 

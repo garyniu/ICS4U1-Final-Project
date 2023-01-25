@@ -1,10 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Dungeon1Cover1 here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Used to cover the actor when it goes through walls or doors
+ * 
+ * @author Leo Xu
+ * @version 1
+ *
  */
 public class DungeonCover3 extends Others
 {
