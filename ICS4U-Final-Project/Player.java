@@ -49,8 +49,8 @@ public class Player extends FreeMovement
     private int size = 60;//size for walking and bow animation
     private int atkSize = 180;//size for sword and spear animation
     //player speed variables
-    private int playerSpeed = 2;
-    private int sprintSpeed = 3;
+    private int playerSpeed = 1;
+    private int sprintSpeed = 2;
     private boolean sprinting = false;
     //player damage variables(for enemy)
     private int swordDamage = 10;
@@ -322,6 +322,7 @@ public class Player extends FreeMovement
         IceWorld.updateHP(hp);
         SpiderWorld.updateHP(hp);
     }
+
     public void healPlayer(int heal){//gain hp
         hp += heal;
         if(hp > 100){
@@ -344,6 +345,7 @@ public class Player extends FreeMovement
         IceWorld.updateStamina(stamina);
         SpiderWorld.updateStamina(stamina);
     }
+
     public void gainStamina(int gain){
         stamina += gain;
         if(stamina > 500){
@@ -360,9 +362,9 @@ public class Player extends FreeMovement
         x = getX();
         y = getY();
         String dashed = Greenfoot.getKey();
-        
+
         System.out.println("hp: " + hp);
-        
+
         if (alive == false){
             Greenfoot.setWorld(new LossScreen());
         }
@@ -469,6 +471,22 @@ public class Player extends FreeMovement
                 IceWorld.weapon(3);
             }
             walk();
+        }
+        //attack
+        if(Greenfoot.isKeyDown("q")){//sword swing
+            swordAttack();
+            IceWorld.attacking();
+            IceWorld.weapon(1);
+        }
+        if(Greenfoot.isKeyDown("e")){//spear thrust
+            spearAttack();
+            IceWorld.attacking();
+            IceWorld.weapon(2);
+        }
+        if(Greenfoot.isKeyDown("r")){//bow shot
+            bowAttack();
+            IceWorld.attacking();
+            IceWorld.weapon(3);
         }
         //temp dmg and heal
         if(Greenfoot.isKeyDown("1")){
