@@ -34,13 +34,73 @@ public class Player extends FreeMovement
     private GreenfootImage[] bowAttackRightImages;
     private GreenfootImage[] bowAttackLeftImages;
     
-    //gifs for a bunch of attacks
+    //gifs for a bunch of animations
+    //BROWN PLAYER
+    //brown bow
     GifImage brownBowUp = new GifImage("images/PlayerAnimations/bowAttack/brown/brownBowUp.gif");
     GifImage brownBowDown = new GifImage("images/PlayerAnimations/bowAttack/brown/brownBowDown.gif");
     GifImage brownBowRight = new GifImage("images/PlayerAnimations/bowAttack/brown/brownBowRight.gif");
-    GifImage brownBowLeft = new GifImage("images/PlayerAnimations/bowAttack/brown/brownBowRight.gif");
-    //GifImage bowRight = new GifImage("images/PlayerAnimations/bowAttack/right.gif");
-
+    GifImage brownBowLeft = new GifImage("images/PlayerAnimations/bowAttack/brown/brownBowLeft.gif");
+    //brown sword
+    GifImage brownSwordUp = new GifImage("images/PlayerAnimations/swordAttack/brown/brownSwordUp.gif");
+    GifImage brownSwordDown = new GifImage("images/PlayerAnimations/swordAttack/brown/brownSwordDown.gif");
+    GifImage brownSwordRight = new GifImage("images/PlayerAnimations/swordAttack/brown/brownSwordRight.gif");
+    GifImage brownSwordLeft = new GifImage("images/PlayerAnimations/swordAttack/brown/brownSwordLeft.gif");
+    //brown spear
+    GifImage brownSpearUp = new GifImage("images/PlayerAnimations/spearAttack/brown/brownSpearUp.gif");
+    GifImage brownSpearDown = new GifImage("images/PlayerAnimations/spearAttack/brown/brownSpearDown.gif");
+    GifImage brownSpearRight = new GifImage("images/PlayerAnimations/spearAttack/brown/brownSpearRight.gif");
+    GifImage brownSpearLeft = new GifImage("images/PlayerAnimations/spearAttack/brown/brownSpearLeft.gif");
+    //brown walk
+    GifImage brownWalkUp = new GifImage("images/PlayerAnimations/walk/brown/brownWalkUp.gif");
+    GifImage brownWalkDown = new GifImage("images/PlayerAnimations/walk/brown/brownWalkDown.gif");
+    GifImage brownWalkRight = new GifImage("images/PlayerAnimations/walk/brown/brownWalkRight.gif");
+    GifImage brownWalkLeft = new GifImage("images/PlayerAnimations/walk/brown/brownWalkLeft.gif");
+    
+    //GOLD PLAYER
+    //gold bow
+    GifImage goldBowUp = new GifImage("images/PlayerAnimations/bowAttack/gold/goldBowUp.gif");
+    GifImage goldBowDown = new GifImage("images/PlayerAnimations/bowAttack/gold/goldBowDown.gif");
+    GifImage goldBowRight = new GifImage("images/PlayerAnimations/bowAttack/gold/goldBowRight.gif");
+    GifImage goldBowLeft = new GifImage("images/PlayerAnimations/bowAttack/gold/goldBowLeft.gif");
+    //gold sword
+    GifImage goldSwordUp = new GifImage("images/PlayerAnimations/swordAttack/gold/goldSwordUp.gif");
+    GifImage goldSwordDown = new GifImage("images/PlayerAnimations/swordAttack/gold/goldSwordDown.gif");
+    GifImage goldSwordRight = new GifImage("images/PlayerAnimations/swordAttack/gold/goldSwordRight.gif");
+    GifImage goldSwordLeft = new GifImage("images/PlayerAnimations/swordAttack/gold/goldSwordLeft.gif");
+    //gold spear
+    GifImage goldSpearUp = new GifImage("images/PlayerAnimations/spearAttack/gold/goldSpearUp.gif");
+    GifImage goldSpearDown = new GifImage("images/PlayerAnimations/spearAttack/gold/goldSpearDown.gif");
+    GifImage goldSpearRight = new GifImage("images/PlayerAnimations/spearAttack/gold/goldSpearRight.gif");
+    GifImage goldSpearLeft = new GifImage("images/PlayerAnimations/spearAttack/gold/goldSpearLeft.gif");
+    //gold walk
+    GifImage goldWalkUp = new GifImage("images/PlayerAnimations/walk/gold/goldWalkUp.gif");
+    GifImage goldWalkDown = new GifImage("images/PlayerAnimations/walk/gold/goldWalkDown.gif");
+    GifImage goldWalkRight = new GifImage("images/PlayerAnimations/walk/gold/goldWalkRight.gif");
+    GifImage goldWalkLeft = new GifImage("images/PlayerAnimations/walk/gold/goldWalkLeft.gif");
+    
+    //SILVER PLAYER
+    //silver bow
+    GifImage silverBowUp = new GifImage("images/PlayerAnimations/bowAttack/silver/silverBowUp.gif");
+    GifImage silverBowDown = new GifImage("images/PlayerAnimations/bowAttack/silver/silverBowDown.gif");
+    GifImage silverBowRight = new GifImage("images/PlayerAnimations/bowAttack/silver/silverBowRight.gif");
+    GifImage silverBowLeft = new GifImage("images/PlayerAnimations/bowAttack/silver/silverBowLeft.gif");
+    //silver sword
+    GifImage silverSwordUp = new GifImage("images/PlayerAnimations/swordAttack/silver/silverSwordUp.gif");
+    GifImage silverSwordDown = new GifImage("images/PlayerAnimations/swordAttack/silver/silverSwordDown.gif");
+    GifImage silverSwordRight = new GifImage("images/PlayerAnimations/swordAttack/silver/silverSwordRight.gif");
+    GifImage silverSwordLeft = new GifImage("images/PlayerAnimations/swordAttack/silver/silverSwordLeft.gif");
+    //silver spear
+    GifImage silverSpearUp = new GifImage("images/PlayerAnimations/spearAttack/silver/silverSpearUp.gif");
+    GifImage silverSpearDown = new GifImage("images/PlayerAnimations/spearAttack/silver/silverSpearDown.gif");
+    GifImage silverSpearRight = new GifImage("images/PlayerAnimations/spearAttack/silver/silverSpearRight.gif");
+    GifImage silverSpearLeft = new GifImage("images/PlayerAnimations/spearAttack/silver/silverSpearLeft.gif");
+    //silver walk
+    GifImage silverWalkUp = new GifImage("images/PlayerAnimations/walk/silver/silverWalkUp.gif");
+    GifImage silverWalkDown = new GifImage("images/PlayerAnimations/walk/silver/silverWalkDown.gif");
+    GifImage silverWalkRight = new GifImage("images/PlayerAnimations/walk/silver/silverWalkRight.gif");
+    GifImage silverWalkLeft = new GifImage("images/PlayerAnimations/walk/silver/silverWalkLeft.gif");
+    
     //vertical + horizontal booleans
     private boolean isFacingUp, isFacingDown, isFacingLeft, isFacingRight = false;
     //diagonal booleans
@@ -204,19 +264,16 @@ public class Player extends FreeMovement
         posx -= speed;
         dir = "R";
     }
-
     public void moveRight(){
         posx += speed;
         dir = "L";
     }
-
     public void moveUp(){
         //posy-=2; 
 
         setLocationCam(posx, posy -= speed, Spawnx, Spawny);
         dir = "D";
     }
-
     public void moveDown(){
         //posy+=2;
 
