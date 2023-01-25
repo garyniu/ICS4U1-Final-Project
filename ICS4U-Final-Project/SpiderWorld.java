@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 /**
  * 
@@ -387,6 +388,10 @@ public class SpiderWorld extends World
     public static void updateStamina(int st){
         stamina.update((int)(st));
     }
+    
+    private ArrayList<Player> p;
+    private Player pl;
+    
     /**
      * Act Method
      */
@@ -398,6 +403,13 @@ public class SpiderWorld extends World
         {
             showText("mouseX: " + String.valueOf(m.getX()), 900, 1000);
             showText("mouseY: " + String.valueOf(m.getY()), 900, 1100);
+        }
+        
+        p = (ArrayList<Player>)getObjects(Player.class);
+        pl = p.get(0);
+        
+        if (getObjects(Enemy.class) == null){
+            Greenfoot.setWorld(new LossScreen(pl.getScore()));
         }
         
         /*if (m != null)

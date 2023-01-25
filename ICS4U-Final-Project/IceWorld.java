@@ -79,7 +79,7 @@ public class IceWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 500, 1, false); 
 
-        setPaintOrder(SuperStatBar.class, Fog.class, DungeonCover5.class, DungeonCover4.class, DungeonCover3.class, DungeonCover1.class, DungeonCover2.class, PlayerHitbox.class, Player.class, Others.class, WorldBackground.class, Wall.class);
+        setPaintOrder(EnemySphere.class, SuperStatBar.class, Fog.class, DungeonCover5.class, DungeonCover4.class, DungeonCover3.class, DungeonCover1.class, DungeonCover2.class, PlayerHitbox.class, Player.class, Others.class, WorldBackground.class, Wall.class);
 
         //stat bar
         //stamina
@@ -89,6 +89,9 @@ public class IceWorld extends World
         health = new SuperStatBar (100, 100, null, 200, 15, 0, Color.RED, Color.BLACK, false, Color.GRAY, 3);
         addObject(health, 95, 5);
 
+        
+        addObject(new EnemySphere
+        
         GreenfootImage bg = new GreenfootImage(640, 500);
         bg.setColor(Color.BLACK);
         bg.fill();
@@ -392,7 +395,7 @@ public class IceWorld extends World
 
                     if (Greenfoot.getRandomNumber(10) == 1 && (Math.abs(x-11) > 3 && Math.abs(y-32) > 2)){
                         mapTwo[x][y] = 9;
-                        addObject(new Enemy(x, y, Greenfoot.getRandomNumber(2)), 0, 0);
+                        //addObject(new Enemy(x, y, Greenfoot.getRandomNumber(2)), 0, 0);
                     }
 
                 }

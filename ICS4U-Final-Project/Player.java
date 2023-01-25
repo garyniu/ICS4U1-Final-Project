@@ -198,6 +198,9 @@ public class Player extends FreeMovement
 
     //Player coordinates
     private Pair coords = new Pair(0, 0);
+    
+    private EnemySphere ed;
+    
     /**
      * Constructor for Player
      * @param x X coordinate
@@ -207,6 +210,8 @@ public class Player extends FreeMovement
         super(x, y);
         
         ogtimer = timer;
+        
+        ed = new EnemySphere();
         
         //walk
         upImages = new GreenfootImage[9];
@@ -328,6 +333,10 @@ public class Player extends FreeMovement
     public void incrementScore(){
         score++;
     }
+    
+    public int getScore(){
+        return score;
+    }
 
     /**
      * add Player to world
@@ -335,6 +344,7 @@ public class Player extends FreeMovement
      */
     public void addedToWorld(World world){
         getWorld().addObject(new Fog(), getWorld().getWidth()/2, getWorld().getHeight()/2);
+    
     }
 
     /**
@@ -576,24 +586,19 @@ public class Player extends FreeMovement
      */
     public void hitEnemy(){
         
+        en = (ArrayList<Enemy>)getObjectsInRange(250, Enemy.class);
         
-        //if (timer <= 0){
-            
-            if(!(getObjectsInRange(200, Enemy.class).isEmpty())){
+        
                 System.out.println("gesters");
-                en = (ArrayList<Enemy>)getObjectsInRange(200, Enemy.class);
+                en = (ArrayList<Enemy>)getObjectsInRange(250, Enemy.class);
+                temp = en.get(0);
+                temp.takeDamage(swordDamage);
                 
-                for (Enemy enemy : en){
-                    enemy.takeDamage(swordDamage);
-                    System.out.println("hp: " + enemy.getHP());
-                    
-                }
-                
-
+                System.out.println("hp: " + temp.getHP());
                 
                 
                 this.incrementScore();
-            }
+            
             timer = ogtimer;
         //}
         
@@ -755,4 +760,6 @@ public class Player extends FreeMovement
             }
         }
     }
+    
+    
 }

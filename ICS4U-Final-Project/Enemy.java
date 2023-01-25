@@ -67,6 +67,7 @@ public class Enemy extends GridMovement
         
         
         if (hp <= 0){
+            System.out.println("dead");
             getWorld().removeObject(this);
         }
     }
