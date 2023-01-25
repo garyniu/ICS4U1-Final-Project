@@ -11,58 +11,7 @@ import java.util.ArrayList;
  * attacking an enemy will cause all enemies to disappear
  * 
  * CREDITS:
- * Player Sprite:
- * Authors: bluecarrot16, Benjamin K. Smith (BenCreating), Evert, Eliza Wyatt (ElizaWy), TheraHedwig, MuffinElZangano, Durrani, Johannes Sj?lund (wulax), Stephen Challener (Redshrike), Matthew Krohn (makrohn), Manuel Riecke (MrBeast), Joe White, Michael Whitlock (bigbeargames), Johannes Sj�lund (wulax), Nila122, David Conway Jr. (JaidynReiman)
- * 
- * - body/bodies/male/universal/light.png: by bluecarrot16, Benjamin K. Smith (BenCreating), Evert, Eliza Wyatt (ElizaWy), TheraHedwig, MuffinElZangano, Durrani, Johannes Sj?lund (wulax), Stephen Challener (Redshrike). License(s): CC-BY-SA 3.0, GPL 3.0. 
- * - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
- * - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
- * - https://opengameart.org/content/lpc-male-jumping-animation-by-durrani
- * - https://opengameart.org/content/lpc-runcycle-and-diagonal-walkcycle
- * - https://opengameart.org/content/lpc-revised-character-basics
- * 
- * - head/heads/human_male/universal/light.png: by bluecarrot16, Benjamin K. Smith (BenCreating), Stephen Challener (Redshrike). License(s): OGA-BY 3.0, CC-BY-SA 3.0, GPL 3.0. 
- * - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
- * - https://opengameart.org/content/lpc-character-bases
- * 
- * - eyes/male/blue.png: by Matthew Krohn (makrohn), Stephen Challener (Redshrike). License(s): CC-BY-SA 3.0, GPL 3.0. 
- * - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
- * 
- * - hair/plain/male/black.png: by Manuel Riecke (MrBeast), Joe White. License(s): CC-BY-SA 3.0, GPL 3.0. 
- * - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
- * - https://opengameart.org/content/ponytail-and-plain-hairstyles
- * 
- * - arms/armour/plate/male/iron.png: by Michael Whitlock (bigbeargames), Matthew Krohn (makrohn), Johannes Sj�lund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
- * - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
- * - http://opengameart.org/content/lpc-clothing-updates
- * 
- * - bauldron/male/walnut.png: by Nila122. License(s): GPL 2.0, GPL 3.0, CC-BY-SA 3.0. 
- * - https://opengameart.org/content/more-lpc-clothes-and-hair
- * 
- * - torso/clothes/longsleeve/male/black.png: by David Conway Jr. (JaidynReiman), Johannes Sj�lund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
- * - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
- * - http://opengameart.org/content/lpc-clothing-updates
-
- * - torso/armour/leather/male/black.png: by Johannes Sj�lund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
- * - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
- * - http://opengameart.org/content/lpc-clothing-updates
- * 
- * - cape/solid/female/black.png: by bluecarrot16, David Conway Jr. (JaidynReiman). License(s): CC-BY-SA 3.0, GPL 3.0. 
- * - https://opengameart.org/content/lpc-curly-hair-elven-ears-white-cape-with-blue-trim-and-more
- * - https://opengameart.org/content/lpc-roman-armor
- * - http://opengameart.org/content/lpc-clothing-updates
- * 
- * - cape/solid_behind/black.png: by Nila122, David Conway Jr. (JaidynReiman). License(s): CC-BY-SA 3.0, GPL 3.0. 
- * - https://opengameart.org/content/lpc-curly-hair-elven-ears-white-cape-with-blue-trim-and-more
- * - https://opengameart.org/content/lpc-roman-armor
- * 
- * - legs/armour/plate/male/steel.png: by bluecarrot16, Michael Whitlock (bigbeargames), Johannes Sj�lund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
- * - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
- * 
- * - feet/boots/male/black.png: by bluecarrot16, Nila122. License(s): CC-BY-SA 3.0, GPL 2.0, GPL 3.0. 
- * - https://opengameart.org/content/lpc-clothes-and-hair
- * - https://opengameart.org/content/lpc-santa
- * - http://opengameart.org/content/lpc-clothing-updates
+ * Player Sprite in GameWorld
  * 
  * @author Justin Sin, Victor Wei, Gary Niu
  * @versio 1.0
@@ -196,6 +145,11 @@ public class Player extends FreeMovement
     private int score = 10;
     private int timer = 40, ogtimer;
 
+    //Sounds for player
+    private GreenfootSound playerGrunt = new GreenfootSound("sounds/PlayerGrunt.wav");
+    private GreenfootSound weaponSwing = new GreenfootSound("sounds/WeaponAttack.wav");
+    private GreenfootSound playerDeath = new GreenfootSound("sounds/OOF.wav");
+    
     //Player coordinates
     private Pair coords = new Pair(0, 0);
     
