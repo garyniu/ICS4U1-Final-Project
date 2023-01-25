@@ -554,12 +554,12 @@ public class Player extends FreeMovement
 
         //if (timer <= 0){
         if(!(getObjectsInRange(200, Enemy.class).isEmpty())){
-            System.out.println("gesters");
+            //System.out.println("gesters");
             en = (ArrayList<Enemy>)getObjectsInRange(200, Enemy.class);
 
             for (Enemy enemy : en){
                 enemy.takeDamage(swordDamage);
-                System.out.println("hp: " + enemy.getHP());
+                //System.out.println("hp: " + enemy.getHP());
                 if(enemy.getHP() <= 0){
                     Enemy.isDead();
                 }
@@ -699,6 +699,7 @@ public class Player extends FreeMovement
         bowAttack();
         hitEnemy(10);
         }*/
+        
         //sprint(hold to sprint)
         if(Greenfoot.isKeyDown("Shift")){
             FreeMovement.setPlayerSpeed(sprintSpeed);//sprinting speed
