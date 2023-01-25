@@ -155,6 +155,12 @@ public class IceWorld extends World
 
         portal = new Portal(); //this worlds portal
         this.addObject(portal, -75, -415);
+        
+        portal = new Portal(portal);
+
+        SpiderWorld spy1 = new SpiderWorld();
+        spy1.addObject(portal, -580, 510);
+
 
         //chest room
         Boundary b1 = new Boundary(300,50);
@@ -378,11 +384,7 @@ public class IceWorld extends World
         addObject(mw16, -70,-490);  
         mw15.setRotation(-30);
 
-        portal = new Portal(portal);
-
-        SpiderWorld spy1 = new SpiderWorld();
-        spy1.addObject(portal, -580, 510);
-
+        
         //addObject(new Fog(0, 0), getWidth()/2, getHeight()/2);
 
         for(int x = 0; x < 32; x++){
@@ -424,11 +426,23 @@ public class IceWorld extends World
         yd = cY;
         wbg2.setLocation(xd, yd);
     }
+    
+    private Player pl;
+    private ArrayList<Player> p;
     /**
      * Act Method 
      */
     public void act()
     {
+        
+        p = (ArrayList<Player>)getObjects(Player.class);
+        pl = p.get(0);
+        
+        if (getObjects(Enemy.class) == null)
+        {
+            LossScreen ls = new LossScreen(pl.getScore());
+            Greenfoot.setWorld(ls);
+        }
         GameWorld.stopMusic();
         started();
         
