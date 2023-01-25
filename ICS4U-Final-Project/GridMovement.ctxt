@@ -1,27 +1,19 @@
 #BlueJ class context
 comment0.target=GridMovement
-comment0.text=\r\n\ Responsible\ for\ moving\ subclasses\ in\ a\ grid\ fashion\ using\ a\ grid\ provided\ from\ the\ World\r\n\ \r\n\ @author\ Gary\ Niu\ \r\n\ @version\ January\ 12\r\n
 comment1.params=xm\ ym
 comment1.target=GridMovement(int,\ int)
-comment1.text=\r\n\ Constructor\r\n\ @param\ xm\ X\ coordinate\ for\ Movement\ \r\n\ @param\ ym\ Y\ coordinate\ for\ Movement\r\n
 comment2.params=world
 comment2.target=void\ addedToWorld(greenfoot.World)
 comment3.params=
 comment3.target=void\ act()
-comment3.text=\r\n\ Act\ Method\ \r\n
 comment4.params=
 comment4.target=void\ moveLeft()
-comment4.text=\r\n\ Method\ for\ moving\ left\ in\ the\ grid\r\n
 comment5.params=
 comment5.target=void\ moveRight()
-comment5.text=\r\n\ Method\ for\ moving\ right\ in\ the\ grid\ \r\n
 comment6.params=
 comment6.target=void\ moveUp()
-comment6.text=\r\n\ Method\ for\ moving\ Up\ in\ the\ grid\ \r\n
 comment7.params=
 comment7.target=void\ moveDown()
-comment7.text=\r\n\ Method\ for\ moving\ down\ in\ the\ grid\ \r\n
 comment8.params=
 comment8.target=Pair\ getCoords()
-comment8.text=\r\n\ Get\ coordinates\r\n\ @return\ Pair\ Pair\ of\ Coordinates\r\n
 numComments=9
