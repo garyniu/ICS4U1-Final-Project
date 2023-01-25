@@ -116,6 +116,7 @@ public class GameWorld extends World
     private static SuperStatBar health;
     private static SuperStatBar stamina;
     
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -125,7 +126,7 @@ public class GameWorld extends World
         // Create a new world with 720x405 cells with a cell size of 1x1 pixels.
         super(600, 500, 1, false);
 
-
+                
         //setPaintOrder(Fog.class, Boundary.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Items.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
         setPaintOrder(SuperStatBar.class, Fog.class, Boundary.class, GameCover1.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
 
@@ -269,6 +270,8 @@ public class GameWorld extends World
             showText("mouseX: " + String.valueOf(m.getX()), 120, 30);
             showText("mouseY: " + String.valueOf(m.getY()), 120, 70);
         }
+        
+        
     }
     /**
      * Set an Object at an X and Y Value
