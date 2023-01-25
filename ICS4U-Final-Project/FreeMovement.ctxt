@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=FreeMovement
+comment0.text=\r\n\ Parent\ class\ to\ allow\ the\ subclasses\ free\ and\ easy\ movement\ with\ little\ to\ no\ lag\r\n\ holds\ all\ the\ main\ movement\ methods\ including\ up/down/left/right,\ spawn\ coordinates\ and\ wall\ collision\r\n\ \r\n\ @author\ Justin\ Sin,\ Leo\ Xu,\ Victor\ Wei,\ Gary\ Lau\r\n\ @versio\ 1.0\r\n
 comment1.params=x\ y
 comment1.target=FreeMovement(int,\ int)
 comment10.params=

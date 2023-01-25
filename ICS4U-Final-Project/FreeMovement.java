@@ -1,5 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+/**
+ * Parent class to allow the subclasses free and easy movement with little to no lag
+ * holds all the main movement methods including up/down/left/right, spawn coordinates and wall collision
+ * 
+ * @author Justin Sin, Leo Xu, Victor Wei, Gary Lau
+ * @versio 1.0
+ */
 public abstract class FreeMovement extends SuperSmoothMover
 {
     
