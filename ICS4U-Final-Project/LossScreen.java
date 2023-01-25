@@ -4,12 +4,10 @@ import greenfoot.UserInfo;
 import greenfoot.GreenfootImage;
 
 /**
- * Write a description of class LossScreen here.
+ * Loss Screen (borrowed from Mr. Cohen)
  * 
- * From mr cohen
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Mr Cohen
+ * @version January 9
  */
 public class LossScreen extends World
 {
@@ -20,6 +18,7 @@ public class LossScreen extends World
     private int score;
     /**
      * Constructor for objects of class LossScreen
+     * @param score Score 
      */
     public LossScreen(int score)
     {
@@ -46,7 +45,9 @@ public class LossScreen extends World
 
         addObject(pb, 300, 400);
     }
-
+    /**
+     * Act Method 
+     */
     public void act(){
         if (pb.getClick())// go to myWorld when playbutton is pressed
         {

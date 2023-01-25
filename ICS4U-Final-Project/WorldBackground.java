@@ -1,16 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class WorldBackground here.
+ * Movable background for game worlds
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Gary Niu
+ * @version January 2023
  */
 public class WorldBackground extends Others
 {
     
     private GreenfootImage image;
-    
+    /**
+     * Constructor for Background 
+     * @param image Image for background
+     */
     public WorldBackground(GreenfootImage image){
         this.image = image;
         
@@ -21,7 +24,10 @@ public class WorldBackground extends Others
     {
         // Add your action code here.
     }
-    
+    /**
+     * Changes the background 
+     * @param image New background
+     */
     public void changeBG(GreenfootImage image){
         this.image = image;
         

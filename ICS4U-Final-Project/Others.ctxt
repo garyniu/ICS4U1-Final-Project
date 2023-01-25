@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Others
-comment0.text=\n\ Write\ a\ description\ of\ class\ Others\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ Superclass\ purely\ used\ for\ the\ shifting\ camera\ affect.\n\ \n\ @author\ Gary\ Niu\n\ @version\ January\ 2023\n
 comment1.params=
 comment1.target=Others()
 comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Others\n

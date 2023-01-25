@@ -1,10 +1,12 @@
 #BlueJ class context
 comment0.target=WorldBackground
-comment0.text=\n\ Write\ a\ description\ of\ class\ WorldBackground\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ Movable\ background\ for\ game\ worlds\n\ \n\ @author\ Gary\ Niu\n\ @version\ January\ 2023\n
 comment1.params=image
 comment1.target=WorldBackground(greenfoot.GreenfootImage)
+comment1.text=\n\ Constructor\ for\ Background\ \n\ @param\ image\ Image\ for\ background\n
 comment2.params=
 comment2.target=void\ act()
 comment3.params=image
 comment3.target=void\ changeBG(greenfoot.GreenfootImage)
+comment3.text=\n\ Changes\ the\ background\ \n\ @param\ image\ New\ background\n
 numComments=4

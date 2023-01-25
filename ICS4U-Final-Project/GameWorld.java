@@ -63,9 +63,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * - https://opengameart.org/content/lpc-santa
  * - http://opengameart.org/content/lpc-clothing-updates
  * 
+ * MUSIC CREDITS:
+ * main theme (https://www.youtube.com/watch?v=Q7eJg7hRvqE)
  * 
  * @author Justin, Leo, Gary, Victor
- * @version (a version number or a date)
+ * @version December 31
  */
 public class GameWorld extends World
 {
@@ -112,6 +114,11 @@ public class GameWorld extends World
     private GreenfootImage background = new GreenfootImage("images/background/BG33.png");
     private WorldBackground wbg;
     private int xd = 0, yd = 0;
+    
+    private static SuperStatBar health;
+    private static SuperStatBar stamina;
+    
+    private static GreenfootSound waitMusic;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -121,10 +128,17 @@ public class GameWorld extends World
         // Create a new world with 720x405 cells with a cell size of 1x1 pixels.
         super(600, 500, 1, false);
 
+                
+        //setPaintOrder(Fog.class, Boundary.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Items.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
+        setPaintOrder(SuperStatBar.class, Fog.class, Boundary.class, GameCover1.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
+
 
         setPaintOrder(Fog.class, Boundary.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Items.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
         setPaintOrder(Fog.class, Boundary.class, GameCover1.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Items.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
 
+
+
+        waitMusic = new GreenfootSound("sounds/waiting.mp3");
 
         wbg = new WorldBackground(background);
 
@@ -136,7 +150,12 @@ public class GameWorld extends World
         //Enter Portal
         Others ep = new EnterPortal();
         addObject(ep, 560, 215);
-
+    
+        stamina = new SuperStatBar(500, 500, null, 150, 10, 0, Color.GREEN, Color.BLACK, false, Color.GRAY, 3);
+        addObject(stamina, 70, 15);
+        //hp
+        health = new SuperStatBar (100, 100, null, 200, 15, 0, Color.RED, Color.BLACK, false, Color.GRAY, 3);
+        addObject(health, 95, 5);
         
         //main portal that allows portals to other worlds work
         Portal portal = new Portal();
@@ -234,29 +253,40 @@ public class GameWorld extends World
         moveThing(xd, yd);
     }
 
-    
-    //update player hp bar
+    /**
+     * Updates Hp of Player
+     * @param hp Health
+     */
     public static void updateHP(int hp){
         //health.update((int)(hp));
     }
-    //update stamina bar
-    /*public static void updateStamina(int st){
+    /**
+     * Updates Stamina Bar for Player
+     * @param st Stamina
+     */
+    public static void updateStamina(int st){
         stamina.update((int)(st));
-    }*/
-    
-
-
-
+    }
+    /**
+     * Act Method 
+     */
     public void act()
     {
+        started();
         MouseInfo m = Greenfoot.getMouseInfo();
         if (m != null)
         {
             showText("mouseX: " + String.valueOf(m.getX()), 120, 30);
             showText("mouseY: " + String.valueOf(m.getY()), 120, 70);
         }
+        
+        
     }
-
+    /**
+     * Set an Object at an X and Y Value
+     * @param cX X coordinate
+     * @param cY Y coordinate
+     */
     public void setThing(int cX, int cY)
     {
         xd = this.getWidth()- cX;
@@ -266,15 +296,21 @@ public class GameWorld extends World
 
         wbg.setLocation(xd, yd);
     }
-
+    /**
+     * Move an Object to an X and Y Value
+     * @param cX X coordinate
+     * @param cY Y coordinate
+     */
     public void moveThing(int cX, int cY){
         GreenfootImage image = getBackground();
         xd = cX;
         yd = cY;
         wbg.setLocation(xd, yd);
     }
-
-    //returns deep copy of map array
+    /**
+     * Returns a copy of the MapArray
+     * @return int[][] Copy of Map Array
+     */
     public int[][] getMapArr(){
         int[][] copy = new int[mapTwo.length][mapTwo[0].length];
 
@@ -288,6 +324,10 @@ public class GameWorld extends World
     }
 
     //returns the top left corner position of the array on the screen
+    /**
+     * Returns the top Left corner position of the array on the screen
+     * @return Pair Pair of coordinates
+     */
     public Pair getMapOrigin(){
         Wall temp = wallListTwo[0][0];
 
@@ -297,7 +337,40 @@ public class GameWorld extends World
     }
 
     //returns the width and height of a block
+    /**
+     * Returns the width and height of a block 
+     * @return Pair Dimensions of a block
+     */
     public Pair getMapBlockSize(){
         return new Pair(wallListTwo[0][0].getImage().getWidth(), wallListTwo[0][0].getImage().getHeight());
+    }
+    
+    /**
+     * Starts the theme music when world starts
+     * 
+     */
+    public void started()//starts the theme music when world starts
+    {
+        waitMusic.playLoop();
+        waitMusic.setVolume(40);
+    }
+    
+    /**
+     * Stops the theme music when paused
+     * 
+     */
+    public void stopped()// stops the theme music when paused
+    {
+        waitMusic.stop();
+    }
+    
+    
+    /**
+     * Stops the theme music for other worlds
+     * 
+     */
+    public static void stopMusic()// stops the theme sound when paused
+    {
+        waitMusic.stop();
     }
 }

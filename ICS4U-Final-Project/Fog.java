@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Fog here.
+ * Visual Fog Effect
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Gary Niu
+ * @version January 24
  */
 public class Fog extends Actor
 {
@@ -12,15 +12,19 @@ public class Fog extends Actor
     
     private int x, y;
     private GreenfootImage boundImage = new GreenfootImage ("fog.png");
-
+    /**
+     * Constructor for Fog
+     */
     
     public Fog(){
         boundImage.scale(600, 500);
         setImage(boundImage);
     }
-
+    /**
+     * Act Method
+     */
     public void act()
     {
-        System.out.println("test");
+        //System.out.println("test");
     }
 }

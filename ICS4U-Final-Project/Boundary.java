@@ -20,7 +20,11 @@ public class Boundary extends Others
         yg = getY();
     }
     
-    
+    /**
+     * Constructor for Boundary
+     * @param width Width
+     * @param height Height
+     */
     public Boundary (int width, int height)//Sets the boundary's size
     {
         boundImage.scale(width, height);

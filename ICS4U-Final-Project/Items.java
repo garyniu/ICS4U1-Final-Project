@@ -1,10 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Items here.
+ * Superclass for items 
  * 
+<<<<<<< HEAD
  * @author Victor
  * @version (a version number or a date)
+=======
+ * @author Victor Wei
+ * @version January 18
+>>>>>>> 37313bea1eee67fb8a9952ec6e646b00ff4e7f5a
  */
 public class Items extends Others
 {
@@ -14,7 +19,16 @@ public class Items extends Others
     private int randomUpgradeChoice;
     private int randSpeedAdd;
     private Actor touched;
+
+    
+
+    /**
+     * Constructor for Items 
+     * @param x X coordinate
+     * @param y Y coordinate
+     */
     public Items()
+
     {
         itemImage = new GreenfootImage("pixelChest.png");
         itemImage.scale(75, 60);
@@ -27,6 +41,9 @@ public class Items extends Others
         xg = getX();
         yg = getY();
     }
+    /**
+     * Act Method 
+     */
     public void act()
     {
         randomUpgradeChoice = Greenfoot.getRandomNumber(3);
@@ -35,6 +52,11 @@ public class Items extends Others
         touched = getOneIntersectingObject(Player.class);
         upgrade();
     }
+    /**
+     * Checks if an upgrade has been given to the player yet
+     * @param player Player 
+     * @return boolean If an upgrade has been given or not 
+     */
     public boolean givenUpgrade(Actor player)
     {
         if(touched != null)
@@ -44,6 +66,10 @@ public class Items extends Others
         }
         return false;
     }
+    /**
+     * Returns damage to be dealt
+     * @return int Damage to be added/dealt to player
+     */
     public int givenDamage()
     {
         int randDmgAdd = Greenfoot.getRandomNumber(5);

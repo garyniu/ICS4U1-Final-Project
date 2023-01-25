@@ -23,7 +23,9 @@ public class GameCover1 extends Others
         xg = getX();
         yg = getY();
     }
-    
+    /**
+     * Constructor
+     */
     public GameCover1() 
     {
         // Add your action code here.

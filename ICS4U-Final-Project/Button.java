@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Creates a button with the word "PLAY" on it
  * when pressed, brings the user to MyWorld(simulation)
  * 
- * @author Leo Xu
+ * @author Leo Xu, Gary Niu
  * @version 1
  */
 public class Button extends Actor

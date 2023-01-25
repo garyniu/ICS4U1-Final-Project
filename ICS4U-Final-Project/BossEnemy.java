@@ -2,10 +2,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * Write a description of class BossEnemy here.
+ * Boss Enemy (Unused in final game)
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Gary Niu 
+ * @version January 20
  */
 public class BossEnemy extends GridMovement
 {
@@ -17,7 +17,12 @@ public class BossEnemy extends GridMovement
     private GreenfootImage CharImg;
     private Player p;
     private int playerRange = 45; //change
-
+    /**
+     * Constructor for Boss Enemy 
+     * @param x X
+     * @param y Y
+     * @param gridSize Grid Dimensions
+     */
     
     public BossEnemy(int x, int y, Pair gridSize){
         
@@ -30,7 +35,9 @@ public class BossEnemy extends GridMovement
         CharImg = new GreenfootImage("AzhdahaScream.png");
         setImage(CharImg);
     }
-    
+    /**
+     * Act Method 
+     */
     public void act()
     {
         super.act();
@@ -45,7 +52,9 @@ public class BossEnemy extends GridMovement
         
         //y++;
     }
-    
+    /**
+     * Attack Player method 
+     */
     private void AttackPlayer(){
        
         int x = p.getX();

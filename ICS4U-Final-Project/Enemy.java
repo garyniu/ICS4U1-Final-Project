@@ -2,10 +2,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * Write a description of class Enemy here.
+ * Enemy 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Gary Niu
+ * @version January 20
  */
 public class Enemy extends GridMovement
 {
@@ -18,10 +18,15 @@ public class Enemy extends GridMovement
     private Player p;
     private int playerRange = 25; //change
     private int attackDist = 150;
-    private static int hp = 100;
+    private int hp = 100;
     private int dtimer = 40, ogdtimer;
     private int type = 0;
-
+    /**
+     * Constructor for Enemy 
+     * @param x X
+     * @param y Y
+     * @param type Type of enemy 
+     */
     public Enemy(int xm, int ym, int type){
         super(xm, ym);
         //change x,y to xy coord on grid
@@ -42,7 +47,9 @@ public class Enemy extends GridMovement
         ogdtimer = dtimer;
         
     }
-
+    /**
+     * Act Method
+     */
     public void act()
     {
         super.act();
@@ -63,7 +70,12 @@ public class Enemy extends GridMovement
             getWorld().removeObject(this);
         }
     }
-
+    public int getHP(){
+        return hp;
+    }
+    /**
+     * Attack Player method for enemy 
+     */
     private void AttackPlayer(){
         int x = p.getX();
         int y = p.getY();
@@ -97,8 +109,11 @@ public class Enemy extends GridMovement
         }
 
     }
-    
-    public static void takeDamage(int x){
+    /**
+     * Take Damage method for enemies
+     * @param x Damage dealt
+     */
+    public void takeDamage(int x){
         hp -= x;
     }
     

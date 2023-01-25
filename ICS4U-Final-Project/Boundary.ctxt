@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=Boundary
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Boundary\ here.\r\n\ \r\n\ This\ Actor\ is\ used\ to\ create\ invisible\ walls\ in\ the\ playable\ world\ maps\r\n\ \r\n\ @author\ Leo\ Xu\r\n\ @date\ June\ 15\ 2022\r\n\ \r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ Boundary\ here.\n\ \n\ This\ Actor\ is\ used\ to\ create\ invisible\ walls\ in\ the\ playable\ world\ maps\n\ \n\ @author\ Leo\ Xu\n\ @date\ June\ 15\ 2022\n\ \n
 comment1.params=GameWorld
 comment1.target=void\ addedToWorld(greenfoot.World)
 comment2.params=width\ height
 comment2.target=Boundary(int,\ int)
+comment2.text=\n\ Constructor\ for\ Boundary\n\ @param\ width\ Width\n\ @param\ height\ Height\n
 numComments=3
