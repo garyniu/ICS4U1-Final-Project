@@ -179,9 +179,9 @@ public class Player extends FreeMovement
     private int sprintSpeed = 2;
     private boolean sprinting = false;
     //player damage variables(for enemy)
-    private static int swordDamage = 10;
+    private static int swordDamage = 40;
     private static int addedDamage;
-    private int spearDamage = 7;
+    private int spearDamage = 50;
     private int bowDamage = 5;
 
     //animation image speed
@@ -577,20 +577,25 @@ public class Player extends FreeMovement
     public void hitEnemy(){
         
         
-        
-        if (timer <= 0){
+        //if (timer <= 0){
             
-            if(!getIntersectingObjects(Enemy.class).isEmpty()){
-            
-                en = (ArrayList<Enemy>)getIntersectingObjects(Enemy.class);
-                temp = en.get(0);
+            if(!(getObjectsInRange(200, Enemy.class).isEmpty())){
+                System.out.println("gesters");
+                en = (ArrayList<Enemy>)getObjectsInRange(200, Enemy.class);
                 
-                temp.takeDamage(swordDamage);
+                for (Enemy enemy : en){
+                    enemy.takeDamage(swordDamage);
+                    System.out.println("hp: " + enemy.getHP());
+                    
+                }
+                
+
+                
                 
                 this.incrementScore();
             }
             timer = ogtimer;
-        }
+        //}
         
     }
     /**

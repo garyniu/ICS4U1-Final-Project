@@ -70,6 +70,9 @@ public class Enemy extends GridMovement
             getWorld().removeObject(this);
         }
     }
+    public int getHP(){
+        return hp;
+    }
     /**
      * Attack Player method for enemy 
      */
