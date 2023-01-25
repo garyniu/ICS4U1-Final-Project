@@ -1,12 +1,22 @@
 #BlueJ class context
 comment0.target=Enemy
+<<<<<<< HEAD
 comment0.text=\n\ Write\ a\ description\ of\ class\ Enemy\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+=======
+comment0.text=\r\n\ Enemy\ \r\n\ \r\n\ @author\ Gary\ Niu\r\n\ @version\ January\ 20\r\n
+>>>>>>> 37313bea1eee67fb8a9952ec6e646b00ff4e7f5a
 comment1.params=xm\ ym\ type
 comment1.target=Enemy(int,\ int,\ int)
+comment1.text=\r\n\ Constructor\ for\ Enemy\ \r\n\ @param\ x\ X\r\n\ @param\ y\ Y\r\n\ @param\ type\ Type\ of\ enemy\ \r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ Act\ Method\r\n
 comment3.params=
-comment3.target=void\ AttackPlayer()
-comment4.params=x
-comment4.target=void\ takeDamage(int)
-numComments=5
+comment3.target=int\ getHP()
+comment4.params=
+comment4.target=void\ AttackPlayer()
+comment4.text=\r\n\ Attack\ Player\ method\ for\ enemy\ \r\n
+comment5.params=x
+comment5.target=void\ takeDamage(int)
+comment5.text=\r\n\ Take\ Damage\ method\ for\ enemies\r\n\ @param\ x\ Damage\ dealt\r\n
+numComments=6
