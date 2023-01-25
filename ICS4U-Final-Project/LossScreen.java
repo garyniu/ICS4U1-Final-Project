@@ -23,7 +23,8 @@ public class LossScreen extends World
     public LossScreen(int score)
     {
         super(600, 500, 1, true);
-
+        
+        IceWorld.stopMusic();
         this.score = score;
         int highScore = 0;
 
@@ -49,6 +50,7 @@ public class LossScreen extends World
      * Act Method 
      */
     public void act(){
+        IceWorld.stopMusic();
         if (pb.getClick())// go to myWorld when playbutton is pressed
         {
             MainMenu gw = new MainMenu();
