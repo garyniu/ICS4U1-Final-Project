@@ -65,6 +65,9 @@ public class Player extends FreeMovement
     //Player health points
     private static int hp = 100;
     private static boolean alive = true;//true=alive, false=dead
+    
+    //Player coordinates
+    private Pair coords = new Pair(0, 0);
 
     public Player(int x, int y){
         super(x, y);
@@ -323,7 +326,7 @@ public class Player extends FreeMovement
         }
         GameWorld.updateHP(hp);
     }
-
+    
     public void act()
     {
         super.act();
@@ -336,6 +339,7 @@ public class Player extends FreeMovement
         //when moving diagonally(looks better since there is no horizontal animation)
         if (Greenfoot.isKeyDown("a")){//detect left
             moveLeft();
+            IceWorld.stopAttacking();
             isFacingUp = false;
             isFacingDown = false;
             isFacingLeft = true;
@@ -355,6 +359,7 @@ public class Player extends FreeMovement
         }
         if (Greenfoot.isKeyDown("d")){//detect right
             moveRight();
+            IceWorld.stopAttacking();
             isFacingUp = false;
             isFacingDown = false;
             isFacingLeft = false;
@@ -374,6 +379,7 @@ public class Player extends FreeMovement
         }
         if (Greenfoot.isKeyDown("w")){//detect up
             moveUp();
+            IceWorld.stopAttacking();
             isFacingUp = true;
             isFacingDown = false;
             isFacingLeft = false;
@@ -393,6 +399,7 @@ public class Player extends FreeMovement
         }
         if (Greenfoot.isKeyDown("s")){//detect down
             moveDown();
+            IceWorld.stopAttacking();
             isFacingUp = false;
             isFacingDown = true;
             isFacingLeft = false;
@@ -413,121 +420,34 @@ public class Player extends FreeMovement
         //plays attack animation when pressing e
         if(Greenfoot.isKeyDown("q")){//sword swing
             swordAttack();
-            //based on current x and y value, find grid
-            //set certain distance around grid as damage
-            //collision with monster = damage
+            IceWorld.attacking();
+            IceWorld.weapon(1);
         }
         if(Greenfoot.isKeyDown("e")){//spear thrust
             spearAttack();
+            IceWorld.attacking();
+            IceWorld.weapon(2);
         }
         if(Greenfoot.isKeyDown("r")){//bow shot
             bowAttack();
+            IceWorld.attacking();
+            IceWorld.weapon(3);
         }
-
+        //temp dmg and heal
         if(Greenfoot.isKeyDown("1")){
             damagePlayer(1);
         }
         if(Greenfoot.isKeyDown("2")){
             healPlayer(1);
         }
-
-        /*//sprint toggling with shift key (works weird)
-        if(!sprinting){
-        if(Greenfoot.isKeyDown("Shift")){
-        FreeMovement.setPlayerSpeed(sprintSpeed);//sprinting speed
-        sprinting = true;
+        //sprint toggling
+        if (Greenfoot.isKeyDown(",")){ 
+            FreeMovement.setPlayerSpeed(sprintSpeed);//sprinting speed
+            sprinting = true;
         }
-        }else if(sprinting){
-        if(Greenfoot.isKeyDown("Shift")){
-        FreeMovement.setPlayerSpeed(playerSpeed);//walking speed
-        sprinting = false;
+        if(Greenfoot.isKeyDown(".")){
+            FreeMovement.setPlayerSpeed(playerSpeed);//walking speed
+            sprinting = false;
         }
-        }*/
-
-        if (Greenfoot.isKeyDown("Shift")){ 
-            if(!sprinting){
-                FreeMovement.setPlayerSpeed(sprintSpeed);//sprinting speed
-                sprinting = true;
-            }else{
-                FreeMovement.setPlayerSpeed(playerSpeed);//walking speed
-                sprinting = false;
-            }
-        }
-
-        /*if("shift".equals(dashed))
-        {
-        System.out.println("player has dashed");
-        if(isFacingUp == true)
-        {
-        if(dashTime == 0)
-        {
-        characterSpeed = 2;
-        }
-        if(dashTime <= 30)
-        {
-        characterSpeed += 5;
-        dashTime += 30;
-        }
-        if(dashTime >= 30)
-        {
-        characterSpeed = 2;
-        }
-        }
-        }
-
-        if (Greenfoot.isKeyDown("shift"))
-        {
-        if(isFacingUp == true)
-        {
-        if(dashed == "shift")
-        {
-
-        }
-        if(dashTime == 0)
-        {
-        characterSpeed = 2;
-        }
-        if(dashTime <=30)
-        {
-        dashTime++;
-        characterSpeed += 1;
-        }
-        if(dashTime >= 30)
-        {
-        characterSpeed = 2;
-        dashTime = 0;
-        }
-        }
-        }
-
-        //attack
-        if(Greenfoot.isKeyDown("right")){//MainCharater moves right
-        for(int i = 0; i < 6; i++){
-        isFacingRight = true;
-        hAttack();
-        }
-        }
-        if(Greenfoot.isKeyDown("left")){//MainCharater moves left
-        for(int i = 0; i < 6; i++){
-        isFacingRight = false;
-        hAttack();
-        }
-        }
-        if(Greenfoot.isKeyDown("up")){//MainCharater moves up
-        for(int i = 0; i < 6; i++){
-        int x = getX();
-        int y = getY();
-        isFacingUp = true;
-        vAttack();
-        }
-        }
-        if(Greenfoot.isKeyDown("down")){//MainCharater moves down
-        for(int i = 0; i < 6; i++){
-        int x = getX();
-        int y = getY();
-        isFacingUp = false;
-        vAttack();
-        }
-        }*/
     }
 }

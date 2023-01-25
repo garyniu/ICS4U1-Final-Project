@@ -65,6 +65,8 @@ public class IceWorld extends World
     private int blockW = 30, blockH = 16;
     private Wall closest = new Wall(0, 0);
     
+    private static boolean playerAttacking = false;
+    private static int weapon = 0;
     
     /**
      * Constructor for objects of class PortalTest.
@@ -171,9 +173,17 @@ public class IceWorld extends World
             showText("mouseY: " + String.valueOf(m.getY() - 545), 900, 600);
         }
         
-        //System.out.println("fuck " + getBlockCoord(5, 6).getX());
-        
-        checkUserOntoGrid();
+        //attack here VVV
+        if(playerAttacking){
+            checkUserGrid();
+            if(weapon == 1){
+                //attack grid with swipe
+            }else if(weapon == 2){
+                //attack grid with jab
+            }else if(weapon == 3){
+                //attack grid with shot
+            }
+        }
         
         /*if (m != null)
         {
@@ -190,8 +200,18 @@ public class IceWorld extends World
         }*/
     }
     
+    public static void attacking(){
+        playerAttacking = true;
+    }
+    public static void stopAttacking(){
+        playerAttacking = false;
+    }
+    public static void weapon(int type){
+        weapon = type;
+    }
+    
     //puts the user onto the grid based on coords
-    private void checkUserOntoGrid(){
+    public Pair checkUserGrid(){
         ArrayList<Player> p = (ArrayList<Player>)getObjects(Player.class);
         Player pl = p.get(0);
         
@@ -233,9 +253,9 @@ public class IceWorld extends World
             mapTwo[closest.getGridCoord().getX()][closest.getGridCoord().getY()] = 8;
         }
         
-        System.out.println(closest.getGridCoord().getX() + " " + closest.getGridCoord().getY());
+        //System.out.println(closest.getGridCoord().getX() + " " + closest.getGridCoord().getY());
         
-        
+        return new Pair(closest.getGridCoord().getX(), closest.getGridCoord().getY());
         
     }
     
