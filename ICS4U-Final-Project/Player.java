@@ -360,101 +360,105 @@ public class Player extends FreeMovement
         //movement
         //a and d goes first so the horizontal walking animation always plays
         //when moving diagonally(looks better since there is no horizontal animation)
-        if (Greenfoot.isKeyDown("a")){//detect left
+        if(Greenfoot.isKeyDown("a")){//detect left
             moveLeft();
             IceWorld.stopAttacking();
             isFacingUp = false;
             isFacingDown = false;
             isFacingLeft = true;
             isFacingRight = false;
-            walk();
-            if(Greenfoot.isKeyDown("w")){//detect up
-                isFacingLeftUp = true;
-                isFacingRightUp = false;
-                isFacingLeftDown = false;
-                isFacingRightDown = false;
-            }else if(Greenfoot.isKeyDown("s")){//detect down
-                isFacingLeftUp = false;
-                isFacingRightUp = false;
-                isFacingLeftDown = true;
-                isFacingRightDown = false;
+            //plays attack animation when pressing e
+            if(Greenfoot.isKeyDown("q")){//sword swing
+                swordAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(1);
             }
+            if(Greenfoot.isKeyDown("e")){//spear thrust
+                spearAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(2);
+            }
+            if(Greenfoot.isKeyDown("r")){//bow shot
+                bowAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(3);
+            }
+            walk();
         }
-        if (Greenfoot.isKeyDown("d")){//detect right
+        if(Greenfoot.isKeyDown("d")){//detect right
             moveRight();
             IceWorld.stopAttacking();
             isFacingUp = false;
             isFacingDown = false;
             isFacingLeft = false;
             isFacingRight = true;
-            walk();
-            if(Greenfoot.isKeyDown("w")){//detect up
-                isFacingLeftUp = false;
-                isFacingRightUp = true;
-                isFacingLeftDown = false;
-                isFacingRightDown = false;
-            }else if(Greenfoot.isKeyDown("s")){//detect down
-                isFacingLeftUp = false;
-                isFacingRightUp = false;
-                isFacingLeftDown = false;
-                isFacingRightDown = true;
+            //plays attack animation when pressing e
+            if(Greenfoot.isKeyDown("q")){//sword swing
+                swordAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(1);
             }
+            if(Greenfoot.isKeyDown("e")){//spear thrust
+                spearAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(2);
+            }
+            if(Greenfoot.isKeyDown("r")){//bow shot
+                bowAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(3);
+            }
+            walk();
         }
-        if (Greenfoot.isKeyDown("w")){//detect up
+        if(Greenfoot.isKeyDown("w")){//detect up
             moveUp();
             IceWorld.stopAttacking();
             isFacingUp = true;
             isFacingDown = false;
             isFacingLeft = false;
             isFacingRight = false;
-            walk();
-            if(Greenfoot.isKeyDown("a")){//detect left
-                isFacingLeftUp = true;
-                isFacingRightUp = false;
-                isFacingLeftDown = false;
-                isFacingRightDown = false;
-            }else if(Greenfoot.isKeyDown("d")){//detect right
-                isFacingLeftUp = false;
-                isFacingRightUp = true;
-                isFacingLeftDown = false;
-                isFacingRightDown = false;
+            //plays attack animation when pressing e
+            if(Greenfoot.isKeyDown("q")){//sword swing
+                swordAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(1);
             }
+            if(Greenfoot.isKeyDown("e")){//spear thrust
+                spearAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(2);
+            }
+            if(Greenfoot.isKeyDown("r")){//bow shot
+                bowAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(3);
+            }
+            walk();
         }
-        if (Greenfoot.isKeyDown("s")){//detect down
+        if(Greenfoot.isKeyDown("s")){//detect down
             moveDown();
             IceWorld.stopAttacking();
             isFacingUp = false;
             isFacingDown = true;
             isFacingLeft = false;
             isFacingRight = false;
-            walk();
-            if(Greenfoot.isKeyDown("a")){//detect left
-                isFacingLeftUp = false;
-                isFacingRightUp = false;
-                isFacingLeftDown = true;
-                isFacingRightDown = false;
-            }else if(Greenfoot.isKeyDown("d")){//detect right
-                isFacingLeftUp = false;
-                isFacingRightUp = false;
-                isFacingLeftDown = false;
-                isFacingRightDown = true;
+            //plays attack animation when pressing e
+            if(Greenfoot.isKeyDown("q")){//sword swing
+                swordAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(1);
             }
-        }
-        //plays attack animation when pressing e
-        if(Greenfoot.isKeyDown("q")){//sword swing
-            swordAttack();
-            IceWorld.attacking();
-            IceWorld.weapon(1);
-        }
-        if(Greenfoot.isKeyDown("e")){//spear thrust
-            spearAttack();
-            IceWorld.attacking();
-            IceWorld.weapon(2);
-        }
-        if(Greenfoot.isKeyDown("r")){//bow shot
-            bowAttack();
-            IceWorld.attacking();
-            IceWorld.weapon(3);
+            if(Greenfoot.isKeyDown("e")){//spear thrust
+                spearAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(2);
+            }
+            if(Greenfoot.isKeyDown("r")){//bow shot
+                bowAttack();
+                IceWorld.attacking();
+                IceWorld.weapon(3);
+            }
+            walk();
         }
         //temp dmg and heal
         if(Greenfoot.isKeyDown("1")){

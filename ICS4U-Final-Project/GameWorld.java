@@ -81,10 +81,10 @@ public class GameWorld extends World
         
         //stat bar
         //stamina
-        stamina = new SuperStatBar(500, 500, null, 150, 10, 0, Color.BLUE, Color.WHITE, false, Color.BLACK, 2);
+        stamina = new SuperStatBar(500, 500, null, 150, 10, 0, Color.GREEN, Color.BLACK, false, Color.GRAY, 3);
         addObject(stamina, 70, 15);
         //hp
-        health = new SuperStatBar (100, 100, null, 200, 15, 0, Color.GREEN, Color.WHITE, false, Color.BLACK, 2);
+        health = new SuperStatBar (100, 100, null, 200, 15, 0, Color.RED, Color.BLACK, false, Color.GRAY, 3);
         addObject(health, 95, 5);
         
         //Enter Portal
