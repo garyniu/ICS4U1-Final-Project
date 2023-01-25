@@ -12,7 +12,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MainMenu extends World
 {
-    Label titleLabel = new Label("Balls Gaming", 90);
+    Label titleLabel = new Label("The HellZone", 90);
     Button pb = new Button(new GreenfootImage("images/LobbyWorld1/playButton.png"), new GreenfootImage("images/LobbyWorld1/playButtonFade.png"));//play button
     
     
@@ -20,10 +20,10 @@ public class MainMenu extends World
     public MainMenu()
     {    
         // Create a new world with 600x533 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1);
+        super(600, 500, 1);
         setBackground(new GreenfootImage("images/background/MainMenu.jpg"));
-        addObject(titleLabel, 300, 200);
-        addObject(pb, 210, 300);
+        addObject(titleLabel, 300, 100);
+        addObject(pb, 300, 300);
         
     }
     

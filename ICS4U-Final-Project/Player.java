@@ -66,6 +66,7 @@ public class Player extends FreeMovement
     private static int hp = 100;
     private static int stamina = 500;
     private static boolean alive = true;//true=alive, false=dead
+    private int score = 10;
 
     //Player coordinates
     private Pair coords = new Pair(0, 0);
@@ -183,6 +184,10 @@ public class Player extends FreeMovement
         
         actionTimer = new SimpleTimer();
         actionTimer.mark();
+    }
+    
+    public void incrementScore(){
+        score++;
     }
 
     public void addedToWorld(World world){
@@ -337,6 +342,7 @@ public class Player extends FreeMovement
         GameWorld.updateHP(hp);
         IceWorld.updateHP(hp);
         SpiderWorld.updateHP(hp);
+        incrementScore();
     }
 
     //stamina change for player
@@ -372,7 +378,7 @@ public class Player extends FreeMovement
         System.out.println("hp: " + hp);
 
         if (alive == false){
-            Greenfoot.setWorld(new LossScreen());
+            Greenfoot.setWorld(new LossScreen(score));
         }
 
         //movement
