@@ -65,7 +65,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * 
  * 
  * @author Justin, Leo, Gary, Victor
- * @version (a version number or a date)
+ * @version December 31
  */
 public class GameWorld extends World
 {

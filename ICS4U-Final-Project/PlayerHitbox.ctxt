@@ -6,5 +6,5 @@ comment1.target=PlayerHitbox(int,\ int)
 comment1.text=\r\n\ Constructor\ for\ PlayerHitBox\r\n\ @param\ x\ X\ value\ \r\n\ @param\ y\ Y\ value\ \r\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ \r\n
+comment2.text=\r\n\ Act\ Method\ for\ PlayerHitBox\r\n
 numComments=3

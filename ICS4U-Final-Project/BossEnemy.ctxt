@@ -9,5 +9,5 @@ comment2.target=void\ act()
 comment2.text=\r\n\ Act\ Method\ \r\n
 comment3.params=
 comment3.target=void\ AttackPlayer()
-comment3.text=\r\n\ \r\n
+comment3.text=\r\n\ Attack\ Player\ method\ \r\n
 numComments=4

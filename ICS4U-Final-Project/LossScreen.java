@@ -4,12 +4,10 @@ import greenfoot.UserInfo;
 import greenfoot.GreenfootImage;
 
 /**
- * Write a description of class LossScreen here.
+ * Loss Screen (borrowed from Mr. Cohen)
  * 
- * From mr cohen
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Mr Cohen
+ * @version January 9
  */
 public class LossScreen extends World
 {
