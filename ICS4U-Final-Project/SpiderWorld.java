@@ -162,8 +162,8 @@ public class SpiderWorld extends World
         
 
         
-
-        
+        playerTest.changeSpawnCoords(this.getWidth()/2, this.getHeight()/2);
+        playerTest2.changeSpawnCoords(this.getWidth()/2, this.getHeight()/2);
 
         
  
