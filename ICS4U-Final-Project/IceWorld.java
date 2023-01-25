@@ -70,6 +70,10 @@ public class IceWorld extends World
     private static boolean playerAttacking = false;
     private static int weapon = 0;
     
+    //stat bar
+    private static SuperStatBar health;
+    private static SuperStatBar stamina;
+    
     /**
      * Constructor for objects of class PortalTest.
      * 
@@ -80,7 +84,15 @@ public class IceWorld extends World
         super(1920, 1080, 1, false); 
         
         
-        setPaintOrder(Dungeon1Cover1.class, PlayerHitbox.class, Player.class, Others.class, WorldBackground.class);
+        setPaintOrder(SuperStatBar.class, Dungeon1Cover1.class, PlayerHitbox.class, Player.class, Others.class, WorldBackground.class);
+        
+        //stat bar
+        //stamina
+        stamina = new SuperStatBar(500, 500, null, 150, 10, 0, Color.GREEN, Color.BLACK, false, Color.GRAY, 3);
+        addObject(stamina, 70, 15);
+        //hp
+        health = new SuperStatBar (100, 100, null, 200, 15, 0, Color.RED, Color.BLACK, false, Color.GRAY, 3);
+        addObject(health, 95, 5);
         
         GreenfootImage bg = new GreenfootImage(640, 500);
         bg.setColor(Color.BLACK);
@@ -353,6 +365,15 @@ public class IceWorld extends World
     }
     public static void weapon(int type){
         weapon = type;
+    }
+    
+    //update player hp bar
+    public static void updateHP(int hp){
+        health.update((int)(hp));
+    }
+    //update stamina bar
+    public static void updateStamina(int st){
+        stamina.update((int)(st));
     }
     
     //puts the user onto the grid based on coords

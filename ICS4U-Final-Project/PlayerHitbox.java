@@ -20,7 +20,7 @@ public class PlayerHitbox extends FreeMovement
     
     //player speed variables
     private int playerSpeed = 2;
-    private int sprintSpeed = 4;
+    private int sprintSpeed = 3;
     private boolean sprinting = false;
 
     public PlayerHitbox(int x, int y){
