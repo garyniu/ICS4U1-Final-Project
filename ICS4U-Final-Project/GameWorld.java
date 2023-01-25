@@ -57,10 +57,6 @@ public class GameWorld extends World
     
     private int xd = 0, yd = 0;
     
-    //stat bar
-    private static SuperStatBar health;
-    private static SuperStatBar stamina;
-    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -70,7 +66,7 @@ public class GameWorld extends World
         // Create a new world with 720x405 cells with a cell size of 1x1 pixels.
         super(600, 500, 1, false);
         
-        setPaintOrder(SuperStatBar.class, Fog.class, Boundary.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
+        setPaintOrder(Fog.class, Boundary.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
 
         wbg = new WorldBackground(background);
 
@@ -78,14 +74,6 @@ public class GameWorld extends World
         bg.setColor(Color.BLACK);
         bg.fill();
         setBackground(bg);
-        
-        //stat bar
-        //stamina
-        stamina = new SuperStatBar(500, 500, null, 150, 10, 0, Color.GREEN, Color.BLACK, false, Color.GRAY, 3);
-        addObject(stamina, 70, 15);
-        //hp
-        health = new SuperStatBar (100, 100, null, 200, 15, 0, Color.RED, Color.BLACK, false, Color.GRAY, 3);
-        addObject(health, 95, 5);
         
         //Enter Portal
         Others ep = new EnterPortal();
@@ -184,15 +172,6 @@ public class GameWorld extends World
         }
         
         moveThing(xd, yd);
-    }
-    
-    //update player hp bar
-    public static void updateHP(int hp){
-        health.update((int)(hp));
-    }
-    //update stamina bar
-    public static void updateStamina(int st){
-        stamina.update((int)(st));
     }
     
     public void act()

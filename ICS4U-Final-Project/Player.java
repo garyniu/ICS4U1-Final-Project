@@ -33,7 +33,7 @@ public class Player extends FreeMovement
     private GreenfootImage[] bowAttackDownImages;
     private GreenfootImage[] bowAttackRightImages;
     private GreenfootImage[] bowAttackLeftImages;
-    
+
     //gifs for a bunch of animations
     //BROWN PLAYER
     //brown bow
@@ -56,7 +56,7 @@ public class Player extends FreeMovement
     GifImage brownWalkDown = new GifImage("images/PlayerAnimations/walk/brown/brownWalkDown.gif");
     GifImage brownWalkRight = new GifImage("images/PlayerAnimations/walk/brown/brownWalkRight.gif");
     GifImage brownWalkLeft = new GifImage("images/PlayerAnimations/walk/brown/brownWalkLeft.gif");
-    
+
     //GOLD PLAYER
     //gold bow
     GifImage goldBowUp = new GifImage("images/PlayerAnimations/bowAttack/gold/goldBowUp.gif");
@@ -78,7 +78,7 @@ public class Player extends FreeMovement
     GifImage goldWalkDown = new GifImage("images/PlayerAnimations/walk/gold/goldWalkDown.gif");
     GifImage goldWalkRight = new GifImage("images/PlayerAnimations/walk/gold/goldWalkRight.gif");
     GifImage goldWalkLeft = new GifImage("images/PlayerAnimations/walk/gold/goldWalkLeft.gif");
-    
+
     //SILVER PLAYER
     //silver bow
     GifImage silverBowUp = new GifImage("images/PlayerAnimations/bowAttack/silver/silverBowUp.gif");
@@ -100,7 +100,7 @@ public class Player extends FreeMovement
     GifImage silverWalkDown = new GifImage("images/PlayerAnimations/walk/silver/silverWalkDown.gif");
     GifImage silverWalkRight = new GifImage("images/PlayerAnimations/walk/silver/silverWalkRight.gif");
     GifImage silverWalkLeft = new GifImage("images/PlayerAnimations/walk/silver/silverWalkLeft.gif");
-    
+
     //vertical + horizontal booleans
     private boolean isFacingUp, isFacingDown, isFacingLeft, isFacingRight = false;
     //diagonal booleans
@@ -246,11 +246,10 @@ public class Player extends FreeMovement
         setImage(rightImages[0]);
 
         
-        
         actionTimer = new SimpleTimer();
         actionTimer.mark();
     }
-    
+
     public void incrementScore(){
         score++;
     }
@@ -258,22 +257,25 @@ public class Player extends FreeMovement
     public void addedToWorld(World world){
         getWorld().addObject(new Fog(), getWorld().getWidth()/2, getWorld().getHeight()/2);
     }
-    
+
     //movement
     public void moveLeft(){
         posx -= speed;
         dir = "R";
     }
+
     public void moveRight(){
         posx += speed;
         dir = "L";
     }
+
     public void moveUp(){
         //posy-=2; 
 
         setLocationCam(posx, posy -= speed, Spawnx, Spawny);
         dir = "D";
     }
+
     public void moveDown(){
         //posy+=2;
 
@@ -391,7 +393,6 @@ public class Player extends FreeMovement
             hp = 0;
             alive = false;
         }
-        GameWorld.updateHP(hp);
         IceWorld.updateHP(hp);
         SpiderWorld.updateHP(hp);
     }
@@ -401,7 +402,6 @@ public class Player extends FreeMovement
         if(hp > 100){
             hp = 100;
         }
-        GameWorld.updateHP(hp);
         IceWorld.updateHP(hp);
         SpiderWorld.updateHP(hp);
         incrementScore();
@@ -415,7 +415,6 @@ public class Player extends FreeMovement
             FreeMovement.setPlayerSpeed(playerSpeed);
             sprinting = false;
         }
-        GameWorld.updateStamina(stamina);
         IceWorld.updateStamina(stamina);
         SpiderWorld.updateStamina(stamina);
     }
@@ -425,9 +424,14 @@ public class Player extends FreeMovement
         if(stamina > 500){
             stamina = 500;
         }
-        GameWorld.updateStamina(stamina);
         IceWorld.updateStamina(stamina);
         SpiderWorld.updateStamina(stamina);
+    }
+
+    public void hitEnemy(int dmg){
+        if(!getIntersectingObjects(Enemy.class).isEmpty()){
+            Enemy.takeDamage(dmg);
+        }
     }
 
     public void act()
@@ -448,7 +452,6 @@ public class Player extends FreeMovement
         //when moving diagonally(looks better since there is no horizontal animation)
         if(Greenfoot.isKeyDown("a")){//detect left
             moveLeft();
-            IceWorld.stopAttacking();
             isFacingUp = false;
             isFacingDown = false;
             isFacingLeft = true;
@@ -456,24 +459,20 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(1);
+                hitEnemy(30);
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(2);
+                hitEnemy(20);
             }
-            if(Greenfoot.isKeyDown("r")){//bow shot
+            /*if(Greenfoot.isKeyDown("r")){//bow shot
                 bowAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(3);
-            }
+                hitEnemy(10);
+            }*/
             walk();
         }
         if(Greenfoot.isKeyDown("d")){//detect right
             moveRight();
-            IceWorld.stopAttacking();
             isFacingUp = false;
             isFacingDown = false;
             isFacingLeft = false;
@@ -481,24 +480,20 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(1);
+                hitEnemy(30);
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(2);
+                hitEnemy(20);
             }
-            if(Greenfoot.isKeyDown("r")){//bow shot
+            /*if(Greenfoot.isKeyDown("r")){//bow shot
                 bowAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(3);
-            }
+                hitEnemy(10);
+            }*/
             walk();
         }
         if(Greenfoot.isKeyDown("w")){//detect up
             moveUp();
-            IceWorld.stopAttacking();
             isFacingUp = true;
             isFacingDown = false;
             isFacingLeft = false;
@@ -506,24 +501,20 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(1);
+                hitEnemy(30);
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(2);
+                hitEnemy(20);
             }
-            if(Greenfoot.isKeyDown("r")){//bow shot
+            /*if(Greenfoot.isKeyDown("r")){//bow shot
                 bowAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(3);
-            }
+                hitEnemy(10);
+            }*/
             walk();
         }
         if(Greenfoot.isKeyDown("s")){//detect down
             moveDown();
-            IceWorld.stopAttacking();
             isFacingUp = false;
             isFacingDown = true;
             isFacingLeft = false;
@@ -531,45 +522,32 @@ public class Player extends FreeMovement
             //plays attack animation when pressing e
             if(Greenfoot.isKeyDown("q")){//sword swing
                 swordAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(1);
+                hitEnemy(30);
             }
             if(Greenfoot.isKeyDown("e")){//spear thrust
                 spearAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(2);
+                hitEnemy(20);
             }
-            if(Greenfoot.isKeyDown("r")){//bow shot
+            /*if(Greenfoot.isKeyDown("r")){//bow shot
                 bowAttack();
-                IceWorld.attacking();
-                IceWorld.weapon(3);
-            }
+                hitEnemy(10);
+            }*/
             walk();
         }
         //attack
         if(Greenfoot.isKeyDown("q")){//sword swing
             swordAttack();
-            IceWorld.attacking();
-            IceWorld.weapon(1);
+            hitEnemy(30);
         }
         if(Greenfoot.isKeyDown("e")){//spear thrust
             spearAttack();
-            IceWorld.attacking();
-            IceWorld.weapon(2);
+            hitEnemy(20);
         }
-        if(Greenfoot.isKeyDown("r")){//bow shot
+        /*if(Greenfoot.isKeyDown("r")){//bow shot
             bowAttack();
-            IceWorld.attacking();
-            IceWorld.weapon(3);
-        }
-        //temp dmg and heal
-        if(Greenfoot.isKeyDown("1")){
-            damagePlayer(1);
-        }
-        if(Greenfoot.isKeyDown("2")){
-            healPlayer(1);
-        }
-        //sprint
+            hitEnemy(10);
+        }*/
+        //sprint(hold to sprint)
         if(Greenfoot.isKeyDown("Shift")){
             FreeMovement.setPlayerSpeed(sprintSpeed);//sprinting speed
             loseStamina(1);
