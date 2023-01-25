@@ -126,7 +126,7 @@ public class SpiderWorld extends World
     public SpiderWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1922, 1450, 1, false); 
+        super(600, 500, 1, false); 
         
         
         setPaintOrder(SuperStatBar.class, Boundary.class, PlayerHitbox.class, Player.class,Others.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
