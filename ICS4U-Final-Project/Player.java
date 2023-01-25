@@ -179,10 +179,16 @@ public class Player extends FreeMovement
 
         setImage(rightImages[0]);
 
+        
+        
         actionTimer = new SimpleTimer();
         actionTimer.mark();
     }
 
+    public void addedToWorld(World world){
+        getWorld().addObject(new Fog(), getWorld().getWidth()/2, getWorld().getHeight()/2);
+    }
+    
     //movement
     public void moveLeft(){
         posx -= speed;

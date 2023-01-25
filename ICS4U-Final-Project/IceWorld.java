@@ -85,7 +85,7 @@ public class IceWorld extends World
         
         
 
-        setPaintOrder(SuperStatBar.class, Wall.class, DungeonCover5.class, DungeonCover4.class, DungeonCover3.class, DungeonCover1.class, DungeonCover2.class, PlayerHitbox.class, Player.class, Others.class, WorldBackground.class);
+        setPaintOrder(SuperStatBar.class, Fog.class, Wall.class, DungeonCover5.class, DungeonCover4.class, DungeonCover3.class, DungeonCover1.class, DungeonCover2.class, PlayerHitbox.class, Player.class, Others.class, WorldBackground.class);
 
         
         //stat bar
@@ -399,6 +399,8 @@ public class IceWorld extends World
         
         SpiderWorld spy1 = new SpiderWorld();
         spy1.addObject(portal, 270, 400);
+        
+        //addObject(new Fog(0, 0), getWidth()/2, getHeight()/2);
         
         
         for(int x = 0; x < 32; x++){
