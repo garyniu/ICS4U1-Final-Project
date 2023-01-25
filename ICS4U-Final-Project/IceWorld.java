@@ -467,11 +467,8 @@ public class IceWorld extends World
         // System.out.println("mx " + getBlockCoord(1, 1).getX());
         //System.out.println("mky " + getBlockCoord(1, 1).getY());
 
-        //System.out.println("fuckx " + getBlockCoord(1, 2).getX());
-        //System.out.println("fucky " + getBlockCoord(1, 2).getY());
         checkUserGrid();
 
-        //System.out.println("fuck " + getBlockCoord(5, 6).getX());
 
         //checkUserOntoGrid();
 

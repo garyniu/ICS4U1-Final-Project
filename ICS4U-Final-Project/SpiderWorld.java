@@ -154,7 +154,7 @@ public class SpiderWorld extends World
         Others ep2 = new EnterPortalGreen();
         addObject(ep2, -580, 510);
         
-        FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
+        FreeMovement playerTest = new PlayerHitbox(this.getWidth()/2, this.getHeight()/2);
 
         addObject(playerTest, this.getWidth()/2, this.getHeight()/2);
         addObject(wbg3, this.getWidth()/2, this.getHeight()/2);
