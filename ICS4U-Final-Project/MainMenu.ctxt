@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=MainMenu
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ TitleScreen\ here.\r\n\ \r\n\ This\ is\ the\ main\ menu\ of\ the\ game\ with\ buttons\ leading\ to\ play\ the\ game,\ and\ instructions/controls\r\n\r\n\ @author\ Leo\ Xu\r\n\ @date\ June\ 15\ 2022\r\n\r\nMUSIC\ CREDITS\ \r\nmain\ theme\ (https\://www.youtube.com/watch?v\=mRsdCgQA524)\r\n\r\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ TitleScreen\ here.\r\n\ \r\n\ This\ is\ the\ main\ menu\ of\ the\ game\ with\ buttons\ leading\ to\ play\ the\ game,\ and\ instructions/controls\r\n\r\n\ @author\ Leo\ Xu\r\n\ @date\ June\ 15\ 2022\r\n\ \r\n\ @IMAGE\ CREDITS\r\n\ https\://www.google.com/url?q\=https\://www.reddit.com/r/vectorwallpapers/comments/bpugqj/neon_city_skyline_3840x2160/&sa\=D&source\=docs&ust\=1674688016616654&usg\=AOvVaw0vxBPUTnOitxxVml_1gs3U\r\n\r\nMUSIC\ CREDITS\ \r\nmain\ theme\ (https\://www.youtube.com/watch?v\=mRsdCgQA524)\r\n\r\n
 comment1.params=
 comment1.target=MainMenu()
 comment1.text=\r\n\ Simple\ Constructor\ \r\n

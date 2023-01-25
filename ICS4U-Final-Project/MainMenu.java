@@ -7,6 +7,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  *
  * @author Leo Xu
  * @date June 15 2022
+ * 
+ * @IMAGE CREDITS
+ * https://www.google.com/url?q=https://www.reddit.com/r/vectorwallpapers/comments/bpugqj/neon_city_skyline_3840x2160/&sa=D&source=docs&ust=1674688016616654&usg=AOvVaw0vxBPUTnOitxxVml_1gs3U
  *
  *MUSIC CREDITS 
  *main theme (https://www.youtube.com/watch?v=mRsdCgQA524)
