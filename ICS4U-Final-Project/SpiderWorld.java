@@ -400,7 +400,7 @@ public class SpiderWorld extends World
     public void act()
     {
         IceWorld.stopMusic();
-<<<<<<< Updated upstream
+
         
         p = (ArrayList<Player>)getObjects(Player.class);
         pl = p.get(0);
@@ -408,8 +408,7 @@ public class SpiderWorld extends World
         if (getObjects(Enemy.class) == null){
             Greenfoot.setWorld(new LossScreen(pl.getScore()));
         }
-=======
->>>>>>> Stashed changes
+
     }
     /**
      * Move an Object to an X and Y Value

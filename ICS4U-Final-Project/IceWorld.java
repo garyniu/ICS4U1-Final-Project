@@ -453,7 +453,7 @@ public class IceWorld extends World
         //System.out.println("offset xy: " + offX + " " + offY);
 
         timer++;
-<<<<<<< Updated upstream
+
         
         p = (ArrayList<Player>)getObjects(Player.class);
         pl = p.get(0);
@@ -461,9 +461,7 @@ public class IceWorld extends World
         if (getObjects(Enemy.class) == null){
             Greenfoot.setWorld(new LossScreen(pl.getScore()));
         }
-=======
 
->>>>>>> Stashed changes
 
 
         // System.out.println("mx " + getBlockCoord(1, 1).getX());
