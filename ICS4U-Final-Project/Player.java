@@ -50,7 +50,7 @@ public class Player extends FreeMovement
     private int atkSize = 180;//size for sword and spear animation
     //player speed variables
     private int playerSpeed = 2;
-    private int sprintSpeed = 5;
+    private int sprintSpeed = 3;
     private boolean sprinting = false;
     //player damage variables(for enemy)
     private int swordDamage = 10;
@@ -290,12 +290,12 @@ public class Player extends FreeMovement
                 setImage(bowAttackDownImages[curIndex3]);
             }
 
-        curIndex3++;
-        if(curIndex3 == 13){
-            curIndex3 = 0;
-        
+            curIndex3++;
+            if(curIndex3 == 13){
+                curIndex3 = 0;
 
-            actionTimer.mark();
+                actionTimer.mark();
+            }
         }
     }
     //set weapon damage
@@ -319,14 +319,17 @@ public class Player extends FreeMovement
             alive = false;
         }
         GameWorld.updateHP(hp);
+        IceWorld.updateHP(hp);
+        SpiderWorld.updateHP(hp);
     }
-
     public void healPlayer(int heal){//gain hp
         hp += heal;
         if(hp > 100){
             hp = 100;
         }
         GameWorld.updateHP(hp);
+        IceWorld.updateHP(hp);
+        SpiderWorld.updateHP(hp);
     }
 
     //stamina change for player
@@ -338,16 +341,17 @@ public class Player extends FreeMovement
             sprinting = false;
         }
         GameWorld.updateStamina(stamina);
-
+        IceWorld.updateStamina(stamina);
+        SpiderWorld.updateStamina(stamina);
     }
-
     public void gainStamina(int gain){
         stamina += gain;
         if(stamina > 500){
             stamina = 500;
         }
         GameWorld.updateStamina(stamina);
-
+        IceWorld.updateStamina(stamina);
+        SpiderWorld.updateStamina(stamina);
     }
 
     public void act()

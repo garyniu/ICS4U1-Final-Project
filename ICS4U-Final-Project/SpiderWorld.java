@@ -112,7 +112,9 @@ public class SpiderWorld extends World
         
     public SmallWall[][] wallListFour = new SmallWall[90][90];
     
-    
+    //stat bar
+    private static SuperStatBar health;
+    private static SuperStatBar stamina;
     
     
     /**
@@ -125,7 +127,7 @@ public class SpiderWorld extends World
         super(1922, 1450, 1, false); 
         
         
-        setPaintOrder(Boundary.class, PlayerHitbox.class, Player.class,Others.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
+        setPaintOrder(SuperStatBar.class, Boundary.class, PlayerHitbox.class, Player.class,Others.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
         
         wbg3 = new WorldBackground(background);
         
@@ -133,6 +135,14 @@ public class SpiderWorld extends World
         bg.setColor(Color.BLACK);
         bg.fill();
         setBackground(bg);
+        
+        //stat bar
+        //stamina
+        stamina = new SuperStatBar(500, 500, null, 150, 10, 0, Color.GREEN, Color.BLACK, false, Color.GRAY, 3);
+        addObject(stamina, 70, 15);
+        //hp
+        health = new SuperStatBar (100, 100, null, 200, 15, 0, Color.RED, Color.BLACK, false, Color.GRAY, 3);
+        addObject(health, 95, 5);
         
         Others ep2 = new EnterPortalGreen();
         addObject(ep2, 400, -120);
@@ -168,6 +178,15 @@ public class SpiderWorld extends World
                 
             }
         }
+    }
+    
+    //update player hp bar
+    public static void updateHP(int hp){
+        health.update((int)(hp));
+    }
+    //update stamina bar
+    public static void updateStamina(int st){
+        stamina.update((int)(st));
     }
     
     public void act()
