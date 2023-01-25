@@ -33,7 +33,12 @@ public class Player extends FreeMovement
     private GreenfootImage[] bowAttackDownImages;
     private GreenfootImage[] bowAttackRightImages;
     private GreenfootImage[] bowAttackLeftImages;
-
+    
+    //gifs for a bunch of attacks
+    GifImage brownBowUp = new GifImage("images/PlayerAnimations/bomAttack/brown/brownBowUp.gif");
+    GifImage brownBowDown = new GifImage("images/PlayerAnimations/bomAttack/brown/brownBowDown.gif");
+    GifImage brownBowRight = new GifImage("images/PlayerAnimations/bomAttack/brown/brownBowRight.gif");
+    GifImage brownBowLeft = new GifImage("images/PlayerAnimations/bomAttack/brown/brownBowRight.gif");
     //GifImage bowRight = new GifImage("images/PlayerAnimations/bowAttack/right.gif");
 
     //vertical + horizontal booleans
