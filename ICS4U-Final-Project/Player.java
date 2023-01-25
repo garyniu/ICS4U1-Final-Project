@@ -150,12 +150,12 @@ public class Player extends FreeMovement
     private GreenfootSound weaponSwing = new GreenfootSound("sounds/WeaponAttack.wav");
     private GreenfootSound playerDeath = new GreenfootSound("sounds/OOF.wav");
     private GreenfootSound playerWalking = new GreenfootSound("sounds/walk.wav");
-    
+
     //Player coordinates
     private Pair coords = new Pair(0, 0);
-    
+
     private EnemySphere ed;
-    
+
     /**
      * Constructor for Player
      * @param x X coordinate
@@ -165,9 +165,9 @@ public class Player extends FreeMovement
         super(x, y);
 
         ogtimer = timer;
-        
+
         ed = new EnemySphere();
-        
+
         //walk
         upImages = new GreenfootImage[9];
         downImages = new GreenfootImage[9];
@@ -288,7 +288,7 @@ public class Player extends FreeMovement
     public void incrementScore(){
         score++;
     }
-    
+
     public int getScore(){
         return score;
     }
@@ -299,7 +299,7 @@ public class Player extends FreeMovement
      */
     public void addedToWorld(World world){
         getWorld().addObject(new Fog(), getWorld().getWidth()/2, getWorld().getHeight()/2);
-    
+
     }
 
     /**
@@ -362,7 +362,7 @@ public class Player extends FreeMovement
 
             playerWalking.setVolume(100);
             playerWalking.play();
-            
+
             curIndex++;
             if(curIndex == 9){
                 curIndex = 0;
@@ -553,10 +553,11 @@ public class Player extends FreeMovement
             for (Enemy enemy : en){
                 enemy.takeDamage(swordDamage);
                 System.out.println("hp: " + enemy.getHP());
-
+                if(enemy.getHP() <= 0){
+                    Enemy.isDead();
+                }
             }
 
-                
             this.incrementScore();
         }
         timer = ogtimer;
@@ -723,6 +724,5 @@ public class Player extends FreeMovement
             }
         }
     }
-    
-    
+
 }

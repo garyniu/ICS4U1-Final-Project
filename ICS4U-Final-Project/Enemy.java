@@ -21,6 +21,9 @@ public class Enemy extends GridMovement
     private int hp = 100;
     private int dtimer = 40, ogdtimer;
     private int type = 0;
+    
+    private static boolean dead = false;
+    private boolean deaded = false;
 
     //Sounds for Enemy
     private GreenfootSound enemyIdle = new GreenfootSound("sounds/EnemyGrunt.wav");
@@ -69,17 +72,18 @@ public class Enemy extends GridMovement
         //System.out.println("grid coords: " + xc + " " + yc);
 
         //y++;
-
-        
-        if (hp <= 0){
-
-            System.out.println("dead");
+        if(dead){
             enemyDeath.setVolume(30);
             enemyDeath.play();
             getWorld().removeObject(this);
         }
+        
     }
 
+    public static void isDead(){
+        dead = true;
+    }
+    
     public int getHP(){
         return hp;
     }
