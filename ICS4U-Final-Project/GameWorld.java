@@ -6,7 +6,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * 
  * KNOWN ISSUES:
  * Bow does not work as intended, therefore it is commented out
- * attacking an enemy will cause all enemies to disappear
+ * Attacking an enemy will cause all enemies to disappear
+ * Ending screen button returns to main screen, but it will not play again even if you press the play button
  * 
  * CREDITS:
  * Player Sprite:
