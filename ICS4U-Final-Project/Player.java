@@ -208,7 +208,7 @@ public class Player extends FreeMovement
      */
     public Player(int x, int y){
         super(x, y);
-        
+
         ogtimer = timer;
         
         ed = new EnemySphere();
@@ -233,9 +233,9 @@ public class Player extends FreeMovement
         bowAttackDownImages = new GreenfootImage[13];
         bowAttackRightImages = new GreenfootImage[13];
         bowAttackLeftImages = new GreenfootImage[13];
-        
+
         swordDamage = 10;
-        
+
         //walk
         for(int i = 0; i < downImages.length; i++)//main charater walking down animation 
         {
@@ -554,7 +554,6 @@ public class Player extends FreeMovement
 
         //GameWorld.updateStamina(stamina);
 
-
         IceWorld.updateStamina(stamina);
         SpiderWorld.updateStamina(stamina);
     }
@@ -580,29 +579,31 @@ public class Player extends FreeMovement
 
     private Enemy temp;
     private ArrayList <Enemy> en;
-    
+
     /**
      * allows the Playerto detect when it collides with the Enemy Class
      */
     public void hitEnemy(){
-        
-        en = (ArrayList<Enemy>)getObjectsInRange(250, Enemy.class);
-        
-        
-                System.out.println("gesters");
-                en = (ArrayList<Enemy>)getObjectsInRange(250, Enemy.class);
-                temp = en.get(0);
-                temp.takeDamage(swordDamage);
+
+        //if (timer <= 0){
+        if(!(getObjectsInRange(200, Enemy.class).isEmpty())){
+            System.out.println("gesters");
+            en = (ArrayList<Enemy>)getObjectsInRange(200, Enemy.class);
+
+            for (Enemy enemy : en){
+                enemy.takeDamage(swordDamage);
+                System.out.println("hp: " + enemy.getHP());
+
+            }
+
                 
-                System.out.println("hp: " + temp.getHP());
-                
-                
-                this.incrementScore();
-            
-            timer = ogtimer;
+            this.incrementScore();
+        }
+        timer = ogtimer;
         //}
-        
+
     }
+
     /**
      * Adds damage to sword
      * @param add Amt of damage to add
@@ -611,6 +612,7 @@ public class Player extends FreeMovement
     {
         swordDamage += add;
     }
+
     /**
      * Act method 
      */
@@ -622,10 +624,11 @@ public class Player extends FreeMovement
         String dashed = Greenfoot.getKey();
 
         //System.out.println("hp: " + hp);
-        
+
         String lastKey = Greenfoot.getKey();
         if (alive == false){
             Greenfoot.setWorld(new LossScreen(score));
+            alive = true;
         }
 
         //movement
@@ -743,9 +746,9 @@ public class Player extends FreeMovement
             sprinting = false;
         }
         Actor chest = getOneIntersectingObject(Items.class);
-        
+
         getWorld().showText(speed + "", 200, 400);
-        
+
         if(chest != null)
         {
             int oldSpeed = 0;

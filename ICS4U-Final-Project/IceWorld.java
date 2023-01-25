@@ -6,6 +6,9 @@ import java.util.ArrayList;
  * 
  * First playable world
  * 
+ * MUSIC CREDITS:
+ * main theme (https://www.youtube.com/watch?v=uz2nAshTxNE)
+ * 
  * @author Leo Xu, Gary,Niu
  * @version 1
  *
@@ -14,6 +17,8 @@ public class IceWorld extends World
 {
 
     private GreenfootImage background = new GreenfootImage("images/background/Dungeon1.jpg");
+    
+    private static GreenfootSound winter = new GreenfootSound("sounds/dragon1.mp3");
 
     private WorldBackground wbg2;
 
@@ -23,6 +28,7 @@ public class IceWorld extends World
     private int xd = 0, yd = 0;
 
     private int x = 940;
+    
 
     public int[][] mapTwo={
             {0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -82,8 +88,9 @@ public class IceWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 500, 1, false); 
 
-        setPaintOrder(EnemySphere.class, SuperStatBar.class, Fog.class, DungeonCover5.class, DungeonCover4.class, DungeonCover3.class, DungeonCover1.class, DungeonCover2.class, PlayerHitbox.class, Player.class, Others.class, WorldBackground.class, Wall.class);
-
+        setPaintOrder(SuperStatBar.class, Fog.class, DungeonCover5.class, DungeonCover4.class, DungeonCover3.class, DungeonCover1.class, DungeonCover2.class, PlayerHitbox.class, Player.class, Others.class, WorldBackground.class, Wall.class);
+        
+        GameWorld.stopMusic();
         //stat bar
         //stamina
         stamina = new SuperStatBar(500, 500, null, 150, 10, 0, Color.GREEN, Color.BLACK, false, Color.GRAY, 3);
@@ -428,7 +435,9 @@ public class IceWorld extends World
      */
     public void act()
     {
-
+        GameWorld.stopMusic();
+        started();
+        
         if (timer == 1){
             //get orgin
             ox = wbg2.getX();
@@ -611,6 +620,35 @@ public class IceWorld extends World
      */
     public void setGridPosition(int x, int y, int v){
         mapTwo[x][y] = v;
+    }
+    
+    /**
+     * Starts the theme music when world starts
+     * 
+     */
+    public void started()//starts the theme music when world starts
+    {
+        winter.playLoop();
+        winter.setVolume(40);
+    }
+    
+    /**
+     * Stops the theme music when paused
+     * 
+     */
+    public void stopped()// stops the theme music when paused
+    {
+        winter.stop();
+    }
+    
+    
+    /**
+     * Stops the theme music for other worlds
+     * 
+     */
+    public static void stopMusic()// stops the theme sound when paused
+    {
+        winter.stop();
     }
 
 }

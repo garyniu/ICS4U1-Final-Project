@@ -63,6 +63,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * - https://opengameart.org/content/lpc-santa
  * - http://opengameart.org/content/lpc-clothing-updates
  * 
+ * MUSIC CREDITS:
+ * main theme (https://www.youtube.com/watch?v=Q7eJg7hRvqE)
  * 
  * @author Justin, Leo, Gary, Victor
  * @version December 31
@@ -116,6 +118,7 @@ public class GameWorld extends World
     private static SuperStatBar health;
     private static SuperStatBar stamina;
     
+    private static GreenfootSound waitMusic;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -125,11 +128,11 @@ public class GameWorld extends World
         // Create a new world with 720x405 cells with a cell size of 1x1 pixels.
         super(600, 500, 1, false);
 
-
+                
         //setPaintOrder(Fog.class, Boundary.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Items.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
         setPaintOrder(EnemySphere.class, SuperStatBar.class, Fog.class, Boundary.class, GameCover1.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
 
-
+        waitMusic = new GreenfootSound("sounds/waiting.mp3");
         wbg = new WorldBackground(background);
 
         GreenfootImage bg = new GreenfootImage(640, 500);
@@ -263,12 +266,15 @@ public class GameWorld extends World
      */
     public void act()
     {
+        started();
         MouseInfo m = Greenfoot.getMouseInfo();
         if (m != null)
         {
             showText("mouseX: " + String.valueOf(m.getX()), 120, 30);
             showText("mouseY: " + String.valueOf(m.getY()), 120, 70);
         }
+        
+        
     }
     /**
      * Set an Object at an X and Y Value
@@ -331,5 +337,34 @@ public class GameWorld extends World
      */
     public Pair getMapBlockSize(){
         return new Pair(wallListTwo[0][0].getImage().getWidth(), wallListTwo[0][0].getImage().getHeight());
+    }
+    
+    /**
+     * Starts the theme music when world starts
+     * 
+     */
+    public void started()//starts the theme music when world starts
+    {
+        waitMusic.playLoop();
+        waitMusic.setVolume(40);
+    }
+    
+    /**
+     * Stops the theme music when paused
+     * 
+     */
+    public void stopped()// stops the theme music when paused
+    {
+        waitMusic.stop();
+    }
+    
+    
+    /**
+     * Stops the theme music for other worlds
+     * 
+     */
+    public static void stopMusic()// stops the theme sound when paused
+    {
+        waitMusic.stop();
     }
 }
