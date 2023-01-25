@@ -85,7 +85,7 @@ public class IceWorld extends World
         
         
 
-        setPaintOrder(Wall.class, DungeonCover5.class, DungeonCover4.class, DungeonCover3.class, DungeonCover1.class, DungeonCover2.class, PlayerHitbox.class, Player.class, Others.class, WorldBackground.class);
+        setPaintOrder(SuperStatBar.class, Wall.class, DungeonCover5.class, DungeonCover4.class, DungeonCover3.class, DungeonCover1.class, DungeonCover2.class, PlayerHitbox.class, Player.class, Others.class, WorldBackground.class);
 
         
         //stat bar
@@ -134,7 +134,8 @@ public class IceWorld extends World
         
         //change enemy to spawn anaywhere, and it moves itself to correct spot
         //addObject(new BossEnemy(300, 200, getMapBlockSize(), getMapOrigin()), 300, 200);//<- This doesn't work
-        addObject(new Enemy(1, 1), 0, 0);
+        
+        addObject(new Enemy(1, 1, 0), 0, 0);
         //player
         FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);//remove
         addObject(playerTest, this.getWidth()/2, this.getHeight()/2);//remove
@@ -413,8 +414,8 @@ public class IceWorld extends World
                     //X values: higher the value the more it shifts right, Y values: the higher the more the it shifts down
                     
                     if (Greenfoot.getRandomNumber(10) == 1 && (Math.abs(x-11) > 3 && Math.abs(y-32) > 2)){
-                        //mapTwo[x][y] = 9;
-                        //addObject(new Enemy(x, y), 0, 0);
+                        mapTwo[x][y] = 9;
+                        addObject(new Enemy(x, y, Greenfoot.getRandomNumber(3)), 0, 0);
                     }
                     
                 }

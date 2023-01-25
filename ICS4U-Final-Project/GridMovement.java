@@ -9,7 +9,7 @@ public class GridMovement extends Others
     protected int gridSX, gridSY, gridXorigin, gridYorigin;
     private int VertShift = 0, horzShift = 0; //change to be a function of zoom (if adding)
 
-    private int timeBWMoves = 100, lastTime = 0, ylastTime = 0;
+    protected int timeBWMoves = 100, lastTime = 0, ylastTime = 0;
     private int timer = 0, yTimer = 0;
 
     private int[][] valuearray;

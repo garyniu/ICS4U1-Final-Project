@@ -20,6 +20,6 @@ public class LossScreen extends World
     }
 
     public void act(){
-        
+        System.out.println("shit");
     }
 }

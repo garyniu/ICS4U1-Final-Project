@@ -20,12 +20,26 @@ public class Enemy extends GridMovement
     private int attackDist = 150;
     private int hp = 100;
     private int dtimer = 40;
+    private int type = 0;
 
-    public Enemy(int xm, int ym){
+    public Enemy(int xm, int ym, int type){
         super(xm, ym);
         //change x,y to xy coord on grid
+        this.type = type;
         
-        CharImg = new GreenfootImage("baby1.png");
+        
+        if (type == 0){
+            CharImg = new GreenfootImage("baby1.png");
+        } else if (type == 1){
+            CharImg = new GreenfootImage("mushroom.png");
+            hp = 200;
+            dtimer = 30;
+        } else if (type == 2){
+            CharImg = new GreenfootImage("fish1.png");
+            timeBWMoves = 70;
+        }
+        
+        CharImg.scale(42, 45);
         setImage(CharImg);
     }
 
