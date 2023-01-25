@@ -153,6 +153,13 @@ public class SpiderWorld extends World
         addObject(wbg3, this.getWidth()/2, this.getHeight()/2);
         
         playerTest.changeSpawnCoords(this.getWidth()/2, this.getHeight()/2);
+        
+        //BOUNDARY CLASS
+        //red square
+        
+        Boundary rs1 = new Boundary(300,50);
+        addObject(rs1, -800, -100);  
+        rs1.setRotation(150);
 
         
         xd = playerTest.getX();
