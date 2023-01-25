@@ -101,6 +101,7 @@ public class IceWorld extends World
 
         
         //addObject(new EnemySphere);
+        //addObject(new EnemySphere
         
         GreenfootImage bg = new GreenfootImage(640, 500);
         bg.setColor(Color.BLACK);
