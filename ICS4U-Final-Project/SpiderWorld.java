@@ -164,8 +164,8 @@ public class SpiderWorld extends World
         
 
         
-        playerTest.changeSpawnCoords(1600,200);
-        playerTest2.changeSpawnCoords(1600,200);
+        playerTest.changeSpawnCoords(1000,200);
+        playerTest2.changeSpawnCoords(1000,200);
 
         
  

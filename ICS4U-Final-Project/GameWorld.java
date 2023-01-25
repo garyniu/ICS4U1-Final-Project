@@ -123,7 +123,7 @@ public class GameWorld extends World
 
 
         setPaintOrder(Fog.class, Boundary.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Items.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
-        setPaintOrder(Fog.class, Boundary.class, GameCover1.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
+        setPaintOrder(Fog.class, Boundary.class, GameCover1.class, SuperStatBar.class, PlayerHitbox.class, Player.class, BossEnemy.class, Enemy.class, Items.class, Portal.class, EnterPortal.class, Wall.class, WorldBackground.class);
 
 
         wbg = new WorldBackground(background);
@@ -162,9 +162,8 @@ public class GameWorld extends World
         addObject(wbg, this.getWidth()/2, this.getHeight()/2);
         
 
-        Items chest1 = new Items(0, 0);
-        this.addObject(chest1, this.getWidth()/2, this.getHeight()/2);
-
+        Items chest1 = new Items();
+        this.addObject(chest1, 260, 180);
         //GameCover
         GameCover1 c1 = new GameCover1();
         addObject(c1, 145, 355);

@@ -180,7 +180,7 @@ public class Player extends FreeMovement
     //player damage variables(for enemy)
     private static int swordDamage = 10;
     private static int addedDamage;
-    private int spearDamage = 7;
+    private static int spearDamage = 7;
     private int bowDamage = 5;
 
     //animation image speed
@@ -535,7 +535,7 @@ public class Player extends FreeMovement
     /**
      * allows other classes to set the the stamina Player gains
      */
-    public void gainStamina(int gain){
+    public static void gainStamina(int gain){
         stamina += gain;
         if(stamina > 500){
             stamina = 500;
@@ -562,6 +562,14 @@ public class Player extends FreeMovement
     public static void addDamage(int add)
     {
         swordDamage += add;
+    }
+    
+    public void collectChest()
+    {
+        if(getOneIntersectingObject(Items.class) != null)
+        {
+            getWorld().showText("the player has gained ", 300, 300);
+        }
     }
     
     public void act()
@@ -701,7 +709,7 @@ public class Player extends FreeMovement
             int oldSpeed = 0;
             getWorld().showText(oldSpeed + "", 200, 200);
             oldSpeed += speed;
-            //speed = 0;
+            speed = 0;
             if("f".equals(lastKey))
             {
                 getWorld().showText("The chest is near the player", 300, 300);
@@ -709,5 +717,6 @@ public class Player extends FreeMovement
                 FreeMovement.increaseSpeed(1);
             }
         }
+        
     }
 }

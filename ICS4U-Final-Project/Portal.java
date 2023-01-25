@@ -61,7 +61,7 @@ public class Portal extends Others
         if (this.getWorld().equals(actor.getWorld()))
         {
             actor.setLocation(getWorld().getWidth()/2, getWorld().getHeight()/2); 
-         }
+        }
         else
         {
             this.getWorld().addObject(actor, getWorld().getWidth()/2, getWorld().getHeight()/2); 
