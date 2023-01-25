@@ -17,6 +17,9 @@ public class IceWorld extends World
 
     private WorldBackground wbg2;
 
+    private ArrayList<Player> p;
+    private Player pl;
+    
     private int xd = 0, yd = 0;
 
     private int x = 940;
@@ -441,6 +444,13 @@ public class IceWorld extends World
         //System.out.println("offset xy: " + offX + " " + offY);
 
         timer++;
+        
+        p = (ArrayList<Player>)getObjects(Player.class);
+        pl = p.get(0);
+        
+        if (getObjects(Enemy.class) == null){
+            Greenfoot.setWorld(new LossScreen(pl.getScore()));
+        }
 
         MouseInfo m = Greenfoot.getMouseInfo();
         if (m != null)
