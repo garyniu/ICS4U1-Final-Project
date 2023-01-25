@@ -106,8 +106,8 @@ public class Enemy extends GridMovement
             } else if (getY() > y && (getY() - playerRange > y)){
                 moveUp();
             }
-            if(Math.random() * 10 <= 1){
-                enemyIdle.setVolume(30);
+            if(Math.floor(Math.random() * 1000) == 1){
+                enemyIdle.setVolume(20);
                 enemyIdle.play();
             }
         }
