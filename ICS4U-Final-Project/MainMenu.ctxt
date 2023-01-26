@@ -1,19 +1,19 @@
 #BlueJ class context
 comment0.target=MainMenu
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ TitleScreen\ here.\r\n\ \r\n\ This\ is\ the\ main\ menu\ of\ the\ game\ with\ buttons\ leading\ to\ play\ the\ game,\ and\ instructions/controls\r\n\r\n\ @author\ Leo\ Xu\r\n\ @date\ June\ 15\ 2022\r\n\r\nMUSIC\ CREDITS\ \r\nmain\ theme\ (https\://www.youtube.com/watch?v\=mRsdCgQA524)\r\n\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ TitleScreen\ here.\n\ \n\ This\ is\ the\ main\ menu\ of\ the\ game\ with\ buttons\ leading\ to\ play\ the\ game,\ and\ instructions/controls\n\n\ @author\ Leo\ Xu\n\ @date\ June\ 15\ 2022\n\nMUSIC\ CREDITS\ \nmain\ theme\ (https\://www.youtube.com/watch?v\=mRsdCgQA524)\n\n
 comment1.params=
 comment1.target=MainMenu()
-comment1.text=\r\n\ Simple\ Constructor\ \r\n
+comment1.text=\n\ Simple\ Constructor\ \n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Act\ Method\r\n
+comment2.text=\n\ Act\ Method\n
 comment3.params=
 comment3.target=void\ started()
-comment3.text=\r\n\ Starts\ the\ theme\ music\ when\ world\ starts\r\n\ \r\n
+comment3.text=\n\ Starts\ the\ theme\ music\ when\ world\ starts\n\ \n
 comment4.params=
 comment4.target=void\ stopped()
-comment4.text=\r\n\ Stops\ the\ theme\ music\ when\ paused\r\n\ \r\n
+comment4.text=\n\ Stops\ the\ theme\ music\ when\ paused\n\ \n
 comment5.params=
 comment5.target=void\ stopMusic()
-comment5.text=\r\n\ Stops\ the\ theme\ music\ for\ other\ worlds\r\n\ \r\n
+comment5.text=\n\ Stops\ the\ theme\ music\ for\ other\ worlds\n\ \n
 numComments=6

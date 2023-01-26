@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=LossScreen
-comment0.text=\r\n\ Loss\ Screen\ (borrowed\ from\ Mr.\ Cohen)\r\n\ \r\n\ @author\ Mr\ Cohen\r\n\ @version\ January\ 9\r\n
+comment0.text=\n\ Loss\ Screen\ (borrowed\ from\ Mr.\ Cohen)\n\ \n\ @author\ Mr\ Cohen\n\ @version\ January\ 9\n
 comment1.params=score
 comment1.target=LossScreen(int)
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ LossScreen\r\n\ @param\ score\ Score\ \r\n
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ LossScreen\n\ @param\ score\ Score\ \n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Act\ Method\ \r\n
+comment2.text=\n\ Act\ Method\ \n
 numComments=3

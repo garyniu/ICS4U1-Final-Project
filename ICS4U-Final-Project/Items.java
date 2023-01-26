@@ -3,13 +3,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Superclass for items 
  * 
-<<<<<<< HEAD
  * @author Victor
  * @version (a version number or a date)
-=======
  * @author Victor Wei
  * @version January 18
->>>>>>> 37313bea1eee67fb8a9952ec6e646b00ff4e7f5a
  */
 public class Items extends Others
 {
@@ -40,6 +37,7 @@ public class Items extends Others
         
         xg = getX();
         yg = getY();
+        
     }
     /**
      * Act Method 
@@ -48,24 +46,21 @@ public class Items extends Others
     {
         randomUpgradeChoice = Greenfoot.getRandomNumber(3);
         
-        setLocation(200, 400);
+        //setLocation(200, 400);
         touched = getOneIntersectingObject(Player.class);
-        upgrade();
+        if(getThePlayer(touched) != null)
+        {
+            getWorld().showText("detects player", 300, 300);
+            chestCollected = true;
+            getWorld().showText(chestCollected + "", 300, 400);
+            upgrade();
+        }
     }
     /**
      * Checks if an upgrade has been given to the player yet
      * @param player Player 
      * @return boolean If an upgrade has been given or not 
      */
-    public boolean givenUpgrade(Actor player)
-    {
-        if(touched != null)
-        {
-            chestCollected = true;
-            return chestCollected;
-        }
-        return false;
-    }
     /**
      * Returns damage to be dealt
      * @return int Damage to be added/dealt to player
@@ -78,10 +73,12 @@ public class Items extends Others
     
     public double givenSpeed()
     {
+        /*
         int randSpeedAdd = Greenfoot.getRandomNumber(5);
         double speedAdd = randSpeedAdd * 1.0;
         speedAdd /= 10;
-        return speedAdd;
+        */
+        return 3.0;
     }
     
     public void giveStamina(int add)
@@ -91,23 +88,37 @@ public class Items extends Others
     
     public void upgrade()
     {
-        if(this.givenUpgrade(touched) != false)
+        if(chestCollected != false)
         {
             if(randomUpgradeChoice == 0)
             {
-                //Player.addDamage(givenDamage());
+                Player.giveSwordDamage(givenDamage());
                 getWorld().showText("the player has gained damage", 300, 300);
+                chestCollected = true;
             }
             if(randomUpgradeChoice == 1)
             {
-                //FreeMovement.increaseSpeed(givenSpeed());
+                FreeMovement.increaseSpeed(0.5);
                 getWorld().showText("the player has gained speed", 300, 300);
+                chestCollected = true;
             }
             if(randomUpgradeChoice == 2)
             {
-                //giveStamina(100);
+                giveStamina(100);
                 getWorld().showText("the player has gained stamina", 300, 300);
+                chestCollected = true;
             }
         }
+        
+    }
+    
+    public void giveArmour()
+    {
+        
+    }
+    
+    public Actor getThePlayer(Actor player)
+    {
+        return getOneIntersectingObject(Player.class);
     }
 }

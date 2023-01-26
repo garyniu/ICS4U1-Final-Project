@@ -22,6 +22,9 @@ public class IceWorld extends World
 
     private WorldBackground wbg2;
 
+    private ArrayList<Player> p;
+    private Player pl;
+    
     private int xd = 0, yd = 0;
 
     private int x = 940;
@@ -96,6 +99,9 @@ public class IceWorld extends World
         health = new SuperStatBar (100, 100, null, 200, 15, 0, Color.RED, Color.BLACK, false, Color.GRAY, 3);
         addObject(health, 95, 5);
 
+        
+        //addObject(new EnemySphere);
+        
         GreenfootImage bg = new GreenfootImage(640, 500);
         bg.setColor(Color.BLACK);
         bg.fill();
@@ -155,12 +161,6 @@ public class IceWorld extends World
 
         portal = new Portal(); //this worlds portal
         this.addObject(portal, -75, -415);
-        
-        portal = new Portal(portal);
-
-        SpiderWorld spy1 = new SpiderWorld();
-        spy1.addObject(portal, -580, 510);
-
 
         //chest room
         Boundary b1 = new Boundary(300,50);
@@ -384,7 +384,11 @@ public class IceWorld extends World
         addObject(mw16, -70,-490);  
         mw15.setRotation(-30);
 
-        
+        portal = new Portal(portal);
+
+        SpiderWorld spy1 = new SpiderWorld();
+        spy1.addObject(portal, -580, 510);
+
         //addObject(new Fog(0, 0), getWidth()/2, getHeight()/2);
 
         for(int x = 0; x < 32; x++){
@@ -401,7 +405,7 @@ public class IceWorld extends World
 
                     if (Greenfoot.getRandomNumber(10) == 1 && (Math.abs(x-11) > 3 && Math.abs(y-32) > 2)){
                         mapTwo[x][y] = 9;
-                        addObject(new Enemy(x, y, Greenfoot.getRandomNumber(2)), 0, 0);
+                        //addObject(new Enemy(x, y, Greenfoot.getRandomNumber(2)), 0, 0);
                     }
 
                 }
@@ -426,9 +430,6 @@ public class IceWorld extends World
         yd = cY;
         wbg2.setLocation(xd, yd);
     }
-    
-    private Player pl;
-    private ArrayList<Player> p;
     /**
      * Act Method 
      */
@@ -461,6 +462,13 @@ public class IceWorld extends World
         //System.out.println("offset xy: " + offX + " " + offY);
 
         timer++;
+        
+        p = (ArrayList<Player>)getObjects(Player.class);
+        pl = p.get(0);
+        
+        if (getObjects(Enemy.class) == null){
+            Greenfoot.setWorld(new LossScreen(pl.getScore()));
+        }
 
         MouseInfo m = Greenfoot.getMouseInfo();
         if (m != null)

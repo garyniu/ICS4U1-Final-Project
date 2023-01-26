@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=Fog
-comment0.text=\r\n\ Visual\ Fog\ Effect\r\n\ \r\n\ @author\ Gary\ Niu\r\n\ @version\ January\ 24\r\n
+comment0.text=\n\ Visual\ Fog\ Effect\n\ \n\ @author\ Gary\ Niu\n\ @version\ January\ 24\n
 comment1.params=
 comment1.target=Fog()
-comment1.text=\r\n\ Constructor\ for\ Fog\r\n
+comment1.text=\n\ Constructor\ for\ Fog\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Act\ Method\r\n
+comment2.text=\n\ Act\ Method\n
 numComments=3

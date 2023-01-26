@@ -29,6 +29,7 @@ public abstract class FreeMovement extends SuperSmoothMover
         
         prevx = x;
         prevy = y;
+        increaseSpeed(0.5);
     }
     /**
      * Act Method
@@ -73,6 +74,7 @@ public abstract class FreeMovement extends SuperSmoothMover
         dir = "R";
         wallCollision();
     }
+    
     /**
      * move right and detect for wall collision(boundary)
      */
@@ -81,6 +83,7 @@ public abstract class FreeMovement extends SuperSmoothMover
         dir = "L";
         wallCollision();
     }
+    
     /**
      * move up and detect for wall collision(boundary)
      */
@@ -110,6 +113,7 @@ public abstract class FreeMovement extends SuperSmoothMover
     public static void setPlayerSpeed(int spd){
         speed = spd;
     }
+    
     /**
      * Increase Speed
      * @param increase Amount for speed to be increase by 
