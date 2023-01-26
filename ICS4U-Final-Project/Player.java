@@ -7,14 +7,23 @@ import java.util.ArrayList;
  * Q and E for attacks that deal different damage to enemies
  * 
  * KNOWN ISSUES:
- * Bow does not work as intended, therefore it is commented out
+ * bow does not work as intended, therefore it is commented out
  * attacking an enemy will cause all enemies to disappear
  * 
  * CREDITS:
- * Player Sprite in GameWorld
+ * Player Sprite:
+ * in GameWorld
  * 
- * @author Justin Sin, Victor Wei, Gary Niu
- * @versio 1.0
+ * Sound:
+ * playerWalking.wav: (https://www.youtube.com/watch?v=4u8bCzEfxJM&ab_channel=MinecraftSoundEffects) and MINECRAFT
+ * weaponAttack.wav: (https://soundbible.com/706-Swoosh-3.html)
+ * playerGrunt.wav: (https://soundbible.com/462-Male-Grunt.html)
+ * OOF.wav: (https://www.youtube.com/watch?v=3w-2gUSus34) and ROBLOX
+ * ObtainItem.wav: (https://pixabay.com/sound-effects/search/8-bit/?duration=0-30c(8-bit sound effect pack))
+ * PlayerBuff.wav: (https://pixabay.com/sound-effects/search/8-bit/?duration=0-30c(8-bit powerup))
+ * 
+ * @author Justin Sin, Victor Wei
+ * @version 1.0
  */
 public class Player extends FreeMovement
 {
@@ -151,12 +160,15 @@ public class Player extends FreeMovement
     private GreenfootSound playerGrunt = new GreenfootSound("sounds/PlayerGrunt.wav");
     private GreenfootSound weaponSwing = new GreenfootSound("sounds/WeaponAttack.wav");
     private GreenfootSound playerDeath = new GreenfootSound("sounds/OOF.wav");
+    private GreenfootSound playerWalking = new GreenfootSound("sounds/walk.wav");
+    private GreenfootSound itemObtained = new GreenfootSound("sounds/ObtainItem.wav");
+    private GreenfootSound playerBuff = new GreenfootSound("sounds/PlayerBuff.wav");
     
     //Player coordinates
     private Pair coords = new Pair(0, 0);
-    
+
     private EnemySphere ed;
-    
+
     /**
      * Constructor for Player
      * @param x X coordinate
@@ -166,9 +178,9 @@ public class Player extends FreeMovement
         super(x, y);
 
         ogtimer = timer;
-        
+
         ed = new EnemySphere();
-        
+
         //walk
         upImages = new GreenfootImage[9];
         downImages = new GreenfootImage[9];
@@ -290,7 +302,7 @@ public class Player extends FreeMovement
     public void incrementScore(){
         score++;
     }
-    
+
     public int getScore(){
         return score;
     }
@@ -301,7 +313,7 @@ public class Player extends FreeMovement
      */
     public void addedToWorld(World world){
         getWorld().addObject(new Fog(), getWorld().getWidth()/2, getWorld().getHeight()/2);
-    
+
     }
 
     /**
@@ -362,6 +374,9 @@ public class Player extends FreeMovement
                 setImage(leftImages[curIndex]);
             }
 
+            playerWalking.setVolume(100);
+            playerWalking.play();
+
             curIndex++;
             if(curIndex == 9){
                 curIndex = 0;
@@ -388,6 +403,8 @@ public class Player extends FreeMovement
 
             curIndex1++;
             if(curIndex1 == 6){
+                weaponSwing.setVolume(75);
+                weaponSwing.play();
                 curIndex1 = 0;
             }
 
@@ -413,6 +430,8 @@ public class Player extends FreeMovement
 
             curIndex2++;
             if(curIndex2 == 8){
+                weaponSwing.setVolume(75);
+                weaponSwing.play();
                 curIndex2 = 0;
             }
 
@@ -479,8 +498,12 @@ public class Player extends FreeMovement
      */
     public void damagePlayer(int dmg){//lose hp
         hp -= dmg;
+        playerGrunt.setVolume(30);
+        playerGrunt.play();
         if(hp <= 0){
             hp = 0;
+            playerDeath.setVolume(30);
+            playerDeath.play();
             alive = false;
         }
         IceWorld.updateHP(hp);
@@ -513,8 +536,6 @@ public class Player extends FreeMovement
             sprinting = false;
         }
 
-        //GameWorld.updateStamina(stamina);
-
         IceWorld.updateStamina(stamina);
         SpiderWorld.updateStamina(stamina);
     }
@@ -528,10 +549,6 @@ public class Player extends FreeMovement
         if(stamina > 500){
             stamina = 500;
         }
-
-        //GameWorld.updateStamina(stamina);
-        //IceWorld.updateStamina(stamina);
-        //SpiderWorld.updateStamina(stamina);
 
         IceWorld.updateStamina(stamina);
         SpiderWorld.updateStamina(stamina);
@@ -549,16 +566,17 @@ public class Player extends FreeMovement
 
         //if (timer <= 0){
         if(!(getObjectsInRange(200, Enemy.class).isEmpty())){
-            System.out.println("gesters");
+            //System.out.println("gesters");
             en = (ArrayList<Enemy>)getObjectsInRange(200, Enemy.class);
 
             for (Enemy enemy : en){
                 enemy.takeDamage(swordDamage);
-                System.out.println("hp: " + enemy.getHP());
-
+                //System.out.println("hp: " + enemy.getHP());
+                if(enemy.getHP() <= 0){
+                    Enemy.isDead();
+                }
             }
 
-                
             this.incrementScore();
         }
         timer = ogtimer;
@@ -575,7 +593,6 @@ public class Player extends FreeMovement
         swordDamage += add;
     }
 
-    
     public void collectChest()
     {
         if(getOneIntersectingObject(Items.class) != null)
@@ -584,8 +601,6 @@ public class Player extends FreeMovement
         }
     }
     
-
-
     /**
      * Act method 
      */
@@ -704,6 +719,7 @@ public class Player extends FreeMovement
         bowAttack();
         hitEnemy(10);
         }*/
+        
         //sprint(hold to sprint)
         if(Greenfoot.isKeyDown("Shift")){
             FreeMovement.setPlayerSpeed(sprintSpeed);//sprinting speed
@@ -720,7 +736,7 @@ public class Player extends FreeMovement
         }
         Actor chest = getOneIntersectingObject(Items.class);
 
-        getWorld().showText(speed + "", 200, 400);
+        getWorld().showText("speed: " + speed, 100, 400);
 
         if(chest != null)
         {

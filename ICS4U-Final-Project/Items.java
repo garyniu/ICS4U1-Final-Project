@@ -3,8 +3,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Superclass for items 
  * 
- * @author Victor
- * @version (a version number or a date)
  * @author Victor Wei
  * @version January 18
  */
@@ -16,9 +14,6 @@ public class Items extends Others
     private int randomUpgradeChoice;
     private int randSpeedAdd;
     private Actor touched;
-
-    
-
     /**
      * Constructor for Items 
      * @param x X coordinate
@@ -52,7 +47,6 @@ public class Items extends Others
         {
             getWorld().showText("detects player", 300, 300);
             chestCollected = true;
-            getWorld().showText(chestCollected + "", 300, 400);
             upgrade();
         }
     }
@@ -81,7 +75,7 @@ public class Items extends Others
         return 3.0;
     }
     
-    public void giveStamina(int add)
+    public void givenStamina(int add)
     {
         Player.gainStamina(100);
     }
@@ -104,16 +98,13 @@ public class Items extends Others
             }
             if(randomUpgradeChoice == 2)
             {
-                giveStamina(100);
+                givenStamina(100);
                 getWorld().showText("the player has gained stamina", 300, 300);
                 chestCollected = true;
             }
+        } else {
+            getWorld().showText("the player has already collected this item", 300, 300);
         }
-        
-    }
-    
-    public void giveArmour()
-    {
         
     }
     

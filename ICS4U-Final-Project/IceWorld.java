@@ -100,7 +100,9 @@ public class IceWorld extends World
         addObject(health, 95, 5);
 
         
+
         //addObject(new EnemySphere);
+
         
         GreenfootImage bg = new GreenfootImage(640, 500);
         bg.setColor(Color.BLACK);
@@ -405,7 +407,7 @@ public class IceWorld extends World
 
                     if (Greenfoot.getRandomNumber(10) == 1 && (Math.abs(x-11) > 3 && Math.abs(y-32) > 2)){
                         mapTwo[x][y] = 9;
-                        //addObject(new Enemy(x, y, Greenfoot.getRandomNumber(2)), 0, 0);
+                        addObject(new Enemy(x, y, Greenfoot.getRandomNumber(2)), 0, 0);
                     }
 
                 }
@@ -462,6 +464,7 @@ public class IceWorld extends World
         //System.out.println("offset xy: " + offX + " " + offY);
 
         timer++;
+
         
         p = (ArrayList<Player>)getObjects(Player.class);
         pl = p.get(0);
@@ -470,21 +473,13 @@ public class IceWorld extends World
             Greenfoot.setWorld(new LossScreen(pl.getScore()));
         }
 
-        MouseInfo m = Greenfoot.getMouseInfo();
-        if (m != null)
-        {
-            showText("mouseX: " + String.valueOf(m.getX() - 960), 900, 500);
-            showText("mouseY: " + String.valueOf(m.getY() - 545), 900, 600);
-        }
+
 
         // System.out.println("mx " + getBlockCoord(1, 1).getX());
         //System.out.println("mky " + getBlockCoord(1, 1).getY());
 
-        //System.out.println("fuckx " + getBlockCoord(1, 2).getX());
-        //System.out.println("fucky " + getBlockCoord(1, 2).getY());
         checkUserGrid();
 
-        //System.out.println("fuck " + getBlockCoord(5, 6).getX());
 
         //checkUserOntoGrid();
 

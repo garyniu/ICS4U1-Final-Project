@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Items
-comment0.text=\n\ Superclass\ for\ items\ \n\ \n\ @author\ Victor\n\ @version\ (a\ version\ number\ or\ a\ date)\n\ @author\ Victor\ Wei\n\ @version\ January\ 18\n
+comment0.text=\n\ Superclass\ for\ items\ \n\ \n\ @author\ Victor\ Wei\n\ @version\ January\ 18\n
 comment1.params=
 comment1.target=Items()
 comment1.text=\n\ Constructor\ for\ Items\ \n\ @param\ x\ X\ coordinate\n\ @param\ y\ Y\ coordinate\n
@@ -15,11 +15,9 @@ comment4.text=\n\ Returns\ damage\ to\ be\ dealt\n\ @return\ int\ Damage\ to\ be
 comment5.params=
 comment5.target=double\ givenSpeed()
 comment6.params=add
-comment6.target=void\ giveStamina(int)
+comment6.target=void\ givenStamina(int)
 comment7.params=
 comment7.target=void\ upgrade()
-comment8.params=
-comment8.target=void\ giveArmour()
-comment9.params=player
-comment9.target=greenfoot.Actor\ getThePlayer(greenfoot.Actor)
-numComments=10
+comment8.params=player
+comment8.target=greenfoot.Actor\ getThePlayer(greenfoot.Actor)
+numComments=9

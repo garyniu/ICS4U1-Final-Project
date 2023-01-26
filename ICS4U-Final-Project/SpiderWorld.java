@@ -154,7 +154,7 @@ public class SpiderWorld extends World
         Others ep2 = new EnterPortalGreen();
         addObject(ep2, -580, 510);
         
-        FreeMovement playerTest = new Player(this.getWidth()/2, this.getHeight()/2);
+        FreeMovement playerTest = new PlayerHitbox(this.getWidth()/2, this.getHeight()/2);
 
         addObject(playerTest, this.getWidth()/2, this.getHeight()/2);
         addObject(wbg3, this.getWidth()/2, this.getHeight()/2);
@@ -402,13 +402,7 @@ public class SpiderWorld extends World
     public void act()
     {
         IceWorld.stopMusic();
-        MouseInfo m = Greenfoot.getMouseInfo();
-        
-        if (m != null)
-        {
-            showText("mouseX: " + String.valueOf(m.getX()), 900, 1000);
-            showText("mouseY: " + String.valueOf(m.getY()), 900, 1100);
-        }
+
         
         p = (ArrayList<Player>)getObjects(Player.class);
         pl = p.get(0);
@@ -416,12 +410,7 @@ public class SpiderWorld extends World
         if (getObjects(Enemy.class) == null){
             Greenfoot.setWorld(new LossScreen(pl.getScore()));
         }
-        
-        /*if (m != null)
-        {
-            showText("mouseX: " + String.valueOf(m.getX()), 900, 500);
-            showText("mouseY: " + String.valueOf(m.getY()), 900, 600);
-        }*/
+
     }
     /**
      * Move an Object to an X and Y Value

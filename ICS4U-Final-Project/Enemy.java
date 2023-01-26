@@ -4,6 +4,12 @@ import java.util.ArrayList;
 /**
  * Enemy 
  * 
+ * CREDITS:
+ * Sounds:
+ * EnemyGrunt.wav: (https://www.youtube.com/watch?v=ByfzLaSYLMw) + (MINECRAFT)
+ * EnemyDeath: (https://www.youtube.com/watch?v=a9yNXR5OEcc) + (MINECRAFT)
+ * EnemyDmg: (https://www.youtube.com/watch?v=C-rJZxBxCIE) + (MINECRAFT)
+ * 
  * @author Gary Niu
  * @version January 20
  */
@@ -21,6 +27,9 @@ public class Enemy extends GridMovement
     private int hp = 100;
     private int dtimer = 40, ogdtimer;
     private int type = 0;
+    
+    private static boolean dead = false;
+    private boolean deaded = false;
 
     //Sounds for Enemy
     private GreenfootSound enemyIdle = new GreenfootSound("sounds/EnemyGrunt.wav");
@@ -69,17 +78,18 @@ public class Enemy extends GridMovement
         //System.out.println("grid coords: " + xc + " " + yc);
 
         //y++;
-
-        
-        if (hp <= 0){
-
-            System.out.println("dead");
+        if(dead){
             enemyDeath.setVolume(30);
             enemyDeath.play();
             getWorld().removeObject(this);
         }
+        
     }
 
+    public static void isDead(){
+        dead = true;
+    }
+    
     public int getHP(){
         return hp;
     }
@@ -106,8 +116,8 @@ public class Enemy extends GridMovement
             } else if (getY() > y && (getY() - playerRange > y)){
                 moveUp();
             }
-            if(Math.random() * 10 <= 1){
-                enemyIdle.setVolume(30);
+            if(Math.floor(Math.random() * 1000) == 1){
+                enemyIdle.setVolume(20);
                 enemyIdle.play();
             }
         }

@@ -115,9 +115,6 @@ public class GameWorld extends World
     private WorldBackground wbg;
     private int xd = 0, yd = 0;
     
-    private static SuperStatBar health;
-    private static SuperStatBar stamina;
-    
     private static GreenfootSound waitMusic;
     /**
      * Constructor for objects of class MyWorld.
@@ -150,12 +147,6 @@ public class GameWorld extends World
         //Enter Portal
         Others ep = new EnterPortal();
         addObject(ep, 560, 215);
-    
-        stamina = new SuperStatBar(500, 500, null, 150, 10, 0, Color.GREEN, Color.BLACK, false, Color.GRAY, 3);
-        addObject(stamina, 70, 15);
-        //hp
-        health = new SuperStatBar (100, 100, null, 200, 15, 0, Color.RED, Color.BLACK, false, Color.GRAY, 3);
-        addObject(health, 95, 5);
         
         //main portal that allows portals to other worlds work
         Portal portal = new Portal();
@@ -254,33 +245,11 @@ public class GameWorld extends World
     }
 
     /**
-     * Updates Hp of Player
-     * @param hp Health
-     */
-    public static void updateHP(int hp){
-        //health.update((int)(hp));
-    }
-    /**
-     * Updates Stamina Bar for Player
-     * @param st Stamina
-     */
-    public static void updateStamina(int st){
-        stamina.update((int)(st));
-    }
-    /**
      * Act Method 
      */
     public void act()
     {
         started();
-        MouseInfo m = Greenfoot.getMouseInfo();
-        if (m != null)
-        {
-            showText("mouseX: " + String.valueOf(m.getX()), 120, 30);
-            showText("mouseY: " + String.valueOf(m.getY()), 120, 70);
-        }
-        
-        
     }
     /**
      * Set an Object at an X and Y Value
@@ -352,7 +321,7 @@ public class GameWorld extends World
     public void started()//starts the theme music when world starts
     {
         waitMusic.playLoop();
-        waitMusic.setVolume(40);
+        waitMusic.setVolume(20);
     }
     
     /**

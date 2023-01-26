@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Enemy
-comment0.text=\n\ Enemy\ \n\ \n\ @author\ Gary\ Niu\n\ @version\ January\ 20\n
+comment0.text=\n\ Enemy\ \n\ \n\ CREDITS\:\n\ Sounds\:\n\ EnemyGrunt.wav\:\ (https\://www.youtube.com/watch?v\=ByfzLaSYLMw)\ +\ (MINECRAFT)\n\ EnemyDeath\:\ (https\://www.youtube.com/watch?v\=a9yNXR5OEcc)\ +\ (MINECRAFT)\n\ EnemyDmg\:\ (https\://www.youtube.com/watch?v\=C-rJZxBxCIE)\ +\ (MINECRAFT)\n\ \n\ @author\ Gary\ Niu\n\ @version\ January\ 20\n
 comment1.params=xm\ ym\ type
 comment1.target=Enemy(int,\ int,\ int)
 comment1.text=\n\ Constructor\ for\ Enemy\ \n\ @param\ x\ X\n\ @param\ y\ Y\n\ @param\ type\ Type\ of\ enemy\ \n
@@ -8,11 +8,13 @@ comment2.params=
 comment2.target=void\ act()
 comment2.text=\n\ Act\ Method\n
 comment3.params=
-comment3.target=int\ getHP()
+comment3.target=void\ isDead()
 comment4.params=
-comment4.target=void\ AttackPlayer()
-comment4.text=\n\ Attack\ Player\ method\ for\ enemy\ \n
-comment5.params=x
-comment5.target=void\ takeDamage(int)
-comment5.text=\n\ Take\ Damage\ method\ for\ enemies\n\ @param\ x\ Damage\ dealt\n
-numComments=6
+comment4.target=int\ getHP()
+comment5.params=
+comment5.target=void\ AttackPlayer()
+comment5.text=\n\ Attack\ Player\ method\ for\ enemy\ \n
+comment6.params=x
+comment6.target=void\ takeDamage(int)
+comment6.text=\n\ Take\ Damage\ method\ for\ enemies\n\ @param\ x\ Damage\ dealt\n
+numComments=7
