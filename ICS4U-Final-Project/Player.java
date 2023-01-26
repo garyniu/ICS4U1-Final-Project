@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Q and E for attacks that deal different damage to enemies
  * 
  * KNOWN ISSUES:
- * Bow does not work as intended, therefore it is commented out
+ * bow does not work as intended, therefore it is commented out
  * attacking an enemy will cause all enemies to disappear
  * 
  * CREDITS:
@@ -19,9 +19,11 @@ import java.util.ArrayList;
  * weaponAttack.wav: (https://soundbible.com/706-Swoosh-3.html)
  * playerGrunt.wav: (https://soundbible.com/462-Male-Grunt.html)
  * OOF.wav: (https://www.youtube.com/watch?v=3w-2gUSus34) and ROBLOX
+ * ObtainItem.wav: (https://pixabay.com/sound-effects/search/8-bit/?duration=0-30c(8-bit sound effect pack))
+ * PlayerBuff.wav: (https://pixabay.com/sound-effects/search/8-bit/?duration=0-30c(8-bit powerup))
  * 
  * @author Justin Sin
- * @versio 1.0
+ * @version 1.0
  */
 public class Player extends FreeMovement
 {
@@ -157,7 +159,9 @@ public class Player extends FreeMovement
     private GreenfootSound weaponSwing = new GreenfootSound("sounds/WeaponAttack.wav");
     private GreenfootSound playerDeath = new GreenfootSound("sounds/OOF.wav");
     private GreenfootSound playerWalking = new GreenfootSound("sounds/walk.wav");
-
+    private GreenfootSound itemObtained = new GreenfootSound("sounds/ObtainItem.wav");
+    private GreenfootSound playerBuff = new GreenfootSound("sounds/PlayerBuff.wav");
+    
     //Player coordinates
     private Pair coords = new Pair(0, 0);
 
